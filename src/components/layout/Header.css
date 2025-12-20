@@ -1,0 +1,198 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  transition: background var(--duration-normal) var(--ease-smooth);
+}
+
+[data-theme='dark'] .header {
+  background: rgba(26, 26, 26, 0.95);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-brand {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-normal);
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: var(--letter-spacing-wide);
+  transition: opacity var(--duration-fast) var(--ease-smooth);
+}
+
+.header-brand:hover {
+  opacity: 0.7;
+}
+
+.header-nav {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  transition: color var(--duration-fast) var(--ease-smooth);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--text-primary);
+  transition: width var(--duration-fast) var(--ease-smooth);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.lang-switcher {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.lang-switcher:hover {
+  background: var(--color-bg-primary);
+  border-color: var(--text-primary);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  transition: all 0.3s var(--ease-smooth);
+  transform-origin: center;
+}
+
+/* Hamburger to X animation */
+.header-nav.mobile-open ~ .header-actions .mobile-menu-toggle span:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+
+.header-nav.mobile-open ~ .header-actions .mobile-menu-toggle span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.header-nav.mobile-open ~ .header-actions .mobile-menu-toggle span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+@media (max-width: 768px) {
+  .header-nav {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--color-bg-secondary);
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .header-nav.mobile-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  /* Staggered animation for nav links */
+  .header-nav.mobile-open .nav-link {
+    animation: slideInFromLeft 0.4s ease-out forwards;
+  }
+
+  .header-nav.mobile-open .nav-link:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .header-nav.mobile-open .nav-link:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .header-nav.mobile-open .nav-link:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .header-nav.mobile-open .nav-link:nth-child(4) {
+    animation-delay: 0.25s;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .header-container {
+    padding: 1rem 1.5rem;
+  }
+
+  .header-actions {
+    gap: 1rem;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

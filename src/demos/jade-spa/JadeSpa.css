@@ -1,0 +1,373 @@
+/* Jade Wellness Spa - Zen & Relaxing Beauty Spa */
+.jade-app {
+  --jade-primary: #1a4d2e;
+  --jade-secondary: #4f772d;
+  --jade-accent: #c9a227;
+  --jade-cream: #faf8f5;
+  --jade-dark: #1a1a1a;
+  --jade-gray: #666;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--jade-cream);
+  color: var(--jade-dark);
+  min-height: 100vh;
+}
+
+/* Header */
+.jade-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(250,248,245,0.95);
+  backdrop-filter: blur(10px);
+}
+.jade-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.jade-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--jade-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+}
+.jade-logo-icon { font-size: 1.5rem; }
+.jade-nav {
+  display: flex;
+  gap: 2rem;
+}
+.jade-nav a {
+  text-decoration: none;
+  color: var(--jade-gray);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.jade-nav a:hover { color: var(--jade-primary); }
+.jade-lang {
+  display: flex;
+  gap: 0.25rem;
+}
+.jade-lang button {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  color: var(--jade-gray);
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+.jade-lang button.active {
+  background: var(--jade-primary);
+  border-color: var(--jade-primary);
+  color: white;
+}
+
+/* Hero */
+.jade-hero {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.jade-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,77,46,0.7), rgba(79,119,45,0.6));
+}
+.jade-hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 2rem;
+}
+.jade-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+.jade-hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+.jade-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--jade-accent);
+  color: var(--jade-dark);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.jade-btn:hover {
+  background: #b8911f;
+  transform: translateY(-2px);
+}
+.jade-btn-full { width: 100%; }
+
+/* Sections */
+.jade-section {
+  padding: 5rem 2rem;
+}
+.jade-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.jade-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  color: var(--jade-primary);
+  letter-spacing: 0.05em;
+}
+.jade-subtitle {
+  text-align: center;
+  color: var(--jade-gray);
+  margin-bottom: 3rem;
+}
+
+/* Services */
+.jade-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.jade-service {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  position: relative;
+  transition: all 0.3s;
+}
+.jade-service:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.jade-service.popular { border: 2px solid var(--jade-accent); }
+.jade-popular-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--jade-accent);
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+.jade-service-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.jade-service-content {
+  padding: 1.5rem;
+}
+.jade-service h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--jade-primary);
+}
+.jade-service p {
+  font-size: 0.9rem;
+  color: var(--jade-gray);
+  margin-bottom: 1rem;
+}
+.jade-service-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--jade-gray);
+}
+.jade-price {
+  font-weight: 600;
+  color: var(--jade-primary);
+}
+
+/* About */
+.jade-about-section { background: white; }
+.jade-about-text {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  color: var(--jade-gray);
+  line-height: 1.8;
+}
+.jade-team {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.jade-team-member {
+  text-align: center;
+  max-width: 200px;
+}
+.jade-team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--jade-accent);
+}
+.jade-team-member h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+.jade-role {
+  font-size: 0.85rem;
+  color: var(--jade-primary);
+  margin-bottom: 0.25rem;
+}
+.jade-specialty {
+  font-size: 0.8rem;
+  color: var(--jade-gray);
+}
+
+/* Gallery */
+.jade-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+@media (max-width: 768px) {
+  .jade-gallery { grid-template-columns: repeat(2, 1fr); }
+  .jade-nav { display: none; }
+}
+.jade-gallery-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+.jade-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.jade-gallery-item:hover img { transform: scale(1.1); }
+
+/* Booking */
+.jade-booking-section { background: var(--jade-primary); color: white; }
+.jade-booking-section .jade-title { color: white; }
+.jade-booking-section .jade-subtitle { color: rgba(255,255,255,0.7); }
+.jade-booking-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  color: var(--jade-dark);
+}
+.jade-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 600px) {
+  .jade-form-grid { grid-template-columns: 1fr; }
+}
+.jade-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.jade-form-group.full { grid-column: 1 / -1; }
+.jade-form-group label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--jade-gray);
+}
+.jade-form-group input,
+.jade-form-group select,
+.jade-form-group textarea {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+.jade-form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+.jade-form-group input:focus,
+.jade-form-group select:focus,
+.jade-form-group textarea:focus {
+  outline: none;
+  border-color: var(--jade-primary);
+}
+.jade-success {
+  color: var(--jade-primary);
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Contact */
+.jade-contact { text-align: center; }
+.jade-contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.jade-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+}
+.jade-contact-item span { font-size: 1.5rem; }
+.jade-contact-item strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--jade-primary);
+  margin-bottom: 0.25rem;
+}
+.jade-contact-item p {
+  font-size: 0.9rem;
+  color: var(--jade-gray);
+}
+
+/* Footer */
+.jade-footer {
+  background: var(--jade-dark);
+  color: rgba(255,255,255,0.6);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.jade-back {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--jade-accent);
+  text-decoration: none;
+}

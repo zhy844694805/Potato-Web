@@ -1,0 +1,31 @@
+.section-header {
+  max-width: 700px;
+  margin: 0 auto 5rem;
+  text-align: center;
+}
+
+.section-number {
+  font-size: var(--font-size-sm);
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  letter-spacing: var(--letter-spacing-wider);
+}
+
+.section-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-normal);
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.section-description {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: var(--font-size-3xl);
+  }
+}

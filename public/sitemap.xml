@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://minimaltech.com/</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/services</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/services?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/services?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/portfolio</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/portfolio?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/portfolio?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/blog</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/blog?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/blog?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/testimonials</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/testimonials?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/testimonials?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/about</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/about?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/about?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/contact</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/contact?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/contact?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/portfolio/italian-sushi-restaurant</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/portfolio/italian-sushi-restaurant?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/portfolio/italian-sushi-restaurant?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/portfolio/prato-fashion</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/portfolio/prato-fashion?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/portfolio/prato-fashion?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/portfolio/dragon-trade</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/portfolio/dragon-trade?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/portfolio/dragon-trade?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/portfolio/jade-spa</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/portfolio/jade-spa?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/portfolio/jade-spa?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/portfolio/hungry-dragon</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/portfolio/hungry-dragon?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/portfolio/hungry-dragon?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/portfolio/beauty-book</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/portfolio/beauty-book?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/portfolio/beauty-book?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/portfolio/china-mart</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/portfolio/china-mart?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/portfolio/china-mart?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/portfolio/dragon-ship</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/portfolio/dragon-ship?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/portfolio/dragon-ship?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/blog/react-performance-optimization</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/blog/react-performance-optimization?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/blog/react-performance-optimization?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/blog/fullstack-development-guide</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/blog/fullstack-development-guide?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/blog/fullstack-development-guide?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/blog/web-accessibility-best-practices</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/blog/web-accessibility-best-practices?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/blog/web-accessibility-best-practices?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/blog/modern-css-layout-techniques</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/blog/modern-css-layout-techniques?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/blog/modern-css-layout-techniques?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/blog/restful-api-design-principles</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/blog/restful-api-design-principles?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/blog/restful-api-design-principles?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/blog/freelance-developer-client-communication</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/blog/freelance-developer-client-communication?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/blog/freelance-developer-client-communication?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/blog/web-security-checklist</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/blog/web-security-checklist?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/blog/web-security-checklist?lang=en" />
+  </url>
+  <url>
+    <loc>https://minimaltech.com/blog/responsive-design-patterns</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://minimaltech.com/blog/responsive-design-patterns?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://minimaltech.com/blog/responsive-design-patterns?lang=en" />
+  </url>
+</urlset>

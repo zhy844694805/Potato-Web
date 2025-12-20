@@ -1,0 +1,77 @@
+.service-card {
+  position: relative;
+  padding: 3rem 2rem;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-normal) var(--ease-smooth);
+  cursor: pointer;
+}
+
+.service-card:hover {
+  background: var(--color-bg-secondary);
+  border-color: var(--text-primary);
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-md);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+  transition: transform var(--duration-fast) var(--ease-smooth);
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+}
+
+.service-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.service-description {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+  margin-bottom: 1.5rem;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.tag {
+  padding: 0.4rem 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.service-card:hover .tag {
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--text-primary);
+}
+
+.service-arrow {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 1.5rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.service-card:hover .service-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}

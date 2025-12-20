@@ -1,0 +1,32 @@
+.notfound-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.notfound-content {
+  text-align: center;
+  max-width: 600px;
+}
+
+.notfound-title {
+  font-size: 10rem;
+  font-weight: var(--font-weight-light);
+  color: var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.notfound-message {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.notfound-description {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+}

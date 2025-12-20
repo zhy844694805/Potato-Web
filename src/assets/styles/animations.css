@@ -1,0 +1,92 @@
+/* 全局动画 - 从 MinimalPrototype 提取 */
+
+/* 淡入从下 */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 淡入从上 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 浮动动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(50px, -50px);
+  }
+  50% {
+    transform: translate(0, -100px);
+  }
+  75% {
+    transform: translate(-50px, -50px);
+  }
+}
+
+/* 进度条填充 */
+@keyframes fillWidth {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* 缩放进入 */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 向上滑入 */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 工具类 */
+.animate-fade-in-down {
+  animation: fadeInDown var(--duration-very-slow) var(--ease-smooth);
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--duration-very-slow) var(--ease-smooth);
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--duration-slow) var(--ease-smooth);
+}
+
+.animate-slide-up {
+  animation: slideUp var(--duration-slow) var(--ease-smooth);
+}

@@ -1,0 +1,127 @@
+.blog-page {
+  padding: 6rem 0 8rem;
+  min-height: 100vh;
+}
+
+.blog-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.blog-featured {
+  margin-bottom: 4rem;
+}
+
+.blog-featured .section-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.blog-filter {
+  margin-bottom: 3rem;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 0.8rem 1.5rem;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+  font-family: inherit;
+}
+
+.filter-btn:hover {
+  background: var(--color-bg-primary);
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.filter-btn.active {
+  background: var(--text-primary);
+  color: var(--color-bg-primary);
+  border-color: var(--text-primary);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-light);
+  font-size: var(--font-size-lg);
+}
+
+/* Animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .blog-grid,
+  .featured-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-page {
+    padding: 4rem 0 6rem;
+  }
+
+  .blog-hero {
+    margin-bottom: 3rem;
+  }
+
+  .blog-featured {
+    margin-bottom: 3rem;
+  }
+
+  .blog-grid,
+  .featured-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .filter-buttons {
+    gap: 0.8rem;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: var(--font-size-xs);
+  }
+}

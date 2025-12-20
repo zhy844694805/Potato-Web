@@ -1,0 +1,125 @@
+.theme-toggle {
+  position: relative;
+  width: 56px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+.theme-toggle-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--color-gray-200);
+  border-radius: 50px;
+  transition: background 0.3s var(--ease-smooth);
+}
+
+[data-theme='dark'] .theme-toggle-track {
+  background: var(--color-gray-300);
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  background: var(--color-bg-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s var(--ease-smooth);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-thumb.dark {
+  transform: translateX(28px);
+}
+
+.theme-icon {
+  position: absolute;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  color: #FDB813;
+}
+
+.theme-toggle-thumb.dark .sun-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+  color: #7C3AED;
+}
+
+.theme-toggle-thumb.dark .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Focus styles for accessibility */
+.theme-toggle:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 50px;
+}
+
+.theme-toggle:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Hover effect */
+.theme-toggle:hover .theme-toggle-thumb {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Active state */
+.theme-toggle:active .theme-toggle-thumb {
+  transform: translateX(14px) scale(0.95);
+}
+
+.theme-toggle:active .theme-toggle-thumb.dark {
+  transform: translateX(28px) scale(0.95);
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 52px;
+    height: 26px;
+  }
+
+  .theme-toggle-thumb {
+    width: 22px;
+    height: 22px;
+  }
+
+  .theme-toggle-thumb.dark {
+    transform: translateX(26px);
+  }
+
+  .theme-icon {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle-track,
+  .theme-toggle-thumb,
+  .theme-icon {
+    transition: none;
+  }
+}

@@ -1,0 +1,294 @@
+/* Prato Fashion - Elegant Minimalist Fashion Brand */
+.prato-app {
+  --prato-black: #0a0a0a;
+  --prato-white: #fafafa;
+  --prato-gold: #b8860b;
+  --prato-gray: #666;
+  --prato-light: #f5f5f5;
+  font-family: 'Playfair Display', Georgia, serif;
+  background: var(--prato-white);
+  color: var(--prato-black);
+  min-height: 100vh;
+}
+
+/* Header */
+.prato-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.prato-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.prato-logo {
+  font-size: 1.25rem;
+  letter-spacing: 0.3em;
+  text-decoration: none;
+  color: var(--prato-black);
+  font-weight: 400;
+}
+.prato-nav {
+  display: flex;
+  gap: 2rem;
+}
+.prato-nav a {
+  text-decoration: none;
+  color: var(--prato-gray);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  transition: color 0.3s;
+}
+.prato-nav a:hover { color: var(--prato-black); }
+.prato-lang {
+  display: flex;
+  gap: 0.5rem;
+}
+.prato-lang button {
+  background: none;
+  border: 1px solid transparent;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  color: var(--prato-gray);
+  transition: all 0.3s;
+}
+.prato-lang button.active {
+  border-color: var(--prato-black);
+  color: var(--prato-black);
+}
+
+/* Hero */
+.prato-hero {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.prato-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+.prato-hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 2rem;
+}
+.prato-hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+.prato-hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+.prato-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--prato-gold);
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.prato-btn:hover {
+  background: #9a7209;
+  transform: translateY(-2px);
+}
+
+/* Features */
+.prato-features {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem 2rem;
+  background: var(--prato-black);
+  color: var(--prato-white);
+  flex-wrap: wrap;
+}
+.prato-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+.prato-feature-icon { font-size: 1.5rem; }
+
+/* Sections */
+.prato-section {
+  padding: 5rem 2rem;
+}
+.prato-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.prato-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+.prato-subtitle {
+  text-align: center;
+  color: var(--prato-gray);
+  margin-bottom: 3rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Grid */
+.prato-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.prato-card {
+  text-align: center;
+}
+.prato-card-img {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.prato-card-img img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.prato-card:hover img { transform: scale(1.05); }
+.prato-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--prato-gold);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  font-family: 'Inter', sans-serif;
+}
+.prato-card h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+.prato-card p {
+  color: var(--prato-gray);
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* About */
+.prato-about { background: var(--prato-light); }
+.prato-about-text {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  line-height: 1.8;
+  font-family: 'Inter', sans-serif;
+  color: var(--prato-gray);
+}
+.prato-values {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.prato-value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+.prato-value span { font-size: 2rem; }
+
+/* Contact */
+.prato-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+@media (max-width: 768px) {
+  .prato-contact-grid { grid-template-columns: 1fr; }
+  .prato-nav { display: none; }
+}
+.prato-contact-info { font-family: 'Inter', sans-serif; }
+.prato-info-item { margin-bottom: 2rem; }
+.prato-info-item strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.prato-info-item p { color: var(--prato-gray); line-height: 1.6; }
+.prato-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.prato-form input, .prato-form textarea {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  background: white;
+}
+.prato-form textarea { min-height: 120px; resize: vertical; }
+.prato-form input:focus, .prato-form textarea:focus {
+  outline: none;
+  border-color: var(--prato-gold);
+}
+.prato-success {
+  color: green;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Footer */
+.prato-footer {
+  background: var(--prato-black);
+  color: var(--prato-white);
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+}
+.prato-back {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--prato-gold);
+  text-decoration: none;
+}

@@ -1,0 +1,123 @@
+.portfolio-card {
+  position: relative;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-smooth);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.portfolio-card:hover {
+  border-color: var(--text-primary);
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-md);
+}
+
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 1rem;
+}
+
+.portfolio-number {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-light);
+  color: var(--border-color);
+}
+
+.portfolio-year {
+  font-size: var(--font-size-sm);
+  color: var(--text-light);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.portfolio-content {
+  padding: 0 2rem 2rem;
+}
+
+.portfolio-category {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  margin-bottom: 1rem;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.portfolio-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+}
+
+.portfolio-description {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: var(--line-height-normal);
+  margin-bottom: 2rem;
+}
+
+.portfolio-visual {
+  height: 240px;
+  margin: 0 2rem 2rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.portfolio-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.portfolio-card:hover .portfolio-thumbnail {
+  transform: scale(1.05);
+}
+
+.portfolio-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-card:hover .portfolio-visual {
+  transform: scale(1.02);
+}
+
+.visual-shape {
+  width: 100px;
+  height: 100px;
+  border: 2px solid;
+  border-radius: 50%;
+  transition: all var(--duration-slow) var(--ease-smooth);
+}
+
+.portfolio-card:hover .visual-shape {
+  transform: rotate(180deg);
+}
+
+.portfolio-hover {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.portfolio-card:hover .portfolio-hover {
+  opacity: 1;
+  transform: translateX(0);
+}
