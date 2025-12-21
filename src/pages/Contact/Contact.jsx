@@ -168,23 +168,30 @@ function Contact() {
     trackButtonClick('contact_form_submit', 'contact_page')
 
     try {
-      // 模拟表单提交 - 实际项目中替换为真实的API调用
-      // 例如: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(data) })
-      console.log('Form data:', data)
+      // 使用 Formspree 提交表单
+      const response = await fetch('https://formspree.io/f/xeejgvrn', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone || '',
+          projectType: data.projectType,
+          budget: data.budget || '',
+          message: data.message
+        })
+      })
 
-      // 模拟网络延迟
-      await new Promise(resolve => setTimeout(resolve, 1500))
-
-      // 这里可以集成实际的表单处理服务，如：
-      // - Formspree
-      // - Netlify Forms
-      // - 自建后端API
-      // - 发送邮件服务
-
-      setSubmitStatus('success')
-      reset()
-    } catch (error) {
-      console.error('Form submission error:', error)
+      if (response.ok) {
+        setSubmitStatus('success')
+        reset()
+      } else {
+        throw new Error('Form submission failed')
+      }
+    } catch {
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -231,9 +238,11 @@ function Contact() {
                       type="text"
                       placeholder={t.form.namePlaceholder}
                       className={errors.name ? 'error' : ''}
+                      aria-describedby={errors.name ? 'name-error' : undefined}
+                      aria-invalid={errors.name ? 'true' : 'false'}
                       {...register('name')}
                     />
-                    {errors.name && <span className="error-message">{errors.name.message}</span>}
+                    {errors.name && <span id="name-error" className="error-message" role="alert">{errors.name.message}</span>}
                   </div>
 
                   <div className="form-group">
@@ -243,9 +252,11 @@ function Contact() {
                       type="email"
                       placeholder={t.form.emailPlaceholder}
                       className={errors.email ? 'error' : ''}
+                      aria-describedby={errors.email ? 'email-error' : undefined}
+                      aria-invalid={errors.email ? 'true' : 'false'}
                       {...register('email')}
                     />
-                    {errors.email && <span className="error-message">{errors.email.message}</span>}
+                    {errors.email && <span id="email-error" className="error-message" role="alert">{errors.email.message}</span>}
                   </div>
                 </div>
 
@@ -265,6 +276,8 @@ function Contact() {
                     <select
                       id="projectType"
                       className={errors.projectType ? 'error' : ''}
+                      aria-describedby={errors.projectType ? 'projectType-error' : undefined}
+                      aria-invalid={errors.projectType ? 'true' : 'false'}
                       {...register('projectType')}
                     >
                       <option value="">{t.form.projectTypePlaceholder}</option>
@@ -272,7 +285,7 @@ function Contact() {
                         <option key={type.value} value={type.value}>{type.label}</option>
                       ))}
                     </select>
-                    {errors.projectType && <span className="error-message">{errors.projectType.message}</span>}
+                    {errors.projectType && <span id="projectType-error" className="error-message" role="alert">{errors.projectType.message}</span>}
                   </div>
                 </div>
 
@@ -293,9 +306,11 @@ function Contact() {
                     rows="6"
                     placeholder={t.form.messagePlaceholder}
                     className={errors.message ? 'error' : ''}
+                    aria-describedby={errors.message ? 'message-error' : undefined}
+                    aria-invalid={errors.message ? 'true' : 'false'}
                     {...register('message')}
                   />
-                  {errors.message && <span className="error-message">{errors.message.message}</span>}
+                  {errors.message && <span id="message-error" className="error-message" role="alert">{errors.message.message}</span>}
                 </div>
 
                 {submitStatus === 'error' && (

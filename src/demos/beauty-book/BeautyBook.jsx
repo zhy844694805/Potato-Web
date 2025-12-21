@@ -6,8 +6,7 @@ function BeautyBook() {
   const [language, setLanguage] = useState('en')
   const t = translations[language]
 
-  const renderScreenContent = (screen, index) => {
-    const labels = t.screens.list
+  const renderScreenContent = (screen) => {
     switch (screen.id) {
       case 'home':
         return (
@@ -131,7 +130,7 @@ function BeautyBook() {
               <div className="beauty-phone-frame">
                 <div className="beauty-phone-notch" />
                 <div className="beauty-phone-screen">
-                  {renderScreenContent(screen, index)}
+                  {renderScreenContent(screen)}
                 </div>
               </div>
               <div className="beauty-phone-label">{t.screens.list[index]}</div>

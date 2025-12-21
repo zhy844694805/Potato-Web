@@ -1,3 +1,4 @@
+/* global process */
 // Sitemap Generator for Minimal Tech
 // Run with: node scripts/generate-sitemap.js
 // Or add to build: npm run generate-sitemap && npm run build

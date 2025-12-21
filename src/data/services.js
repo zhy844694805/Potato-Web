@@ -132,3 +132,5 @@ export const services = [
     }
   }
 ]
+
+export const getServiceById = (id) => services.find(s => s.id === id)

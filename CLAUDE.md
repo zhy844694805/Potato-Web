@@ -64,6 +64,7 @@ Demos are accessed via `/demo/{slug}` routes and bypass main site layout:
 ### Routing
 
 React Router 7 with dynamic routes:
+- `/services/:id` - Service detail pages
 - `/portfolio/:id` - Portfolio detail pages
 - `/blog/:id` - Blog post pages
 - `/demo/{slug}` - Client demo sites (rendered without main layout)
@@ -72,6 +73,9 @@ React Router 7 with dynamic routes:
 ### Data File Helpers
 
 ```javascript
+// services.js
+getServiceById(id)
+
 // portfolio.js - categories: restaurant, fashion, trade, beauty, app, miniprogram
 getPortfolioById(id)
 getPortfolioByCategory(category)
@@ -81,6 +85,14 @@ getLatestPosts(limit)
 getPostsByCategory(category)
 getPostBySlug(slug)
 ```
+
+### Site Configuration
+
+`/src/config/site.js` contains site-wide settings (URL, contact email, social links). Values can be overridden via environment variables (`VITE_SITE_URL`, `VITE_CONTACT_EMAIL`, etc.).
+
+### Contact Form
+
+Contact form submits to Formspree (`/src/pages/Contact/Contact.jsx`). Update the Formspree endpoint URL when changing the form destination.
 
 ## Key Dependencies
 

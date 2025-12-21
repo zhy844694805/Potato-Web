@@ -60,6 +60,34 @@ export const portfolioSchema = (portfolio, language) => ({
   keywords: portfolio.technologies.join(', ')
 })
 
+// 文章结构化数据
+export const articleSchema = (post, language) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.title[language],
+  description: post.excerpt[language],
+  image: post.thumbnail,
+  datePublished: post.date,
+  dateModified: post.date,
+  author: {
+    '@type': 'Person',
+    name: post.author[language]
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: siteConfig.name[language] || siteConfig.name.zh,
+    logo: {
+      '@type': 'ImageObject',
+      url: getFullUrl(siteConfig.logo)
+    }
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': getFullUrl(`/blog/${post.slug}`)
+  },
+  keywords: post.tags.map(t => t[language]).join(', ')
+})
+
 // 服务结构化数据
 export const serviceSchema = (language) => ({
   '@context': 'https://schema.org',

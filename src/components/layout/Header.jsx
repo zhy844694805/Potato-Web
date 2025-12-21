@@ -27,8 +27,12 @@ function Header() {
   }
 
   return (
-    <header className="header">
-      <div className="header-container">
+    <>
+      <a href="#main-content" className="skip-to-content">
+        {language === 'zh' ? '跳转到主要内容' : 'Skip to main content'}
+      </a>
+      <header className="header">
+        <div className="header-container">
         <Link to="/" className="header-brand">
           {language === 'zh' ? '极简科技' : 'Minimal Tech'}
         </Link>
@@ -74,6 +78,7 @@ function Header() {
         </div>
       </div>
     </header>
+    </>
   )
 }
 

@@ -1,7 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import SEO from '../../components/SEO'
-import StructuredData, { breadcrumbSchema } from '../../components/StructuredData'
+import StructuredData, { breadcrumbSchema, articleSchema } from '../../components/StructuredData'
 import BlogCard from '../../components/business/BlogCard'
 import LazyImage from '../../components/ui/LazyImage'
 import { getBlogBySlug, getRelatedPosts } from '../../data/blog'
@@ -34,6 +34,7 @@ function BlogDetail() {
         path={`/blog/${post.slug}`}
       />
       <StructuredData data={breadcrumbSchema(breadcrumbItems)} />
+      <StructuredData data={articleSchema(post, language)} />
 
       <article className="blog-article">
         <div className="container-narrow">

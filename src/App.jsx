@@ -8,6 +8,7 @@ import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Home from './pages/Home/Home'
 import Services from './pages/Services/Services'
+import ServiceDetail from './pages/Services/ServiceDetail'
 import Portfolio from './pages/Portfolio/Portfolio'
 import PortfolioDetail from './pages/Portfolio/PortfolioDetail'
 import Blog from './pages/Blog/Blog'
@@ -57,10 +58,11 @@ function AppContent() {
       <ScrollToTop />
       <div className="app">
         <Header />
-        <main className="main-content">
+        <main id="main-content" className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/:id" element={<ServiceDetail />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/portfolio/:id" element={<PortfolioDetail />} />
             <Route path="/blog" element={<Blog />} />

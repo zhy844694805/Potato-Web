@@ -4,7 +4,7 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import SEO from '../../components/SEO'
 import StructuredData, { breadcrumbSchema } from '../../components/StructuredData'
 import BlogCard from '../../components/business/BlogCard'
-import { blogPosts, categories, getPostsByCategory, getFeaturedPosts } from '../../data/blog'
+import { categories, getPostsByCategory, getFeaturedPosts } from '../../data/blog'
 import './Blog.css'
 
 function Blog() {

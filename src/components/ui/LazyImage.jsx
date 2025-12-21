@@ -7,6 +7,8 @@ function LazyImage({ src, alt, className = '', placeholder = '', ...props }) {
   const imgRef = useRef(null)
 
   useEffect(() => {
+    const currentRef = imgRef.current
+
     // Create an intersection observer
     const observer = new IntersectionObserver(
       (entries) => {
@@ -14,8 +16,8 @@ function LazyImage({ src, alt, className = '', placeholder = '', ...props }) {
           if (entry.isIntersecting) {
             setIsInView(true)
             // Once image is in view, we can stop observing
-            if (imgRef.current) {
-              observer.unobserve(imgRef.current)
+            if (currentRef) {
+              observer.unobserve(currentRef)
             }
           }
         })
@@ -27,13 +29,13 @@ function LazyImage({ src, alt, className = '', placeholder = '', ...props }) {
       }
     )
 
-    if (imgRef.current) {
-      observer.observe(imgRef.current)
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (imgRef.current) {
-        observer.unobserve(imgRef.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [])
