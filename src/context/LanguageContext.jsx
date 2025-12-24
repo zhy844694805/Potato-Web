@@ -3,11 +3,14 @@ import { useTranslation } from 'react-i18next'
 
 const LanguageContext = createContext()
 
-const LANGUAGES = ['it', 'en', 'zh']
+const LANGUAGES = ['zh', 'en', 'it']
+const DEFAULT_LANGUAGE = 'en'
 
 export const LanguageProvider = ({ children }) => {
   const { i18n } = useTranslation()
-  const language = i18n.language
+  // 确保 language 始终是支持的语言之一
+  const rawLanguage = i18n.language || DEFAULT_LANGUAGE
+  const language = LANGUAGES.includes(rawLanguage) ? rawLanguage : DEFAULT_LANGUAGE
 
   const setLanguage = useCallback((lang) => {
     i18n.changeLanguage(lang)
