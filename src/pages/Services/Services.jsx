@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import SEO from '../../components/SEO'
 import StructuredData, { serviceSchema } from '../../components/StructuredData'
-import SectionHeader from '../../components/ui/SectionHeader'
 import ServiceCard from '../../components/business/ServiceCard'
 import Button from '../../components/ui/Button'
 import { services } from '../../data/services'
@@ -43,23 +42,23 @@ function Services() {
       <div className="container">
         <section className="services-hero">
           <h1 className="page-title">
-            {language === 'zh' ? '服务项目' : 'Services'}
+            {t('服务项目', 'Services', 'Servizi')}
           </h1>
           <p className="page-subtitle">
-            {language === 'zh'
-              ? '为你提供专业的Web开发和技术服务'
-              : 'Providing professional web development and technical services'}
+            {t('为你提供专业的Web开发和技术服务',
+              'Providing professional web development and technical services',
+              'Fornendo servizi professionali di sviluppo web e tecnici')}
           </p>
         </section>
 
         <section className="services-list">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div key={service.id} className="service-detail">
               <div className="service-detail-header">
                 <ServiceCard service={service} />
               </div>
               <div className="service-detail-content">
-                <h3>{language === 'zh' ? '服务特点' : 'Features'}</h3>
+                <h3>{t('服务特点', 'Features', 'Caratteristiche')}</h3>
                 <ul className="feature-list">
                   {service.features.map((feature, i) => (
                     <li key={i}>{feature[language]}</li>
@@ -76,15 +75,15 @@ function Services() {
         </section>
 
         <section className="services-cta">
-          <h2>{language === 'zh' ? '准备开始你的项目？' : 'Ready to Start Your Project?'}</h2>
+          <h2>{t('准备开始你的项目？', 'Ready to Start Your Project?', 'Pronto per Iniziare il Tuo Progetto?')}</h2>
           <p>
-            {language === 'zh'
-              ? '联系我，获取项目咨询和报价'
-              : 'Contact me for project consultation and quotes'}
+            {t('联系我，获取项目咨询和报价',
+              'Contact me for project consultation and quotes',
+              'Contattami per consulenza e preventivi')}
           </p>
           <Link to="/contact">
             <Button variant="primary">
-              {language === 'zh' ? '立即咨询' : 'Contact Now'}
+              {t('立即咨询', 'Contact Now', 'Contatta Ora')}
             </Button>
           </Link>
         </section>
