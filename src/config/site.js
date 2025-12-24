@@ -13,7 +13,7 @@ export const siteConfig = {
   // 联系方式
   contact: {
     email: import.meta.env.VITE_CONTACT_EMAIL || 'info@aimodel.it',
-    phone: import.meta.env.VITE_CONTACT_PHONE || '3202335969'
+    phone: import.meta.env.VITE_CONTACT_PHONE || '+39 324 284 7369'
   },
 
   // 社交媒体
