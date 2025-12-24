@@ -16,6 +16,7 @@ function Header() {
     { path: '/', label: t('nav.home') },
     { path: '/services', label: t('nav.services') },
     { path: '/pricing', label: t('nav.pricing') },
+    { path: '/quote', label: t('nav.quote') },
     { path: '/portfolio', label: t('nav.portfolio') },
     { path: '/blog', label: t('nav.blog') },
     { path: '/faq', label: t('nav.faq') },

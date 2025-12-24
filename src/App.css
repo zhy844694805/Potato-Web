@@ -63,9 +63,78 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 50vh;
+  min-height: 60vh;
+  padding: 2rem;
 }
 
+/* Skeleton loader */
+.skeleton-loader {
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.skeleton-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.skeleton-line {
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base, #e8e8e8) 0%,
+    var(--skeleton-shine, #f5f5f5) 50%,
+    var(--skeleton-base, #e8e8e8) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+.skeleton-title {
+  height: 2.5rem;
+  width: 60%;
+  margin-bottom: 1rem;
+}
+
+.skeleton-subtitle {
+  height: 1.25rem;
+  width: 40%;
+}
+
+.skeleton-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skeleton-content .skeleton-line {
+  height: 1rem;
+  width: 100%;
+  margin: 0;
+}
+
+.skeleton-content .skeleton-short {
+  width: 70%;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Dark mode skeleton */
+[data-theme='dark'] .skeleton-line {
+  --skeleton-base: #2a2a2a;
+  --skeleton-shine: #3a3a3a;
+}
+
+/* Fallback spinner (kept for other uses) */
 .loader-spinner {
   width: 40px;
   height: 40px;
@@ -78,5 +147,13 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-line {
+    animation: none;
+    background: var(--skeleton-base, #e8e8e8);
   }
 }

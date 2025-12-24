@@ -13,6 +13,7 @@ function Footer() {
           <nav className="footer-links">
             <Link to="/services">{t('footer.services')}</Link>
             <Link to="/pricing">{t('footer.pricing')}</Link>
+            <Link to="/quote">{t('footer.quote')}</Link>
             <Link to="/portfolio">{t('footer.portfolio')}</Link>
             <Link to="/blog">{t('footer.blog')}</Link>
             <Link to="/faq">{t('footer.faq')}</Link>

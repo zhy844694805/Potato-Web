@@ -23,6 +23,7 @@ const About = lazy(() => import('./pages/About/About'))
 const Contact = lazy(() => import('./pages/Contact/Contact'))
 const Pricing = lazy(() => import('./pages/Pricing/Pricing'))
 const FAQ = lazy(() => import('./pages/FAQ/FAQ'))
+const Quote = lazy(() => import('./pages/Quote/Quote'))
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'))
 
 // Lazy load demo sites
@@ -35,11 +36,21 @@ const BeautyBook = lazy(() => import('./demos/beauty-book/BeautyBook'))
 const ChinaMart = lazy(() => import('./demos/china-mart/ChinaMart'))
 const DragonShip = lazy(() => import('./demos/dragon-ship/DragonShip'))
 
-// Loading fallback component
+// Loading fallback component with skeleton
 function PageLoader() {
   return (
     <div className="page-loader">
-      <div className="loader-spinner"></div>
+      <div className="skeleton-loader">
+        <div className="skeleton-header">
+          <div className="skeleton-line skeleton-title"></div>
+          <div className="skeleton-line skeleton-subtitle"></div>
+        </div>
+        <div className="skeleton-content">
+          <div className="skeleton-line"></div>
+          <div className="skeleton-line"></div>
+          <div className="skeleton-line skeleton-short"></div>
+        </div>
+      </div>
     </div>
   )
 }
@@ -92,6 +103,7 @@ function AppContent() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/quote" element={<Quote />} />
               <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<Navigate to="/404" replace />} />
             </Routes>
