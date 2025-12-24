@@ -94,10 +94,25 @@ getPostBySlug(slug)
 
 Contact form submits to Formspree (`/src/pages/Contact/Contact.jsx`). Update the Formspree endpoint URL when changing the form destination.
 
+### Code Splitting
+
+Pages and demos are lazy-loaded using `React.lazy()` in `App.jsx`. Build output is split into chunks:
+- `vendor` - React, React DOM, React Router
+- `i18n` - i18next libraries
+- `forms` - react-hook-form, yup
+
+### PWA Support
+
+Site is configured as a Progressive Web App via `vite-plugin-pwa`:
+- Offline access with service worker caching
+- Installable on mobile/desktop
+- Manifest at `/manifest.webmanifest`
+
 ## Key Dependencies
 
 - React 19, Vite 7, React Router 7
 - i18next + react-i18next for translations
 - react-helmet-async for SEO
 - react-hook-form + yup for forms
+- vite-plugin-pwa for offline support
 - No TypeScript, no CSS framework (pure CSS with design tokens)

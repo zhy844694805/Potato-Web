@@ -12,8 +12,10 @@ function Footer() {
           <div className="footer-brand">{t('footer.brand')}</div>
           <nav className="footer-links">
             <Link to="/services">{t('footer.services')}</Link>
+            <Link to="/pricing">{t('footer.pricing')}</Link>
             <Link to="/portfolio">{t('footer.portfolio')}</Link>
             <Link to="/blog">{t('footer.blog')}</Link>
+            <Link to="/faq">{t('footer.faq')}</Link>
             <Link to="/testimonials">{t('footer.testimonials')}</Link>
             <Link to="/about">{t('footer.about')}</Link>
             <Link to="/contact">{t('footer.contact')}</Link>

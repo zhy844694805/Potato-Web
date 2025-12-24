@@ -1,9 +1,9 @@
-# Robots.txt for https://minimaltech.com
+# Robots.txt for https://aimodel.it
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://minimaltech.com/sitemap.xml
+Sitemap: https://aimodel.it/sitemap.xml
 
 # Disallow admin/private paths (if any)
 Disallow: /api/

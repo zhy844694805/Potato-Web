@@ -2,8 +2,10 @@
   "nav": {
     "home": "Home",
     "services": "Services",
+    "pricing": "Pricing",
     "portfolio": "Portfolio",
     "blog": "Blog",
+    "faq": "FAQ",
     "testimonials": "Testimonials",
     "about": "About",
     "contact": "Contact"
@@ -19,8 +21,10 @@
     "brand": "Minimal Tech",
     "copyright": "© 2024 Minimal Tech. All rights reserved.",
     "services": "Services",
+    "pricing": "Pricing",
     "portfolio": "Portfolio",
     "blog": "Blog",
+    "faq": "FAQ",
     "testimonials": "Testimonials",
     "about": "About",
     "contact": "Contact"

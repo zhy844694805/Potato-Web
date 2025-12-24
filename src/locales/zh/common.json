@@ -2,8 +2,10 @@
   "nav": {
     "home": "首页",
     "services": "服务",
+    "pricing": "报价",
     "portfolio": "案例",
     "blog": "博客",
+    "faq": "常见问题",
     "testimonials": "客户评价",
     "about": "关于我们",
     "contact": "联系"
@@ -19,8 +21,10 @@
     "brand": "极简科技",
     "copyright": "© 2024 极简科技. 保留所有权利.",
     "services": "服务",
+    "pricing": "报价",
     "portfolio": "案例",
     "blog": "博客",
+    "faq": "常见问题",
     "testimonials": "评价",
     "about": "关于",
     "contact": "联系"
