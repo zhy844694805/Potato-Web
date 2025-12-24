@@ -5,13 +5,13 @@ import SEO from '../../components/SEO'
 import Button from '../../components/ui/Button'
 import './Quote.css'
 
-// Pricing data
+// Pricing data - 华人市场友好价格
 const projectTypes = {
-  landing: { base: 500, label: { zh: '落地页', en: 'Landing Page', it: 'Landing Page' } },
-  website: { base: 1500, label: { zh: '企业网站', en: 'Business Website', it: 'Sito Aziendale' } },
-  ecommerce: { base: 3000, label: { zh: '电商网站', en: 'E-commerce', it: 'E-commerce' } },
-  webapp: { base: 5000, label: { zh: '全栈应用', en: 'Full-Stack App', it: 'App Full-Stack' } },
-  miniprogram: { base: 2000, label: { zh: '小程序', en: 'Mini Program', it: 'Mini Programma' } }
+  landing: { base: 200, label: { zh: '落地页', en: 'Landing Page', it: 'Landing Page' } },
+  website: { base: 500, label: { zh: '企业网站', en: 'Business Website', it: 'Sito Aziendale' } },
+  ecommerce: { base: 1000, label: { zh: '电商网站', en: 'E-commerce', it: 'E-commerce' } },
+  webapp: { base: 2000, label: { zh: '全栈应用', en: 'Full-Stack App', it: 'App Full-Stack' } },
+  miniprogram: { base: 800, label: { zh: '小程序', en: 'Mini Program', it: 'Mini Programma' } }
 }
 
 const pageOptions = [
@@ -23,13 +23,13 @@ const pageOptions = [
 
 const features = [
   { id: 'responsive', price: 0, included: true, label: { zh: '响应式设计', en: 'Responsive Design', it: 'Design Responsivo' } },
-  { id: 'seo', price: 300, label: { zh: 'SEO优化', en: 'SEO Optimization', it: 'Ottimizzazione SEO' } },
-  { id: 'cms', price: 500, label: { zh: 'CMS内容管理', en: 'CMS Integration', it: 'Integrazione CMS' } },
-  { id: 'multilang', price: 400, label: { zh: '多语言支持', en: 'Multi-language', it: 'Multilingua' } },
-  { id: 'analytics', price: 200, label: { zh: '数据分析', en: 'Analytics', it: 'Analytics' } },
-  { id: 'payment', price: 600, label: { zh: '支付集成', en: 'Payment Integration', it: 'Integrazione Pagamenti' } },
-  { id: 'auth', price: 400, label: { zh: '用户系统', en: 'User Authentication', it: 'Autenticazione Utenti' } },
-  { id: 'api', price: 500, label: { zh: 'API集成', en: 'API Integration', it: 'Integrazione API' } }
+  { id: 'seo', price: 100, label: { zh: 'SEO优化', en: 'SEO Optimization', it: 'Ottimizzazione SEO' } },
+  { id: 'cms', price: 150, label: { zh: 'CMS内容管理', en: 'CMS Integration', it: 'Integrazione CMS' } },
+  { id: 'multilang', price: 100, label: { zh: '多语言支持', en: 'Multi-language', it: 'Multilingua' } },
+  { id: 'analytics', price: 50, label: { zh: '数据分析', en: 'Analytics', it: 'Analytics' } },
+  { id: 'payment', price: 200, label: { zh: '支付集成', en: 'Payment Integration', it: 'Integrazione Pagamenti' } },
+  { id: 'auth', price: 150, label: { zh: '用户系统', en: 'User Authentication', it: 'Autenticazione Utenti' } },
+  { id: 'api', price: 150, label: { zh: 'API集成', en: 'API Integration', it: 'Integrazione API' } }
 ]
 
 const timelines = [
@@ -41,9 +41,9 @@ const timelines = [
 
 const maintenanceOptions = [
   { value: 'none', price: 0, label: { zh: '不需要', en: 'Not needed', it: 'Non necessario' } },
-  { value: 'basic', price: 100, label: { zh: '基础维护 (€100/月)', en: 'Basic (€100/mo)', it: 'Base (€100/mese)' } },
-  { value: 'standard', price: 200, label: { zh: '标准维护 (€200/月)', en: 'Standard (€200/mo)', it: 'Standard (€200/mese)' } },
-  { value: 'premium', price: 400, label: { zh: '高级维护 (€400/月)', en: 'Premium (€400/mo)', it: 'Premium (€400/mese)' } }
+  { value: 'basic', price: 30, label: { zh: '基础维护 (€30/月)', en: 'Basic (€30/mo)', it: 'Base (€30/mese)' } },
+  { value: 'standard', price: 60, label: { zh: '标准维护 (€60/月)', en: 'Standard (€60/mo)', it: 'Standard (€60/mese)' } },
+  { value: 'premium', price: 100, label: { zh: '高级维护 (€100/月)', en: 'Premium (€100/mo)', it: 'Premium (€100/mese)' } }
 ]
 
 function Quote() {
