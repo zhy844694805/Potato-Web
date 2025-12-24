@@ -19,7 +19,7 @@ export const siteConfig = {
   // 社交媒体
   social: {
     github: import.meta.env.VITE_SOCIAL_GITHUB || '',
-    wechat: import.meta.env.VITE_SOCIAL_WECHAT || 'A844694805'
+    wechat: import.meta.env.VITE_SOCIAL_WECHAT || 'A3242847369'
   },
 
   // Formspree 表单 ID
