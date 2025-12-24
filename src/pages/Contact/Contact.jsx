@@ -404,6 +404,26 @@ function Contact() {
               </div>
             </div>
 
+            {siteConfig.contact.phone && (
+              <div className="info-item">
+                <div className="info-icon">📱</div>
+                <div className="info-content">
+                  <span className="info-label">{language === 'zh' ? '电话' : language === 'it' ? 'Telefono' : 'Phone'}</span>
+                  <a href={`tel:${siteConfig.contact.phone}`}>{siteConfig.contact.phone}</a>
+                </div>
+              </div>
+            )}
+
+            {siteConfig.social.wechat && (
+              <div className="info-item">
+                <div className="info-icon">💬</div>
+                <div className="info-content">
+                  <span className="info-label">{language === 'zh' ? '微信' : 'WeChat'}</span>
+                  <span>{siteConfig.social.wechat}</span>
+                </div>
+              </div>
+            )}
+
             <div className="info-item">
               <div className="info-icon">⚡</div>
               <div className="info-content">
@@ -411,18 +431,6 @@ function Contact() {
                 <span>{t.contact.responseTime}</span>
               </div>
             </div>
-
-            {siteConfig.social.github && (
-              <div className="info-item">
-                <div className="info-icon">💻</div>
-                <div className="info-content">
-                  <span className="info-label">GitHub</span>
-                  <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer">
-                    {siteConfig.social.github.replace('https://github.com/', '@')}
-                  </a>
-                </div>
-              </div>
-            )}
           </aside>
         </div>
       </div>

@@ -13,13 +13,13 @@ export const siteConfig = {
   // 联系方式
   contact: {
     email: import.meta.env.VITE_CONTACT_EMAIL || 'info@aimodel.it',
-    phone: import.meta.env.VITE_CONTACT_PHONE || ''
+    phone: import.meta.env.VITE_CONTACT_PHONE || '3202335969'
   },
 
   // 社交媒体
   social: {
     github: import.meta.env.VITE_SOCIAL_GITHUB || '',
-    wechat: import.meta.env.VITE_SOCIAL_WECHAT || ''
+    wechat: import.meta.env.VITE_SOCIAL_WECHAT || 'A844694805'
   },
 
   // Formspree 表单 ID
