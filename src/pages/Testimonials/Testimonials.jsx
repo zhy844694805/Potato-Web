@@ -10,6 +10,7 @@ import './Testimonials.css'
 function Testimonials() {
   const { language } = useLanguage()
   const [activeFilter, setActiveFilter] = useState('all')
+  const tr = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
   const statsAnimation = useScrollAnimation({ threshold: 0.2 })
 
   // Extract unique tags from all testimonials
@@ -43,8 +44,8 @@ function Testimonials() {
   }
 
   const breadcrumbItems = [
-    { name: language === 'zh' ? '首页' : 'Home', url: '/' },
-    { name: language === 'zh' ? '客户评价' : 'Testimonials', url: '/testimonials' }
+    { name: tr('首页', 'Home', 'Home'), url: '/' },
+    { name: tr('客户评价', 'Testimonials', 'Testimonianze'), url: '/testimonials' }
   ]
 
   const stats = [
@@ -78,12 +79,12 @@ function Testimonials() {
       <div className="container">
         <section className="testimonials-hero">
           <h1 className="page-title">
-            {language === 'zh' ? '客户评价' : 'Client Testimonials'}
+            {tr('客户评价', 'Client Testimonials', 'Testimonianze dei Clienti')}
           </h1>
           <p className="page-subtitle">
-            {language === 'zh'
-              ? '真实的客户反馈，见证我们的服务质量与专业态度'
-              : 'Real client feedback showcasing our service quality and professional attitude'}
+            {tr('真实的客户反馈，见证我们的服务质量与专业态度',
+              'Real client feedback showcasing our service quality and professional attitude',
+              'Feedback reali dei clienti che dimostrano la qualità del servizio e l\'atteggiamento professionale')}
           </p>
         </section>
 
@@ -133,9 +134,7 @@ function Testimonials() {
         {filteredTestimonials.length === 0 && (
           <div className="no-results">
             <p>
-              {language === 'zh'
-                ? '暂无相关评价'
-                : 'No testimonials found'}
+              {tr('暂无相关评价', 'No testimonials found', 'Nessuna testimonianza trovata')}
             </p>
           </div>
         )}

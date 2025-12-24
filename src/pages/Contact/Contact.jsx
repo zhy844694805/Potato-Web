@@ -144,6 +144,57 @@ function Contact() {
         response: 'Response Time',
         responseTime: 'Usually within 24 hours'
       }
+    },
+    it: {
+      title: 'Contattami',
+      subtitle: 'Hai un\'idea da realizzare? Parliamone',
+      description: 'Che si tratti di una consulenza per un nuovo progetto, una discussione tecnica o semplicemente una chiacchierata, sarò felice di sentirti. Compila il modulo qui sotto e ti risponderò entro 24 ore.',
+      form: {
+        name: 'Il tuo Nome',
+        namePlaceholder: 'Inserisci il tuo nome',
+        email: 'Indirizzo Email',
+        emailPlaceholder: 'Inserisci la tua email',
+        phone: 'Numero di Telefono (Opzionale)',
+        phonePlaceholder: 'Inserisci il numero di telefono',
+        projectType: 'Tipo di Progetto',
+        projectTypePlaceholder: 'Seleziona il tipo di progetto',
+        budget: 'Budget (Opzionale)',
+        budgetPlaceholder: 'Seleziona il range di budget',
+        message: 'Descrizione del Progetto',
+        messagePlaceholder: 'Descrivi i requisiti, gli obiettivi e le aspettative del tuo progetto...',
+        submit: 'Invia Messaggio',
+        submitting: 'Invio in corso...'
+      },
+      projectTypes: [
+        { value: 'website', label: 'Sviluppo Sito Web' },
+        { value: 'webapp', label: 'Applicazione Full-Stack' },
+        { value: 'landing', label: 'Design Landing Page' },
+        { value: 'maintenance', label: 'Manutenzione Sito' },
+        { value: 'consultation', label: 'Consulenza Tecnica' },
+        { value: 'other', label: 'Altro' }
+      ],
+      budgetRanges: [
+        { value: 'under1k', label: 'Meno di €1.000' },
+        { value: '1k-3k', label: '€1.000 - €3.000' },
+        { value: '3k-5k', label: '€3.000 - €5.000' },
+        { value: '5k-10k', label: '€5.000 - €10.000' },
+        { value: 'above10k', label: 'Oltre €10.000' },
+        { value: 'discuss', label: 'Da discutere' }
+      ],
+      success: {
+        title: 'Messaggio Inviato!',
+        message: 'Grazie per avermi contattato. Ti risponderò presto.'
+      },
+      error: {
+        title: 'Invio Fallito',
+        message: 'Riprova più tardi, oppure scrivimi direttamente a:'
+      },
+      contact: {
+        title: 'Altri Modi per Contattarmi',
+        email: 'Email',
+        response: 'Tempo di Risposta',
+        responseTime: 'Di solito entro 24 ore'
+      }
     }
   }
 

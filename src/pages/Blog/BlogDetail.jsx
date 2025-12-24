@@ -20,9 +20,9 @@ function BlogDetail() {
   const relatedPosts = getRelatedPosts(post, 3)
 
   const breadcrumbItems = [
-    { name: language === 'zh' ? '首页' : 'Home', url: '/' },
-    { name: language === 'zh' ? '技术博客' : 'Blog', url: '/blog' },
-    { name: post.title[language], url: `/blog/${post.slug}` }
+    { name: language === 'zh' ? '首页' : language === 'it' ? 'Home' : 'Home', url: '/' },
+    { name: language === 'zh' ? '技术博客' : language === 'it' ? 'Blog' : 'Blog', url: '/blog' },
+    { name: post.title[language] || post.title.en, url: `/blog/${post.slug}` }
   ]
 
   return (

@@ -28,9 +28,11 @@ function Portfolio() {
     }
   }
 
+  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
+
   const breadcrumbItems = [
-    { name: language === 'zh' ? '首页' : 'Home', url: '/' },
-    { name: language === 'zh' ? '案例作品集' : 'Portfolio', url: '/portfolio' }
+    { name: t('首页', 'Home', 'Home'), url: '/' },
+    { name: t('案例作品集', 'Portfolio', 'Portfolio'), url: '/portfolio' }
   ]
 
   return (
@@ -45,12 +47,10 @@ function Portfolio() {
       <div className="container">
         <section className="portfolio-hero">
           <h1 className="page-title">
-            {language === 'zh' ? '服务能力展示' : 'Service Capabilities'}
+            {t('服务能力展示', 'Service Capabilities', 'Capacità di Servizio')}
           </h1>
           <p className="page-subtitle">
-            {language === 'zh'
-              ? '了解我可以为你提供的开发服务'
-              : 'Discover the development services I can provide for you'}
+            {t('了解我可以为你提供的开发服务', 'Discover the development services I can provide for you', 'Scopri i servizi di sviluppo che posso offrirti')}
           </p>
         </section>
 
