@@ -88,6 +88,42 @@ export const articleSchema = (post, language) => ({
   keywords: post.tags.map(t => t[language]).join(', ')
 })
 
+// FAQ 页面结构化数据
+export const faqPageSchema = (faqs, language) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question[language],
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer[language]
+    }
+  }))
+})
+
+// 价格/产品结构化数据
+export const pricingSchema = (packages, language) => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: packages.map((pkg, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Product',
+      name: pkg.name[language],
+      description: pkg.description[language],
+      offers: {
+        '@type': 'AggregateOffer',
+        priceCurrency: 'EUR',
+        lowPrice: pkg.price.min,
+        highPrice: pkg.price.max,
+        offerCount: 1
+      }
+    }
+  }))
+})
+
 // 服务结构化数据
 export const serviceSchema = (language) => ({
   '@context': 'https://schema.org',

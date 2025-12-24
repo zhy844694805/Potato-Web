@@ -24,6 +24,11 @@ function SEO({
       siteName: 'Minimal Tech',
       siteDescription: 'Innovative company focused on digital product design and development, providing web development, app development, mini-program development, and custom software services',
       author: 'Minimal Tech Team'
+    },
+    it: {
+      siteName: 'Minimal Tech',
+      siteDescription: 'Azienda innovativa specializzata nella progettazione e sviluppo di prodotti digitali, offrendo sviluppo web, app, mini-programmi e servizi software personalizzati',
+      author: 'Team Minimal Tech'
     }
   }
 
@@ -47,7 +52,7 @@ function SEO({
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={image} />
       <meta property="og:site_name" content={site.siteName} />
-      <meta property="og:locale" content={language === 'zh' ? 'zh_CN' : 'en_US'} />
+      <meta property="og:locale" content={language === 'zh' ? 'zh_CN' : language === 'it' ? 'it_IT' : 'en_US'} />
 
       {/* Twitter Card 标签 */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -64,8 +69,11 @@ function SEO({
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
       <meta name="theme-color" content="#1a1a1a" />
 
-      {/* 备用语言链接 */}
-      <link rel="alternate" hrefLang={language === 'zh' ? 'en' : 'zh'} href={`${url}?lang=${language === 'zh' ? 'en' : 'zh'}`} />
+      {/* 备用语言链接 - 支持三语 */}
+      <link rel="alternate" hrefLang="zh" href={`${url}?lang=zh`} />
+      <link rel="alternate" hrefLang="en" href={`${url}?lang=en`} />
+      <link rel="alternate" hrefLang="it" href={`${url}?lang=it`} />
+      <link rel="alternate" hrefLang="x-default" href={url} />
     </Helmet>
   )
 }

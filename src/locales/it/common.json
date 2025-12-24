@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Servizi",
+    "pricing": "Prezzi",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "testimonials": "Testimonianze",
+    "about": "Chi Siamo",
+    "contact": "Contatti"
+  },
+  "button": {
+    "startProject": "Inizia Progetto",
+    "learnMore": "Scopri di Più",
+    "contactUs": "Contattaci",
+    "viewCase": "Vedi Caso",
+    "viewDetails": "Vedi Dettagli"
+  },
+  "footer": {
+    "brand": "Minimal Tech",
+    "copyright": "© 2024 Minimal Tech. Tutti i diritti riservati.",
+    "services": "Servizi",
+    "pricing": "Prezzi",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "testimonials": "Testimonianze",
+    "about": "Chi Siamo",
+    "contact": "Contatti"
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "error": "Si è verificato un errore",
+    "notFound": "Pagina Non Trovata"
+  }
+}

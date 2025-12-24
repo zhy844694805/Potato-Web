@@ -169,7 +169,7 @@ function Contact() {
 
     try {
       // 使用 Formspree 提交表单
-      const response = await fetch('https://formspree.io/f/xeejgvrn', {
+      const response = await fetch(`https://formspree.io/f/${siteConfig.formspreeId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -230,88 +230,98 @@ function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="name">{t.form.name} *</label>
-                    <input
-                      id="name"
-                      type="text"
-                      placeholder={t.form.namePlaceholder}
-                      className={errors.name ? 'error' : ''}
-                      aria-describedby={errors.name ? 'name-error' : undefined}
-                      aria-invalid={errors.name ? 'true' : 'false'}
-                      {...register('name')}
-                    />
-                    {errors.name && <span id="name-error" className="error-message" role="alert">{errors.name.message}</span>}
+                <fieldset className="form-fieldset">
+                  <legend className="visually-hidden">
+                    {language === 'zh' ? '联系信息' : language === 'it' ? 'Informazioni di contatto' : 'Contact Information'}
+                  </legend>
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label htmlFor="name">{t.form.name} *</label>
+                      <input
+                        id="name"
+                        type="text"
+                        placeholder={t.form.namePlaceholder}
+                        className={errors.name ? 'error' : ''}
+                        aria-describedby={errors.name ? 'name-error' : undefined}
+                        aria-invalid={errors.name ? 'true' : 'false'}
+                        {...register('name')}
+                      />
+                      {errors.name && <span id="name-error" className="error-message" role="alert">{errors.name.message}</span>}
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="email">{t.form.email} *</label>
+                      <input
+                        id="email"
+                        type="email"
+                        placeholder={t.form.emailPlaceholder}
+                        className={errors.email ? 'error' : ''}
+                        aria-describedby={errors.email ? 'email-error' : undefined}
+                        aria-invalid={errors.email ? 'true' : 'false'}
+                        {...register('email')}
+                      />
+                      {errors.email && <span id="email-error" className="error-message" role="alert">{errors.email.message}</span>}
+                    </div>
                   </div>
 
-                  <div className="form-group">
-                    <label htmlFor="email">{t.form.email} *</label>
-                    <input
-                      id="email"
-                      type="email"
-                      placeholder={t.form.emailPlaceholder}
-                      className={errors.email ? 'error' : ''}
-                      aria-describedby={errors.email ? 'email-error' : undefined}
-                      aria-invalid={errors.email ? 'true' : 'false'}
-                      {...register('email')}
-                    />
-                    {errors.email && <span id="email-error" className="error-message" role="alert">{errors.email.message}</span>}
-                  </div>
-                </div>
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label htmlFor="phone">{t.form.phone}</label>
+                      <input
+                        id="phone"
+                        type="tel"
+                        placeholder={t.form.phonePlaceholder}
+                        {...register('phone')}
+                      />
+                    </div>
 
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="phone">{t.form.phone}</label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      placeholder={t.form.phonePlaceholder}
-                      {...register('phone')}
-                    />
+                    <div className="form-group">
+                      <label htmlFor="projectType">{t.form.projectType} *</label>
+                      <select
+                        id="projectType"
+                        className={errors.projectType ? 'error' : ''}
+                        aria-describedby={errors.projectType ? 'projectType-error' : undefined}
+                        aria-invalid={errors.projectType ? 'true' : 'false'}
+                        {...register('projectType')}
+                      >
+                        <option value="">{t.form.projectTypePlaceholder}</option>
+                        {t.projectTypes.map(type => (
+                          <option key={type.value} value={type.value}>{type.label}</option>
+                        ))}
+                      </select>
+                      {errors.projectType && <span id="projectType-error" className="error-message" role="alert">{errors.projectType.message}</span>}
+                    </div>
                   </div>
+                </fieldset>
 
+                <fieldset className="form-fieldset">
+                  <legend className="visually-hidden">
+                    {language === 'zh' ? '项目详情' : language === 'it' ? 'Dettagli del progetto' : 'Project Details'}
+                  </legend>
                   <div className="form-group">
-                    <label htmlFor="projectType">{t.form.projectType} *</label>
-                    <select
-                      id="projectType"
-                      className={errors.projectType ? 'error' : ''}
-                      aria-describedby={errors.projectType ? 'projectType-error' : undefined}
-                      aria-invalid={errors.projectType ? 'true' : 'false'}
-                      {...register('projectType')}
-                    >
-                      <option value="">{t.form.projectTypePlaceholder}</option>
-                      {t.projectTypes.map(type => (
-                        <option key={type.value} value={type.value}>{type.label}</option>
+                    <label htmlFor="budget">{t.form.budget}</label>
+                    <select id="budget" {...register('budget')}>
+                      <option value="">{t.form.budgetPlaceholder}</option>
+                      {t.budgetRanges.map(range => (
+                        <option key={range.value} value={range.value}>{range.label}</option>
                       ))}
                     </select>
-                    {errors.projectType && <span id="projectType-error" className="error-message" role="alert">{errors.projectType.message}</span>}
                   </div>
-                </div>
 
-                <div className="form-group">
-                  <label htmlFor="budget">{t.form.budget}</label>
-                  <select id="budget" {...register('budget')}>
-                    <option value="">{t.form.budgetPlaceholder}</option>
-                    {t.budgetRanges.map(range => (
-                      <option key={range.value} value={range.value}>{range.label}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="message">{t.form.message} *</label>
-                  <textarea
-                    id="message"
-                    rows="6"
-                    placeholder={t.form.messagePlaceholder}
-                    className={errors.message ? 'error' : ''}
-                    aria-describedby={errors.message ? 'message-error' : undefined}
-                    aria-invalid={errors.message ? 'true' : 'false'}
-                    {...register('message')}
-                  />
-                  {errors.message && <span id="message-error" className="error-message" role="alert">{errors.message.message}</span>}
-                </div>
+                  <div className="form-group">
+                    <label htmlFor="message">{t.form.message} *</label>
+                    <textarea
+                      id="message"
+                      rows="6"
+                      placeholder={t.form.messagePlaceholder}
+                      className={errors.message ? 'error' : ''}
+                      aria-describedby={errors.message ? 'message-error' : undefined}
+                      aria-invalid={errors.message ? 'true' : 'false'}
+                      {...register('message')}
+                    />
+                    {errors.message && <span id="message-error" className="error-message" role="alert">{errors.message.message}</span>}
+                  </div>
+                </fieldset>
 
                 {submitStatus === 'error' && (
                   <div className="submit-error">

@@ -15,8 +15,10 @@ function Header() {
   const navItems = [
     { path: '/', label: t('nav.home') },
     { path: '/services', label: t('nav.services') },
+    { path: '/pricing', label: t('nav.pricing') },
     { path: '/portfolio', label: t('nav.portfolio') },
     { path: '/blog', label: t('nav.blog') },
+    { path: '/faq', label: t('nav.faq') },
     { path: '/testimonials', label: t('nav.testimonials') },
     { path: '/about', label: t('nav.about') },
     { path: '/contact', label: t('nav.contact') }
@@ -37,13 +39,17 @@ function Header() {
           {language === 'zh' ? '极简科技' : 'Minimal Tech'}
         </Link>
 
-        <nav className={`header-nav ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+        <nav
+          className={`header-nav ${mobileMenuOpen ? 'mobile-open' : ''}`}
+          aria-label={language === 'zh' ? '主导航' : language === 'it' ? 'Navigazione principale' : 'Main navigation'}
+        >
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
               className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
               onClick={() => setMobileMenuOpen(false)}
+              aria-current={isActive(item.path) ? 'page' : undefined}
             >
               {item.label}
             </Link>
@@ -57,19 +63,21 @@ function Header() {
             className="lang-switcher"
             onClick={() => {
               const fromLang = language
-              const toLang = language === 'zh' ? 'en' : 'zh'
+              const langOrder = { it: 'en', en: 'zh', zh: 'it' }
+              const toLang = langOrder[language] || 'it'
               trackLanguageSwitch(fromLang, toLang)
               toggleLanguage()
             }}
-            aria-label="Switch Language"
+            aria-label={language === 'zh' ? '切换语言' : language === 'it' ? 'Cambia lingua' : 'Switch language'}
           >
-            {language === 'zh' ? 'EN' : '中'}
+            {language === 'it' ? 'EN' : language === 'en' ? '中' : 'IT'}
           </button>
 
           <button
             className="mobile-menu-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Menu"
+            aria-label={language === 'zh' ? '切换菜单' : language === 'it' ? 'Apri menu' : 'Toggle menu'}
+            aria-expanded={mobileMenuOpen}
           >
             <span></span>
             <span></span>
