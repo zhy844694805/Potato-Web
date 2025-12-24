@@ -9,6 +9,7 @@ function ServiceDetail() {
   const { id } = useParams()
   const { language } = useLanguage()
   const service = getServiceById(id)
+  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
   if (!service) {
     return <Navigate to="/404" replace />
@@ -39,14 +40,14 @@ function ServiceDetail() {
         </section>
 
         <section className="service-detail-description">
-          <h2>{language === 'zh' ? '服务详情' : 'Service Details'}</h2>
+          <h2>{t('服务详情', 'Service Details', 'Dettagli del Servizio')}</h2>
           {descriptionParagraphs.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
         </section>
 
         <section className="service-detail-features">
-          <h2>{language === 'zh' ? '服务内容' : 'What We Offer'}</h2>
+          <h2>{t('服务内容', 'What We Offer', 'Cosa Offriamo')}</h2>
           <div className="features-list">
             {service.features.map((feature, index) => (
               <div key={index} className="feature-list-item">
@@ -58,21 +59,21 @@ function ServiceDetail() {
         </section>
 
         <section className="service-detail-cta">
-          <h2>{language === 'zh' ? '开始您的项目' : 'Start Your Project'}</h2>
+          <h2>{t('开始您的项目', 'Start Your Project', 'Inizia il Tuo Progetto')}</h2>
           <p>
-            {language === 'zh'
-              ? '准备好开始了吗？联系我们讨论您的需求。'
-              : 'Ready to get started? Contact us to discuss your needs.'}
+            {t('准备好开始了吗？联系我们讨论您的需求。',
+              'Ready to get started? Contact us to discuss your needs.',
+              'Pronto per iniziare? Contattaci per discutere le tue esigenze.')}
           </p>
           <div className="cta-buttons">
             <Link to="/services">
               <Button variant="secondary">
-                {language === 'zh' ? '返回服务列表' : 'Back to Services'}
+                {t('返回服务列表', 'Back to Services', 'Torna ai Servizi')}
               </Button>
             </Link>
             <Link to="/contact">
               <Button variant="primary">
-                {language === 'zh' ? '联系我们' : 'Contact Us'}
+                {t('联系我们', 'Contact Us', 'Contattaci')}
               </Button>
             </Link>
           </div>

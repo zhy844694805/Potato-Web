@@ -25,12 +25,19 @@ function Blog() {
       title: 'Blog',
       description: 'Sharing web development, full-stack technology, design thinking and freelance development experience',
       keywords: 'tech blog,web development,full stack,React,independent developer'
+    },
+    it: {
+      title: 'Blog',
+      description: 'Condivisione di sviluppo web, tecnologia full-stack, design thinking ed esperienza di sviluppo freelance',
+      keywords: 'blog tecnico,sviluppo web,full stack,React,sviluppatore indipendente'
     }
   }
 
+  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
+
   const breadcrumbItems = [
-    { name: language === 'zh' ? '首页' : 'Home', url: '/' },
-    { name: language === 'zh' ? '技术博客' : 'Blog', url: '/blog' }
+    { name: t('首页', 'Home', 'Home'), url: '/' },
+    { name: t('技术博客', 'Blog', 'Blog'), url: '/blog' }
   ]
 
   return (

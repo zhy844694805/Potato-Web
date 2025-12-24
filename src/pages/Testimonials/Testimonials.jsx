@@ -17,10 +17,10 @@ function Testimonials() {
   const allTags = [...new Set(testimonials.flatMap(t => t.tags.map(tag => tag[language])))]
 
   const filterOptions = [
-    { value: 'all', label: { zh: '全部', en: 'All' } },
+    { value: 'all', label: { zh: '全部', en: 'All', it: 'Tutti' } },
     ...allTags.map(tag => ({
       value: tag,
-      label: { zh: tag, en: tag }
+      label: { zh: tag, en: tag, it: tag }
     }))
   ]
 
@@ -40,6 +40,11 @@ function Testimonials() {
       title: 'Testimonials',
       description: 'Read real client reviews and feedback about our services and project collaboration experience',
       keywords: 'testimonials,client reviews,project feedback,service quality,independent developer'
+    },
+    it: {
+      title: 'Testimonianze',
+      description: 'Leggi le recensioni e i feedback reali dei clienti sui nostri servizi e l\'esperienza di collaborazione',
+      keywords: 'testimonianze,recensioni clienti,feedback progetti,qualità servizio,sviluppatore indipendente'
     }
   }
 
@@ -52,17 +57,17 @@ function Testimonials() {
     {
       value: '10',
       suffix: '+',
-      label: { zh: '客户评价', en: 'Client Reviews' }
+      label: { zh: '客户评价', en: 'Client Reviews', it: 'Recensioni Clienti' }
     },
     {
       value: '100',
       suffix: '%',
-      label: { zh: '五星好评', en: '5-Star Rating' }
+      label: { zh: '五星好评', en: '5-Star Rating', it: 'Valutazione 5 Stelle' }
     },
     {
       value: '95',
       suffix: '%',
-      label: { zh: '客户推荐', en: 'Recommendation' }
+      label: { zh: '客户推荐', en: 'Recommendation', it: 'Raccomandazione' }
     }
   ]
 

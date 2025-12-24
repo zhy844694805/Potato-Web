@@ -17,8 +17,15 @@ function NotFound() {
       title: 'Page Not Found',
       description: 'Sorry, the page you are looking for does not exist',
       keywords: '404,page not found'
+    },
+    it: {
+      title: 'Pagina Non Trovata',
+      description: 'Spiacente, la pagina che stai cercando non esiste',
+      keywords: '404,pagina non trovata'
     }
   }
+
+  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
   return (
     <div className="notfound-page">
@@ -31,16 +38,16 @@ function NotFound() {
       <div className="notfound-content">
         <h1 className="notfound-title">404</h1>
         <p className="notfound-message">
-          {language === 'zh' ? '页面未找到' : 'Page Not Found'}
+          {t('页面未找到', 'Page Not Found', 'Pagina Non Trovata')}
         </p>
         <p className="notfound-description">
-          {language === 'zh'
-            ? '抱歉，您访问的页面不存在'
-            : 'Sorry, the page you are looking for does not exist'}
+          {t('抱歉，您访问的页面不存在',
+            'Sorry, the page you are looking for does not exist',
+            'Spiacente, la pagina che stai cercando non esiste')}
         </p>
         <Link to="/">
           <Button variant="primary">
-            {language === 'zh' ? '返回首页' : 'Back to Home'}
+            {t('返回首页', 'Back to Home', 'Torna alla Home')}
           </Button>
         </Link>
       </div>

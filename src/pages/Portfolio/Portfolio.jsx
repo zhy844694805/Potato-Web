@@ -25,6 +25,11 @@ function Portfolio() {
       title: 'Capabilities',
       description: 'Independent developer service capabilities including web development, full-stack applications, data platforms and more',
       keywords: 'capabilities,web development,full stack,technical services,development portfolio'
+    },
+    it: {
+      title: 'Capacità',
+      description: 'Capacità di servizio dello sviluppatore indipendente tra cui sviluppo web, applicazioni full-stack, piattaforme dati e altro',
+      keywords: 'capacità,sviluppo web,full stack,servizi tecnici,portfolio sviluppo'
     }
   }
 

@@ -43,6 +43,11 @@ function Home() {
       title: 'Home',
       description: 'Independent Developer - Focused on web development and full-stack solutions, providing cost-effective technical services for individuals and small businesses.',
       keywords: 'independent developer,web development,full stack,React development,freelance developer'
+    },
+    it: {
+      title: 'Home',
+      description: 'Sviluppatore Indipendente - Focalizzato sullo sviluppo web e soluzioni full-stack, fornendo servizi tecnici convenienti per privati e piccole imprese.',
+      keywords: 'sviluppatore indipendente,sviluppo web,full stack,sviluppo React,sviluppatore freelance'
     }
   }
 

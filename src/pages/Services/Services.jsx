@@ -21,8 +21,15 @@ function Services() {
       title: 'Services',
       description: 'Independent developer offering web development, full-stack development, website maintenance, and technical consultation',
       keywords: 'independent developer,web development,full stack,website maintenance,technical consultation'
+    },
+    it: {
+      title: 'Servizi',
+      description: 'Sviluppatore indipendente che offre sviluppo web, sviluppo full-stack, manutenzione siti e consulenza tecnica',
+      keywords: 'sviluppatore indipendente,sviluppo web,full stack,manutenzione siti,consulenza tecnica'
     }
   }
+
+  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
   return (
     <div className="services-page">

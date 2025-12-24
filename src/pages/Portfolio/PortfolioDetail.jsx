@@ -11,6 +11,7 @@ function PortfolioDetail() {
   const { id } = useParams()
   const { language } = useLanguage()
   const portfolio = getPortfolioById(id)
+  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
   if (!portfolio) {
     return <Navigate to="/404" replace />
@@ -36,33 +37,33 @@ function PortfolioDetail() {
           </div>
           <h1 className="detail-title">{portfolio.title[language]}</h1>
           <p className="detail-client">
-            {language === 'zh' ? '客户：' : 'Client: '}
+            {t('客户：', 'Client: ', 'Cliente: ')}
             {portfolio.client[language]}
           </p>
         </section>
 
         <section className="detail-overview">
-          <h2>{language === 'zh' ? '项目概述' : 'Project Overview'}</h2>
+          <h2>{t('项目概述', 'Project Overview', 'Panoramica del Progetto')}</h2>
           <p>{portfolio.description[language]}</p>
         </section>
 
         {portfolio.challenge && (
           <section className="detail-section">
-            <h2>{language === 'zh' ? '项目挑战' : 'Challenge'}</h2>
+            <h2>{t('项目挑战', 'Challenge', 'Sfida')}</h2>
             <p>{portfolio.challenge[language]}</p>
           </section>
         )}
 
         {portfolio.solution && (
           <section className="detail-section">
-            <h2>{language === 'zh' ? '解决方案' : 'Solution'}</h2>
+            <h2>{t('解决方案', 'Solution', 'Soluzione')}</h2>
             <p>{portfolio.solution[language]}</p>
           </section>
         )}
 
         {portfolio.features && portfolio.features.length > 0 && (
           <section className="detail-section detail-features">
-            <h2>{language === 'zh' ? '项目亮点' : 'Key Features'}</h2>
+            <h2>{t('项目亮点', 'Key Features', 'Caratteristiche Chiave')}</h2>
             <div className="features-grid">
               {portfolio.features.map((feature, index) => (
                 <div key={index} className="feature-item">
@@ -77,7 +78,7 @@ function PortfolioDetail() {
 
         {portfolio.results && portfolio.results.length > 0 && (
           <section className="detail-results">
-            <h2>{language === 'zh' ? '项目成果' : 'Results'}</h2>
+            <h2>{t('项目成果', 'Results', 'Risultati')}</h2>
             <div className="results-grid">
               {portfolio.results.map((result, index) => (
                 <div key={index} className="result-item">
@@ -93,7 +94,7 @@ function PortfolioDetail() {
 
         {portfolio.timeline && portfolio.timeline.length > 0 && (
           <section className="detail-section detail-timeline">
-            <h2>{language === 'zh' ? '实施时间线' : 'Implementation Timeline'}</h2>
+            <h2>{t('实施时间线', 'Implementation Timeline', 'Timeline di Implementazione')}</h2>
             <div className="timeline-wrapper">
               {portfolio.timeline.map((phase, index) => (
                 <div key={index} className="timeline-item">
@@ -113,7 +114,7 @@ function PortfolioDetail() {
 
         {portfolio.technologies && portfolio.technologies.length > 0 && (
           <section className="detail-section">
-            <h2>{language === 'zh' ? '技术栈' : 'Technologies'}</h2>
+            <h2>{t('技术栈', 'Technologies', 'Tecnologie')}</h2>
             <div className="tech-stack">
               {portfolio.technologies.map((tech, index) => (
                 <span key={index} className="tech-tag" style={{ borderColor: portfolio.color }}>
@@ -126,7 +127,7 @@ function PortfolioDetail() {
 
         {portfolio.images && portfolio.images.length > 0 && (
           <section className="detail-section detail-images">
-            <h2>{language === 'zh' ? '项目展示' : 'Project Showcase'}</h2>
+            <h2>{t('项目展示', 'Project Showcase', 'Vetrina del Progetto')}</h2>
             <div className="images-grid">
               {portfolio.images.map((image, index) => (
                 <div key={index} className="image-item">
@@ -140,7 +141,7 @@ function PortfolioDetail() {
 
         {portfolio.testimonial && (
           <section className="detail-section detail-testimonial">
-            <h2>{language === 'zh' ? '客户评价' : 'Client Testimonial'}</h2>
+            <h2>{t('客户评价', 'Client Testimonial', 'Testimonianza del Cliente')}</h2>
             <div className="testimonial-card" style={{ borderColor: portfolio.color }}>
               <div className="testimonial-quote">"{portfolio.testimonial.quote[language]}"</div>
               <div className="testimonial-author">
@@ -156,19 +157,19 @@ function PortfolioDetail() {
         <section className="detail-cta">
           <Link to="/portfolio">
             <Button variant="secondary">
-              {language === 'zh' ? '返回案例列表' : 'Back to Portfolio'}
+              {t('返回案例列表', 'Back to Portfolio', 'Torna al Portfolio')}
             </Button>
           </Link>
           {portfolio.demoUrl && (
             <Link to={portfolio.demoUrl}>
               <Button variant="primary" style={{ background: 'linear-gradient(135deg, #d4a574, #8b6914)' }}>
-                {language === 'zh' ? '查看在线演示' : 'View Live Demo'} →
+                {t('查看在线演示', 'View Live Demo', 'Vedi Demo Live')} →
               </Button>
             </Link>
           )}
           <Link to="/contact">
             <Button variant="primary">
-              {language === 'zh' ? '开始您的项目' : 'Start Your Project'}
+              {t('开始您的项目', 'Start Your Project', 'Inizia il Tuo Progetto')}
             </Button>
           </Link>
         </section>

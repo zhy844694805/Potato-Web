@@ -12,6 +12,7 @@ function BlogDetail() {
   const { language } = useLanguage()
 
   const post = getBlogBySlug(id)
+  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
   if (!post) {
     return <Navigate to="/404" replace />
@@ -84,9 +85,9 @@ function BlogDetail() {
             <div className="author-info">
               <div className="author-name">{post.author[language]}</div>
               <div className="author-bio">
-                {language === 'zh'
-                  ? '专注于Web开发和全栈解决方案的独立开发者'
-                  : 'Independent developer focused on web development and full-stack solutions'}
+                {t('专注于Web开发和全栈解决方案的独立开发者',
+                  'Independent developer focused on web development and full-stack solutions',
+                  'Sviluppatore indipendente focalizzato su sviluppo web e soluzioni full-stack')}
               </div>
             </div>
           </div>
@@ -94,7 +95,7 @@ function BlogDetail() {
           {/* Back to Blog */}
           <div className="article-navigation">
             <Link to="/blog" className="back-link">
-              ← {language === 'zh' ? '返回博客列表' : 'Back to Blog'}
+              ← {t('返回博客列表', 'Back to Blog', 'Torna al Blog')}
             </Link>
           </div>
         </div>
@@ -104,7 +105,7 @@ function BlogDetail() {
           <section className="related-posts">
             <div className="container">
               <h2 className="section-title">
-                {language === 'zh' ? '相关文章' : 'Related Posts'}
+                {t('相关文章', 'Related Posts', 'Articoli Correlati')}
               </h2>
               <div className="related-grid">
                 {relatedPosts.map((relatedPost) => (
