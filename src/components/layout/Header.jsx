@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../../context/LanguageContext'
-import { trackLanguageSwitch } from '../Analytics'
+import { trackLanguageSwitch } from '../../utils/analytics'
 import ThemeToggle from '../ui/ThemeToggle'
 import './Header.css'
 

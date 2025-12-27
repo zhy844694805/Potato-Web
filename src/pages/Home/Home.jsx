@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../../context/LanguageContext'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import SEO from '../../components/SEO'
-import StructuredData, { organizationSchema } from '../../components/StructuredData'
+import StructuredData from '../../components/StructuredData'
+import { organizationSchema } from '../../utils/schemas'
 import FloatingElements from '../../components/ui/FloatingElements'
 import Button from '../../components/ui/Button'
 import ServiceCard from '../../components/business/ServiceCard'
@@ -22,12 +23,12 @@ function Home() {
   const { language } = useLanguage()
 
   // Scroll animations for different sections
-  const statsAnimation = useScrollAnimation({ threshold: 0.2 })
-  const servicesAnimation = useScrollAnimation({ threshold: 0.1 })
-  const casesAnimation = useScrollAnimation({ threshold: 0.1 })
-  const blogAnimation = useScrollAnimation({ threshold: 0.1 })
-  const testimonialsAnimation = useScrollAnimation({ threshold: 0.1 })
-  const ctaAnimation = useScrollAnimation({ threshold: 0.3 })
+  const { ref: statsRef, inView: statsInView } = useScrollAnimation({ threshold: 0.2 })
+  const { ref: servicesRef, inView: servicesInView } = useScrollAnimation({ threshold: 0.1 })
+  const { ref: casesRef, inView: casesInView } = useScrollAnimation({ threshold: 0.1 })
+  const { ref: blogRef, inView: blogInView } = useScrollAnimation({ threshold: 0.1 })
+  const { ref: testimonialsRef, inView: testimonialsInView } = useScrollAnimation({ threshold: 0.1 })
+  const { ref: ctaRef, inView: ctaInView } = useScrollAnimation({ threshold: 0.3 })
 
   const featuredCases = portfolioData.slice(0, 4)
   const featuredBlogs = getLatestPosts(3)
@@ -89,14 +90,14 @@ function Home() {
 
       {/* Stats Section */}
       <section
-        ref={statsAnimation.ref}
-        className={`home-stats fade-in-up ${statsAnimation.inView ? 'in-view' : ''}`}
+        ref={statsRef}
+        className={`home-stats fade-in-up ${statsInView ? 'in-view' : ''}`}
       >
         <div className="stats-grid">
           {stats.map((stat, index) => (
             <div
               key={stat.id}
-              className={`stat-item fade-in-up delay-${(index + 1) * 100} ${statsAnimation.inView ? 'in-view' : ''}`}
+              className={`stat-item fade-in-up delay-${(index + 1) * 100} ${statsInView ? 'in-view' : ''}`}
             >
               <div className="stat-icon">{stat.icon}</div>
               <div className="stat-content">
@@ -115,8 +116,8 @@ function Home() {
       <section className="home-services">
         <div className="container">
           <div
-            ref={servicesAnimation.ref}
-            className={`section-header-home fade-in-up ${servicesAnimation.inView ? 'in-view' : ''}`}
+            ref={servicesRef}
+            className={`section-header-home fade-in-up ${servicesInView ? 'in-view' : ''}`}
           >
             <div className="section-number">01</div>
             <h2 className="section-title">
@@ -132,7 +133,7 @@ function Home() {
             {services.map((service, index) => (
               <div
                 key={service.id}
-                className={`fade-in-up delay-${(index + 1) * 100} ${servicesAnimation.inView ? 'in-view' : ''}`}
+                className={`fade-in-up delay-${(index + 1) * 100} ${servicesInView ? 'in-view' : ''}`}
               >
                 <ServiceCard service={service} />
               </div>
@@ -150,8 +151,8 @@ function Home() {
       <section className="home-cases">
         <div className="container">
           <div
-            ref={casesAnimation.ref}
-            className={`section-header-home fade-in-up ${casesAnimation.inView ? 'in-view' : ''}`}
+            ref={casesRef}
+            className={`section-header-home fade-in-up ${casesInView ? 'in-view' : ''}`}
           >
             <div className="section-number">02</div>
             <h2 className="section-title">
@@ -167,7 +168,7 @@ function Home() {
             {featuredCases.map((portfolio, index) => (
               <div
                 key={portfolio.id}
-                className={`fade-in-up delay-${(index + 1) * 100} ${casesAnimation.inView ? 'in-view' : ''}`}
+                className={`fade-in-up delay-${(index + 1) * 100} ${casesInView ? 'in-view' : ''}`}
               >
                 <PortfolioCard portfolio={portfolio} />
               </div>
@@ -187,8 +188,8 @@ function Home() {
       <section className="home-blog">
         <div className="container">
           <div
-            ref={blogAnimation.ref}
-            className={`section-header-home fade-in-up ${blogAnimation.inView ? 'in-view' : ''}`}
+            ref={blogRef}
+            className={`section-header-home fade-in-up ${blogInView ? 'in-view' : ''}`}
           >
             <div className="section-number">03</div>
             <h2 className="section-title">
@@ -204,7 +205,7 @@ function Home() {
             {featuredBlogs.map((blog, index) => (
               <div
                 key={blog.id}
-                className={`fade-in-up delay-${(index + 1) * 100} ${blogAnimation.inView ? 'in-view' : ''}`}
+                className={`fade-in-up delay-${(index + 1) * 100} ${blogInView ? 'in-view' : ''}`}
               >
                 <BlogCard post={blog} />
               </div>
@@ -224,8 +225,8 @@ function Home() {
       <section className="home-testimonials">
         <div className="container">
           <div
-            ref={testimonialsAnimation.ref}
-            className={`section-header-home fade-in-up ${testimonialsAnimation.inView ? 'in-view' : ''}`}
+            ref={testimonialsRef}
+            className={`section-header-home fade-in-up ${testimonialsInView ? 'in-view' : ''}`}
           >
             <div className="section-number">04</div>
             <h2 className="section-title">
@@ -241,7 +242,7 @@ function Home() {
             {featuredTestimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                className={`fade-in-up delay-${(index + 1) * 100} ${testimonialsAnimation.inView ? 'in-view' : ''}`}
+                className={`fade-in-up delay-${(index + 1) * 100} ${testimonialsInView ? 'in-view' : ''}`}
               >
                 <TestimonialCard testimonial={testimonial} />
               </div>
@@ -260,8 +261,8 @@ function Home() {
       {/* CTA Section */}
       <section className="home-cta">
         <div
-          ref={ctaAnimation.ref}
-          className={`cta-content scale-in ${ctaAnimation.inView ? 'in-view' : ''}`}
+          ref={ctaRef}
+          className={`cta-content scale-in ${ctaInView ? 'in-view' : ''}`}
         >
           <h2 className="cta-title">
             {language === 'zh' ? '开始你的项目' : 'Start Your Project'}

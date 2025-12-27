@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
-import { trackServiceView } from '../Analytics'
+import { trackServiceView } from '../../utils/analytics'
 import './ServiceCard.css'
 
 function ServiceCard({ service }) {

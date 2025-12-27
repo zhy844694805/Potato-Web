@@ -1,6 +1,32 @@
 import { useEffect, useRef } from 'react'
 import './CyberpunkPrototype.css'
 
+// Particle class for canvas animation - moved outside component for Fast Refresh compatibility
+function createParticle(canvasWidth, canvasHeight) {
+  return {
+    x: Math.random() * canvasWidth,
+    y: Math.random() * canvasHeight,
+    vx: (Math.random() - 0.5) * 0.5,
+    vy: (Math.random() - 0.5) * 0.5,
+    radius: Math.random() * 2
+  }
+}
+
+function updateParticle(particle, canvasWidth, canvasHeight) {
+  particle.x += particle.vx
+  particle.y += particle.vy
+
+  if (particle.x < 0 || particle.x > canvasWidth) particle.vx *= -1
+  if (particle.y < 0 || particle.y > canvasHeight) particle.vy *= -1
+}
+
+function drawParticle(ctx, particle) {
+  ctx.beginPath()
+  ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
+  ctx.fillStyle = 'rgba(0, 255, 255, 0.5)'
+  ctx.fill()
+}
+
 function CyberpunkPrototype() {
   const canvasRef = useRef(null)
 
@@ -13,33 +39,8 @@ function CyberpunkPrototype() {
     const particles = []
     const particleCount = 100
 
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
-        this.vx = (Math.random() - 0.5) * 0.5
-        this.vy = (Math.random() - 0.5) * 0.5
-        this.radius = Math.random() * 2
-      }
-
-      update() {
-        this.x += this.vx
-        this.y += this.vy
-
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1
-      }
-
-      draw() {
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(0, 255, 255, 0.5)'
-        ctx.fill()
-      }
-    }
-
     for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle())
+      particles.push(createParticle(canvas.width, canvas.height))
     }
 
     function animate() {
@@ -47,8 +48,8 @@ function CyberpunkPrototype() {
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       particles.forEach(particle => {
-        particle.update()
-        particle.draw()
+        updateParticle(particle, canvas.width, canvas.height)
+        drawParticle(ctx, particle)
       })
 
       requestAnimationFrame(animate)

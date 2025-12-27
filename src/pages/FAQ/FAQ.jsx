@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 import SEO from '../../components/SEO'
-import StructuredData, { faqPageSchema } from '../../components/StructuredData'
+import StructuredData from '../../components/StructuredData'
+import { faqPageSchema } from '../../utils/schemas'
 import { faqCategories, getFaqsByCategory, faqs } from '../../data/faq'
 import './FAQ.css'
 

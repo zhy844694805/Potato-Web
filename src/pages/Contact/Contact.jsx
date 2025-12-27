@@ -6,7 +6,7 @@ import { useLanguage } from '../../context/LanguageContext'
 import SEO from '../../components/SEO'
 import Button from '../../components/ui/Button'
 import { siteConfig } from '../../config/site'
-import { trackButtonClick } from '../../components/Analytics'
+import { trackButtonClick } from '../../utils/analytics'
 import './Contact.css'
 
 // 表单验证规则

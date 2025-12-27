@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import SEO from '../../components/SEO'
-import StructuredData, { breadcrumbSchema } from '../../components/StructuredData'
+import StructuredData from '../../components/StructuredData'
+import { breadcrumbSchema } from '../../utils/schemas'
 import BlogCard from '../../components/business/BlogCard'
 import { categories, getPostsByCategory, getFeaturedPosts } from '../../data/blog'
 import './Blog.css'
@@ -10,7 +11,7 @@ import './Blog.css'
 function Blog() {
   const { language } = useLanguage()
   const [activeCategory, setActiveCategory] = useState('all')
-  const featuredAnimation = useScrollAnimation({ threshold: 0.1 })
+  const { ref: featuredRef, inView: featuredInView } = useScrollAnimation({ threshold: 0.1 })
 
   const filteredPosts = getPostsByCategory(activeCategory)
   const featuredPosts = getFeaturedPosts()
@@ -65,8 +66,8 @@ function Blog() {
         {/* Featured Posts */}
         {activeCategory === 'all' && featuredPosts.length > 0 && (
           <section
-            ref={featuredAnimation.ref}
-            className={`blog-featured fade-in-up ${featuredAnimation.inView ? 'in-view' : ''}`}
+            ref={featuredRef}
+            className={`blog-featured fade-in-up ${featuredInView ? 'in-view' : ''}`}
           >
             <h2 className="section-title">
               {language === 'zh' ? '精选文章' : 'Featured Posts'}

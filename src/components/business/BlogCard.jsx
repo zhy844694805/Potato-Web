@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
-import { trackEvent } from '../Analytics'
+import { trackEvent } from '../../utils/analytics'
 import LazyImage from '../ui/LazyImage'
 import './BlogCard.css'
 

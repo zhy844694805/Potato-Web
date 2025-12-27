@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import SEO from '../../components/SEO'
-import StructuredData, { breadcrumbSchema } from '../../components/StructuredData'
+import StructuredData from '../../components/StructuredData'
+import { breadcrumbSchema } from '../../utils/schemas'
 import TestimonialCard from '../../components/business/TestimonialCard'
 import { testimonials } from '../../data/testimonials'
 import './Testimonials.css'
@@ -11,7 +12,7 @@ function Testimonials() {
   const { language } = useLanguage()
   const [activeFilter, setActiveFilter] = useState('all')
   const tr = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
-  const statsAnimation = useScrollAnimation({ threshold: 0.2 })
+  const { ref: statsRef, inView: statsInView } = useScrollAnimation({ threshold: 0.2 })
 
   // Extract unique tags from all testimonials
   const allTags = [...new Set(testimonials.flatMap(t => t.tags.map(tag => tag[language])))]
@@ -95,14 +96,14 @@ function Testimonials() {
 
         {/* Stats Section */}
         <section
-          ref={statsAnimation.ref}
-          className={`testimonials-stats fade-in-up ${statsAnimation.inView ? 'in-view' : ''}`}
+          ref={statsRef}
+          className={`testimonials-stats fade-in-up ${statsInView ? 'in-view' : ''}`}
         >
           <div className="stats-grid">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className={`stat-item fade-in-up delay-${(index + 1) * 100} ${statsAnimation.inView ? 'in-view' : ''}`}
+                className={`stat-item fade-in-up delay-${(index + 1) * 100} ${statsInView ? 'in-view' : ''}`}
               >
                 <div className="stat-value">
                   {stat.value}

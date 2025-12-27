@@ -1,6 +1,7 @@
 import { useLanguage } from '../../context/LanguageContext'
 import SEO from '../../components/SEO'
-import StructuredData, { organizationSchema } from '../../components/StructuredData'
+import StructuredData from '../../components/StructuredData'
+import { organizationSchema } from '../../utils/schemas'
 import './About.css'
 
 function About() {
