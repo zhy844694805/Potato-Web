@@ -376,8 +376,8 @@ export const menuItems = [
       en: 'Red tuna with white truffle oil and parmesan shavings',
       zh: '红金枪鱼配白松露油和帕玛森芝士薄片'
     },
-    price: 24,
-    image: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400',
+    price: 22,
+    image: 'https://images.unsplash.com/photo-1534482421-64566f976cfa?w=400',
     tags: ['signature', 'glutenFree']
   },
   {
@@ -416,7 +416,7 @@ export const menuItems = [
       en: 'Selection of 15 pieces: tuna, salmon, sea bass, amberjack',
       zh: '15片精选：金枪鱼、三文鱼、鲈鱼、鰤鱼'
     },
-    price: 42,
+    price: 38,
     image: 'https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=400',
     tags: ['signature', 'glutenFree']
   },
@@ -429,8 +429,8 @@ export const menuItems = [
       en: 'Norwegian salmon with avocado, yuzu and tobiko caviar',
       zh: '挪威三文鱼配牛油果、柚子和飞鱼籽'
     },
-    price: 26,
-    image: 'https://images.unsplash.com/photo-1534482421-64566f976cfa?w=400',
+    price: 24,
+    image: 'https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=400',
     tags: ['glutenFree']
   },
   // Sushi
@@ -510,7 +510,7 @@ export const menuItems = [
       zh: '酥脆天妇罗虾配辣蛋黄酱'
     },
     price: 9,
-    image: 'https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=400',
+    image: 'https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?w=400',
     tags: ['spicy']
   },
   // Fusion

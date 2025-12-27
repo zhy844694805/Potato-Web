@@ -35,6 +35,10 @@ const HungryDragon = lazy(() => import('./demos/hungry-dragon/HungryDragon'))
 const BeautyBook = lazy(() => import('./demos/beauty-book/BeautyBook'))
 const ChinaMart = lazy(() => import('./demos/china-mart/ChinaMart'))
 const DragonShip = lazy(() => import('./demos/dragon-ship/DragonShip'))
+const SushiMoto = lazy(() => import('./demos/sushi-moto/SushiMoto'))
+const KokuSushi = lazy(() => import('./demos/koku-sushi/KokuSushi'))
+const YumeSushi = lazy(() => import('./demos/yume-sushi/YumeSushi'))
+const GoldenKoi = lazy(() => import('./demos/golden-koi/GoldenKoi'))
 
 // Loading fallback component with skeleton
 function PageLoader() {
@@ -76,6 +80,10 @@ function AppContent() {
             <Route path="/demo/beauty-book" element={<BeautyBook />} />
             <Route path="/demo/china-mart" element={<ChinaMart />} />
             <Route path="/demo/dragon-ship" element={<DragonShip />} />
+            <Route path="/demo/sushi-moto" element={<SushiMoto />} />
+            <Route path="/demo/koku-sushi" element={<KokuSushi />} />
+            <Route path="/demo/yume-sushi" element={<YumeSushi />} />
+            <Route path="/demo/golden-koi" element={<GoldenKoi />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>

@@ -41,7 +41,7 @@ export const shopInfo = {
 export const products = [
   // Snacks
   { id: 1, category: 'snacks', name: { it: 'Cracker di Riso Want Want', en: 'Want Want Rice Crackers', zh: '旺旺雪饼' }, price: 3.50, image: 'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=300&h=300&fit=crop', inStock: true },
-  { id: 2, category: 'snacks', name: { it: 'Pocky Fragola', en: 'Strawberry Pocky', zh: '草莓百奇' }, price: 2.80, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=300&fit=crop', inStock: true },
+  { id: 2, category: 'snacks', name: { it: 'Pocky Fragola', en: 'Strawberry Pocky', zh: '草莓百奇' }, price: 2.80, image: 'https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=300&h=300&fit=crop', inStock: true },
   { id: 3, category: 'snacks', name: { it: 'Prugne Secche', en: 'Dried Plums', zh: '话梅' }, price: 4.20, image: 'https://images.unsplash.com/photo-1596591868264-6d2c6e86c9a0?w=300&h=300&fit=crop', inStock: true },
   { id: 4, category: 'snacks', name: { it: 'Semi di Girasole', en: 'Sunflower Seeds', zh: '瓜子' }, price: 2.50, image: 'https://images.unsplash.com/photo-1508747703725-719f6c7946cb?w=300&h=300&fit=crop', inStock: true },
 
@@ -65,8 +65,8 @@ export const products = [
 
   // Frozen
   { id: 17, category: 'frozen', name: { it: 'Ravioli di Maiale', en: 'Pork Dumplings', zh: '猪肉水饺' }, price: 6.50, image: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=300&h=300&fit=crop', inStock: true },
-  { id: 18, category: 'frozen', name: { it: 'Panini al Vapore', en: 'Steam Buns', zh: '馒头' }, price: 3.80, image: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=300&fit=crop', inStock: true },
-  { id: 19, category: 'frozen', name: { it: 'Tofu Congelato', en: 'Frozen Tofu', zh: '冻豆腐' }, price: 2.80, image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=300&h=300&fit=crop', inStock: false },
+  { id: 18, category: 'frozen', name: { it: 'Panini al Vapore', en: 'Steam Buns', zh: '馒头' }, price: 3.80, image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?w=300&h=300&fit=crop', inStock: true },
+  { id: 19, category: 'frozen', name: { it: 'Tofu Congelato', en: 'Frozen Tofu', zh: '冻豆腐' }, price: 2.80, image: 'https://images.unsplash.com/photo-1628557025268-7b99b7ff6e7e?w=300&h=300&fit=crop', inStock: false },
   { id: 20, category: 'frozen', name: { it: 'Edamame', en: 'Edamame', zh: '毛豆' }, price: 4.00, image: 'https://images.unsplash.com/photo-1564894809611-1742fc40ed80?w=300&h=300&fit=crop', inStock: true }
 ]
 

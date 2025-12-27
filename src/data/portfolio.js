@@ -49,6 +49,138 @@ export const portfolioData = [
     ]
   },
 
+  // 1b. Sushi Moto - Monster Sushi风格 (暗黑+红色)
+  {
+    id: 101,
+    slug: 'sushi-moto',
+    category: 'restaurant',
+    title: { zh: 'Sushi Moto - 现代大胆风格', en: 'Sushi Moto - Modern Bold Style' },
+    industry: { zh: '餐饮行业', en: 'Restaurant Industry' },
+    year: '2024',
+    color: '#CB1B33',
+    shortDesc: { zh: '大胆现代的连锁寿司品牌', en: 'Bold modern sushi chain brand' },
+    client: { zh: 'Sushi Moto 米兰', en: 'Sushi Moto Milan' },
+    description: {
+      zh: '参考Monster Sushi的设计风格，采用深黑背景配鲜红强调色，打造年轻、大胆、充满活力的现代寿司品牌形象。',
+      en: 'Inspired by Monster Sushi design style, featuring deep black background with vibrant red accents for a young, bold, and energetic modern sushi brand.'
+    },
+    challenge: { zh: '如何打造年轻潮流的寿司品牌形象？', en: 'How to create a trendy sushi brand targeting young audiences?' },
+    solution: { zh: '深黑背景+红色强调，粗体排版，多门店展示，动态菜单卡片。', en: 'Deep black + red accents, bold typography, multi-location display, dynamic menu cards.' },
+    results: [
+      { value: '现代', label: { zh: '设计风格', en: 'Design Style' } },
+      { value: '大胆', label: { zh: '品牌调性', en: 'Brand Tone' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'CSS3', 'Modern Design'],
+    demoUrl: '/demo/sushi-moto',
+    features: [
+      { icon: '🔴', title: { zh: '大胆配色', en: 'Bold Colors' }, desc: { zh: '黑+红现代感', en: 'Black + Red modern' } },
+      { icon: '📍', title: { zh: '多门店', en: 'Multi-Location' }, desc: { zh: '连锁展示', en: 'Chain display' } },
+      { icon: '🍱', title: { zh: '动态菜单', en: 'Dynamic Menu' }, desc: { zh: '分类切换', en: 'Category switch' } }
+    ],
+    thumbnail: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&h=600&fit=crop',
+    images: []
+  },
+
+  // 1c. Koku Sushi - Nobu风格 (金+黑奢华)
+  {
+    id: 102,
+    slug: 'koku-sushi',
+    category: 'restaurant',
+    title: { zh: 'Koku Sushi - 奢华高端风格', en: 'Koku Sushi - Luxury Premium Style' },
+    industry: { zh: '餐饮行业', en: 'Restaurant Industry' },
+    year: '2024',
+    color: '#C9A227',
+    shortDesc: { zh: '金色奢华的高端Omakase餐厅', en: 'Gold luxury premium Omakase restaurant' },
+    client: { zh: 'Koku Sushi 米兰', en: 'Koku Sushi Milan' },
+    description: {
+      zh: '参考Nobu的设计风格，采用黑色背景配金色点缀，优雅衬线字体，打造米其林级别的高端日料体验。',
+      en: 'Inspired by Nobu design style, featuring black background with gold accents and elegant serif typography for Michelin-level fine dining experience.'
+    },
+    challenge: { zh: '如何传达高端奢华的品牌定位？', en: 'How to convey luxury premium brand positioning?' },
+    solution: { zh: '黑金配色，衬线字体，日式汉字元素，优雅留白，预约驱动体验。', en: 'Black + gold palette, serif typography, Japanese kanji elements, elegant whitespace, reservation-driven experience.' },
+    results: [
+      { value: '奢华', label: { zh: '设计风格', en: 'Design Style' } },
+      { value: '高端', label: { zh: '品牌定位', en: 'Brand Position' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'Luxury Design', 'Typography'],
+    demoUrl: '/demo/koku-sushi',
+    features: [
+      { icon: '✨', title: { zh: '金色奢华', en: 'Gold Luxury' }, desc: { zh: '黑金配色', en: 'Black + Gold' } },
+      { icon: '🍶', title: { zh: 'Omakase', en: 'Omakase' }, desc: { zh: '主厨推荐', en: 'Chef\'s choice' } },
+      { icon: '📞', title: { zh: '预约体验', en: 'Reservation' }, desc: { zh: '专属服务', en: 'Exclusive service' } }
+    ],
+    thumbnail: 'https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=800&h=600&fit=crop',
+    images: []
+  },
+
+  // 1d. Yume Sushi - IYO风格 (白色极简)
+  {
+    id: 103,
+    slug: 'yume-sushi',
+    category: 'restaurant',
+    title: { zh: 'Yume Sushi - 极简高雅风格', en: 'Yume Sushi - Minimal Elegant Style' },
+    industry: { zh: '餐饮行业', en: 'Restaurant Industry' },
+    year: '2024',
+    color: '#1A1A1A',
+    shortDesc: { zh: '白色极简的高端品鉴餐厅', en: 'White minimal premium tasting restaurant' },
+    client: { zh: 'Yume Sushi 米兰', en: 'Yume Sushi Milan' },
+    description: {
+      zh: '参考IYO的设计风格，采用纯白背景配简洁黑色文字，大量留白，季节性菜单卡片，打造宁静优雅的用餐体验。',
+      en: 'Inspired by IYO design style, featuring pure white background with minimal black text, generous whitespace, seasonal menu cards for a serene elegant dining experience.'
+    },
+    challenge: { zh: '如何用极简设计传达高端品鉴体验？', en: 'How to convey premium tasting experience through minimal design?' },
+    solution: { zh: '白色背景，简洁排版，季节性菜单卡片，横向画廊滚动，沉浸式体验。', en: 'White background, minimal typography, seasonal menu cards, horizontal gallery scroll, immersive experience.' },
+    results: [
+      { value: '极简', label: { zh: '设计风格', en: 'Design Style' } },
+      { value: '高雅', label: { zh: '品牌气质', en: 'Brand Essence' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'Minimal Design', 'Card Layout'],
+    demoUrl: '/demo/yume-sushi',
+    features: [
+      { icon: '⬜', title: { zh: '纯白极简', en: 'Pure Minimal' }, desc: { zh: '优雅留白', en: 'Elegant space' } },
+      { icon: '🌸', title: { zh: '季节菜单', en: 'Seasonal Menu' }, desc: { zh: '四季品鉴', en: 'Four seasons' } },
+      { icon: '🖼️', title: { zh: '画廊展示', en: 'Gallery' }, desc: { zh: '横向滚动', en: 'Horizontal scroll' } }
+    ],
+    thumbnail: 'https://images.unsplash.com/photo-1553621042-f6e147245754?w=800&h=600&fit=crop',
+    images: []
+  },
+
+  // 1e. Golden Koi - Finger's风格 (金棕奢华)
+  {
+    id: 104,
+    slug: 'golden-koi',
+    category: 'restaurant',
+    title: { zh: 'Golden Koi - 金棕奢华风格', en: 'Golden Koi - Gold Luxury Style' },
+    industry: { zh: '餐饮行业', en: 'Restaurant Industry' },
+    year: '2024',
+    color: '#c4a35a',
+    shortDesc: { zh: '金棕配色的多门店高端日料品牌', en: 'Gold-brown luxury multi-location Japanese restaurant' },
+    client: { zh: 'Golden Koi 金鲤', en: 'Golden Koi Restaurant' },
+    description: {
+      zh: '参考Finger\'s的设计风格，采用金棕配色、优雅衬线字体和中文装饰元素，打造多门店高端日料品牌形象，包含完整预约系统。',
+      en: 'Inspired by Finger\'s design style, featuring gold-brown palette, elegant serif typography and Chinese decorative elements for a multi-location luxury Japanese restaurant with full reservation system.'
+    },
+    challenge: { zh: '如何展示多门店品牌的统一形象？', en: 'How to showcase unified branding across multiple locations?' },
+    solution: { zh: '金棕奢华配色，多门店展示，完整预约表单，Omakase体验板块，三语支持。', en: 'Gold-brown luxury palette, multi-location display, full reservation form, Omakase experience section, trilingual support.' },
+    results: [
+      { value: '奢华', label: { zh: '设计风格', en: 'Design Style' } },
+      { value: '3门店', label: { zh: '多店展示', en: 'Locations' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'Luxury Design', 'Reservation System'],
+    demoUrl: '/demo/golden-koi',
+    features: [
+      { icon: '🏆', title: { zh: '金棕奢华', en: 'Gold Luxury' }, desc: { zh: '高端品牌感', en: 'Premium branding' } },
+      { icon: '📍', title: { zh: '多门店', en: 'Multi-Location' }, desc: { zh: '3城市展示', en: '3 cities display' } },
+      { icon: '📝', title: { zh: '预约系统', en: 'Reservation' }, desc: { zh: '完整表单', en: 'Full booking form' } }
+    ],
+    thumbnail: 'https://images.unsplash.com/photo-1553621042-f6e147245754?w=800&h=600&fit=crop',
+    images: []
+  },
+
   // 2. 普拉托时装品牌
   {
     id: 2,

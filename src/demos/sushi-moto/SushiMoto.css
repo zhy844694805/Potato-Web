@@ -1,0 +1,737 @@
+/* Sushi Moto - Monster Sushi inspired dark + red styling */
+
+/* Reset & Variables */
+.moto-app {
+  --moto-black: #0E0E0E;
+  --moto-dark: #1A1A1A;
+  --moto-gray: #2A2A2A;
+  --moto-light-gray: #888;
+  --moto-white: #FFFFFF;
+  --moto-red: #CB1B33;
+  --moto-red-dark: #A01528;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--moto-black);
+  color: var(--moto-white);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.moto-app * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.moto-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.moto-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(14, 14, 14, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.moto-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.moto-logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.moto-logo-text {
+  color: var(--moto-white);
+}
+
+.moto-logo-accent {
+  color: var(--moto-red);
+}
+
+.moto-nav {
+  display: flex;
+  gap: 32px;
+}
+
+.moto-nav-link {
+  color: var(--moto-white);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.moto-nav-link:hover {
+  color: var(--moto-red);
+}
+
+.moto-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.moto-lang-switch {
+  display: flex;
+  gap: 4px;
+}
+
+.moto-lang-btn {
+  background: transparent;
+  border: 1px solid var(--moto-gray);
+  color: var(--moto-light-gray);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.moto-lang-btn:hover,
+.moto-lang-btn.active {
+  background: var(--moto-white);
+  color: var(--moto-black);
+  border-color: var(--moto-white);
+}
+
+/* Buttons */
+.moto-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.moto-btn-primary {
+  background: var(--moto-red);
+  color: var(--moto-white);
+}
+
+.moto-btn-primary:hover {
+  background: var(--moto-red-dark);
+  transform: translateY(-2px);
+}
+
+.moto-btn-outline {
+  background: transparent;
+  color: var(--moto-white);
+  border: 2px solid var(--moto-white);
+}
+
+.moto-btn-outline:hover {
+  background: var(--moto-white);
+  color: var(--moto-black);
+}
+
+.moto-btn-lg {
+  padding: 16px 36px;
+  font-size: 16px;
+}
+
+.moto-btn-sm {
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+/* Hero */
+.moto-hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.moto-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.moto-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moto-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(14, 14, 14, 0.7) 0%,
+    rgba(14, 14, 14, 0.5) 50%,
+    rgba(14, 14, 14, 0.9) 100%
+  );
+  z-index: 1;
+}
+
+.moto-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.moto-hero-title {
+  font-size: clamp(48px, 12vw, 120px);
+  font-weight: 900;
+  letter-spacing: 8px;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.moto-hero-title span {
+  display: block;
+}
+
+.moto-hero-accent {
+  color: var(--moto-red);
+}
+
+.moto-hero-subtitle {
+  font-size: 18px;
+  color: var(--moto-light-gray);
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.moto-hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.moto-hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.moto-hero-scroll span {
+  display: block;
+  width: 24px;
+  height: 40px;
+  border: 2px solid var(--moto-white);
+  border-radius: 12px;
+  position: relative;
+}
+
+.moto-hero-scroll span::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: var(--moto-white);
+  border-radius: 2px;
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.5; transform: translateX(-50%) translateY(8px); }
+}
+
+/* Sections */
+.moto-section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.moto-section-header h2 {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.moto-section-header p {
+  color: var(--moto-light-gray);
+  font-size: 16px;
+}
+
+/* Locations */
+.moto-locations {
+  padding: 100px 0;
+  background: var(--moto-dark);
+}
+
+.moto-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.moto-location-card {
+  background: var(--moto-black);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.moto-location-card:hover {
+  transform: translateY(-8px);
+}
+
+.moto-location-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.moto-location-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.moto-location-card:hover .moto-location-image img {
+  transform: scale(1.1);
+}
+
+.moto-location-overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.moto-location-city {
+  background: var(--moto-red);
+  color: var(--moto-white);
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.moto-location-info {
+  padding: 24px;
+}
+
+.moto-location-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.moto-location-info p {
+  color: var(--moto-light-gray);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.moto-location-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Menu */
+.moto-menu {
+  padding: 100px 0;
+  background: var(--moto-black);
+}
+
+.moto-menu-categories {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.moto-category-btn {
+  background: transparent;
+  border: 2px solid var(--moto-gray);
+  color: var(--moto-light-gray);
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.moto-category-btn:hover,
+.moto-category-btn.active {
+  background: var(--moto-red);
+  border-color: var(--moto-red);
+  color: var(--moto-white);
+}
+
+.moto-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.moto-menu-card {
+  background: var(--moto-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.moto-menu-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.moto-menu-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moto-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--moto-red);
+  color: var(--moto-white);
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.moto-menu-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.moto-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.moto-menu-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  flex: 1;
+  padding-right: 16px;
+}
+
+.moto-menu-price {
+  color: var(--moto-red);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.moto-menu-content p {
+  color: var(--moto-light-gray);
+  font-size: 14px;
+  flex: 1;
+}
+
+.moto-add-btn {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  background: var(--moto-red);
+  border: none;
+  color: var(--moto-white);
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moto-add-btn:hover {
+  background: var(--moto-red-dark);
+  transform: scale(1.1);
+}
+
+.moto-menu-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* About */
+.moto-about {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.moto-about-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.moto-about-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moto-about-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 14, 14, 0.85);
+}
+
+.moto-about-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.moto-about-content h2 {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin-bottom: 24px;
+}
+
+.moto-about-content p {
+  color: var(--moto-light-gray);
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+
+.moto-about-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.moto-stat {
+  text-align: center;
+}
+
+.moto-stat-number {
+  display: block;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--moto-red);
+  line-height: 1;
+}
+
+.moto-stat-label {
+  font-size: 14px;
+  color: var(--moto-light-gray);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Delivery */
+.moto-delivery {
+  padding: 100px 0;
+  background: var(--moto-dark);
+}
+
+.moto-delivery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.moto-delivery-content h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.moto-delivery-content p {
+  color: var(--moto-light-gray);
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.moto-delivery-options {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.moto-delivery-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.moto-delivery-icon {
+  font-size: 24px;
+}
+
+.moto-delivery-image {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.moto-delivery-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Footer */
+.moto-footer {
+  padding: 60px 0 24px;
+  background: var(--moto-black);
+  border-top: 1px solid var(--moto-gray);
+}
+
+.moto-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.moto-footer-brand p {
+  color: var(--moto-light-gray);
+  margin-top: 16px;
+}
+
+.moto-footer-links h4 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.moto-footer-links a {
+  display: block;
+  color: var(--moto-light-gray);
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: color 0.3s;
+}
+
+.moto-footer-links a:hover {
+  color: var(--moto-red);
+}
+
+.moto-footer-social h4 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.moto-social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.moto-social-btn {
+  width: 40px;
+  height: 40px;
+  background: var(--moto-gray);
+  color: var(--moto-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.moto-social-btn:hover {
+  background: var(--moto-red);
+}
+
+.moto-footer-bottom {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--moto-gray);
+}
+
+.moto-footer-bottom p {
+  color: var(--moto-light-gray);
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .moto-nav {
+    display: none;
+  }
+
+  .moto-hero-title {
+    font-size: 48px;
+    letter-spacing: 4px;
+  }
+
+  .moto-hero-subtitle {
+    font-size: 14px;
+  }
+
+  .moto-section-header h2 {
+    font-size: 28px;
+  }
+
+  .moto-delivery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .moto-delivery-image {
+    order: -1;
+  }
+
+  .moto-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .moto-about-stats {
+    gap: 30px;
+  }
+
+  .moto-stat-number {
+    font-size: 36px;
+  }
+}

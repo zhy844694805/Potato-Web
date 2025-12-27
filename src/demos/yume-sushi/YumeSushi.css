@@ -1,0 +1,546 @@
+/* Yume Sushi - IYO inspired white minimal, card layout */
+
+/* Reset & Variables */
+.yume-app {
+  --yume-white: #FFFFFF;
+  --yume-cream: #FAFAFA;
+  --yume-light: #F0F0F0;
+  --yume-gray: #999999;
+  --yume-dark: #333333;
+  --yume-black: #1A1A1A;
+  --yume-accent: #2C2C2C;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--yume-white);
+  color: var(--yume-black);
+  min-height: 100vh;
+  line-height: 1.7;
+}
+
+.yume-app * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.yume-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* Header */
+.yume-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--yume-light);
+}
+
+.yume-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 48px;
+}
+
+.yume-logo {
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: var(--yume-black);
+  text-decoration: none;
+}
+
+.yume-nav {
+  display: flex;
+  gap: 40px;
+}
+
+.yume-nav a {
+  color: var(--yume-gray);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.yume-nav a:hover {
+  color: var(--yume-black);
+}
+
+.yume-header-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.yume-lang-switch {
+  display: flex;
+  gap: 4px;
+}
+
+.yume-lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--yume-gray);
+  padding: 8px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.yume-lang-btn:hover,
+.yume-lang-btn.active {
+  color: var(--yume-black);
+}
+
+/* Hero */
+.yume-hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 80px;
+}
+
+.yume-hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 80px;
+}
+
+.yume-hero-title {
+  font-size: clamp(48px, 10vw, 120px);
+  font-weight: 200;
+  letter-spacing: 20px;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.yume-hero-tagline {
+  font-size: 16px;
+  color: var(--yume-gray);
+  letter-spacing: 4px;
+  font-weight: 300;
+}
+
+.yume-hero-image {
+  height: 100%;
+  overflow: hidden;
+}
+
+.yume-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Section Tag */
+.yume-section-tag {
+  display: block;
+  font-size: 12px;
+  color: var(--yume-gray);
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+/* Philosophy */
+.yume-philosophy {
+  padding: 120px 0;
+  background: var(--yume-cream);
+}
+
+.yume-philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.yume-philosophy-content h2 {
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.yume-philosophy-content p {
+  color: var(--yume-dark);
+  font-size: 16px;
+  line-height: 2;
+}
+
+.yume-philosophy-image {
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+
+.yume-philosophy-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gallery */
+.yume-gallery {
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+.yume-gallery-scroll {
+  display: flex;
+  gap: 16px;
+  padding: 0 48px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.yume-gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.yume-gallery-item {
+  flex: 0 0 300px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.yume-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: all 0.5s;
+}
+
+.yume-gallery-item:hover img {
+  filter: grayscale(0);
+  transform: scale(1.05);
+}
+
+/* Menu */
+.yume-menu {
+  padding: 120px 0;
+  background: var(--yume-white);
+}
+
+.yume-menu-header {
+  margin-bottom: 60px;
+}
+
+.yume-menu-header h2 {
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.yume-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.yume-menu-card {
+  background: var(--yume-cream);
+  padding: 40px 32px;
+  text-align: center;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.yume-menu-card:hover {
+  background: var(--yume-black);
+  color: var(--yume-white);
+}
+
+.yume-card-number {
+  display: block;
+  font-size: 48px;
+  font-weight: 200;
+  color: var(--yume-light);
+  margin-bottom: 24px;
+  transition: color 0.3s;
+}
+
+.yume-menu-card:hover .yume-card-number {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.yume-menu-card h3 {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.yume-menu-card p {
+  font-size: 14px;
+  color: var(--yume-gray);
+  margin-bottom: 24px;
+  transition: color 0.3s;
+}
+
+.yume-menu-card:hover p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.yume-card-price {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+/* Chef */
+.yume-chef {
+  padding: 120px 0;
+  background: var(--yume-cream);
+}
+
+.yume-chef-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.yume-chef-image {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.yume-chef-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.yume-chef-content h2 {
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.yume-chef-name {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  margin-bottom: 24px;
+  color: var(--yume-gray);
+}
+
+.yume-chef-content p {
+  color: var(--yume-dark);
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* Reserve */
+.yume-reserve {
+  padding: 120px 0;
+  background: var(--yume-black);
+  color: var(--yume-white);
+}
+
+.yume-reserve-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.yume-reserve-content .yume-section-tag {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.yume-reserve-content h2 {
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.yume-reserve-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 48px;
+}
+
+.yume-reserve-times {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.yume-time-card {
+  text-align: center;
+}
+
+.yume-time-card h4 {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.yume-time-card p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+.yume-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--yume-white);
+  color: var(--yume-black);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 3px;
+  transition: all 0.3s;
+}
+
+.yume-btn:hover {
+  background: transparent;
+  color: var(--yume-white);
+  outline: 1px solid var(--yume-white);
+}
+
+/* Footer */
+.yume-footer {
+  padding: 60px 0 24px;
+  background: var(--yume-white);
+  border-top: 1px solid var(--yume-light);
+}
+
+.yume-footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 48px;
+}
+
+.yume-footer-logo {
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.yume-footer-brand p {
+  color: var(--yume-gray);
+  font-size: 14px;
+}
+
+.yume-footer-social h4 {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  color: var(--yume-gray);
+}
+
+.yume-social-links {
+  display: flex;
+  gap: 24px;
+}
+
+.yume-social-links a {
+  color: var(--yume-black);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s;
+}
+
+.yume-social-links a:hover {
+  color: var(--yume-gray);
+}
+
+.yume-footer-bottom {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--yume-light);
+}
+
+.yume-footer-bottom p {
+  color: var(--yume-gray);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .yume-menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .yume-container {
+    padding: 0 24px;
+  }
+
+  .yume-header-inner {
+    padding: 16px 24px;
+  }
+
+  .yume-nav {
+    display: none;
+  }
+
+  .yume-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .yume-hero-content {
+    padding: 120px 24px 60px;
+    text-align: center;
+  }
+
+  .yume-hero-image {
+    height: 50vh;
+  }
+
+  .yume-hero-title {
+    letter-spacing: 10px;
+  }
+
+  .yume-philosophy-grid,
+  .yume-chef-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .yume-menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yume-chef-image {
+    order: -1;
+  }
+
+  .yume-reserve-times {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .yume-footer-grid {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .yume-gallery-item {
+    flex: 0 0 250px;
+    height: 300px;
+  }
+}

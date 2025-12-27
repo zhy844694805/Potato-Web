@@ -42,7 +42,7 @@ export const restaurantInfo = {
 
 export const menuItems = [
   // Appetizers
-  { id: 1, category: 'appetizers', name: { it: 'Involtini Primavera', en: 'Spring Rolls', zh: '春卷' }, desc: { it: '4 pezzi croccanti', en: '4 crispy pieces', zh: '4个酥脆春卷' }, price: 5.50, image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop', tags: ['vegetarian'] },
+  { id: 1, category: 'appetizers', name: { it: 'Involtini Primavera', en: 'Spring Rolls', zh: '春卷' }, desc: { it: '4 pezzi croccanti', en: '4 crispy pieces', zh: '4个酥脆春卷' }, price: 5.50, image: 'https://images.unsplash.com/photo-1548032885-b5e38734688a?w=400&h=300&fit=crop', tags: ['vegetarian'] },
   { id: 2, category: 'appetizers', name: { it: 'Ravioli al Vapore', en: 'Steamed Dumplings', zh: '蒸饺' }, desc: { it: '6 pezzi ripieni di maiale', en: '6 pork filled pieces', zh: '6个猪肉蒸饺' }, price: 7.00, image: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400&h=300&fit=crop', tags: [] },
   { id: 3, category: 'appetizers', name: { it: 'Edamame', en: 'Edamame', zh: '毛豆' }, desc: { it: 'Con sale marino', en: 'With sea salt', zh: '海盐毛豆' }, price: 4.50, image: 'https://images.unsplash.com/photo-1564894809611-1742fc40ed80?w=400&h=300&fit=crop', tags: ['vegetarian'] },
 
@@ -59,7 +59,7 @@ export const menuItems = [
   // Dim Sum
   { id: 10, category: 'dimsum', name: { it: 'Har Gow', en: 'Har Gow', zh: '虾饺' }, desc: { it: '4 ravioli di gamberi', en: '4 shrimp dumplings', zh: '4个水晶虾饺' }, price: 8.00, image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&h=300&fit=crop', tags: [] },
   { id: 11, category: 'dimsum', name: { it: 'Siu Mai', en: 'Siu Mai', zh: '烧卖' }, desc: { it: '4 ravioli di maiale e gamberi', en: '4 pork & shrimp dumplings', zh: '4个猪肉虾仁烧卖' }, price: 7.50, image: 'https://images.unsplash.com/photo-1576577445504-6af96477db52?w=400&h=300&fit=crop', tags: [] },
-  { id: 12, category: 'dimsum', name: { it: 'Char Siu Bao', en: 'Char Siu Bao', zh: '叉烧包' }, desc: { it: '3 panini al maiale BBQ', en: '3 BBQ pork buns', zh: '3个蜜汁叉烧包' }, price: 6.50, image: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop', tags: [] },
+  { id: 12, category: 'dimsum', name: { it: 'Char Siu Bao', en: 'Char Siu Bao', zh: '叉烧包' }, desc: { it: '3 panini al maiale BBQ', en: '3 BBQ pork buns', zh: '3个蜜汁叉烧包' }, price: 6.50, image: 'https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=400&h=300&fit=crop', tags: [] },
 
   // Drinks
   { id: 13, category: 'drinks', name: { it: 'Tè al Gelsomino', en: 'Jasmine Tea', zh: '茉莉花茶' }, desc: { it: 'Tè cinese classico', en: 'Classic Chinese tea', zh: '经典中式茉莉茶' }, price: 3.00, image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=300&fit=crop', tags: ['vegetarian'] },
