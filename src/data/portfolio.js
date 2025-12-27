@@ -522,6 +522,219 @@ export const portfolioData = [
     images: [
       { url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200', caption: { zh: '物流追踪界面', en: 'Logistics Tracking Interface' } }
     ]
+  },
+
+  // 9. 会计事务所官网
+  {
+    id: 9,
+    slug: 'euro-tax',
+    category: 'professional',
+    title: { zh: '欧税会计事务所官网', en: 'Euro Tax Accounting Firm Website' },
+    industry: { zh: '专业服务', en: 'Professional Services' },
+    year: '2024',
+    color: '#1e40af',
+    shortDesc: { zh: '为在意华人提供专业税务和会计服务', en: 'Professional tax and accounting services for Chinese community in Italy' },
+    client: { zh: 'Euro Tax 会计事务所', en: 'Euro Tax Studio' },
+    description: {
+      zh: '为米兰华人会计事务所打造的专业官网。事务所提供记账、报税、公司注册、居留咨询等全方位服务，需要展示专业形象并方便客户咨询。',
+      en: 'A professional website for a Chinese accounting firm in Milan. The firm offers bookkeeping, tax filing, company registration, and residence permit consulting services.'
+    },
+    challenge: {
+      zh: '如何在网站上建立专业可信赖的形象？需要清晰展示服务范围、团队资质，并提供便捷的咨询渠道。',
+      en: 'How to build a professional and trustworthy image on the website? Need to clearly display services, team qualifications, and provide convenient consultation channels.'
+    },
+    solution: {
+      zh: '采用深蓝色专业配色，Bento网格布局展示服务，团队资质认证展示，集成在线咨询表单，三语支持服务华人客户。',
+      en: 'Professional dark blue color scheme, Bento grid layout for services, team certification display, integrated consultation form, trilingual support for Chinese clients.'
+    },
+    results: [
+      { value: '3周', label: { zh: '开发周期', en: 'Development Time' } },
+      { value: '6项服务', label: { zh: '服务展示', en: 'Services' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    testimonial: {
+      quote: {
+        zh: '网站很专业，客户查服务方便，咨询表单也好用。',
+        en: 'Professional website. Clients can easily check services and the form works great.'
+      },
+      author: { zh: '陈马可', en: 'Marco Chen' },
+      role: { zh: '创始人', en: 'Founder' }
+    },
+    technologies: ['React', 'Bento Grid', 'Dark Theme'],
+    demoUrl: '/demo/euro-tax',
+    features: [
+      { icon: '📒', title: { zh: '服务展示', en: 'Services Display' }, desc: { zh: 'Bento网格布局', en: 'Bento grid layout' } },
+      { icon: '👥', title: { zh: '团队介绍', en: 'Team Intro' }, desc: { zh: '专业资质展示', en: 'Professional credentials' } },
+      { icon: '🌍', title: { zh: '三语支持', en: 'Trilingual' }, desc: { zh: '意/英/中', en: 'IT/EN/ZH' } }
+    ],
+    thumbnail: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop',
+    images: [
+      { url: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200', caption: { zh: '专业会计服务', en: 'Professional Accounting Services' } }
+    ]
+  },
+
+  // 10. 装修设计公司
+  {
+    id: 10,
+    slug: 'dragon-design',
+    category: 'trade',
+    title: { zh: 'Dragon Design 装修设计', en: 'Dragon Design Renovation Company' },
+    industry: { zh: '装修设计', en: 'Interior Design & Renovation' },
+    year: '2024',
+    color: '#ff6b00',
+    shortDesc: { zh: '现代工业风装修设计公司官网', en: 'Modern industrial style renovation company website' },
+    client: { zh: 'Dragon Design 装修公司', en: 'Dragon Design Srl' },
+    description: {
+      zh: '为米兰华人装修公司打造的现代工业风官网。公司提供室内设计、住宅装修、商业装修、餐厅装修等全方位服务，需要展示作品案例和在线报价功能。',
+      en: 'A modern industrial style website for a Chinese renovation company in Milan. The company offers interior design, residential and commercial renovations with portfolio showcase and online quote functionality.'
+    },
+    challenge: {
+      zh: '如何展示装修公司的专业实力和作品案例？需要清晰的服务分类、项目画廊展示、在线报价表单。',
+      en: 'How to showcase the renovation company\'s expertise and portfolio? Need clear service categories, project gallery, and online quote form.'
+    },
+    solution: {
+      zh: '采用黑色+橙色现代工业风配色，网格布局展示作品案例，详细的服务卡片和报价表单，三语支持覆盖意大利和华人客户。',
+      en: 'Modern industrial black + orange color scheme, grid layout for portfolio display, detailed service cards and quote form, trilingual support for Italian and Chinese clients.'
+    },
+    results: [
+      { value: '4周', label: { zh: '开发周期', en: 'Development Time' } },
+      { value: '6项服务', label: { zh: '服务展示', en: 'Services' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    testimonial: {
+      quote: {
+        zh: '网站作品展示效果很好，客户看了就能了解我们的水平。',
+        en: 'Portfolio showcase works great. Clients understand our quality at a glance.'
+      },
+      author: { zh: '龙师傅', en: 'Master Long' },
+      role: { zh: '创始人', en: 'Founder' }
+    },
+    technologies: ['React', 'CSS Grid', 'Responsive Design'],
+    demoUrl: '/demo/dragon-design',
+    features: [
+      { icon: '🏠', title: { zh: '作品展示', en: 'Portfolio Gallery' }, desc: { zh: '项目案例网格', en: 'Project grid display' } },
+      { icon: '🛠️', title: { zh: '服务分类', en: 'Service Categories' }, desc: { zh: '住宅/商业/餐饮', en: 'Residential/Commercial/Restaurant' } },
+      { icon: '📝', title: { zh: '在线报价', en: 'Quote Form' }, desc: { zh: '快速获取报价', en: 'Quick quote request' } }
+    ],
+    thumbnail: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
+    images: [
+      { url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200', caption: { zh: '现代装修案例', en: 'Modern Renovation Project' } }
+    ]
+  },
+
+  // 11. 房产中介
+  {
+    id: 11,
+    slug: 'casa-milano',
+    category: 'professional',
+    title: { zh: 'Casa Milano 房产中介', en: 'Casa Milano Real Estate Agency' },
+    industry: { zh: '房产中介', en: 'Real Estate' },
+    year: '2024',
+    color: '#c9a962',
+    shortDesc: { zh: '专为华人社区服务的米兰房产中介', en: 'Milan real estate agency specialized for Chinese community' },
+    client: { zh: 'Casa Milano 房产', en: 'Casa Milano Real Estate' },
+    description: {
+      zh: '为米兰华人房产中介打造的高端官网。提供房屋买卖、出租、投资咨询等全方位服务，支持意英中三语，帮助华人客户在米兰找到理想的家。',
+      en: 'A premium website for a Chinese real estate agency in Milan. Offering property sales, rentals, and investment consulting with trilingual support to help Chinese clients find their ideal home in Milan.'
+    },
+    challenge: {
+      zh: '如何展示房源信息并提供便捷的筛选功能？需要优雅的设计、清晰的房源卡片、多条件筛选和便捷的联系方式。',
+      en: 'How to display property listings with convenient filtering? Need elegant design, clear property cards, multi-criteria filtering and easy contact options.'
+    },
+    solution: {
+      zh: '采用深蓝+金色高端配色，卡片式房源展示，支持类型、区域、价格、卧室数量多维筛选，集成WeChat/WhatsApp联系方式。',
+      en: 'Deep blue + gold premium color scheme, card-style property display, multi-dimensional filtering by type, area, price, bedrooms, integrated WeChat/WhatsApp contact options.'
+    },
+    results: [
+      { value: '4周', label: { zh: '开发周期', en: 'Development Time' } },
+      { value: '10套房源', label: { zh: '房源展示', en: 'Properties' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    testimonial: {
+      quote: {
+        zh: '网站设计很高端，房源展示清晰，客户反馈很好。',
+        en: 'Premium website design, clear property display, great client feedback.'
+      },
+      author: { zh: '陈经理', en: 'Manager Chen' },
+      role: { zh: '经理', en: 'Manager' }
+    },
+    technologies: ['React', 'CSS Variables', 'Responsive Design'],
+    demoUrl: '/demo/casa-milano',
+    features: [
+      { icon: '🏠', title: { zh: '房源展示', en: 'Property Display' }, desc: { zh: '卡片式房源列表', en: 'Card-style listings' } },
+      { icon: '🔍', title: { zh: '智能筛选', en: 'Smart Filtering' }, desc: { zh: '多条件筛选', en: 'Multi-criteria filter' } },
+      { icon: '🌍', title: { zh: '三语支持', en: 'Trilingual' }, desc: { zh: '意/英/中', en: 'IT/EN/ZH' } }
+    ],
+    thumbnail: 'https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=800&h=600&fit=crop',
+    images: [
+      { url: 'https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=1200', caption: { zh: '米兰房产', en: 'Milan Real Estate' } }
+    ]
+  },
+
+  // 12. 奶茶店
+  {
+    id: 12,
+    slug: 'boba-tea',
+    category: 'restaurant',
+    title: { zh: 'Boba Dream 珍珠奶茶', en: 'Boba Dream Bubble Tea Shop' },
+    industry: { zh: '茶饮行业', en: 'Beverage Industry' },
+    year: '2024',
+    color: '#764ba2',
+    shortDesc: { zh: '现代潮流的珍珠奶茶品牌', en: 'Trendy modern bubble tea brand' },
+    client: { zh: 'Boba Dream 米兰', en: 'Boba Dream Milano' },
+    description: {
+      zh: '为米兰的网红奶茶店打造的时尚官网。采用渐变色彩设计，展示丰富的饮品菜单，支持在线点单，吸引年轻消费群体。',
+      en: 'A trendy website for a popular bubble tea shop in Milan. Featuring gradient color design, rich drink menu, online ordering, targeting young consumers.'
+    },
+    challenge: { zh: '如何打造年轻潮流的奶茶品牌形象？', en: 'How to create a trendy bubble tea brand image?' },
+    solution: { zh: '紫粉渐变配色，圆润现代设计，分类饮品展示，加料选项，购物车功能。', en: 'Purple-pink gradient, rounded modern design, categorized drinks, topping options, cart feature.' },
+    results: [
+      { value: '潮流', label: { zh: '设计风格', en: 'Design Style' } },
+      { value: '12+', label: { zh: '饮品种类', en: 'Drinks' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'CSS Gradient', 'Modern UI'],
+    demoUrl: '/demo/boba-tea',
+    features: [
+      { icon: '🧋', title: { zh: '分类菜单', en: 'Category Menu' }, desc: { zh: '招牌/奶茶/水果茶/冰沙', en: 'Signature/Milk Tea/Fruit Tea/Smoothie' } },
+      { icon: '🍡', title: { zh: '加料选项', en: 'Toppings' }, desc: { zh: '多种配料选择', en: 'Various topping choices' } },
+      { icon: '🛒', title: { zh: '购物车', en: 'Cart' }, desc: { zh: '便捷点单', en: 'Easy ordering' } }
+    ],
+    thumbnail: 'https://images.unsplash.com/photo-1558857563-b371033873b8?w=800&h=600&fit=crop',
+    images: []
+  },
+
+  // 13. 中餐馆
+  {
+    id: 13,
+    slug: 'mama-chen',
+    category: 'restaurant',
+    title: { zh: 'Mama Chen 中餐馆', en: 'Mama Chen Chinese Restaurant' },
+    industry: { zh: '餐饮行业', en: 'Restaurant Industry' },
+    year: '2024',
+    color: '#8b0000',
+    shortDesc: { zh: '传统正宗的中式家常菜餐厅', en: 'Authentic traditional Chinese home cooking' },
+    client: { zh: '陈妈妈餐厅', en: 'Mama Chen Restaurant' },
+    description: {
+      zh: '为米兰华人街的传统中餐馆打造的高端官网。红金配色体现中式传统，展示丰富菜品，支持午市套餐预订和在线预约。',
+      en: 'A premium website for a traditional Chinese restaurant in Milan Chinatown. Red and gold colors reflecting Chinese tradition, rich menu display, lunch specials and online reservation.'
+    },
+    challenge: { zh: '如何体现传统中餐的正宗氛围？', en: 'How to convey authentic traditional Chinese atmosphere?' },
+    solution: { zh: '深红+金色配色，传统元素融合现代设计，分类菜单展示，午市套餐推广，在线预约系统。', en: 'Dark red + gold colors, traditional elements with modern design, categorized menu, lunch special promotion, online reservation.' },
+    results: [
+      { value: '传统', label: { zh: '设计风格', en: 'Design Style' } },
+      { value: '19道', label: { zh: '招牌菜品', en: 'Signature Dishes' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'CSS', 'Traditional Design'],
+    demoUrl: '/demo/mama-chen',
+    features: [
+      { icon: '🥟', title: { zh: '分类菜单', en: 'Category Menu' }, desc: { zh: '前菜/主菜/面食/饭类', en: 'Appetizer/Main/Noodles/Rice' } },
+      { icon: '🍽️', title: { zh: '午市套餐', en: 'Lunch Special' }, desc: { zh: '超值午餐优惠', en: 'Value lunch deal' } },
+      { icon: '📅', title: { zh: '在线预约', en: 'Reservation' }, desc: { zh: '便捷订座', en: 'Easy booking' } }
+    ],
+    thumbnail: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&h=600&fit=crop',
+    images: []
   }
 ]
 
@@ -540,6 +753,7 @@ export const categories = [
   { value: 'fashion', label: { zh: '服装时尚', en: 'Fashion' } },
   { value: 'trade', label: { zh: '进出口贸易', en: 'Trade' } },
   { value: 'beauty', label: { zh: '美容养生', en: 'Beauty' } },
+  { value: 'professional', label: { zh: '专业服务', en: 'Professional Services' } },
   { value: 'app', label: { zh: '移动应用', en: 'Mobile App' } },
   { value: 'miniprogram', label: { zh: '小程序', en: 'Mini Program' } }
 ]

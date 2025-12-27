@@ -1,0 +1,918 @@
+/* Milan Drive - Modern Driving School */
+/* Green & White Theme - Professional and Energetic */
+
+.drive-app {
+  --drive-primary: #16a34a;
+  --drive-primary-dark: #15803d;
+  --drive-primary-light: #22c55e;
+  --drive-secondary: #064e3b;
+  --drive-accent: #fbbf24;
+  --drive-white: #ffffff;
+  --drive-light: #f0fdf4;
+  --drive-gray: #6b7280;
+  --drive-dark: #1f2937;
+  --drive-text: #374151;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--drive-white);
+  color: var(--drive-text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Reset for demo isolation */
+.drive-app * {
+  box-sizing: border-box;
+}
+
+/* Header */
+.drive-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.drive-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drive-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--drive-primary);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.drive-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--drive-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+}
+
+.drive-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.drive-nav a {
+  text-decoration: none;
+  color: var(--drive-gray);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.drive-nav a:hover {
+  color: var(--drive-primary);
+}
+
+.drive-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--drive-primary);
+  transition: width 0.3s;
+}
+
+.drive-nav a:hover::after {
+  width: 100%;
+}
+
+.drive-lang {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--drive-light);
+  padding: 0.25rem;
+  border-radius: 8px;
+}
+
+.drive-lang button {
+  background: none;
+  border: none;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: var(--drive-gray);
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.drive-lang button.active {
+  background: var(--drive-primary);
+  color: white;
+}
+
+.drive-lang button:hover:not(.active) {
+  background: rgba(22, 163, 74, 0.1);
+}
+
+/* Mobile menu toggle */
+.drive-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--drive-dark);
+}
+
+/* Hero */
+.drive-hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--drive-secondary) 0%, var(--drive-primary-dark) 50%, var(--drive-primary) 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.drive-hero-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-image: url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920');
+  background-size: cover;
+  background-position: center;
+}
+
+.drive-hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.drive-hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.drive-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.drive-hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.drive-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--drive-accent);
+  color: var(--drive-dark);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.4);
+}
+
+.drive-btn:hover {
+  background: #f59e0b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
+}
+
+.drive-btn-outline {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  box-shadow: none;
+}
+
+.drive-btn-outline:hover {
+  background: white;
+  color: var(--drive-primary);
+}
+
+.drive-btn-green {
+  background: var(--drive-primary);
+  color: white;
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);
+}
+
+.drive-btn-green:hover {
+  background: var(--drive-primary-dark);
+}
+
+.drive-btn-full {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Stats */
+.drive-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.drive-stat {
+  text-align: center;
+}
+
+.drive-stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--drive-accent);
+}
+
+.drive-stat-label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 0.25rem;
+}
+
+/* Sections */
+.drive-section {
+  padding: 5rem 1.5rem;
+}
+
+.drive-section-alt {
+  background: var(--drive-light);
+}
+
+.drive-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.drive-title {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--drive-dark);
+}
+
+.drive-subtitle {
+  text-align: center;
+  color: var(--drive-gray);
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+/* Courses Grid */
+.drive-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.drive-course {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+  position: relative;
+}
+
+.drive-course:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.drive-course.popular {
+  border: 2px solid var(--drive-primary);
+}
+
+.drive-course-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--drive-primary);
+  color: white;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.drive-course-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.drive-course-content {
+  padding: 1.5rem;
+}
+
+.drive-course h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--drive-dark);
+  margin-bottom: 0.5rem;
+}
+
+.drive-course-desc {
+  color: var(--drive-gray);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.drive-course-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.drive-course-duration {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--drive-gray);
+  font-size: 0.85rem;
+}
+
+.drive-course-duration span {
+  font-size: 1rem;
+}
+
+.drive-course-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--drive-primary);
+}
+
+.drive-course-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.drive-course-features li {
+  font-size: 0.85rem;
+  color: var(--drive-text);
+  padding: 0.35rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.drive-course-features li::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: var(--drive-primary);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.drive-course-features li::after {
+  content: '\2713';
+  position: absolute;
+  margin-left: 4px;
+  font-size: 0.7rem;
+  color: white;
+}
+
+.drive-check {
+  color: var(--drive-primary);
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* Price Table */
+.drive-price-table {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.drive-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.3s;
+}
+
+.drive-price-row:last-child {
+  border-bottom: none;
+}
+
+.drive-price-row:hover {
+  background: var(--drive-light);
+}
+
+.drive-price-row.header {
+  background: var(--drive-primary);
+  color: white;
+  font-weight: 600;
+}
+
+.drive-price-name {
+  font-weight: 500;
+}
+
+.drive-price-value {
+  font-weight: 700;
+  color: var(--drive-primary);
+  font-size: 1.1rem;
+}
+
+.drive-price-row.header .drive-price-value {
+  color: white;
+}
+
+.drive-price-note {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--drive-gray);
+  font-size: 0.9rem;
+}
+
+.drive-price-note strong {
+  display: block;
+  color: var(--drive-primary);
+  margin-top: 0.5rem;
+}
+
+/* Instructors */
+.drive-instructors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.drive-instructor {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+
+.drive-instructor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.drive-instructor-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid var(--drive-light);
+}
+
+.drive-instructor h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--drive-dark);
+  margin-bottom: 0.25rem;
+}
+
+.drive-instructor-role {
+  color: var(--drive-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.drive-instructor-exp {
+  color: var(--drive-gray);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.drive-instructor-langs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.drive-lang-tag {
+  background: var(--drive-light);
+  color: var(--drive-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.drive-instructor-spec {
+  color: var(--drive-gray);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.drive-instructor-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-top: 0.75rem;
+  color: var(--drive-accent);
+}
+
+/* Why Us */
+.drive-why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.drive-why-item {
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.drive-why-icon {
+  width: 70px;
+  height: 70px;
+  background: var(--drive-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  font-size: 2rem;
+}
+
+.drive-why-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--drive-dark);
+  margin-bottom: 0.5rem;
+}
+
+.drive-why-item p {
+  color: var(--drive-gray);
+  font-size: 0.9rem;
+}
+
+/* Booking Form */
+.drive-booking-section {
+  background: linear-gradient(135deg, var(--drive-primary) 0%, var(--drive-primary-dark) 100%);
+  color: white;
+}
+
+.drive-booking-section .drive-title {
+  color: white;
+}
+
+.drive-booking-section .drive-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.drive-booking-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  color: var(--drive-text);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.drive-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.drive-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.drive-form-group.full {
+  grid-column: 1 / -1;
+}
+
+.drive-form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--drive-dark);
+}
+
+.drive-form-group input,
+.drive-form-group select,
+.drive-form-group textarea {
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.drive-form-group input:focus,
+.drive-form-group select:focus,
+.drive-form-group textarea:focus {
+  outline: none;
+  border-color: var(--drive-primary);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+}
+
+.drive-form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.drive-success {
+  background: var(--drive-light);
+  color: var(--drive-primary);
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Contact */
+.drive-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.drive-contact-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.drive-contact-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--drive-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 1.5rem;
+}
+
+.drive-contact-item h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--drive-gray);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.drive-contact-item p {
+  color: var(--drive-dark);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.drive-contact-item a {
+  color: var(--drive-primary);
+  text-decoration: none;
+}
+
+.drive-contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* Gallery */
+.drive-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.drive-gallery-item {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+
+.drive-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.drive-gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Footer */
+.drive-footer {
+  background: var(--drive-dark);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.drive-footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.drive-footer-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.drive-footer-slogan {
+  color: var(--drive-primary-light);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.drive-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.drive-footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.drive-footer-links a:hover {
+  color: var(--drive-primary-light);
+}
+
+.drive-footer-copy {
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.drive-back {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--drive-primary-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.drive-back:hover {
+  color: var(--drive-accent);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .drive-nav {
+    display: none;
+  }
+
+  .drive-menu-toggle {
+    display: block;
+  }
+
+  .drive-stats {
+    gap: 1.5rem;
+  }
+
+  .drive-stat-value {
+    font-size: 2rem;
+  }
+
+  .drive-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .drive-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .drive-courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .drive-title {
+    font-size: 1.75rem;
+  }
+
+  .drive-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .drive-hero p {
+    font-size: 1rem;
+  }
+
+  .drive-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .drive-header-inner {
+    padding: 0.5rem 1rem;
+  }
+
+  .drive-section {
+    padding: 3rem 1rem;
+  }
+
+  .drive-booking-form {
+    padding: 1.5rem;
+  }
+
+  .drive-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .drive-footer-links {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.drive-hero-content {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.drive-course,
+.drive-instructor,
+.drive-why-item {
+  animation: fadeInUp 0.6s ease-out;
+}

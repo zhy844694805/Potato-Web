@@ -39,6 +39,12 @@ const SushiMoto = lazy(() => import('./demos/sushi-moto/SushiMoto'))
 const KokuSushi = lazy(() => import('./demos/koku-sushi/KokuSushi'))
 const YumeSushi = lazy(() => import('./demos/yume-sushi/YumeSushi'))
 const GoldenKoi = lazy(() => import('./demos/golden-koi/GoldenKoi'))
+const MilanDrive = lazy(() => import('./demos/milan-drive/MilanDrive'))
+const EuroTax = lazy(() => import('./demos/euro-tax/EuroTax'))
+const DragonDesign = lazy(() => import('./demos/dragon-design/DragonDesign'))
+const CasaMilano = lazy(() => import('./demos/casa-milano/CasaMilano'))
+const BobaTea = lazy(() => import('./demos/boba-tea/BobaTea'))
+const MamaChen = lazy(() => import('./demos/mama-chen/MamaChen'))
 
 // Loading fallback component with skeleton
 function PageLoader() {
@@ -84,6 +90,12 @@ function AppContent() {
             <Route path="/demo/koku-sushi" element={<KokuSushi />} />
             <Route path="/demo/yume-sushi" element={<YumeSushi />} />
             <Route path="/demo/golden-koi" element={<GoldenKoi />} />
+            <Route path="/demo/milan-drive" element={<MilanDrive />} />
+            <Route path="/demo/euro-tax" element={<EuroTax />} />
+            <Route path="/demo/dragon-design" element={<DragonDesign />} />
+            <Route path="/demo/casa-milano" element={<CasaMilano />} />
+            <Route path="/demo/boba-tea" element={<BobaTea />} />
+            <Route path="/demo/mama-chen" element={<MamaChen />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>

@@ -1,0 +1,503 @@
+/* Mama Chen - Authentic Chinese Restaurant */
+.mama-app {
+  font-family: 'Georgia', 'Noto Serif SC', serif;
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* Header */
+.mama-header {
+  background: linear-gradient(180deg, rgba(139, 0, 0, 0.95) 0%, rgba(139, 0, 0, 0.8) 100%);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid #d4af37;
+}
+
+.mama-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mama-logo-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 4px;
+}
+
+.mama-logo-subtitle {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 2px;
+}
+
+.mama-nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.mama-nav a {
+  color: #f5f5f5;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.mama-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #d4af37;
+  transition: width 0.3s;
+}
+
+.mama-nav a:hover {
+  color: #d4af37;
+}
+
+.mama-nav a:hover::after {
+  width: 100%;
+}
+
+.mama-lang-select {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mama-lang-select button {
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #d4af37;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+}
+
+.mama-lang-select button.active,
+.mama-lang-select button:hover {
+  background: #d4af37;
+  color: #1a1a1a;
+}
+
+/* Hero Section */
+.mama-hero {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+              url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1600') center/cover;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.mama-hero::before {
+  content: '陈';
+  position: absolute;
+  font-size: 15rem;
+  color: rgba(212, 175, 55, 0.05);
+  font-family: 'Noto Serif SC', serif;
+  z-index: 0;
+}
+
+.mama-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mama-hero h1 {
+  font-size: 4rem;
+  color: #d4af37;
+  margin-bottom: 0.5rem;
+  letter-spacing: 8px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.mama-hero .subtitle {
+  font-size: 1.5rem;
+  color: #f5f5f5;
+  margin-bottom: 1rem;
+  letter-spacing: 3px;
+}
+
+.mama-hero .description {
+  max-width: 600px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.mama-hero-btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.mama-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.mama-btn-primary {
+  background: #d4af37;
+  color: #1a1a1a;
+  border: 2px solid #d4af37;
+}
+
+.mama-btn-primary:hover {
+  background: transparent;
+  color: #d4af37;
+}
+
+.mama-btn-secondary {
+  background: transparent;
+  color: #f5f5f5;
+  border: 2px solid #f5f5f5;
+}
+
+.mama-btn-secondary:hover {
+  background: #f5f5f5;
+  color: #1a1a1a;
+}
+
+/* Lunch Special Banner */
+.mama-lunch-banner {
+  background: linear-gradient(90deg, #8b0000 0%, #b22222 50%, #8b0000 100%);
+  padding: 1.5rem;
+  text-align: center;
+  border-top: 1px solid #d4af37;
+  border-bottom: 1px solid #d4af37;
+}
+
+.mama-lunch-banner h3 {
+  color: #d4af37;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.mama-lunch-banner p {
+  color: #f5f5f5;
+}
+
+.mama-lunch-price {
+  font-size: 1.5rem;
+  color: #d4af37;
+  font-weight: 700;
+}
+
+/* Menu Section */
+.mama-menu {
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.mama-section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.mama-section-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: #d4af37;
+  margin: 1rem auto 0;
+}
+
+/* Category Tabs */
+.mama-categories {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.mama-category-btn {
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #f5f5f5;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mama-category-btn:hover,
+.mama-category-btn.active {
+  background: #d4af37;
+  color: #1a1a1a;
+  border-color: #d4af37;
+}
+
+.mama-category-icon {
+  font-size: 1.2rem;
+}
+
+/* Dishes Grid */
+.mama-dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.mama-dish-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 1.5rem;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.mama-dish-card:hover {
+  background: rgba(212, 175, 55, 0.05);
+  border-color: #d4af37;
+  transform: translateY(-3px);
+}
+
+.mama-dish-card.popular::before {
+  content: '招牌';
+  position: absolute;
+  top: -1px;
+  right: 1rem;
+  background: #d4af37;
+  color: #1a1a1a;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.mama-dish-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.mama-dish-name {
+  font-size: 1.2rem;
+  color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mama-spicy-icon {
+  color: #ff4444;
+  font-size: 1rem;
+}
+
+.mama-dish-price {
+  color: #d4af37;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.mama-dish-desc {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Contact Section */
+.mama-contact {
+  background: linear-gradient(180deg, #1a1a1a 0%, #2a1a1a 100%);
+  padding: 4rem 2rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.mama-contact-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.mama-contact-info h3 {
+  color: #d4af37;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mama-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.mama-contact-icon {
+  font-size: 1.5rem;
+}
+
+/* Reservation Form */
+.mama-reservation h3 {
+  color: #d4af37;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mama-form-group {
+  margin-bottom: 1rem;
+}
+
+.mama-form-group input,
+.mama-form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #f5f5f5;
+  font-size: 1rem;
+}
+
+.mama-form-group input:focus,
+.mama-form-group select:focus {
+  outline: none;
+  border-color: #d4af37;
+}
+
+.mama-form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.mama-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.mama-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #d4af37;
+  color: #1a1a1a;
+  border: none;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1rem;
+}
+
+.mama-submit-btn:hover {
+  background: #c4a030;
+}
+
+/* Footer */
+.mama-footer {
+  background: #0d0d0d;
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.mama-footer-logo {
+  color: #d4af37;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 3px;
+}
+
+.mama-social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mama-social-links a {
+  color: #f5f5f5;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+}
+
+.mama-social-links a:hover {
+  border-color: #d4af37;
+  color: #d4af37;
+}
+
+.mama-copyright {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mama-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .mama-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .mama-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .mama-hero .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .mama-hero-btns {
+    flex-direction: column;
+  }
+
+  .mama-dishes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mama-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .mama-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .mama-categories {
+    gap: 0.3rem;
+  }
+
+  .mama-category-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,899 @@
+/* Euro Tax - Professional Accounting Firm */
+/* Dark Theme with Blue + White */
+
+.eurotax-app {
+  --eurotax-primary: #1e40af;
+  --eurotax-primary-light: #3b82f6;
+  --eurotax-primary-dark: #1e3a8a;
+  --eurotax-accent: #60a5fa;
+  --eurotax-dark: #0f172a;
+  --eurotax-darker: #020617;
+  --eurotax-card: #1e293b;
+  --eurotax-card-hover: #334155;
+  --eurotax-text: #f8fafc;
+  --eurotax-text-muted: #94a3b8;
+  --eurotax-border: #334155;
+  --eurotax-success: #22c55e;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--eurotax-darker);
+  color: var(--eurotax-text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ==================== Header ==================== */
+.eurotax-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--eurotax-border);
+}
+
+.eurotax-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.eurotax-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--eurotax-text);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.eurotax-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--eurotax-primary), var(--eurotax-accent));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.eurotax-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.eurotax-logo-text span:first-child {
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.eurotax-logo-text span:last-child {
+  font-size: 0.7rem;
+  color: var(--eurotax-text-muted);
+  font-weight: 400;
+}
+
+.eurotax-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.eurotax-nav a {
+  text-decoration: none;
+  color: var(--eurotax-text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.eurotax-nav a:hover {
+  color: var(--eurotax-accent);
+}
+
+.eurotax-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--eurotax-accent);
+  transition: width 0.3s;
+}
+
+.eurotax-nav a:hover::after {
+  width: 100%;
+}
+
+.eurotax-lang {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--eurotax-card);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.eurotax-lang button {
+  background: none;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  color: var(--eurotax-text-muted);
+  border-radius: 6px;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.eurotax-lang button.active {
+  background: var(--eurotax-primary);
+  color: white;
+}
+
+.eurotax-lang button:hover:not(.active) {
+  background: var(--eurotax-card-hover);
+}
+
+/* Mobile menu button */
+.eurotax-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--eurotax-text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ==================== Hero Section ==================== */
+.eurotax-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 2rem 4rem;
+}
+
+.eurotax-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--eurotax-darker) 0%, var(--eurotax-dark) 50%, var(--eurotax-primary-dark) 100%);
+}
+
+.eurotax-hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(96, 165, 250, 0.08) 0%, transparent 40%);
+}
+
+.eurotax-hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.eurotax-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+}
+
+.eurotax-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: var(--eurotax-accent);
+  margin-bottom: 1.5rem;
+}
+
+.eurotax-hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--eurotax-text) 0%, var(--eurotax-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.eurotax-hero p {
+  font-size: 1.25rem;
+  color: var(--eurotax-text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.eurotax-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--eurotax-primary), var(--eurotax-primary-light));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.eurotax-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+}
+
+/* ==================== Stats Section ==================== */
+.eurotax-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--eurotax-border);
+  border-top: 1px solid var(--eurotax-border);
+  border-bottom: 1px solid var(--eurotax-border);
+}
+
+.eurotax-stat {
+  background: var(--eurotax-dark);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.eurotax-stat-value {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--eurotax-accent);
+  margin-bottom: 0.5rem;
+}
+
+.eurotax-stat-label {
+  font-size: 0.85rem;
+  color: var(--eurotax-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ==================== Common Sections ==================== */
+.eurotax-section {
+  padding: 6rem 2rem;
+}
+
+.eurotax-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.eurotax-section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.eurotax-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--eurotax-text);
+}
+
+.eurotax-section-subtitle {
+  font-size: 1.1rem;
+  color: var(--eurotax-text-muted);
+}
+
+/* ==================== Services Bento Grid ==================== */
+.eurotax-services-section {
+  background: var(--eurotax-dark);
+}
+
+.eurotax-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+}
+
+.eurotax-bento-item {
+  background: var(--eurotax-card);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid var(--eurotax-border);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.eurotax-bento-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--eurotax-primary), var(--eurotax-accent));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.eurotax-bento-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--eurotax-primary);
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+}
+
+.eurotax-bento-item:hover::before {
+  opacity: 1;
+}
+
+/* Bento grid variations */
+.eurotax-bento-item:nth-child(1) {
+  grid-column: span 2;
+}
+
+.eurotax-bento-item:nth-child(4) {
+  grid-column: span 2;
+}
+
+.eurotax-bento-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--eurotax-primary), var(--eurotax-primary-light));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.eurotax-bento-item h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--eurotax-text);
+}
+
+.eurotax-bento-item p {
+  color: var(--eurotax-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.eurotax-bento-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.eurotax-bento-feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--eurotax-accent);
+}
+
+.eurotax-bento-feature::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: var(--eurotax-accent);
+  border-radius: 50%;
+}
+
+/* ==================== Team Section ==================== */
+.eurotax-team-section {
+  background: var(--eurotax-darker);
+}
+
+.eurotax-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.eurotax-team-card {
+  background: var(--eurotax-card);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--eurotax-border);
+  transition: all 0.4s ease;
+}
+
+.eurotax-team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.eurotax-team-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.eurotax-team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.eurotax-team-card:hover .eurotax-team-image img {
+  transform: scale(1.1);
+}
+
+.eurotax-team-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, var(--eurotax-card), transparent);
+}
+
+.eurotax-team-info {
+  padding: 1.5rem;
+}
+
+.eurotax-team-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--eurotax-text);
+}
+
+.eurotax-team-name-zh {
+  font-size: 0.85rem;
+  color: var(--eurotax-accent);
+  margin-bottom: 0.5rem;
+}
+
+.eurotax-team-role {
+  font-size: 0.85rem;
+  color: var(--eurotax-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.eurotax-team-bio {
+  font-size: 0.8rem;
+  color: var(--eurotax-text-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.eurotax-team-langs {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.eurotax-team-lang {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: var(--eurotax-card-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--eurotax-text-muted);
+  text-transform: uppercase;
+}
+
+/* ==================== About Section ==================== */
+.eurotax-about-section {
+  background: var(--eurotax-dark);
+}
+
+.eurotax-about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.eurotax-about-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--eurotax-text);
+}
+
+.eurotax-about-text p {
+  color: var(--eurotax-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.eurotax-about-mission {
+  font-size: 1.15rem !important;
+  color: var(--eurotax-accent) !important;
+  font-style: italic;
+  border-left: 3px solid var(--eurotax-primary);
+  padding-left: 1.25rem;
+}
+
+.eurotax-about-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.eurotax-about-card {
+  background: var(--eurotax-card);
+  border-radius: 16px;
+  padding: 1.75rem;
+  text-align: center;
+  border: 1px solid var(--eurotax-border);
+}
+
+.eurotax-about-card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.eurotax-about-card h4 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--eurotax-accent);
+  margin-bottom: 0.25rem;
+}
+
+.eurotax-about-card p {
+  font-size: 0.85rem;
+  color: var(--eurotax-text-muted);
+}
+
+/* ==================== Contact Section ==================== */
+.eurotax-contact-section {
+  background: var(--eurotax-darker);
+}
+
+.eurotax-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+}
+
+.eurotax-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.eurotax-contact-card {
+  background: var(--eurotax-card);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid var(--eurotax-border);
+}
+
+.eurotax-contact-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--eurotax-accent);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.eurotax-contact-card p {
+  color: var(--eurotax-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.eurotax-contact-card a {
+  color: var(--eurotax-text);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.eurotax-contact-card a:hover {
+  color: var(--eurotax-accent);
+}
+
+.eurotax-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.eurotax-contact-item-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--eurotax-card-hover);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.eurotax-contact-item-text {
+  font-size: 0.9rem;
+  color: var(--eurotax-text-muted);
+}
+
+.eurotax-contact-item-text strong {
+  display: block;
+  color: var(--eurotax-text);
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+}
+
+/* Contact Form */
+.eurotax-form-wrapper {
+  background: var(--eurotax-card);
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 1px solid var(--eurotax-border);
+}
+
+.eurotax-form-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--eurotax-text);
+}
+
+.eurotax-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.eurotax-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.eurotax-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.eurotax-form-group label {
+  font-size: 0.85rem;
+  color: var(--eurotax-text-muted);
+  font-weight: 500;
+}
+
+.eurotax-form-group input,
+.eurotax-form-group select,
+.eurotax-form-group textarea {
+  padding: 0.9rem 1rem;
+  background: var(--eurotax-dark);
+  border: 1px solid var(--eurotax-border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: var(--eurotax-text);
+  transition: all 0.3s;
+  font-family: inherit;
+}
+
+.eurotax-form-group input:focus,
+.eurotax-form-group select:focus,
+.eurotax-form-group textarea:focus {
+  outline: none;
+  border-color: var(--eurotax-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.eurotax-form-group input::placeholder,
+.eurotax-form-group textarea::placeholder {
+  color: var(--eurotax-text-muted);
+}
+
+.eurotax-form-group select {
+  cursor: pointer;
+}
+
+.eurotax-form-group select option {
+  background: var(--eurotax-dark);
+}
+
+.eurotax-form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.eurotax-form-submit {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--eurotax-primary), var(--eurotax-primary-light));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 0.5rem;
+}
+
+.eurotax-form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+}
+
+.eurotax-form-success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--eurotax-success);
+  font-weight: 500;
+  padding: 1rem;
+  background: rgba(34, 197, 94, 0.1);
+  border-radius: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== Footer ==================== */
+.eurotax-footer {
+  background: var(--eurotax-dark);
+  border-top: 1px solid var(--eurotax-border);
+  padding: 2rem;
+}
+
+.eurotax-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.eurotax-footer p {
+  color: var(--eurotax-text-muted);
+  font-size: 0.85rem;
+}
+
+.eurotax-footer-back {
+  color: var(--eurotax-accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s;
+}
+
+.eurotax-footer-back:hover {
+  color: var(--eurotax-primary-light);
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 1024px) {
+  .eurotax-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eurotax-bento-item:nth-child(1),
+  .eurotax-bento-item:nth-child(4) {
+    grid-column: span 1;
+  }
+
+  .eurotax-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eurotax-about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .eurotax-nav {
+    display: none;
+  }
+
+  .eurotax-menu-btn {
+    display: block;
+  }
+
+  .eurotax-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eurotax-bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eurotax-team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eurotax-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eurotax-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .eurotax-hero h1 {
+    font-size: 2rem;
+  }
+
+  .eurotax-hero p {
+    font-size: 1rem;
+  }
+
+  .eurotax-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .eurotax-header-inner {
+    padding: 1rem 1.5rem;
+  }
+
+  .eurotax-footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .eurotax-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .eurotax-stat {
+    padding: 1.5rem;
+  }
+
+  .eurotax-about-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .eurotax-hero-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .eurotax-form-wrapper {
+    padding: 1.5rem;
+  }
+}
