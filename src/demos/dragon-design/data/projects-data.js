@@ -209,8 +209,8 @@ export const companyInfo = {
     postalCode: '20127',
     country: 'Italia'
   },
-  phone: '+39 02 8765 4321',
-  whatsapp: '+39 345 678 9012',
+  phone: '+39 02 9147 2836',
+  whatsapp: '+39 345 827 4915',
   email: 'info@dragondesign.it',
   hours: {
     weekdays: { it: 'Lun - Ven', en: 'Mon - Fri', zh: '\u5468\u4e00\u81f3\u5468\u4e94' },

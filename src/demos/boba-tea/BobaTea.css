@@ -1,12 +1,15 @@
 /* Boba Dream - Modern Bubble Tea Shop */
+
+/* ===== Base Styles ===== */
 .boba-app {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   min-height: 100vh;
   color: #fff;
+  overflow-x: hidden;
 }
 
-/* Header */
+/* ===== Header ===== */
 .boba-header {
   display: flex;
   justify-content: space-between;
@@ -27,6 +30,41 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Hamburger Menu */
+.boba-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 110;
+}
+
+.boba-hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.boba-hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.boba-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.boba-hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 .boba-nav {
@@ -69,10 +107,10 @@
   color: #764ba2;
 }
 
-/* Hero Section */
+/* ===== Hero Section ===== */
 .boba-hero {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   position: relative;
   overflow: hidden;
 }
@@ -94,18 +132,30 @@
 }
 
 .boba-hero h1 {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.2);
   position: relative;
+  letter-spacing: 4px;
 }
 
-.boba-hero .tagline {
-  font-size: 1.5rem;
-  opacity: 0.9;
+.boba-tagline {
+  font-size: 1.8rem;
+  opacity: 0.95;
+  margin-bottom: 0.5rem;
+  position: relative;
+  font-weight: 300;
+}
+
+.boba-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
   margin-bottom: 2rem;
   position: relative;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .boba-hero-cta {
@@ -115,6 +165,7 @@
   position: relative;
 }
 
+/* ===== Buttons ===== */
 .boba-btn {
   padding: 1rem 2.5rem;
   border-radius: 50px;
@@ -125,13 +176,14 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  border: none;
 }
 
 .boba-btn-primary {
   background: #fff;
   color: #764ba2;
-  border: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -151,13 +203,57 @@
   border-color: #fff;
 }
 
-/* Promotions Banner */
+.boba-btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+.boba-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+}
+
+/* ===== Stats Section ===== */
+.boba-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap;
+}
+
+.boba-stat {
+  text-align: center;
+}
+
+.boba-stat-value {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff, #ffd6e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.boba-stat-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ===== Promotions Banner ===== */
 .boba-promo {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 2rem;
   flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .boba-promo-card {
@@ -166,39 +262,69 @@
   padding: 1.5rem 2rem;
   border-radius: 20px;
   text-align: center;
-  min-width: 200px;
+  min-width: 250px;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.boba-promo-card:hover {
+  transform: translateY(-5px);
+}
+
+.boba-promo-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 .boba-promo-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
 
 .boba-promo-card p {
-  opacity: 0.8;
-  font-size: 0.9rem;
+  opacity: 0.85;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
 }
 
 .boba-promo-code {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.3rem 0.8rem;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 0.4rem 1rem;
   border-radius: 10px;
   font-family: monospace;
-  margin-top: 0.5rem;
-  display: inline-block;
+  font-size: 1rem;
+  letter-spacing: 1px;
 }
 
-/* Menu Section */
-.boba-menu {
-  padding: 3rem 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.boba-menu-title {
+/* ===== Section Title ===== */
+.boba-section-title {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 2rem;
+  position: relative;
+}
+
+.boba-section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #fff, #ffd6e0);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+/* ===== Menu Section ===== */
+.boba-menu {
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* Category Filter */
@@ -220,6 +346,13 @@
   font-size: 1rem;
   font-weight: 500;
   transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.boba-category-icon {
+  font-size: 1.2rem;
 }
 
 .boba-category-btn.active,
@@ -232,7 +365,7 @@
 /* Drinks Grid */
 .boba-drinks-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
 }
 
@@ -251,18 +384,25 @@
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
 }
 
-.boba-drink-card.popular::before {
-  content: 'HOT';
+.boba-badge {
   position: absolute;
   top: 1rem;
-  right: 1rem;
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-  color: #fff;
   padding: 0.3rem 0.8rem;
   border-radius: 15px;
   font-size: 0.75rem;
   font-weight: 700;
   z-index: 10;
+  color: #fff;
+}
+
+.boba-badge-hot {
+  right: 1rem;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+}
+
+.boba-badge-new {
+  left: 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .boba-drink-image {
@@ -276,7 +416,7 @@
 }
 
 .boba-drink-name {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #333;
@@ -285,13 +425,22 @@
 .boba-drink-desc {
   color: #666;
   font-size: 0.9rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.boba-drink-calories {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.5rem;
 }
 
 .boba-drink-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 0.5rem;
 }
 
 .boba-drink-price {
@@ -319,16 +468,10 @@
   transform: scale(1.1) rotate(90deg);
 }
 
-/* Toppings Section */
-.boba-toppings {
-  padding: 3rem 2rem;
+/* ===== Toppings Section ===== */
+.boba-toppings-section {
+  padding: 4rem 2rem;
   background: rgba(255, 255, 255, 0.1);
-}
-
-.boba-toppings-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
 }
 
 .boba-toppings-grid {
@@ -336,7 +479,7 @@
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -347,6 +490,7 @@
   text-align: center;
   cursor: pointer;
   transition: all 0.3s;
+  min-width: 120px;
 }
 
 .boba-topping-item:hover {
@@ -354,40 +498,323 @@
   transform: scale(1.05);
 }
 
+.boba-topping-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
 .boba-topping-name {
   font-weight: 600;
   margin-bottom: 0.3rem;
+  font-size: 0.9rem;
 }
 
 .boba-topping-price {
   opacity: 0.8;
+  font-size: 0.85rem;
+}
+
+/* ===== Rewards Section ===== */
+.boba-rewards {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.boba-rewards-subtitle {
+  opacity: 0.9;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+}
+
+.boba-rewards-steps {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.boba-rewards-step {
+  text-align: center;
+  max-width: 200px;
+}
+
+.boba-step-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 1rem;
+}
+
+.boba-rewards-step h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.boba-rewards-step p {
+  opacity: 0.8;
   font-size: 0.9rem;
 }
 
-/* About Section */
-.boba-about {
+.boba-tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+}
+
+.boba-tier-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid;
+  text-align: left;
+}
+
+.boba-tier-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+}
+
+.boba-tier-header h4 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.boba-tier-header span {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.boba-tier-benefits {
+  padding: 1rem;
+  list-style: none;
+  margin: 0;
+}
+
+.boba-tier-benefits li {
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.boba-tier-benefits li::before {
+  content: '✓ ';
+  color: #4ade80;
+}
+
+.boba-rewards-btn {
+  margin-top: 1rem;
+}
+
+/* ===== Reviews Section ===== */
+.boba-reviews {
   padding: 4rem 2rem;
-  text-align: center;
+}
+
+.boba-reviews-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.boba-about h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+.boba-carousel-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex-shrink: 0;
 }
 
-.boba-about p {
-  font-size: 1.1rem;
+.boba-carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.boba-review-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 500px;
+}
+
+.boba-review-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.boba-review-stars {
+  font-size: 1.3rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.boba-review-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.boba-review-author {
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.boba-review-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.boba-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.boba-dot.active,
+.boba-dot:hover {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+/* ===== Locations Section ===== */
+.boba-locations {
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.boba-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.boba-location-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  position: relative;
+}
+
+.boba-location-card.new {
+  border: 2px solid #4ade80;
+}
+
+.boba-location-new {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #4ade80;
+  color: #000;
+  padding: 0.3rem 0.8rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.boba-location-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.boba-location-address {
+  opacity: 0.9;
+  margin-bottom: 0.3rem;
+}
+
+.boba-location-phone {
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.boba-location-hours {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.boba-location-hours h4 {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.boba-location-hours p {
+  font-size: 0.9rem;
+  margin: 0.2rem 0;
+}
+
+.boba-location-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.boba-feature-tag {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+/* ===== About Section ===== */
+.boba-about {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.boba-about-story {
+  font-size: 1.15rem;
   line-height: 1.8;
   opacity: 0.9;
+  margin-bottom: 3rem;
 }
 
 .boba-features {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  margin-top: 3rem;
 }
 
 .boba-feature {
@@ -400,7 +827,7 @@
 }
 
 .boba-feature h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
 }
 
@@ -409,41 +836,151 @@
   font-size: 0.9rem;
 }
 
-/* Footer */
-.boba-footer {
-  background: rgba(0, 0, 0, 0.2);
-  padding: 3rem 2rem;
-  text-align: center;
+/* ===== FAQ Section ===== */
+.boba-faq {
+  padding: 4rem 2rem;
+  background: rgba(0, 0, 0, 0.1);
 }
 
-.boba-footer-content {
-  max-width: 600px;
+.boba-faq-list {
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.boba-footer h3 {
-  font-size: 1.5rem;
+.boba-faq-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
   margin-bottom: 1rem;
+  overflow: hidden;
 }
 
-.boba-footer-info {
+.boba-faq-question {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
 }
 
-.boba-footer-info span {
+.boba-faq-question:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.boba-faq-icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.boba-faq-answer {
+  padding: 0 1.5rem 1.25rem;
+}
+
+.boba-faq-answer p {
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.boba-faq-item.expanded {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== Newsletter Section ===== */
+.boba-newsletter {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+}
+
+.boba-newsletter-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.boba-newsletter-subtitle {
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.boba-newsletter-form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.boba-newsletter-form input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+.boba-newsletter-form input::placeholder {
+  color: #888;
+}
+
+.boba-newsletter-success {
+  background: rgba(74, 222, 128, 0.3);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  display: inline-block;
+  font-weight: 600;
+}
+
+/* ===== Footer ===== */
+.boba-footer {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 3rem 2rem 2rem;
+}
+
+.boba-footer-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.boba-footer-brand h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.boba-footer-brand p {
+  opacity: 0.8;
+}
+
+.boba-footer-contact h4,
+.boba-footer-social h4 {
+  margin-bottom: 1rem;
   opacity: 0.9;
 }
 
-.boba-social {
+.boba-footer-contact p {
+  opacity: 0.8;
+  margin: 0.3rem 0;
+}
+
+.boba-social-links {
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
 
-.boba-social a {
+.boba-social-links a {
   background: rgba(255, 255, 255, 0.2);
   width: 45px;
   height: 45px;
@@ -454,80 +991,562 @@
   color: #fff;
   text-decoration: none;
   transition: all 0.3s;
+  font-weight: 600;
 }
 
-.boba-social a:hover {
+.boba-social-links a:hover {
   background: #fff;
   color: #764ba2;
   transform: translateY(-3px);
 }
 
 .boba-copyright {
+  text-align: center;
   margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   opacity: 0.7;
   font-size: 0.9rem;
 }
 
-/* Cart Badge */
-.boba-cart {
+/* ===== Floating Cart Button ===== */
+.boba-cart-fab {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
   background: #fff;
   color: #764ba2;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: all 0.3s;
   z-index: 1000;
 }
 
-.boba-cart:hover {
+.boba-cart-fab:hover {
   transform: scale(1.1);
 }
 
-.boba-cart-count {
+.boba-cart-fab .boba-cart-count {
   position: absolute;
   top: -5px;
   right: -5px;
   background: linear-gradient(135deg, #ff6b6b, #ff8e53);
   color: #fff;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Responsive */
+/* ===== Customization Modal ===== */
+.boba-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.boba-modal {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 25px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.boba-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 10;
+}
+
+.boba-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.boba-modal-header {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.boba-modal-header img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.boba-modal-header h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.boba-modal-header p {
+  opacity: 0.9;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.boba-modal-ingredients {
+  font-size: 0.85rem !important;
+  opacity: 0.7 !important;
+  font-style: italic;
+}
+
+.boba-modal-options {
+  padding: 1.5rem;
+}
+
+.boba-option-group {
+  margin-bottom: 1.5rem;
+}
+
+.boba-option-group h4 {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  opacity: 0.95;
+}
+
+.boba-option-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.boba-option-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid transparent;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.boba-option-btn span {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.boba-option-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.boba-option-btn.active {
+  background: #fff;
+  color: #764ba2;
+  border-color: #fff;
+}
+
+.boba-option-btn.active span {
+  color: #764ba2;
+  opacity: 1;
+}
+
+.boba-option-toppings {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.5rem;
+}
+
+.boba-topping-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid transparent;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.boba-topping-btn .boba-topping-icon {
+  font-size: 1.2rem;
+}
+
+.boba-topping-btn .boba-topping-price {
+  margin-left: auto;
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+
+.boba-topping-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.boba-topping-btn.active {
+  background: #fff;
+  color: #764ba2;
+  border-color: #fff;
+}
+
+.boba-modal-footer {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.boba-modal-total {
+  font-size: 1.1rem;
+}
+
+.boba-total-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-left: 0.5rem;
+}
+
+.boba-add-cart-btn {
+  flex: 1;
+  max-width: 200px;
+}
+
+/* ===== Cart Sidebar ===== */
+.boba-cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.boba-cart-sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+  max-width: 100%;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  animation: slideLeft 0.3s ease;
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.boba-cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.boba-cart-header h3 {
+  font-size: 1.3rem;
+}
+
+.boba-cart-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.boba-cart-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.boba-cart-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+
+.boba-cart-empty span {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.boba-cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.boba-cart-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+.boba-cart-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.boba-cart-item-info {
+  flex: 1;
+}
+
+.boba-cart-item-info h4 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.boba-cart-item-options {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 0.2rem;
+}
+
+.boba-cart-item-toppings {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+.boba-cart-item-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boba-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.boba-quantity-controls button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.boba-quantity-controls button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.boba-quantity-controls span {
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+.boba-cart-item-price {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.boba-cart-item-remove {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(255, 100, 100, 0.3);
+  border: none;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.boba-cart-item-remove:hover {
+  background: rgba(255, 100, 100, 0.5);
+}
+
+.boba-cart-summary {
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.boba-cart-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  opacity: 0.9;
+}
+
+.boba-cart-row.total {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.boba-cart-actions {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.boba-checkout-btn {
+  width: 100%;
+}
+
+.boba-clear-cart {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  transition: color 0.3s;
+}
+
+.boba-clear-cart:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 900px) {
+  .boba-hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .boba-tagline {
+    font-size: 1.5rem;
+  }
+
+  .boba-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .boba-footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .boba-tiers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
-  .boba-header {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+  .boba-hamburger {
+    display: flex;
   }
 
   .boba-nav {
-    gap: 1rem;
-    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 105;
+  }
+
+  .boba-nav.open {
+    transform: translateX(0);
+  }
+
+  .boba-nav a {
+    font-size: 1.5rem;
+  }
+
+  .boba-lang-toggle {
+    margin-top: 1rem;
+  }
+
+  .boba-header {
+    padding: 1rem;
+  }
+
+  .boba-hero {
+    padding: 3rem 1.5rem;
   }
 
   .boba-hero h1 {
     font-size: 2.5rem;
+    letter-spacing: 2px;
   }
 
-  .boba-hero .tagline {
-    font-size: 1.1rem;
+  .boba-tagline {
+    font-size: 1.2rem;
+  }
+
+  .boba-subtitle {
+    font-size: 1rem;
   }
 
   .boba-hero-cta {
@@ -535,25 +1554,185 @@
     align-items: center;
   }
 
+  .boba-stats {
+    gap: 1.5rem;
+  }
+
+  .boba-stat-value {
+    font-size: 2rem;
+  }
+
   .boba-promo {
     flex-direction: column;
     align-items: center;
+  }
+
+  .boba-promo-card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .boba-menu {
+    padding: 3rem 1rem;
+  }
+
+  .boba-section-title {
+    font-size: 2rem;
   }
 
   .boba-drinks-grid {
     grid-template-columns: 1fr;
   }
 
-  .boba-features {
-    grid-template-columns: 1fr;
-  }
-
   .boba-categories {
     gap: 0.5rem;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .boba-category-btn {
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .boba-rewards-steps {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .boba-tiers {
+    grid-template-columns: 1fr;
+  }
+
+  .boba-reviews-carousel {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .boba-carousel-btn {
+    display: none;
+  }
+
+  .boba-locations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .boba-features {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .boba-newsletter-form {
+    flex-direction: column;
+  }
+
+  .boba-newsletter-form input,
+  .boba-newsletter-form button {
+    width: 100%;
+  }
+
+  .boba-modal {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .boba-modal-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .boba-modal-header img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+
+  .boba-modal-footer {
+    flex-direction: column;
+  }
+
+  .boba-add-cart-btn {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .boba-cart-sidebar {
+    width: 100%;
+  }
+
+  .boba-cart-fab {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .boba-hero h1 {
+    font-size: 2rem;
+  }
+
+  .boba-tagline {
+    font-size: 1rem;
+  }
+
+  .boba-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .boba-stat-label {
+    font-size: 0.8rem;
+  }
+
+  .boba-section-title {
+    font-size: 1.6rem;
+  }
+
+  .boba-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .boba-drink-card {
+    border-radius: 20px;
+  }
+
+  .boba-drink-image {
+    height: 180px;
+  }
+
+  .boba-features {
+    grid-template-columns: 1fr;
+  }
+
+  .boba-feature-icon {
+    font-size: 2.5rem;
+  }
+
+  .boba-toppings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .boba-topping-item {
+    min-width: auto;
+    padding: 0.75rem;
+  }
+
+  .boba-option-toppings {
+    grid-template-columns: 1fr;
+  }
+
+  .boba-cart-item {
+    flex-direction: column;
+  }
+
+  .boba-cart-item img {
+    width: 100%;
+    height: 120px;
   }
 }

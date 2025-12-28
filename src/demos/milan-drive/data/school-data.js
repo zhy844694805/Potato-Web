@@ -248,7 +248,7 @@ export const schoolInfo = {
     postalCode: '20154',
     country: 'Italia'
   },
-  phone: '+39 02 8888 6666',
+  phone: '+39 02 9583 4162',
   wechat: 'MilanDrive888',
   email: 'info@milandrive.it',
   hours: {

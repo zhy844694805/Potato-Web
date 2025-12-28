@@ -5,6 +5,7 @@
   --beauty-light: #fce4ec;
   --beauty-dark: #1a1a1a;
   --beauty-gray: #666;
+  --beauty-light-gray: #f8f8f8;
   font-family: 'Inter', -apple-system, sans-serif;
   background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 50%, #e8eaf6 100%);
   min-height: 100vh;
@@ -13,13 +14,26 @@
 
 /* Header */
 .beauty-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+}
+
+.beauty-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
+
 .beauty-logo {
   display: flex;
   align-items: center;
@@ -27,12 +41,39 @@
   font-weight: 600;
   font-size: 1.1rem;
   color: var(--beauty-primary);
+  text-decoration: none;
 }
+
 .beauty-logo span:first-child { font-size: 1.5rem; }
+
+.beauty-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.beauty-nav a {
+  text-decoration: none;
+  color: var(--beauty-gray);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.beauty-nav a:hover {
+  color: var(--beauty-primary);
+}
+
+.beauty-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .beauty-lang {
   display: flex;
   gap: 0.25rem;
 }
+
 .beauty-lang button {
   background: white;
   border: 1px solid #ddd;
@@ -43,19 +84,126 @@
   color: var(--beauty-gray);
   transition: all 0.3s;
 }
+
+.beauty-lang button:hover {
+  border-color: var(--beauty-primary);
+}
+
 .beauty-lang button.active {
   background: var(--beauty-primary);
   border-color: var(--beauty-primary);
   color: white;
 }
 
+/* Mobile Menu Toggle */
+.beauty-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.beauty-mobile-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--beauty-primary);
+  transition: all 0.3s;
+  transform-origin: center;
+}
+
+.beauty-mobile-toggle.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.beauty-mobile-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.beauty-mobile-toggle.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Buttons */
+.beauty-btn {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+  text-align: center;
+}
+
+.beauty-btn-primary {
+  background: linear-gradient(135deg, var(--beauty-primary), var(--beauty-secondary));
+  color: white;
+  box-shadow: 0 4px 20px rgba(233,30,99,0.3);
+}
+
+.beauty-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(233,30,99,0.4);
+}
+
+.beauty-btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.beauty-btn-outline {
+  background: white;
+  color: var(--beauty-primary);
+  border-color: var(--beauty-primary);
+}
+
+.beauty-btn-outline:hover {
+  background: var(--beauty-light);
+}
+
+.beauty-btn-full {
+  width: 100%;
+}
+
+/* Container */
+.beauty-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.beauty-section-subtitle {
+  text-align: center;
+  color: var(--beauty-gray);
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
 /* Hero Section */
 .beauty-hero {
-  text-align: center;
-  padding: 3rem 2rem;
-  max-width: 800px;
+  padding: 8rem 2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
+
+.beauty-hero-content {
+  flex: 1;
+  max-width: 500px;
+}
+
 .beauty-hero h1 {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
@@ -65,54 +213,192 @@
   background-clip: text;
   margin-bottom: 0.5rem;
 }
+
 .beauty-hero .subtitle {
   font-size: 1.25rem;
   color: var(--beauty-gray);
   margin-bottom: 1rem;
 }
+
 .beauty-hero .description {
   font-size: 1rem;
   color: var(--beauty-gray);
-  line-height: 1.6;
+  line-height: 1.7;
+  margin-bottom: 2rem;
 }
 
-/* Stats Bar */
+.beauty-hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.beauty-hero-visual {
+  flex-shrink: 0;
+}
+
+.beauty-hero-phone .beauty-phone-frame {
+  transform: rotate(3deg);
+}
+
+/* Stats Section */
+.beauty-stats-section {
+  padding: 2rem;
+  background: white;
+}
+
 .beauty-stats {
   display: flex;
   justify-content: center;
   gap: 3rem;
-  padding: 2rem;
   flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
 }
+
 .beauty-stat {
   text-align: center;
-  background: white;
+  background: var(--beauty-light);
   padding: 1.5rem 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(233,30,99,0.1);
+  min-width: 140px;
 }
+
 .beauty-stat-value {
   font-size: 2rem;
   font-weight: 700;
   color: var(--beauty-primary);
 }
+
 .beauty-stat-label {
   font-size: 0.85rem;
   color: var(--beauty-gray);
   margin-top: 0.25rem;
 }
 
-/* Phone Mockup Section */
-.beauty-phones {
-  padding: 3rem 1rem;
-  overflow-x: auto;
+/* How It Works */
+.beauty-how-it-works {
+  padding: 5rem 2rem;
+  background: white;
 }
-.beauty-phones-title {
+
+.beauty-how-it-works h2 {
   text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
   color: var(--beauty-dark);
 }
+
+.beauty-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.beauty-step {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--beauty-light);
+  border-radius: 16px;
+  position: relative;
+}
+
+.beauty-step-number {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--beauty-primary), var(--beauty-secondary));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 1rem;
+}
+
+.beauty-step h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--beauty-dark);
+}
+
+.beauty-step p {
+  font-size: 0.9rem;
+  color: var(--beauty-gray);
+  line-height: 1.6;
+}
+
+/* Features Section */
+.beauty-features {
+  background: var(--beauty-light-gray);
+  padding: 5rem 2rem;
+}
+
+.beauty-features-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.beauty-features h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--beauty-dark);
+}
+
+.beauty-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.beauty-feature {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 16px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.beauty-feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(233,30,99,0.1);
+}
+
+.beauty-feature-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.beauty-feature h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--beauty-dark);
+}
+
+.beauty-feature p {
+  font-size: 0.85rem;
+  color: var(--beauty-gray);
+  line-height: 1.5;
+}
+
+/* Phone Mockup Section */
+.beauty-phones {
+  padding: 5rem 1rem;
+  overflow-x: auto;
+}
+
+.beauty-phones-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--beauty-dark);
+}
+
 .beauty-phones-scroll {
   display: flex;
   justify-content: center;
@@ -127,13 +413,16 @@
   flex-shrink: 0;
   transition: transform 0.3s;
 }
+
 .beauty-phone:hover { transform: translateY(-10px); }
+
 .beauty-phone-frame {
   background: #1a1a1a;
   border-radius: 32px;
   padding: 8px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
+
 .beauty-phone-notch {
   width: 80px;
   height: 20px;
@@ -144,6 +433,7 @@
   top: -1px;
   z-index: 10;
 }
+
 .beauty-phone-screen {
   background: white;
   border-radius: 24px;
@@ -151,17 +441,20 @@
   overflow: hidden;
   position: relative;
 }
+
 .beauty-phone-content {
   height: 100%;
   padding: 2.5rem 1rem 1rem;
   display: flex;
   flex-direction: column;
 }
+
 .beauty-phone-label {
   text-align: center;
   margin-top: 1rem;
   font-size: 0.9rem;
   color: var(--beauty-gray);
+  font-weight: 500;
 }
 
 /* Mockup Screen Contents */
@@ -172,12 +465,14 @@
   color: var(--beauty-primary);
   margin-bottom: 1rem;
 }
+
 .beauty-mock-greeting {
   font-size: 0.75rem;
   color: var(--beauty-gray);
   text-align: center;
   margin-bottom: 1.5rem;
 }
+
 .beauty-mock-section {
   background: #f5f5f5;
   border-radius: 8px;
@@ -186,12 +481,14 @@
   font-size: 0.7rem;
   color: var(--beauty-dark);
 }
+
 .beauty-mock-categories {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
   margin-bottom: 1rem;
 }
+
 .beauty-mock-cat {
   background: var(--beauty-light);
   color: var(--beauty-primary);
@@ -199,6 +496,7 @@
   border-radius: 20px;
   font-size: 0.65rem;
 }
+
 .beauty-mock-item {
   background: white;
   border: 1px solid #eee;
@@ -209,21 +507,25 @@
   display: flex;
   justify-content: space-between;
 }
+
 .beauty-mock-booking {
   text-align: center;
   padding: 1rem;
 }
+
 .beauty-mock-booking-title {
   font-weight: 600;
   font-size: 0.85rem;
   margin-bottom: 1rem;
   color: var(--beauty-primary);
 }
+
 .beauty-mock-booking-detail {
   font-size: 0.7rem;
   color: var(--beauty-gray);
   margin-bottom: 0.5rem;
 }
+
 .beauty-mock-booking-btn {
   background: var(--beauty-primary);
   color: white;
@@ -232,11 +534,14 @@
   border-radius: 20px;
   font-size: 0.7rem;
   margin-top: 1rem;
+  cursor: pointer;
 }
+
 .beauty-mock-success {
   text-align: center;
   padding-top: 3rem;
 }
+
 .beauty-mock-success-icon {
   width: 60px;
   height: 60px;
@@ -249,20 +554,24 @@
   color: white;
   font-size: 1.5rem;
 }
+
 .beauty-mock-success-text {
   font-weight: 600;
   color: #4caf50;
   font-size: 0.9rem;
 }
+
 .beauty-mock-success-sub {
   font-size: 0.7rem;
   color: var(--beauty-gray);
   margin-top: 0.5rem;
 }
+
 .beauty-mock-profile {
   text-align: center;
   padding: 1rem;
 }
+
 .beauty-mock-avatar {
   width: 60px;
   height: 60px;
@@ -274,15 +583,18 @@
   font-size: 1.5rem;
   margin: 0 auto 0.5rem;
 }
+
 .beauty-mock-name {
   font-weight: 600;
   font-size: 0.9rem;
 }
+
 .beauty-mock-points {
   font-size: 0.7rem;
   color: var(--beauty-primary);
   margin-bottom: 1rem;
 }
+
 .beauty-mock-menu-item {
   background: #f5f5f5;
   border-radius: 8px;
@@ -292,68 +604,454 @@
   text-align: left;
 }
 
-/* Features Section */
-.beauty-features {
-  background: white;
-  padding: 4rem 2rem;
+/* Tech Stack */
+.beauty-tech {
+  padding: 2rem;
+  background: var(--beauty-dark);
 }
-.beauty-features-inner {
+
+.beauty-tech-grid {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.beauty-tech-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.beauty-tech-icon {
+  font-size: 1.5rem;
+}
+
+/* Pricing */
+.beauty-pricing {
+  padding: 5rem 2rem;
+  background: white;
+}
+
+.beauty-pricing h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--beauty-dark);
+}
+
+.beauty-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   max-width: 1000px;
   margin: 0 auto;
 }
-.beauty-features h2 {
-  text-align: center;
-  font-size: 1.75rem;
-  margin-bottom: 2.5rem;
-  color: var(--beauty-dark);
-}
-.beauty-features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-.beauty-feature {
-  display: flex;
-  gap: 1rem;
-  padding: 1.5rem;
-  background: var(--beauty-light);
+
+.beauty-pricing-card {
+  background: var(--beauty-light-gray);
   border-radius: 16px;
-  transition: transform 0.3s;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.beauty-feature:hover { transform: translateY(-4px); }
-.beauty-feature-icon {
-  font-size: 2rem;
-  flex-shrink: 0;
+
+.beauty-pricing-card:hover {
+  transform: translateY(-4px);
 }
-.beauty-feature h3 {
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
+
+.beauty-pricing-card.highlighted {
+  background: linear-gradient(135deg, var(--beauty-primary), var(--beauty-secondary));
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 10px 40px rgba(233,30,99,0.3);
 }
-.beauty-feature p {
+
+.beauty-pricing-card.highlighted .beauty-pricing-desc,
+.beauty-pricing-card.highlighted .beauty-pricing-period,
+.beauty-pricing-card.highlighted .beauty-pricing-features li {
+  color: rgba(255,255,255,0.85);
+}
+
+.beauty-pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff9800;
+  color: white;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.beauty-pricing-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.beauty-pricing-desc {
+  font-size: 0.85rem;
+  color: var(--beauty-gray);
+  margin-bottom: 1.5rem;
+}
+
+.beauty-pricing-price {
+  margin-bottom: 1.5rem;
+}
+
+.beauty-pricing-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.beauty-pricing-period {
   font-size: 0.85rem;
   color: var(--beauty-gray);
 }
 
-/* CTA Section */
-.beauty-cta {
+.beauty-pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  text-align: left;
+}
+
+.beauty-pricing-features li {
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  color: var(--beauty-gray);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.beauty-pricing-card.highlighted .beauty-pricing-features li {
+  border-bottom-color: rgba(255,255,255,0.2);
+}
+
+.beauty-pricing-card.highlighted .beauty-btn-primary {
+  background: white;
+  color: var(--beauty-primary);
+  box-shadow: none;
+}
+
+/* Testimonials */
+.beauty-testimonials {
+  padding: 5rem 2rem;
+  background: var(--beauty-light);
+}
+
+.beauty-testimonials h2 {
   text-align: center;
-  padding: 4rem 2rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--beauty-dark);
 }
-.beauty-cta-btn {
-  display: inline-block;
-  padding: 1rem 3rem;
-  background: linear-gradient(135deg, var(--beauty-primary), var(--beauty-secondary));
+
+.beauty-testimonial-carousel {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.beauty-carousel-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--beauty-primary);
+  background: white;
+  color: var(--beauty-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.beauty-carousel-btn:hover {
+  background: var(--beauty-primary);
   color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 30px;
-  box-shadow: 0 8px 30px rgba(233,30,99,0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
 }
-.beauty-cta-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(233,30,99,0.4);
+
+.beauty-testimonial-card {
+  flex: 1;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.beauty-testimonial-rating {
+  margin-bottom: 1rem;
+}
+
+.beauty-star {
+  font-size: 1.2rem;
+  color: #ddd;
+  margin: 0 0.1rem;
+}
+
+.beauty-star.filled {
+  color: #ffc107;
+}
+
+.beauty-testimonial-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--beauty-gray);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.beauty-testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.beauty-testimonial-author img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.beauty-testimonial-author strong {
+  display: block;
+  color: var(--beauty-dark);
+}
+
+.beauty-testimonial-author span {
+  font-size: 0.85rem;
+  color: var(--beauty-gray);
+}
+
+.beauty-testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.beauty-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.beauty-dot.active {
+  background: var(--beauty-primary);
+  transform: scale(1.2);
+}
+
+/* FAQ */
+.beauty-faq {
+  padding: 5rem 2rem;
+  background: white;
+}
+
+.beauty-faq h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--beauty-dark);
+}
+
+.beauty-faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.beauty-faq-item {
+  background: var(--beauty-light-gray);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.beauty-faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--beauty-dark);
+  transition: color 0.3s;
+}
+
+.beauty-faq-question:hover {
+  color: var(--beauty-primary);
+}
+
+.beauty-faq-icon {
+  font-size: 1.5rem;
+  color: var(--beauty-primary);
+}
+
+.beauty-faq-answer {
+  padding: 0 1.5rem 1.25rem;
+}
+
+.beauty-faq-answer p {
+  color: var(--beauty-gray);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.beauty-faq-item.expanded {
+  border-left: 3px solid var(--beauty-primary);
+}
+
+/* Demo Request */
+.beauty-demo {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, var(--beauty-primary), var(--beauty-secondary));
+}
+
+.beauty-demo-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.beauty-demo-text {
+  color: white;
+}
+
+.beauty-demo-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.beauty-demo-text p {
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.beauty-demo-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.beauty-demo-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.beauty-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.beauty-form-group.full {
+  grid-column: 1 / -1;
+}
+
+.beauty-form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--beauty-gray);
+}
+
+.beauty-form-group input,
+.beauty-form-group select,
+.beauty-form-group textarea {
+  padding: 0.85rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.beauty-form-group input:focus,
+.beauty-form-group select:focus,
+.beauty-form-group textarea:focus {
+  outline: none;
+  border-color: var(--beauty-primary);
+}
+
+.beauty-form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.beauty-success {
+  color: #4caf50;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 500;
+  padding: 0.75rem;
+  background: rgba(76,175,80,0.1);
+  border-radius: 6px;
+}
+
+/* Newsletter */
+.beauty-newsletter {
+  padding: 4rem 2rem;
+  background: var(--beauty-dark);
+}
+
+.beauty-newsletter-content {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+}
+
+.beauty-newsletter-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.beauty-newsletter-content > p {
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+
+.beauty-newsletter-form {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.beauty-newsletter-form input {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 0.95rem;
+}
+
+.beauty-newsletter-form input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(233,30,99,0.3);
+}
+
+.beauty-newsletter-success {
+  margin-top: 1rem;
+  color: #4caf50;
+  font-size: 0.9rem;
 }
 
 /* Footer */
@@ -361,24 +1059,197 @@
   background: var(--beauty-dark);
   color: rgba(255,255,255,0.6);
   padding: 2rem;
-  text-align: center;
-  font-size: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
-.beauty-back {
-  display: inline-block;
-  margin-top: 1rem;
-  color: var(--beauty-primary);
+
+.beauty-footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.beauty-footer-logo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.beauty-footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.beauty-footer-links a {
+  color: rgba(255,255,255,0.6);
   text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.beauty-footer-links a:hover {
+  color: var(--beauty-primary);
+}
+
+.beauty-back {
+  color: var(--beauty-primary);
 }
 
 /* Responsive */
+@media (max-width: 900px) {
+  .beauty-nav {
+    display: none;
+  }
+
+  .beauty-mobile-toggle {
+    display: flex;
+  }
+
+  .beauty-nav.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 2rem;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: slideDown 0.3s;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .beauty-hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 6rem;
+    gap: 2rem;
+  }
+
+  .beauty-hero-cta {
+    justify-content: center;
+  }
+
+  .beauty-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .beauty-pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+
+  .beauty-pricing-card.highlighted {
+    transform: none;
+  }
+
+  .beauty-demo-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .beauty-demo-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .beauty-footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 @media (max-width: 768px) {
+  .beauty-header-inner {
+    padding: 1rem;
+  }
+
   .beauty-phones-scroll {
     justify-content: flex-start;
     padding-left: 2rem;
   }
+
   .beauty-phone { width: 180px; }
   .beauty-phone-screen { height: 350px; }
-  .beauty-stats { gap: 1rem; }
-  .beauty-stat { padding: 1rem 1.5rem; }
+
+  .beauty-stats {
+    gap: 1rem;
+  }
+
+  .beauty-stat {
+    padding: 1rem 1.5rem;
+    min-width: 120px;
+  }
+
+  .beauty-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .beauty-testimonial-carousel {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .beauty-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    z-index: 10;
+  }
+
+  .beauty-carousel-btn.prev { left: 0; }
+  .beauty-carousel-btn.next { right: 0; }
+
+  .beauty-testimonial-carousel {
+    position: relative;
+    padding: 0 3rem;
+  }
+
+  .beauty-newsletter-form {
+    flex-direction: column;
+  }
+
+  .beauty-tech-grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .beauty-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .beauty-hero-phone {
+    transform: scale(0.85);
+  }
+
+  .beauty-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .beauty-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .beauty-stat {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .beauty-demo-form {
+    padding: 1.5rem;
+  }
 }

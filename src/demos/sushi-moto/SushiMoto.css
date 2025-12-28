@@ -9,6 +9,7 @@
   --moto-white: #FFFFFF;
   --moto-red: #CB1B33;
   --moto-red-dark: #A01528;
+  --moto-red-light: #E8324A;
 
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--moto-black);
@@ -27,6 +28,14 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+/* Overlay */
+.moto-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 998;
 }
 
 /* Header */
@@ -113,6 +122,41 @@
   background: var(--moto-white);
   color: var(--moto-black);
   border-color: var(--moto-white);
+}
+
+/* Mobile Menu Toggle */
+.moto-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1001;
+}
+
+.moto-menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--moto-white);
+  transition: all 0.3s ease;
+}
+
+.moto-menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.moto-menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.moto-menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Buttons */
@@ -265,6 +309,125 @@
   50% { opacity: 0.5; transform: translateX(-50%) translateY(8px); }
 }
 
+/* Stats Banner */
+.moto-stats-banner {
+  background: var(--moto-red);
+  padding: 40px 0;
+}
+
+.moto-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.moto-stat-item {
+  padding: 16px;
+}
+
+.moto-stat-num {
+  display: block;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--moto-white);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.moto-stat-txt {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Story Section */
+.moto-story {
+  padding: 100px 0;
+  background: var(--moto-black);
+}
+
+.moto-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.moto-story-content h2 {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.moto-story-content p {
+  color: var(--moto-light-gray);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.moto-story-image {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.moto-story-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.moto-philosophy {
+  text-align: center;
+}
+
+.moto-philosophy h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.moto-values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.moto-value-card {
+  background: var(--moto-dark);
+  padding: 32px 24px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.moto-value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(203, 27, 51, 0.2);
+}
+
+.moto-value-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.moto-value-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.moto-value-card p {
+  color: var(--moto-light-gray);
+  font-size: 14px;
+}
+
 /* Sections */
 .moto-section-header {
   text-align: center;
@@ -304,6 +467,10 @@
 
 .moto-location-card:hover {
   transform: translateY(-8px);
+}
+
+.moto-location-card.featured {
+  border: 2px solid var(--moto-red);
 }
 
 .moto-location-image {
@@ -348,15 +515,26 @@
   margin-bottom: 8px;
 }
 
-.moto-location-info p {
+.moto-location-address {
   color: var(--moto-light-gray);
   font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.moto-location-hours {
+  color: var(--moto-light-gray);
+  font-size: 13px;
   margin-bottom: 16px;
 }
 
 .moto-location-actions {
   display: flex;
   gap: 12px;
+}
+
+.moto-locations-cta {
+  text-align: center;
+  margin-top: 48px;
 }
 
 /* Menu */
@@ -491,83 +669,159 @@
   margin-top: 48px;
 }
 
-/* About */
-.moto-about {
-  position: relative;
-  padding: 120px 0;
-  overflow: hidden;
+/* Reviews */
+.moto-reviews {
+  padding: 100px 0;
+  background: var(--moto-dark);
 }
 
-.moto-about-bg {
-  position: absolute;
-  inset: 0;
-}
-
-.moto-about-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.moto-about-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(14, 14, 14, 0.85);
-}
-
-.moto-about-content {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
+.moto-reviews-carousel {
+  max-width: 700px;
   margin: 0 auto;
-  text-align: center;
-  padding: 0 24px;
+  position: relative;
 }
 
-.moto-about-content h2 {
-  font-size: 48px;
-  font-weight: 900;
-  letter-spacing: 4px;
+.moto-review-card {
+  background: var(--moto-black);
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--moto-gray);
+}
+
+.moto-review-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   margin-bottom: 24px;
 }
 
-.moto-about-content p {
+.moto-review-avatar {
+  font-size: 48px;
+  width: 64px;
+  height: 64px;
+  background: var(--moto-gray);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moto-review-info {
+  flex: 1;
+}
+
+.moto-review-info h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.moto-review-info span {
   color: var(--moto-light-gray);
+  font-size: 14px;
+}
+
+.moto-review-rating {
+  color: var(--moto-red);
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.moto-review-text {
   font-size: 18px;
   line-height: 1.8;
-  margin-bottom: 48px;
+  color: var(--moto-light-gray);
+  font-style: italic;
 }
 
-.moto-about-stats {
+.moto-reviews-nav {
   display: flex;
   justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
 }
 
-.moto-stat {
-  text-align: center;
+.moto-review-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--moto-gray);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-.moto-stat-number {
-  display: block;
-  font-size: 48px;
-  font-weight: 900;
-  color: var(--moto-red);
-  line-height: 1;
+.moto-review-dot.active {
+  background: var(--moto-red);
+  transform: scale(1.2);
 }
 
-.moto-stat-label {
-  font-size: 14px;
-  color: var(--moto-light-gray);
-  letter-spacing: 1px;
-  text-transform: uppercase;
+.moto-reviews-arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.moto-review-arrow {
+  width: 48px;
+  height: 48px;
+  background: var(--moto-black);
+  border: 2px solid var(--moto-gray);
+  color: var(--moto-white);
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.moto-review-arrow:hover {
+  background: var(--moto-red);
+  border-color: var(--moto-red);
 }
 
 /* Delivery */
 .moto-delivery {
   padding: 100px 0;
+  background: var(--moto-black);
+}
+
+.moto-delivery-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.moto-delivery-feature {
+  text-align: center;
+  padding: 32px 20px;
   background: var(--moto-dark);
+  border-radius: 8px;
+}
+
+.moto-feature-icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.moto-delivery-feature h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.moto-delivery-feature p {
+  color: var(--moto-light-gray);
+  font-size: 14px;
 }
 
 .moto-delivery-grid {
@@ -591,18 +845,22 @@
 
 .moto-delivery-options {
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  gap: 16px;
   margin-bottom: 32px;
 }
 
 .moto-delivery-option {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--moto-dark);
+  border-radius: 8px;
 }
 
 .moto-delivery-icon {
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .moto-delivery-image {
@@ -614,6 +872,263 @@
   width: 100%;
   height: 400px;
   object-fit: cover;
+}
+
+/* Gift Card */
+.moto-giftcard {
+  padding: 80px 0;
+  background: var(--moto-dark);
+}
+
+.moto-giftcard-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.moto-giftcard-content h2 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.moto-giftcard-content p {
+  color: var(--moto-light-gray);
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.moto-giftcard-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.moto-card-mockup {
+  width: 320px;
+  height: 200px;
+  background: linear-gradient(135deg, var(--moto-red) 0%, var(--moto-red-dark) 100%);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 20px 60px rgba(203, 27, 51, 0.4);
+  transform: rotate(-3deg);
+  transition: transform 0.3s;
+}
+
+.moto-card-mockup:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.moto-card-logo {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.moto-card-amount {
+  font-size: 48px;
+  font-weight: 900;
+  align-self: center;
+}
+
+.moto-card-text {
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-align: right;
+  opacity: 0.8;
+}
+
+/* FAQ */
+.moto-faq {
+  padding: 100px 0;
+  background: var(--moto-black);
+}
+
+.moto-faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.moto-faq-item {
+  border-bottom: 1px solid var(--moto-gray);
+}
+
+.moto-faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  background: none;
+  border: none;
+  color: var(--moto-white);
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.moto-faq-question:hover {
+  color: var(--moto-red);
+}
+
+.moto-faq-icon {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--moto-red);
+}
+
+.moto-faq-answer {
+  padding: 0 0 24px;
+  animation: fadeIn 0.3s ease;
+}
+
+.moto-faq-answer p {
+  color: var(--moto-light-gray);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Franchise */
+.moto-franchise {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.moto-franchise-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.moto-franchise-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moto-franchise-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(14, 14, 14, 0.95) 0%,
+    rgba(14, 14, 14, 0.7) 100%
+  );
+}
+
+.moto-franchise-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.moto-franchise-label {
+  display: inline-block;
+  background: var(--moto-red);
+  color: var(--moto-white);
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.moto-franchise-content h2 {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin-bottom: 24px;
+}
+
+.moto-franchise-content p {
+  color: var(--moto-light-gray);
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+/* Newsletter */
+.moto-newsletter {
+  padding: 60px 0;
+  background: var(--moto-red);
+}
+
+.moto-newsletter-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.moto-newsletter-content h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.moto-newsletter-content p {
+  opacity: 0.9;
+}
+
+.moto-newsletter-form {
+  display: flex;
+  gap: 12px;
+}
+
+.moto-newsletter-form input {
+  padding: 14px 20px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--moto-white);
+  width: 280px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.moto-newsletter-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.moto-newsletter-form input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: var(--moto-white);
+}
+
+.moto-newsletter-form .moto-btn {
+  background: var(--moto-black);
+}
+
+.moto-newsletter-form .moto-btn:hover {
+  background: var(--moto-white);
+  color: var(--moto-black);
+}
+
+.moto-newsletter-success {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 14px 24px;
+  border-radius: 4px;
+}
+
+.moto-newsletter-success span:first-child {
+  font-size: 24px;
 }
 
 /* Footer */
@@ -633,6 +1148,7 @@
 .moto-footer-brand p {
   color: var(--moto-light-gray);
   margin-top: 16px;
+  margin-bottom: 20px;
 }
 
 .moto-footer-links h4 {
@@ -653,13 +1169,6 @@
 
 .moto-footer-links a:hover {
   color: var(--moto-red);
-}
-
-.moto-footer-social h4 {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
 }
 
 .moto-social-links {
@@ -686,7 +1195,9 @@
 }
 
 .moto-footer-bottom {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-top: 24px;
   border-top: 1px solid var(--moto-gray);
 }
@@ -696,9 +1207,83 @@
   font-size: 14px;
 }
 
-/* Responsive */
+.moto-footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+.moto-footer-legal a {
+  color: var(--moto-light-gray);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.moto-footer-legal a:hover {
+  color: var(--moto-red);
+}
+
+/* Responsive Design */
+
+/* Large Tablets / Small Desktop */
+@media (max-width: 1024px) {
+  .moto-story-grid {
+    gap: 40px;
+  }
+
+  .moto-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .moto-delivery-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .moto-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .moto-footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
   .moto-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--moto-black);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+  }
+
+  .moto-nav.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .moto-nav-link {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+
+  .moto-menu-toggle {
+    display: flex;
+  }
+
+  .moto-header-order {
     display: none;
   }
 
@@ -715,6 +1300,19 @@
     font-size: 28px;
   }
 
+  .moto-story-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .moto-story-image {
+    order: -1;
+  }
+
+  .moto-story-image img {
+    height: 300px;
+  }
+
   .moto-delivery-grid {
     grid-template-columns: 1fr;
   }
@@ -723,15 +1321,164 @@
     order: -1;
   }
 
-  .moto-footer-grid {
-    grid-template-columns: 1fr 1fr;
+  .moto-delivery-image img {
+    height: 300px;
   }
 
-  .moto-about-stats {
-    gap: 30px;
+  .moto-giftcard-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
-  .moto-stat-number {
+  .moto-card-mockup {
+    width: 280px;
+    height: 175px;
+  }
+
+  .moto-franchise-content h2 {
     font-size: 36px;
+  }
+
+  .moto-newsletter-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .moto-newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .moto-newsletter-form input {
+    width: 100%;
+  }
+
+  .moto-reviews-arrows {
+    display: none;
+  }
+
+  .moto-review-card {
+    padding: 24px;
+  }
+
+  .moto-review-text {
+    font-size: 16px;
+  }
+
+  .moto-footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .moto-container {
+    padding: 0 16px;
+  }
+
+  .moto-hero-title {
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+
+  .moto-hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .moto-hero-actions .moto-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .moto-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .moto-stat-num {
+    font-size: 32px;
+  }
+
+  .moto-stat-txt {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .moto-values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .moto-delivery-features {
+    grid-template-columns: 1fr;
+  }
+
+  .moto-menu-categories {
+    gap: 6px;
+  }
+
+  .moto-category-btn {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .moto-menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .moto-locations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .moto-location-actions {
+    flex-direction: column;
+  }
+
+  .moto-location-actions .moto-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .moto-review-header {
+    flex-wrap: wrap;
+  }
+
+  .moto-review-rating {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .moto-faq-question {
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .moto-footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .moto-social-links {
+    justify-content: center;
+  }
+
+  .moto-card-mockup {
+    width: 260px;
+    height: 162px;
+  }
+
+  .moto-card-amount {
+    font-size: 36px;
+  }
+
+  .moto-lang-switch {
+    gap: 2px;
+  }
+
+  .moto-lang-btn {
+    padding: 4px 8px;
+    font-size: 11px;
   }
 }

@@ -435,3 +435,210 @@
   background: white;
 }
 .mart-back:hover { color: var(--mart-primary); }
+
+/* ========== Responsive Design ========== */
+
+/* Tablet (481px - 768px) */
+@media (min-width: 481px) {
+  .mart-app {
+    max-width: 100%;
+    box-shadow: none;
+  }
+  .mart-header {
+    left: 0;
+    transform: none;
+    max-width: 100%;
+  }
+  .mart-header-inner {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+  }
+  .mart-logo {
+    font-size: 1.3rem;
+  }
+  .mart-search {
+    max-width: 400px;
+  }
+  .mart-categories {
+    max-width: 768px;
+    margin: 52px auto 0;
+    padding: 0.75rem 1.5rem;
+  }
+  .mart-products {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 6rem;
+  }
+  .mart-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .mart-product h3 {
+    font-size: 0.9rem;
+  }
+  .mart-bottom-nav {
+    left: 0;
+    transform: none;
+    max-width: 100%;
+  }
+  .mart-cart-page {
+    max-width: 768px;
+    margin: 52px auto 0;
+    padding: 1.5rem;
+  }
+  .mart-cart-summary {
+    left: 50%;
+    max-width: 700px;
+  }
+  .mart-checkout-page {
+    max-width: 768px;
+    margin: 52px auto 0;
+  }
+}
+
+/* Desktop (769px+) */
+@media (min-width: 769px) {
+  .mart-header-inner {
+    max-width: 1200px;
+    padding: 1rem 2rem;
+  }
+  .mart-logo {
+    font-size: 1.5rem;
+  }
+  .mart-search {
+    max-width: 500px;
+    padding: 0.6rem 1rem;
+  }
+  .mart-search input {
+    font-size: 0.95rem;
+  }
+  .mart-lang button {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+  .mart-categories {
+    max-width: 1200px;
+    padding: 1rem 2rem;
+    gap: 0.75rem;
+  }
+  .mart-cat-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  .mart-products {
+    max-width: 1200px;
+    padding: 1.5rem 2rem 8rem;
+  }
+  .mart-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .mart-product {
+    border-radius: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .mart-product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  }
+  .mart-product-info {
+    padding: 1rem;
+  }
+  .mart-product h3 {
+    font-size: 1rem;
+    height: auto;
+    margin-bottom: 0.75rem;
+  }
+  .mart-price {
+    font-size: 1.1rem;
+  }
+  .mart-add-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.3rem;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .mart-add-btn:hover:not(:disabled) {
+    transform: scale(1.1);
+    background: #05a34f;
+  }
+  .mart-bottom-nav {
+    padding: 0.75rem 0;
+  }
+  .mart-nav-item {
+    font-size: 0.8rem;
+    gap: 0.25rem;
+  }
+  .mart-nav-item span:first-child {
+    font-size: 1.4rem;
+  }
+  .mart-cart-page {
+    max-width: 900px;
+    padding: 2rem;
+  }
+  .mart-cart-page h2 {
+    font-size: 1.5rem;
+  }
+  .mart-cart-item {
+    padding: 1rem 0;
+  }
+  .mart-cart-item img {
+    width: 90px;
+    height: 90px;
+  }
+  .mart-cart-item-info h4 {
+    font-size: 1rem;
+  }
+  .mart-cart-item-info p {
+    font-size: 1rem;
+  }
+  .mart-qty-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .mart-cart-summary {
+    max-width: 850px;
+    padding: 1.25rem 1.5rem;
+  }
+  .mart-summary-total {
+    font-size: 1.5rem;
+  }
+  .mart-checkout-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+  .mart-checkout-page {
+    max-width: 700px;
+    padding: 2rem;
+  }
+  .mart-checkout-page h2 {
+    font-size: 1.5rem;
+  }
+  .mart-delivery-options {
+    gap: 1rem;
+  }
+  .mart-delivery-option {
+    padding: 1.25rem;
+  }
+  .mart-form-group input,
+  .mart-form-group textarea {
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+  .mart-confirm-btn {
+    padding: 1.1rem;
+    font-size: 1.1rem;
+  }
+  .mart-success-content {
+    max-width: 350px;
+    padding: 2.5rem;
+  }
+}
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+  .mart-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

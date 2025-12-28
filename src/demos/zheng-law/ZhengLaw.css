@@ -1,0 +1,743 @@
+/* Studio Legale Zheng - Law Firm Demo Styles */
+
+.zheng-app {
+  --zheng-primary: #1a365d;
+  --zheng-primary-light: #2c5282;
+  --zheng-accent: #d69e2e;
+  --zheng-accent-light: #ecc94b;
+  --zheng-dark: #0f172a;
+  --zheng-text: #334155;
+  --zheng-text-light: #64748b;
+  --zheng-bg: #f8fafc;
+  --zheng-white: #ffffff;
+  --zheng-border: #e2e8f0;
+  --zheng-success: #10b981;
+
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--zheng-text);
+  background: var(--zheng-bg);
+  min-height: 100vh;
+}
+
+/* Header */
+.zheng-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--zheng-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.zheng-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zheng-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--zheng-primary);
+}
+
+.zheng-logo-icon {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, var(--zheng-primary), var(--zheng-primary-light));
+  color: var(--zheng-accent);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.zheng-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.zheng-logo-text span:first-child {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.zheng-logo-text span:last-child {
+  font-size: 0.75rem;
+  color: var(--zheng-text-light);
+}
+
+.zheng-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.zheng-nav a {
+  text-decoration: none;
+  color: var(--zheng-text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.zheng-nav a:hover {
+  color: var(--zheng-primary);
+}
+
+.zheng-lang {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.zheng-lang button {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--zheng-border);
+  background: var(--zheng-white);
+  color: var(--zheng-text-light);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+
+.zheng-lang button.active {
+  background: var(--zheng-primary);
+  color: var(--zheng-white);
+  border-color: var(--zheng-primary);
+}
+
+.zheng-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--zheng-primary);
+}
+
+/* Hero Section */
+.zheng-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  padding-top: 70px;
+}
+
+.zheng-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 54, 93, 0.92), rgba(15, 23, 42, 0.85));
+}
+
+.zheng-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--zheng-white);
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.zheng-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(214, 158, 46, 0.2);
+  border: 1px solid var(--zheng-accent);
+  color: var(--zheng-accent);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.zheng-hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.zheng-hero-content p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.zheng-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--zheng-accent);
+  color: var(--zheng-dark);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.zheng-hero-cta:hover {
+  background: var(--zheng-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(214, 158, 46, 0.3);
+}
+
+/* Stats Section */
+.zheng-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--zheng-primary);
+  padding: 3rem 2rem;
+}
+
+.zheng-stat {
+  text-align: center;
+  color: var(--zheng-white);
+}
+
+.zheng-stat-value {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--zheng-accent);
+  margin-bottom: 0.5rem;
+}
+
+.zheng-stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Section Common Styles */
+.zheng-section {
+  padding: 5rem 1.5rem;
+}
+
+.zheng-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.zheng-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.zheng-section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--zheng-primary);
+  margin-bottom: 0.75rem;
+}
+
+.zheng-section-subtitle {
+  font-size: 1.1rem;
+  color: var(--zheng-text-light);
+}
+
+/* Services Section */
+.zheng-services-section {
+  background: var(--zheng-white);
+}
+
+.zheng-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.zheng-service-card {
+  background: var(--zheng-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--zheng-border);
+  transition: all 0.3s;
+}
+
+.zheng-service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(26, 54, 93, 0.1);
+  border-color: var(--zheng-primary);
+}
+
+.zheng-service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.zheng-service-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--zheng-primary);
+  margin-bottom: 0.75rem;
+}
+
+.zheng-service-card p {
+  font-size: 0.95rem;
+  color: var(--zheng-text-light);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.zheng-service-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.zheng-feature-tag {
+  background: var(--zheng-primary);
+  color: var(--zheng-white);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+}
+
+/* Team Section */
+.zheng-team-section {
+  background: var(--zheng-bg);
+}
+
+.zheng-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.zheng-team-card {
+  background: var(--zheng-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+
+.zheng-team-card:hover {
+  transform: translateY(-5px);
+}
+
+.zheng-team-image {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.zheng-team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zheng-team-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 54, 93, 0.8) 0%, transparent 50%);
+}
+
+.zheng-team-info {
+  padding: 1.5rem;
+}
+
+.zheng-team-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--zheng-primary);
+  margin-bottom: 0.25rem;
+}
+
+.zheng-team-name-zh {
+  font-size: 0.9rem;
+  color: var(--zheng-text-light);
+  margin-bottom: 0.5rem;
+}
+
+.zheng-team-role {
+  font-size: 0.9rem;
+  color: var(--zheng-accent);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.zheng-team-bio {
+  font-size: 0.85rem;
+  color: var(--zheng-text-light);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.zheng-team-langs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.zheng-team-lang {
+  background: var(--zheng-bg);
+  color: var(--zheng-primary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* About Section */
+.zheng-about-section {
+  background: var(--zheng-white);
+}
+
+.zheng-about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.zheng-about-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--zheng-primary);
+  margin-bottom: 1.5rem;
+}
+
+.zheng-about-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--zheng-text);
+  margin-bottom: 1rem;
+}
+
+.zheng-about-mission {
+  font-style: italic;
+  color: var(--zheng-primary);
+  border-left: 3px solid var(--zheng-accent);
+  padding-left: 1rem;
+}
+
+.zheng-about-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.zheng-about-feature {
+  background: var(--zheng-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--zheng-border);
+}
+
+.zheng-about-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.zheng-about-feature h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--zheng-primary);
+}
+
+/* Contact Section */
+.zheng-contact-section {
+  background: var(--zheng-bg);
+}
+
+.zheng-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+}
+
+.zheng-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.zheng-contact-card {
+  background: var(--zheng-white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--zheng-border);
+}
+
+.zheng-contact-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--zheng-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--zheng-border);
+}
+
+.zheng-contact-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.zheng-contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.zheng-contact-item-icon {
+  font-size: 1.25rem;
+  width: 40px;
+  height: 40px;
+  background: var(--zheng-bg);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.zheng-contact-item-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.zheng-contact-item-text strong {
+  display: block;
+  color: var(--zheng-text);
+  margin-bottom: 0.25rem;
+}
+
+.zheng-contact-item-text a {
+  color: var(--zheng-primary);
+  text-decoration: none;
+}
+
+.zheng-contact-item-text a:hover {
+  text-decoration: underline;
+}
+
+.zheng-contact-item-text small {
+  color: var(--zheng-text-light);
+}
+
+/* Form Styles */
+.zheng-form-wrapper {
+  background: var(--zheng-white);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--zheng-border);
+}
+
+.zheng-form-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--zheng-primary);
+  margin-bottom: 1.5rem;
+}
+
+.zheng-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.zheng-form-group {
+  margin-bottom: 1rem;
+}
+
+.zheng-form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--zheng-text);
+  margin-bottom: 0.5rem;
+}
+
+.zheng-form-group input,
+.zheng-form-group select,
+.zheng-form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--zheng-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  background: var(--zheng-white);
+}
+
+.zheng-form-group input:focus,
+.zheng-form-group select:focus,
+.zheng-form-group textarea:focus {
+  outline: none;
+  border-color: var(--zheng-primary);
+}
+
+.zheng-form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.zheng-form-submit {
+  width: 100%;
+  padding: 1rem;
+  background: var(--zheng-primary);
+  color: var(--zheng-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.zheng-form-submit:hover {
+  background: var(--zheng-primary-light);
+  transform: translateY(-2px);
+}
+
+.zheng-form-success {
+  text-align: center;
+  padding: 3rem;
+  color: var(--zheng-success);
+}
+
+.zheng-form-success span {
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.zheng-footer {
+  background: var(--zheng-dark);
+  color: var(--zheng-white);
+  padding: 2rem;
+}
+
+.zheng-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zheng-footer p {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.zheng-footer-back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--zheng-accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+.zheng-footer-back:hover {
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .zheng-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .zheng-team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .zheng-about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .zheng-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .zheng-nav {
+    display: none;
+  }
+
+  .zheng-menu-btn {
+    display: block;
+  }
+
+  .zheng-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .zheng-hero-content p {
+    font-size: 1rem;
+  }
+
+  .zheng-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .zheng-services-grid,
+  .zheng-team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .zheng-about-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .zheng-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .zheng-footer-inner {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .zheng-section {
+    padding: 3rem 1rem;
+  }
+
+  .zheng-section-title {
+    font-size: 1.75rem;
+  }
+
+  .zheng-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .zheng-stat-value {
+    font-size: 2rem;
+  }
+
+  .zheng-about-features {
+    grid-template-columns: 1fr;
+  }
+}

@@ -226,7 +226,7 @@ Remember, **premature optimization is the root of all evil**, but optimizing at 
     },
     date: '2024-12-15',
     readTime: { zh: '8分钟', en: '8 min' },
-    thumbnail: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80',
+    thumbnail: '/images/blog/react-perf.jpg',
     featured: true
   },
   {
@@ -493,7 +493,7 @@ Full-stack development is a journey, not a destination. Technology is constantly
     },
     date: '2024-12-10',
     readTime: { zh: '12分钟', en: '12 min' },
-    thumbnail: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80',
+    thumbnail: '/images/blog/fullstack.jpg',
     featured: true
   },
   {
@@ -808,7 +808,7 @@ Accessible design is not extra work, but part of high-quality web development. C
     },
     date: '2024-12-05',
     readTime: { zh: '10分钟', en: '10 min' },
-    thumbnail: 'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=800&q=80',
+    thumbnail: '/images/blog/accessibility.jpg',
     featured: true
   },
   {
@@ -1267,7 +1267,7 @@ Flexbox and Grid are not competitors but complementary tools. Mastering both and
     },
     date: '2024-11-28',
     readTime: { zh: '15分钟', en: '15 min' },
-    thumbnail: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=800&q=80',
+    thumbnail: '/images/blog/api-design.jpg',
     featured: false
   },
   {
@@ -1740,7 +1740,7 @@ Designing an API is like designing a user interface—you need to think from the
     },
     date: '2024-11-20',
     readTime: { zh: '11分钟', en: '11 min' },
-    thumbnail: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80',
+    thumbnail: '/images/blog/devops.jpg',
     featured: false
   },
   {
@@ -2129,7 +2129,7 @@ Good communication skills are one of the most important soft skills for freelanc
     },
     date: '2024-11-12',
     readTime: { zh: '9分钟', en: '9 min' },
-    thumbnail: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
+    thumbnail: '/images/blog/client-comm.jpg',
     featured: false
   },
   {
@@ -2598,7 +2598,7 @@ Security is not a one-time task but an ongoing process. Develop secure coding ha
     },
     date: '2024-11-05',
     readTime: { zh: '13分钟', en: '13 min' },
-    thumbnail: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
+    thumbnail: '/images/blog/mobile-first.jpg',
     featured: false
   },
   {
@@ -3189,7 +3189,7 @@ Good responsive design ensures users have an excellent experience on any device.
     },
     date: '2024-10-28',
     readTime: { zh: '10分钟', en: '10 min' },
-    thumbnail: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80',
+    thumbnail: '/images/blog/pwa.jpg',
     featured: false
   }
 ]

@@ -172,7 +172,7 @@ export const locations = [
     name: 'Golden Koi Milano',
     city: { it: 'Milano', en: 'Milan', zh: '米兰' },
     address: 'Via Monte Napoleone 15, 20121 Milano',
-    phone: '+39 02 7890 1234',
+    phone: '+39 02 8629 4173',
     image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop',
     hours: { it: 'Mar-Dom 19:00-23:00', en: 'Tue-Sun 7PM-11PM', zh: '周二至周日 19:00-23:00' }
   },
@@ -181,7 +181,7 @@ export const locations = [
     name: 'Golden Koi Roma',
     city: { it: 'Roma', en: 'Rome', zh: '罗马' },
     address: 'Via Condotti 88, 00187 Roma',
-    phone: '+39 06 6789 0123',
+    phone: '+39 06 9428 5716',
     image: 'https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=600&h=400&fit=crop',
     hours: { it: 'Mar-Dom 19:00-23:00', en: 'Tue-Sun 7PM-11PM', zh: '周二至周日 19:00-23:00' }
   },
@@ -190,7 +190,7 @@ export const locations = [
     name: 'Golden Koi Porto Cervo',
     city: { it: 'Porto Cervo', en: 'Porto Cervo', zh: '波尔图切尔沃' },
     address: 'Promenade du Port, 07021 Porto Cervo',
-    phone: '+39 0789 91234',
+    phone: '+39 0789 95271',
     image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop',
     hours: { it: 'Giu-Set: Ogni giorno 19:00-24:00', en: 'Jun-Sep: Daily 7PM-12AM', zh: '6-9月: 每天 19:00-24:00' },
     seasonal: true

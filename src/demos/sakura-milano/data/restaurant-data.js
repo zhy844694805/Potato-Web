@@ -345,7 +345,7 @@ export const restaurantInfo = {
     postalCode: '20121',
     country: 'Italia'
   },
-  phone: '+39 02 1234 5678',
+  phone: '+39 02 8374 6521',
   email: 'info@sakuramilano.it',
   hours: {
     lunch: {

@@ -24,7 +24,7 @@ This is a React 19 + Vite 7 portfolio/agency website targeting Italian Chinese b
 
 **Static Data Management:** All content lives in `/src/data/` files (services, portfolio, blog, testimonials). Each file exports both raw data arrays and helper functions like `getLatestPosts(limit)`, `getPortfolioById(id)`.
 
-**Demo Sites:** Self-contained client demos in `/src/demos/`. Each demo has isolated CSS (prefixed classes like `.sushi-`, `.prato-`, `.hungry-`) to prevent style conflicts with main site. Demos render without main site layout (no Header/Footer).
+**Demo Sites:** Self-contained client demos in `/src/demos/` (22 demos covering restaurants, professional services, retail, beauty, apps). Each demo has isolated CSS with unique prefixes (e.g., `.sushi-`, `.zheng-`, `.dtravel-`, `.yikang-`) to prevent style conflicts. Demos render without main site layout (no Header/Footer).
 
 ### Directory Structure
 
@@ -37,10 +37,7 @@ src/
 ├── context/         # ThemeContext, LanguageContext
 ├── data/            # Static content (services, portfolio, blog, testimonials, stats)
 ├── demos/           # Client demo sites (self-contained with own CSS/data)
-│   ├── sakura-milano/   # Multi-page restaurant demo
-│   ├── prato-fashion/   # Single-page fashion brand
-│   ├── hungry-dragon/   # Interactive food delivery app
-│   └── ...              # Each has: Component.jsx, Component.css, data/
+│   └── {demo-name}/     # Each has: Component.jsx, Component.css, data/
 ├── hooks/           # useScrollAnimation
 ├── locales/         # i18n translations (zh/en common.json)
 ├── pages/           # Route components (Home, Services, Portfolio, Blog, About, etc.)
@@ -76,7 +73,7 @@ React Router 7 with dynamic routes:
 // services.js
 getServiceById(id)
 
-// portfolio.js - categories: restaurant, fashion, trade, beauty, app, miniprogram
+// portfolio.js - categories: restaurant, fashion, trade, beauty, professional, app, miniprogram
 getPortfolioById(id)
 getPortfolioByCategory(category)
 

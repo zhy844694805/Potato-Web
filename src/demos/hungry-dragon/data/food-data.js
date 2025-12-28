@@ -32,7 +32,7 @@ export const translations = {
 export const restaurantInfo = {
   name: { it: 'Drago Affamato', en: 'Hungry Dragon', zh: '龙腾外卖' },
   address: 'Via Paolo Sarpi 42, 20154 Milano',
-  phone: '+39 02 8765 4321',
+  phone: '+39 02 9382 5147',
   deliveryFee: 2.50,
   minOrder: 15,
   deliveryTime: '30-45 min',

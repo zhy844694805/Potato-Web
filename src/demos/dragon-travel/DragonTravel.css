@@ -1,0 +1,796 @@
+/* Dragon Travel - Travel Agency Demo Styles */
+
+.dtravel-app {
+  --dtravel-primary: #0ea5e9;
+  --dtravel-primary-dark: #0284c7;
+  --dtravel-accent: #f97316;
+  --dtravel-accent-light: #fb923c;
+  --dtravel-dark: #0f172a;
+  --dtravel-text: #334155;
+  --dtravel-text-light: #64748b;
+  --dtravel-bg: #f8fafc;
+  --dtravel-white: #ffffff;
+  --dtravel-border: #e2e8f0;
+  --dtravel-success: #10b981;
+
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--dtravel-text);
+  background: var(--dtravel-bg);
+  min-height: 100vh;
+}
+
+/* Header */
+.dtravel-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--dtravel-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dtravel-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dtravel-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--dtravel-primary);
+}
+
+.dtravel-logo-icon {
+  font-size: 2rem;
+}
+
+.dtravel-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.dtravel-logo-text span:first-child {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.dtravel-logo-text span:last-child {
+  font-size: 0.7rem;
+  color: var(--dtravel-text-light);
+}
+
+.dtravel-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.dtravel-nav a {
+  text-decoration: none;
+  color: var(--dtravel-text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.dtravel-nav a:hover {
+  color: var(--dtravel-primary);
+}
+
+.dtravel-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dtravel-iata {
+  background: var(--dtravel-primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.dtravel-lang {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.dtravel-lang button {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--dtravel-border);
+  background: var(--dtravel-white);
+  color: var(--dtravel-text-light);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+
+.dtravel-lang button.active {
+  background: var(--dtravel-primary);
+  color: white;
+  border-color: var(--dtravel-primary);
+}
+
+/* Hero */
+.dtravel-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  padding-top: 70px;
+}
+
+.dtravel-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.85), rgba(15, 23, 42, 0.8));
+}
+
+.dtravel-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.dtravel-hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.dtravel-hero-content p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.dtravel-hero-cta {
+  display: inline-block;
+  background: var(--dtravel-accent);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.dtravel-hero-cta:hover {
+  background: var(--dtravel-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+}
+
+/* Quick Services */
+.dtravel-quick-services {
+  background: var(--dtravel-white);
+  padding: 0;
+  margin-top: -60px;
+  position: relative;
+  z-index: 10;
+}
+
+.dtravel-service-tabs {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--dtravel-white);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.dtravel-service-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.dtravel-service-tabs button:hover,
+.dtravel-service-tabs button.active {
+  background: var(--dtravel-bg);
+  border-bottom-color: var(--dtravel-primary);
+}
+
+.dtravel-service-tabs button span:first-child {
+  font-size: 2rem;
+}
+
+.dtravel-service-tabs button strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--dtravel-dark);
+  margin-bottom: 0.25rem;
+}
+
+.dtravel-service-tabs button small {
+  font-size: 0.8rem;
+  color: var(--dtravel-text-light);
+}
+
+/* Section Common */
+.dtravel-section {
+  padding: 5rem 1.5rem;
+}
+
+.dtravel-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dtravel-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.dtravel-section-header h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--dtravel-dark);
+  margin-bottom: 0.5rem;
+}
+
+.dtravel-section-header p {
+  color: var(--dtravel-text-light);
+  font-size: 1.1rem;
+}
+
+/* Routes */
+.dtravel-routes-section {
+  background: var(--dtravel-white);
+}
+
+.dtravel-routes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.dtravel-route-card {
+  background: var(--dtravel-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dtravel-route-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.dtravel-route-image {
+  position: relative;
+  height: 150px;
+}
+
+.dtravel-route-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dtravel-route-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--dtravel-success);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.dtravel-route-info {
+  padding: 1rem;
+}
+
+.dtravel-route-cities {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--dtravel-dark);
+  margin-bottom: 0.25rem;
+}
+
+.dtravel-route-arrow {
+  color: var(--dtravel-primary);
+}
+
+.dtravel-route-codes {
+  font-size: 0.8rem;
+  color: var(--dtravel-text-light);
+  margin-bottom: 0.5rem;
+}
+
+.dtravel-route-airline {
+  font-size: 0.85rem;
+  color: var(--dtravel-text);
+  margin-bottom: 0.75rem;
+}
+
+.dtravel-route-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.dtravel-route-price small {
+  font-size: 0.75rem;
+  color: var(--dtravel-text-light);
+}
+
+.dtravel-route-price strong {
+  font-size: 1.25rem;
+  color: var(--dtravel-accent);
+}
+
+/* Packages */
+.dtravel-packages-section {
+  background: var(--dtravel-bg);
+}
+
+.dtravel-packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.dtravel-package-card {
+  background: var(--dtravel-white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+
+.dtravel-package-card:hover {
+  transform: translateY(-5px);
+}
+
+.dtravel-package-image {
+  position: relative;
+  height: 200px;
+}
+
+.dtravel-package-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dtravel-package-duration {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: var(--dtravel-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.dtravel-package-content {
+  padding: 1.5rem;
+}
+
+.dtravel-package-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dtravel-dark);
+  margin-bottom: 0.5rem;
+}
+
+.dtravel-package-content p {
+  font-size: 0.9rem;
+  color: var(--dtravel-text-light);
+  margin-bottom: 1rem;
+}
+
+.dtravel-package-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dtravel-package-highlights span {
+  background: var(--dtravel-bg);
+  color: var(--dtravel-text);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+}
+
+.dtravel-package-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--dtravel-border);
+}
+
+.dtravel-package-price small {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--dtravel-text-light);
+}
+
+.dtravel-package-price strong {
+  font-size: 1.5rem;
+  color: var(--dtravel-accent);
+}
+
+.dtravel-package-btn {
+  background: var(--dtravel-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.dtravel-package-btn:hover {
+  background: var(--dtravel-primary-dark);
+}
+
+/* Visa */
+.dtravel-visa-section {
+  background: var(--dtravel-white);
+}
+
+.dtravel-visa-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.dtravel-visa-card {
+  background: var(--dtravel-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.dtravel-visa-card:hover {
+  border-color: var(--dtravel-primary);
+}
+
+.dtravel-visa-type {
+  display: inline-block;
+  background: var(--dtravel-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.dtravel-visa-card h3 {
+  font-size: 1.2rem;
+  color: var(--dtravel-dark);
+  margin-bottom: 1.5rem;
+}
+
+.dtravel-visa-details {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.5rem;
+}
+
+.dtravel-visa-details > div {
+  text-align: center;
+}
+
+.dtravel-visa-details span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--dtravel-text-light);
+  margin-bottom: 0.25rem;
+}
+
+.dtravel-visa-details strong {
+  font-size: 0.9rem;
+  color: var(--dtravel-dark);
+}
+
+.dtravel-visa-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dtravel-accent);
+}
+
+/* Why Choose Us */
+.dtravel-why-section {
+  background: linear-gradient(135deg, var(--dtravel-primary), var(--dtravel-primary-dark));
+  color: white;
+}
+
+.dtravel-why-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.dtravel-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.dtravel-why-card {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.dtravel-why-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.dtravel-why-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.dtravel-why-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Contact */
+.dtravel-contact-section {
+  background: var(--dtravel-bg);
+}
+
+.dtravel-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+}
+
+.dtravel-contact-card {
+  background: var(--dtravel-white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.dtravel-contact-card h3 {
+  font-size: 1.1rem;
+  color: var(--dtravel-dark);
+  margin-bottom: 0.5rem;
+}
+
+.dtravel-contact-card p {
+  color: var(--dtravel-text-light);
+  font-size: 0.9rem;
+}
+
+.dtravel-contact-methods {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.dtravel-contact-method {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--dtravel-white);
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--dtravel-text);
+  transition: all 0.2s;
+}
+
+.dtravel-contact-method:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dtravel-contact-method span:first-child {
+  font-size: 1.5rem;
+}
+
+.dtravel-contact-method small {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--dtravel-text-light);
+}
+
+.dtravel-contact-method strong {
+  font-size: 0.85rem;
+}
+
+.dtravel-contact-method.whatsapp {
+  border-left: 3px solid #25d366;
+}
+
+.dtravel-contact-method.wechat {
+  border-left: 3px solid #07c160;
+}
+
+/* Form */
+.dtravel-form-wrapper {
+  background: var(--dtravel-white);
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.dtravel-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dtravel-form input,
+.dtravel-form select,
+.dtravel-form textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--dtravel-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.dtravel-form input:focus,
+.dtravel-form select:focus,
+.dtravel-form textarea:focus {
+  outline: none;
+  border-color: var(--dtravel-primary);
+}
+
+.dtravel-form textarea {
+  min-height: 100px;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.dtravel-form button {
+  width: 100%;
+  padding: 1rem;
+  background: var(--dtravel-accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dtravel-form button:hover {
+  background: var(--dtravel-accent-light);
+  transform: translateY(-2px);
+}
+
+.dtravel-form-success {
+  text-align: center;
+  padding: 3rem;
+  color: var(--dtravel-success);
+}
+
+.dtravel-form-success span {
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.dtravel-footer {
+  background: var(--dtravel-dark);
+  color: white;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dtravel-footer p {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.dtravel-footer a {
+  color: var(--dtravel-primary);
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dtravel-routes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dtravel-packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dtravel-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dtravel-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dtravel-nav {
+    display: none;
+  }
+
+  .dtravel-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .dtravel-service-tabs {
+    grid-template-columns: 1fr;
+    margin: 0 1rem;
+    margin-top: -40px;
+  }
+
+  .dtravel-routes-grid,
+  .dtravel-packages-grid,
+  .dtravel-visa-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dtravel-why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dtravel-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .dtravel-contact-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .dtravel-footer {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}

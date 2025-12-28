@@ -190,8 +190,8 @@ export const companyInfo = {
     postalCode: '20154',
     country: 'Italia'
   },
-  phone: '+39 02 3456 7890',
-  mobile: '+39 338 1234 567',
+  phone: '+39 02 8471 6293',
+  mobile: '+39 338 5729 841',
   wechat: 'EuroTaxMilano',
   email: 'info@eurotax.it',
   pec: 'eurotax@pec.it',

@@ -43,9 +43,9 @@ export const portfolioData = [
       { icon: '📅', title: { zh: '在线预订系统', en: 'Online Reservation' }, desc: { zh: '实时查看可用时段', en: 'Real-time availability' } },
       { icon: '🌍', title: { zh: '三语言支持', en: 'Trilingual' }, desc: { zh: '意/英/中本地化', en: 'IT/EN/ZH localized' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/sushi-1.jpg',
     images: [
-      { url: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1200', caption: { zh: '精致寿司摆盘', en: 'Exquisite Sushi Plating' } }
+      { url: '/images/portfolio/sushi-1.jpg', caption: { zh: '精致寿司摆盘', en: 'Exquisite Sushi Plating' } }
     ]
   },
 
@@ -78,7 +78,7 @@ export const portfolioData = [
       { icon: '📍', title: { zh: '多门店', en: 'Multi-Location' }, desc: { zh: '连锁展示', en: 'Chain display' } },
       { icon: '🍱', title: { zh: '动态菜单', en: 'Dynamic Menu' }, desc: { zh: '分类切换', en: 'Category switch' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/sushi-1.jpg',
     images: []
   },
 
@@ -111,7 +111,7 @@ export const portfolioData = [
       { icon: '🍶', title: { zh: 'Omakase', en: 'Omakase' }, desc: { zh: '主厨推荐', en: 'Chef\'s choice' } },
       { icon: '📞', title: { zh: '预约体验', en: 'Reservation' }, desc: { zh: '专属服务', en: 'Exclusive service' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/shipping-1.jpg',
     images: []
   },
 
@@ -144,7 +144,7 @@ export const portfolioData = [
       { icon: '🌸', title: { zh: '季节菜单', en: 'Seasonal Menu' }, desc: { zh: '四季品鉴', en: 'Four seasons' } },
       { icon: '🖼️', title: { zh: '画廊展示', en: 'Gallery' }, desc: { zh: '横向滚动', en: 'Horizontal scroll' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1553621042-f6e147245754?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/sushi-2.jpg',
     images: []
   },
 
@@ -177,7 +177,7 @@ export const portfolioData = [
       { icon: '📍', title: { zh: '多门店', en: 'Multi-Location' }, desc: { zh: '3城市展示', en: '3 cities display' } },
       { icon: '📝', title: { zh: '预约系统', en: 'Reservation' }, desc: { zh: '完整表单', en: 'Full booking form' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1553621042-f6e147245754?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/sushi-2.jpg',
     images: []
   },
 
@@ -224,9 +224,9 @@ export const portfolioData = [
       { icon: '✂️', title: { zh: '工艺故事', en: 'Craftsmanship Story' }, desc: { zh: '品牌理念传达', en: 'Brand philosophy' } },
       { icon: '🌍', title: { zh: '三语支持', en: 'Trilingual' }, desc: { zh: '意/英/中', en: 'IT/EN/ZH' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/fashion-1.jpg',
     images: [
-      { url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200', caption: { zh: '时装系列展示', en: 'Fashion Collection' } }
+      { url: '/images/portfolio/fashion-1.jpg', caption: { zh: '时装系列展示', en: 'Fashion Collection' } }
     ]
   },
 
@@ -273,9 +273,9 @@ export const portfolioData = [
       { icon: '📊', title: { zh: '数据统计', en: 'Statistics' }, desc: { zh: '建立信任', en: 'Build trust' } },
       { icon: '🌍', title: { zh: '双办公室', en: 'Dual Offices' }, desc: { zh: '意大利+中国', en: 'Italy + China' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/hairsalon-1.jpg',
     images: [
-      { url: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1200', caption: { zh: '国际贸易物流', en: 'International Trade Logistics' } }
+      { url: '/images/portfolio/hairsalon-1.jpg', caption: { zh: '国际贸易物流', en: 'International Trade Logistics' } }
     ]
   },
 
@@ -322,9 +322,9 @@ export const portfolioData = [
       { icon: '📅', title: { zh: '在线预约', en: 'Online Booking' }, desc: { zh: '便捷预约', en: 'Easy booking' } },
       { icon: '👥', title: { zh: '团队介绍', en: 'Team Intro' }, desc: { zh: '专业理疗师', en: 'Professional therapists' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/spa-1.jpg',
     images: [
-      { url: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1200', caption: { zh: '放松按摩体验', en: 'Relaxing Massage Experience' } }
+      { url: '/images/portfolio/spa-1.jpg', caption: { zh: '放松按摩体验', en: 'Relaxing Massage Experience' } }
     ]
   },
 
@@ -371,9 +371,9 @@ export const portfolioData = [
       { icon: '🛒', title: { zh: '购物车', en: 'Shopping Cart' }, desc: { zh: '实时更新', en: 'Real-time updates' } },
       { icon: '🌍', title: { zh: '三语支持', en: 'Trilingual' }, desc: { zh: '意/英/中', en: 'IT/EN/ZH' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/chinese-food.jpg',
     images: [
-      { url: 'https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=1200', caption: { zh: '外卖点餐界面', en: 'Food Ordering Interface' } }
+      { url: '/images/portfolio/chinese-food.jpg', caption: { zh: '外卖点餐界面', en: 'Food Ordering Interface' } }
     ]
   },
 
@@ -420,9 +420,9 @@ export const portfolioData = [
       { icon: '👩‍💼', title: { zh: '技师选择', en: 'Stylist Select' }, desc: { zh: '查看评价', en: 'View ratings' } },
       { icon: '🎁', title: { zh: '会员积分', en: 'Loyalty Points' }, desc: { zh: '积分兑换', en: 'Redeem rewards' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/beauty-1.jpg',
     images: [
-      { url: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200', caption: { zh: '美容预约界面', en: 'Beauty Booking Interface' } }
+      { url: '/images/portfolio/beauty-1.jpg', caption: { zh: '美容预约界面', en: 'Beauty Booking Interface' } }
     ]
   },
 
@@ -469,9 +469,9 @@ export const portfolioData = [
       { icon: '🚗', title: { zh: '配送/自提', en: 'Delivery/Pickup' }, desc: { zh: '灵活选择', en: 'Flexible options' } },
       { icon: '🔍', title: { zh: '商品搜索', en: 'Product Search' }, desc: { zh: '快速查找', en: 'Quick search' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/supermarket-1.jpg',
     images: [
-      { url: 'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=1200', caption: { zh: '超市购物界面', en: 'Supermarket Shopping Interface' } }
+      { url: '/images/portfolio/supermarket-1.jpg', caption: { zh: '超市购物界面', en: 'Supermarket Shopping Interface' } }
     ]
   },
 
@@ -518,9 +518,9 @@ export const portfolioData = [
       { icon: '🔔', title: { zh: '实时推送', en: 'Push Alerts' }, desc: { zh: '状态更新通知', en: 'Status notifications' } },
       { icon: '📍', title: { zh: '物流地图', en: 'Tracking Map' }, desc: { zh: '可视化追踪', en: 'Visual tracking' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/trade-1.jpg',
     images: [
-      { url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200', caption: { zh: '物流追踪界面', en: 'Logistics Tracking Interface' } }
+      { url: '/images/portfolio/trade-1.jpg', caption: { zh: '物流追踪界面', en: 'Logistics Tracking Interface' } }
     ]
   },
 
@@ -567,9 +567,9 @@ export const portfolioData = [
       { icon: '👥', title: { zh: '团队介绍', en: 'Team Intro' }, desc: { zh: '专业资质展示', en: 'Professional credentials' } },
       { icon: '🌍', title: { zh: '三语支持', en: 'Trilingual' }, desc: { zh: '意/英/中', en: 'IT/EN/ZH' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/finance-1.jpg',
     images: [
-      { url: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200', caption: { zh: '专业会计服务', en: 'Professional Accounting Services' } }
+      { url: '/images/portfolio/finance-1.jpg', caption: { zh: '专业会计服务', en: 'Professional Accounting Services' } }
     ]
   },
 
@@ -616,9 +616,9 @@ export const portfolioData = [
       { icon: '🛠️', title: { zh: '服务分类', en: 'Service Categories' }, desc: { zh: '住宅/商业/餐饮', en: 'Residential/Commercial/Restaurant' } },
       { icon: '📝', title: { zh: '在线报价', en: 'Quote Form' }, desc: { zh: '快速获取报价', en: 'Quick quote request' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/realestate-1.jpg',
     images: [
-      { url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200', caption: { zh: '现代装修案例', en: 'Modern Renovation Project' } }
+      { url: '/images/portfolio/realestate-1.jpg', caption: { zh: '现代装修案例', en: 'Modern Renovation Project' } }
     ]
   },
 
@@ -665,15 +665,58 @@ export const portfolioData = [
       { icon: '🔍', title: { zh: '智能筛选', en: 'Smart Filtering' }, desc: { zh: '多条件筛选', en: 'Multi-criteria filter' } },
       { icon: '🌍', title: { zh: '三语支持', en: 'Trilingual' }, desc: { zh: '意/英/中', en: 'IT/EN/ZH' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/fashion-2.jpg',
     images: [
-      { url: 'https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=1200', caption: { zh: '米兰房产', en: 'Milan Real Estate' } }
+      { url: '/images/portfolio/fashion-2.jpg', caption: { zh: '米兰房产', en: 'Milan Real Estate' } }
     ]
   },
 
-  // 12. 奶茶店
+  // 12. 驾校
   {
     id: 12,
+    slug: 'milan-drive',
+    category: 'professional',
+    title: { zh: 'Milan Drive 米兰驾校', en: 'Milan Drive Driving School' },
+    industry: { zh: '驾驶培训', en: 'Driving Education' },
+    year: '2024',
+    color: '#16a34a',
+    shortDesc: { zh: '专业驾驶培训学校，中文教学服务', en: 'Professional driving school with Chinese instruction' },
+    client: { zh: 'Milan Drive 驾校', en: 'Milan Drive School' },
+    description: {
+      zh: '为米兰华人驾校打造的现代官网。提供汽车、摩托车等多种驾照培训课程，配备中文教练，支持意大利驾照理论和路考全程指导。',
+      en: 'A modern website for a Chinese driving school in Milan. Offering car and motorcycle license courses with Chinese instructors, supporting full Italian driving license theory and road test guidance.'
+    },
+    challenge: { zh: '如何向华人学员清晰展示意大利驾照考取流程？', en: 'How to clearly present Italian driving license process to Chinese students?' },
+    solution: { zh: '绿色现代配色，清晰的课程卡片展示，驾照类型分类，中文教练介绍，在线报名表单。', en: 'Green modern colors, clear course cards, license type categories, Chinese instructor profiles, online registration form.' },
+    results: [
+      { value: '现代', label: { zh: '设计风格', en: 'Design Style' } },
+      { value: '5类驾照', label: { zh: '课程覆盖', en: 'License Types' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    testimonial: {
+      quote: {
+        zh: '网站帮助学员了解考试流程，报名咨询方便多了。',
+        en: 'Website helps students understand the exam process. Much easier to inquire and register.'
+      },
+      author: { zh: '马教练', en: 'Coach Ma' },
+      role: { zh: '首席教练', en: 'Head Instructor' }
+    },
+    technologies: ['React', 'CSS Grid', 'Modern UI'],
+    demoUrl: '/demo/milan-drive',
+    features: [
+      { icon: '🚗', title: { zh: '多类驾照', en: 'Multiple Licenses' }, desc: { zh: '汽车/摩托车/商用车', en: 'Car/Motorcycle/Commercial' } },
+      { icon: '👨‍🏫', title: { zh: '中文教练', en: 'Chinese Instructors' }, desc: { zh: '双语教学', en: 'Bilingual teaching' } },
+      { icon: '📋', title: { zh: '在线报名', en: 'Online Registration' }, desc: { zh: '便捷咨询', en: 'Easy inquiry' } }
+    ],
+    thumbnail: '/images/portfolio/driving-1.jpg',
+    images: [
+      { url: '/images/portfolio/driving-1.jpg', caption: { zh: '驾驶培训', en: 'Driving Training' } }
+    ]
+  },
+
+  // 13. 奶茶店
+  {
+    id: 14,
     slug: 'boba-tea',
     category: 'restaurant',
     title: { zh: 'Boba Dream 珍珠奶茶', en: 'Boba Dream Bubble Tea Shop' },
@@ -700,13 +743,13 @@ export const portfolioData = [
       { icon: '🍡', title: { zh: '加料选项', en: 'Toppings' }, desc: { zh: '多种配料选择', en: 'Various topping choices' } },
       { icon: '🛒', title: { zh: '购物车', en: 'Cart' }, desc: { zh: '便捷点单', en: 'Easy ordering' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1558857563-b371033873b8?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/boba-1.jpg',
     images: []
   },
 
-  // 13. 中餐馆
+  // 14. 中餐馆
   {
-    id: 13,
+    id: 15,
     slug: 'mama-chen',
     category: 'restaurant',
     title: { zh: 'Mama Chen 中餐馆', en: 'Mama Chen Chinese Restaurant' },
@@ -733,8 +776,204 @@ export const portfolioData = [
       { icon: '🍽️', title: { zh: '午市套餐', en: 'Lunch Special' }, desc: { zh: '超值午餐优惠', en: 'Value lunch deal' } },
       { icon: '📅', title: { zh: '在线预约', en: 'Reservation' }, desc: { zh: '便捷订座', en: 'Easy booking' } }
     ],
-    thumbnail: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&h=600&fit=crop',
+    thumbnail: '/images/portfolio/restaurant-1.jpg',
     images: []
+  },
+
+  // 15. 律师事务所
+  {
+    id: 16,
+    slug: 'zheng-law',
+    category: 'professional',
+    title: { zh: '郑氏律师事务所', en: 'Zheng Law Firm Website' },
+    industry: { zh: '法律服务', en: 'Legal Services' },
+    year: '2024',
+    color: '#1a365d',
+    shortDesc: { zh: '专业华人律师团队，提供中意双语法律服务', en: 'Professional Chinese lawyer team with bilingual legal services' },
+    client: { zh: 'Studio Legale Zheng', en: 'Studio Legale Zheng' },
+    description: {
+      zh: '为米兰华人律师事务所打造的专业官网。事务所提供居留许可、家庭团聚、入籍申请、公司法务、刑事辩护等全方位法律服务，服务华人社区15年。',
+      en: 'A professional website for a Chinese law firm in Milan. The firm provides comprehensive legal services including residence permits, family reunification, citizenship applications, corporate law, and criminal defense, serving the Chinese community for 15 years.'
+    },
+    challenge: {
+      zh: '如何建立专业可信的律师事务所形象？需要清晰展示服务范围、律师团队资质，并提供便捷的咨询渠道。',
+      en: 'How to build a professional and trustworthy law firm image? Need to clearly display services, lawyer qualifications, and provide convenient consultation channels.'
+    },
+    solution: {
+      zh: '采用深蓝+金色专业配色，展示15年经验数据，6大法律服务分类，律师团队资质介绍，在线咨询表单，三语支持。',
+      en: 'Professional deep blue + gold color scheme, 15-year experience statistics, 6 legal service categories, lawyer team qualifications, online consultation form, trilingual support.'
+    },
+    results: [
+      { value: '15年', label: { zh: '执业经验', en: 'Experience' } },
+      { value: '2000+', label: { zh: '成功案例', en: 'Cases Won' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    testimonial: {
+      quote: {
+        zh: '网站设计很专业，客户查看服务和律师资质很方便。',
+        en: 'Professional website design. Clients can easily check services and lawyer credentials.'
+      },
+      author: { zh: '郑律师', en: 'Avv. Zheng' },
+      role: { zh: '创始合伙人', en: 'Founding Partner' }
+    },
+    technologies: ['React', 'CSS Variables', 'Responsive Design'],
+    demoUrl: '/demo/zheng-law',
+    features: [
+      { icon: '⚖️', title: { zh: '法律服务', en: 'Legal Services' }, desc: { zh: '6大专业领域', en: '6 practice areas' } },
+      { icon: '👔', title: { zh: '律师团队', en: 'Legal Team' }, desc: { zh: '资深中意律师', en: 'Senior Chinese-Italian lawyers' } },
+      { icon: '🌍', title: { zh: '三语支持', en: 'Trilingual' }, desc: { zh: '意/英/中', en: 'IT/EN/ZH' } }
+    ],
+    thumbnail: '/images/portfolio/law-1.jpg',
+    images: [
+      { url: '/images/portfolio/law-1.jpg', caption: { zh: '专业法律服务', en: 'Professional Legal Services' } }
+    ]
+  },
+
+  // 16. 旅行社
+  {
+    id: 17,
+    slug: 'dragon-travel',
+    category: 'professional',
+    title: { zh: '龙腾旅行社', en: 'Dragon Travel Agency Website' },
+    industry: { zh: '旅游服务', en: 'Travel Services' },
+    year: '2024',
+    color: '#0ea5e9',
+    shortDesc: { zh: 'IATA认证旅行社，机票签证旅游一站式服务', en: 'IATA certified travel agency for flights, visas and tours' },
+    client: { zh: 'Dragon Travel 旅行社', en: 'Dragon Travel Agency' },
+    description: {
+      zh: '为米兰华人旅行社打造的现代官网。IATA认证，提供中欧往返机票、签证代办、精品旅游套餐等一站式服务，连接中国与意大利20年。',
+      en: 'A modern website for a Chinese travel agency in Milan. IATA certified, offering China-Europe flights, visa services, and premium tour packages, connecting China and Italy for 20 years.'
+    },
+    challenge: {
+      zh: '如何展示多元化的旅游服务？需要清晰的航线展示、签证服务说明、旅游套餐介绍，并建立专业信任。',
+      en: 'How to showcase diverse travel services? Need clear flight routes, visa service info, tour packages, and establish professional trust.'
+    },
+    solution: {
+      zh: '采用天蓝+橙色活力配色，Tab切换展示三大服务，热门航线卡片，精品旅游套餐，签证服务流程，IATA认证标志。',
+      en: 'Sky blue + orange vibrant colors, tab navigation for 3 main services, hot route cards, premium tour packages, visa process, IATA certification badge.'
+    },
+    results: [
+      { value: '20年', label: { zh: '行业经验', en: 'Experience' } },
+      { value: '50000+', label: { zh: '服务旅客', en: 'Travelers Served' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    testimonial: {
+      quote: {
+        zh: '网站航线和套餐展示清晰，客户自己就能查价格。',
+        en: 'Clear flight routes and packages display. Clients can check prices themselves.'
+      },
+      author: { zh: '龙经理', en: 'Manager Long' },
+      role: { zh: '总经理', en: 'General Manager' }
+    },
+    technologies: ['React', 'Tab Navigation', 'Card Layout'],
+    demoUrl: '/demo/dragon-travel',
+    features: [
+      { icon: '✈️', title: { zh: '机票预订', en: 'Flight Booking' }, desc: { zh: '中欧热门航线', en: 'China-Europe routes' } },
+      { icon: '📋', title: { zh: '签证服务', en: 'Visa Services' }, desc: { zh: '中国/申根签证', en: 'China/Schengen visas' } },
+      { icon: '🌏', title: { zh: '旅游套餐', en: 'Tour Packages' }, desc: { zh: '意大利/中国游', en: 'Italy/China tours' } }
+    ],
+    thumbnail: '/images/portfolio/travel-1.jpg',
+    images: [
+      { url: '/images/portfolio/travel-1.jpg', caption: { zh: '连接中国与意大利', en: 'Connecting China and Italy' } }
+    ]
+  },
+
+  // 17. 理发店
+  {
+    id: 18,
+    slug: 'milan-hair',
+    category: 'beauty',
+    title: { zh: '米兰发艺', en: 'Milan Hair Studio Website' },
+    industry: { zh: '美发行业', en: 'Hair Salon' },
+    year: '2024',
+    color: '#b76e79',
+    shortDesc: { zh: '东方美学与意式风尚的时尚美发沙龙', en: 'Fashion hair salon blending Eastern aesthetics and Italian style' },
+    client: { zh: 'Milan Hair Studio', en: 'Milan Hair Studio' },
+    description: {
+      zh: '为米兰华人美发沙龙打造的时尚官网。融合东方发艺与意式设计，提供男女剪发、烫染、护理等全方位服务，在线预约便捷高效。',
+      en: 'A fashionable website for a Chinese hair salon in Milan. Blending Eastern hairstyling with Italian design, offering full services for men and women including cuts, perms, coloring, and treatments with convenient online booking.'
+    },
+    challenge: {
+      zh: '如何展示美发沙龙的时尚形象？需要清晰的服务价目表、作品展示、发型师介绍和在线预约功能。',
+      en: 'How to showcase the salon\'s fashionable image? Need clear service price list, portfolio gallery, stylist profiles, and online booking.'
+    },
+    solution: {
+      zh: '采用玫瑰金+黑色高端配色，分类服务价目表，作品画廊展示，发型师团队介绍，客户评价展示，在线预约表单。',
+      en: 'Rose gold + black premium colors, categorized service price list, portfolio gallery, stylist team profiles, customer reviews, online booking form.'
+    },
+    results: [
+      { value: '4.8/5', label: { zh: '客户评分', en: 'Rating' } },
+      { value: '15+', label: { zh: '服务项目', en: 'Services' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    testimonial: {
+      quote: {
+        zh: '网站展示效果很好，客户可以直接在线预约时间。',
+        en: 'Great website showcase. Clients can book appointments online directly.'
+      },
+      author: { zh: '林发型师', en: 'Stylist Lin' },
+      role: { zh: '创始人', en: 'Founder' }
+    },
+    technologies: ['React', 'CSS Grid', 'Form Validation'],
+    demoUrl: '/demo/milan-hair',
+    features: [
+      { icon: '✂️', title: { zh: '服务价目', en: 'Price List' }, desc: { zh: '男女分类服务', en: 'Men & women services' } },
+      { icon: '🖼️', title: { zh: '作品展示', en: 'Gallery' }, desc: { zh: '发型作品集', en: 'Hairstyle portfolio' } },
+      { icon: '📅', title: { zh: '在线预约', en: 'Online Booking' }, desc: { zh: '便捷预约', en: 'Easy booking' } }
+    ],
+    thumbnail: '/images/portfolio/beauty-1.jpg',
+    images: [
+      { url: '/images/portfolio/beauty-1.jpg', caption: { zh: '时尚美发服务', en: 'Fashion Hair Services' } }
+    ]
+  },
+
+  // 18. 中医诊所
+  {
+    id: 19,
+    slug: 'yikang-tcm',
+    category: 'beauty',
+    title: { zh: '怡康中医诊所', en: 'Yikang TCM Center Website' },
+    industry: { zh: '中医养生', en: 'Traditional Chinese Medicine' },
+    year: '2024',
+    color: '#8B4513',
+    shortDesc: { zh: '传承千年中医智慧，守护您的健康', en: 'Ancient TCM wisdom for modern health and wellness' },
+    client: { zh: 'Yikang TCM Center', en: 'Yikang TCM Center' },
+    description: {
+      zh: '为米兰中医诊所打造的温馨专业官网。提供针灸、拔罐、推拿、中药调理等传统中医服务，由资深中医师主诊，服务华人及意大利客户。',
+      en: 'A warm and professional website for a TCM clinic in Milan. Offering acupuncture, cupping, Tuina massage, and Chinese herbal medicine by senior TCM practitioners, serving Chinese and Italian clients.'
+    },
+    challenge: {
+      zh: '如何传达中医的传统文化和专业性？需要展示治疗项目、适应症、医师资质，并提供便捷预约。',
+      en: 'How to convey TCM\'s traditional culture and professionalism? Need to display treatments, conditions, doctor credentials, and provide easy booking.'
+    },
+    solution: {
+      zh: '采用中医棕+翡翠绿自然配色，阐述中医理念，6大治疗项目卡片，适应症网格展示，医师团队介绍，患者评价，在线预约表单。',
+      en: 'TCM brown + jade green natural colors, TCM philosophy explanation, 6 treatment cards, conditions grid, doctor profiles, patient testimonials, online booking form.'
+    },
+    results: [
+      { value: '25年', label: { zh: '医师经验', en: 'Doctor Experience' } },
+      { value: '6项', label: { zh: '治疗项目', en: 'Treatments' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    testimonial: {
+      quote: {
+        zh: '网站帮助意大利客户了解中医，预约也更方便了。',
+        en: 'Website helps Italian clients understand TCM. Booking is also more convenient.'
+      },
+      author: { zh: '张医师', en: 'Dr. Zhang' },
+      role: { zh: '主任医师', en: 'Director' }
+    },
+    technologies: ['React', 'CSS Variables', 'Form Validation'],
+    demoUrl: '/demo/yikang-tcm',
+    features: [
+      { icon: '🏥', title: { zh: '治疗项目', en: 'Treatments' }, desc: { zh: '针灸/拔罐/推拿/中药', en: 'Acupuncture/Cupping/Tuina/Herbs' } },
+      { icon: '👨‍⚕️', title: { zh: '医师团队', en: 'Doctors' }, desc: { zh: '资深中医师', en: 'Senior TCM practitioners' } },
+      { icon: '📅', title: { zh: '在线预约', en: 'Online Booking' }, desc: { zh: '便捷预约', en: 'Easy booking' } }
+    ],
+    thumbnail: '/images/portfolio/tcm-1.jpg',
+    images: [
+      { url: '/images/portfolio/tcm-1.jpg', caption: { zh: '传统中医诊疗', en: 'Traditional Chinese Medicine' } }
+    ]
   }
 ]
 

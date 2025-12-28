@@ -45,6 +45,10 @@ const DragonDesign = lazy(() => import('./demos/dragon-design/DragonDesign'))
 const CasaMilano = lazy(() => import('./demos/casa-milano/CasaMilano'))
 const BobaTea = lazy(() => import('./demos/boba-tea/BobaTea'))
 const MamaChen = lazy(() => import('./demos/mama-chen/MamaChen'))
+const ZhengLaw = lazy(() => import('./demos/zheng-law/ZhengLaw'))
+const DragonTravel = lazy(() => import('./demos/dragon-travel/DragonTravel'))
+const MilanHair = lazy(() => import('./demos/milan-hair/MilanHair'))
+const YikangTCM = lazy(() => import('./demos/yikang-tcm/YikangTCM'))
 
 // Loading fallback component with skeleton
 function PageLoader() {
@@ -96,6 +100,10 @@ function AppContent() {
             <Route path="/demo/casa-milano" element={<CasaMilano />} />
             <Route path="/demo/boba-tea" element={<BobaTea />} />
             <Route path="/demo/mama-chen" element={<MamaChen />} />
+            <Route path="/demo/zheng-law" element={<ZhengLaw />} />
+            <Route path="/demo/dragon-travel" element={<DragonTravel />} />
+            <Route path="/demo/milan-hair" element={<MilanHair />} />
+            <Route path="/demo/yikang-tcm" element={<YikangTCM />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>

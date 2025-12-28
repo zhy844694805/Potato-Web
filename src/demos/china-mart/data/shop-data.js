@@ -32,7 +32,7 @@ export const translations = {
 export const shopInfo = {
   name: 'ChinaMart Milano',
   address: 'Via Paolo Sarpi 28, 20154 Milano',
-  phone: '+39 02 3456 7890',
+  phone: '+39 02 9274 6138',
   deliveryFee: 3.50,
   freeDeliveryMin: 30,
   minOrder: 15

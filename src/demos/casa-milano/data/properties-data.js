@@ -386,8 +386,8 @@ export const agencyInfo = {
     postalCode: '20154',
     country: 'Italia'
   },
-  phone: '+39 02 8765 4321',
-  whatsapp: '+39 345 678 9012',
+  phone: '+39 02 8736 5291',
+  whatsapp: '+39 345 916 2748',
   wechat: 'CasaMilanoIT',
   email: 'info@casamilano.it',
   hours: {
