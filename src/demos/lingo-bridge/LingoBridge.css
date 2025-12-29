@@ -1,0 +1,1358 @@
+/* LingoBridge Education - Language School Demo Styles */
+
+.lingo-app {
+  --lingo-primary: #e07b39;
+  --lingo-primary-light: #f4a261;
+  --lingo-primary-dark: #c45d1a;
+  --lingo-secondary: #2a9d8f;
+  --lingo-secondary-light: #40c9ba;
+  --lingo-accent: #264653;
+  --lingo-accent-light: #3a6a7e;
+  --lingo-warm: #f9c74f;
+  --lingo-warm-light: #fcd56a;
+  --lingo-dark: #1a1a2e;
+  --lingo-text: #333333;
+  --lingo-text-light: #666666;
+  --lingo-bg: #fffbf5;
+  --lingo-bg-alt: #fff5eb;
+  --lingo-white: #ffffff;
+  --lingo-border: #f0e6dc;
+  --lingo-success: #2a9d8f;
+  --lingo-gradient: linear-gradient(135deg, #e07b39 0%, #f4a261 100%);
+  --lingo-gradient-secondary: linear-gradient(135deg, #2a9d8f 0%, #40c9ba 100%);
+
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--lingo-text);
+  background: var(--lingo-bg);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Header */
+.lingo-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--lingo-white);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+}
+
+.lingo-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lingo-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.lingo-logo-icon {
+  width: 45px;
+  height: 45px;
+  background: var(--lingo-gradient);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.lingo-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.lingo-logo-text span:first-child {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--lingo-accent);
+}
+
+.lingo-logo-text span:last-child {
+  font-size: 0.7rem;
+  color: var(--lingo-text-light);
+  letter-spacing: 0.5px;
+}
+
+.lingo-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.lingo-nav a {
+  text-decoration: none;
+  color: var(--lingo-text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.lingo-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--lingo-primary);
+  transition: width 0.3s;
+}
+
+.lingo-nav a:hover {
+  color: var(--lingo-primary);
+}
+
+.lingo-nav a:hover::after {
+  width: 100%;
+}
+
+.lingo-lang {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--lingo-bg-alt);
+  padding: 0.25rem;
+  border-radius: 8px;
+}
+
+.lingo-lang button {
+  padding: 0.4rem 0.75rem;
+  border: none;
+  background: transparent;
+  color: var(--lingo-text-light);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 6px;
+}
+
+.lingo-lang button.active {
+  background: var(--lingo-white);
+  color: var(--lingo-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lingo-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--lingo-accent);
+}
+
+/* Hero Section */
+.lingo-hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--lingo-bg) 0%, var(--lingo-bg-alt) 100%);
+  padding-top: 70px;
+  overflow: hidden;
+}
+
+.lingo-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 80%;
+  height: 150%;
+  background: var(--lingo-gradient);
+  opacity: 0.08;
+  border-radius: 50%;
+  transform: rotate(-15deg);
+}
+
+.lingo-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.lingo-hero-text {
+  max-width: 550px;
+}
+
+.lingo-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--lingo-white);
+  border: 1px solid var(--lingo-border);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: var(--lingo-primary);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.lingo-hero-badge span {
+  font-size: 1rem;
+}
+
+.lingo-hero-text h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--lingo-accent);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.lingo-hero-text h1 span {
+  background: var(--lingo-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lingo-hero-text p {
+  font-size: 1.2rem;
+  color: var(--lingo-text-light);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.lingo-hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.lingo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+}
+
+.lingo-btn-primary {
+  background: var(--lingo-gradient);
+  color: var(--lingo-white);
+  box-shadow: 0 8px 25px rgba(224, 123, 57, 0.3);
+}
+
+.lingo-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(224, 123, 57, 0.4);
+}
+
+.lingo-btn-outline {
+  background: var(--lingo-white);
+  color: var(--lingo-primary);
+  border: 2px solid var(--lingo-primary);
+}
+
+.lingo-btn-outline:hover {
+  background: var(--lingo-primary);
+  color: var(--lingo-white);
+}
+
+.lingo-hero-image {
+  position: relative;
+}
+
+.lingo-hero-image-wrapper {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.lingo-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.lingo-hero-float {
+  position: absolute;
+  background: var(--lingo-white);
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lingo-hero-float-1 {
+  top: 10%;
+  left: -20px;
+}
+
+.lingo-hero-float-2 {
+  bottom: 15%;
+  right: -20px;
+}
+
+.lingo-hero-float-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.lingo-hero-float-icon.orange {
+  background: rgba(224, 123, 57, 0.15);
+}
+
+.lingo-hero-float-icon.green {
+  background: rgba(42, 157, 143, 0.15);
+}
+
+.lingo-hero-float-text strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--lingo-accent);
+}
+
+.lingo-hero-float-text span {
+  font-size: 0.75rem;
+  color: var(--lingo-text-light);
+}
+
+/* Stats Section */
+.lingo-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--lingo-white);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  margin: -60px auto 0;
+  max-width: 1000px;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.lingo-stat {
+  text-align: center;
+  padding: 1rem;
+  border-right: 1px solid var(--lingo-border);
+}
+
+.lingo-stat:last-child {
+  border-right: none;
+}
+
+.lingo-stat-value {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: var(--lingo-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.25rem;
+}
+
+.lingo-stat-label {
+  font-size: 0.9rem;
+  color: var(--lingo-text-light);
+}
+
+/* Section Common Styles */
+.lingo-section {
+  padding: 6rem 1.5rem;
+}
+
+.lingo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.lingo-section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.lingo-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--lingo-accent);
+  margin-bottom: 1rem;
+}
+
+.lingo-section-subtitle {
+  font-size: 1.1rem;
+  color: var(--lingo-text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Courses Section */
+.lingo-courses-section {
+  background: var(--lingo-white);
+}
+
+.lingo-courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.lingo-course-card {
+  background: var(--lingo-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.lingo-course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--card-color, var(--lingo-primary));
+}
+
+.lingo-course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border-color: var(--lingo-border);
+}
+
+.lingo-course-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.lingo-course-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--lingo-accent);
+  margin-bottom: 0.75rem;
+}
+
+.lingo-course-card > p {
+  font-size: 0.95rem;
+  color: var(--lingo-text-light);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.lingo-course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--lingo-border);
+}
+
+.lingo-course-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--lingo-text-light);
+}
+
+.lingo-course-meta-item span:first-child {
+  opacity: 0.7;
+}
+
+.lingo-course-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lingo-course-feature {
+  background: var(--lingo-white);
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  color: var(--lingo-text);
+  border: 1px solid var(--lingo-border);
+}
+
+/* Teachers Section */
+.lingo-teachers-section {
+  background: var(--lingo-bg);
+}
+
+.lingo-teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.lingo-teacher-card {
+  background: var(--lingo-white);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.lingo-teacher-card:hover {
+  transform: translateY(-5px);
+}
+
+.lingo-teacher-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.lingo-teacher-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.lingo-teacher-card:hover .lingo-teacher-image img {
+  transform: scale(1.05);
+}
+
+.lingo-teacher-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(38, 70, 83, 0.7) 0%, transparent 60%);
+}
+
+.lingo-teacher-info {
+  padding: 1.5rem;
+}
+
+.lingo-teacher-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--lingo-accent);
+  margin-bottom: 0.25rem;
+}
+
+.lingo-teacher-name-zh {
+  font-size: 0.85rem;
+  color: var(--lingo-text-light);
+  margin-bottom: 0.5rem;
+}
+
+.lingo-teacher-role {
+  font-size: 0.85rem;
+  color: var(--lingo-primary);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.lingo-teacher-bio {
+  font-size: 0.8rem;
+  color: var(--lingo-text-light);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.lingo-teacher-langs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.lingo-teacher-lang {
+  background: var(--lingo-bg);
+  color: var(--lingo-accent);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* Methodology Section */
+.lingo-methodology-section {
+  background: var(--lingo-accent);
+  color: var(--lingo-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.lingo-methodology-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 60%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 50%;
+  transform: rotate(15deg);
+}
+
+.lingo-methodology-section .lingo-section-title {
+  color: var(--lingo-white);
+}
+
+.lingo-methodology-section .lingo-section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.lingo-methodology-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.lingo-method-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lingo-method-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.lingo-method-icon {
+  width: 70px;
+  height: 70px;
+  background: var(--lingo-gradient);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.5rem;
+}
+
+.lingo-method-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.lingo-method-card p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* Schedule Section */
+.lingo-schedule-section {
+  background: var(--lingo-white);
+}
+
+.lingo-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.lingo-schedule-card {
+  background: var(--lingo-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--lingo-border);
+  transition: all 0.3s;
+}
+
+.lingo-schedule-card:hover {
+  border-color: var(--lingo-primary);
+  box-shadow: 0 10px 30px rgba(224, 123, 57, 0.1);
+}
+
+.lingo-schedule-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.lingo-schedule-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--lingo-accent);
+  margin-bottom: 0.5rem;
+}
+
+.lingo-schedule-time {
+  font-size: 0.9rem;
+  color: var(--lingo-primary);
+  font-weight: 500;
+}
+
+.lingo-schedule-note {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: var(--lingo-bg-alt);
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--lingo-secondary);
+}
+
+/* Pricing Section */
+.lingo-pricing-section {
+  background: var(--lingo-bg);
+}
+
+.lingo-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.lingo-pricing-card {
+  background: var(--lingo-white);
+  border-radius: 24px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.lingo-pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.lingo-pricing-card.popular {
+  border-color: var(--lingo-primary);
+  transform: scale(1.05);
+}
+
+.lingo-pricing-card.popular:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.lingo-pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--lingo-gradient);
+  color: var(--lingo-white);
+  padding: 0.4rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.lingo-pricing-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--lingo-accent);
+  margin-bottom: 0.5rem;
+}
+
+.lingo-pricing-card > p {
+  font-size: 0.9rem;
+  color: var(--lingo-text-light);
+  margin-bottom: 1.5rem;
+}
+
+.lingo-pricing-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.lingo-pricing-currency {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--lingo-accent);
+}
+
+.lingo-pricing-amount {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--lingo-accent);
+  line-height: 1;
+}
+
+.lingo-pricing-period {
+  font-size: 1rem;
+  color: var(--lingo-text-light);
+}
+
+.lingo-pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  text-align: left;
+}
+
+.lingo-pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--lingo-border);
+  font-size: 0.9rem;
+  color: var(--lingo-text);
+}
+
+.lingo-pricing-features li:last-child {
+  border-bottom: none;
+}
+
+.lingo-pricing-features li span:first-child {
+  color: var(--lingo-secondary);
+  font-size: 1rem;
+}
+
+.lingo-pricing-cta {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid var(--lingo-primary);
+  background: transparent;
+  color: var(--lingo-primary);
+}
+
+.lingo-pricing-cta:hover {
+  background: var(--lingo-primary);
+  color: var(--lingo-white);
+}
+
+.lingo-pricing-card.popular .lingo-pricing-cta {
+  background: var(--lingo-gradient);
+  color: var(--lingo-white);
+  border-color: transparent;
+}
+
+.lingo-pricing-card.popular .lingo-pricing-cta:hover {
+  box-shadow: 0 8px 25px rgba(224, 123, 57, 0.3);
+}
+
+/* Testimonials Section */
+.lingo-testimonials-section {
+  background: var(--lingo-white);
+}
+
+.lingo-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.lingo-testimonial-card {
+  background: var(--lingo-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+}
+
+.lingo-testimonial-quote {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 3rem;
+  color: var(--lingo-primary);
+  opacity: 0.2;
+  line-height: 1;
+}
+
+.lingo-testimonial-stars {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+  color: var(--lingo-warm);
+  font-size: 1rem;
+}
+
+.lingo-testimonial-text {
+  font-size: 0.95rem;
+  color: var(--lingo-text);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.lingo-testimonial-course {
+  display: inline-block;
+  background: var(--lingo-white);
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  color: var(--lingo-primary);
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--lingo-border);
+}
+
+.lingo-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lingo-testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.lingo-testimonial-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--lingo-accent);
+  margin-bottom: 0.25rem;
+}
+
+.lingo-testimonial-info span {
+  font-size: 0.8rem;
+  color: var(--lingo-text-light);
+}
+
+/* Contact Section */
+.lingo-contact-section {
+  background: var(--lingo-bg);
+}
+
+.lingo-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+}
+
+.lingo-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lingo-contact-card {
+  background: var(--lingo-white);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.lingo-contact-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--lingo-accent);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--lingo-border);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lingo-contact-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.lingo-contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.lingo-contact-item-icon {
+  font-size: 1.25rem;
+  width: 45px;
+  height: 45px;
+  background: var(--lingo-bg-alt);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.lingo-contact-item-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.lingo-contact-item-text strong {
+  display: block;
+  color: var(--lingo-text);
+  margin-bottom: 0.25rem;
+}
+
+.lingo-contact-item-text a {
+  color: var(--lingo-primary);
+  text-decoration: none;
+}
+
+.lingo-contact-item-text a:hover {
+  text-decoration: underline;
+}
+
+/* Form Styles */
+.lingo-form-wrapper {
+  background: var(--lingo-white);
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.lingo-form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--lingo-accent);
+  margin-bottom: 0.5rem;
+}
+
+.lingo-form-subtitle {
+  font-size: 0.95rem;
+  color: var(--lingo-text-light);
+  margin-bottom: 2rem;
+}
+
+.lingo-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.lingo-form-group {
+  margin-bottom: 1rem;
+}
+
+.lingo-form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--lingo-text);
+  margin-bottom: 0.5rem;
+}
+
+.lingo-form-group input,
+.lingo-form-group select,
+.lingo-form-group textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--lingo-border);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  background: var(--lingo-bg);
+}
+
+.lingo-form-group input:focus,
+.lingo-form-group select:focus,
+.lingo-form-group textarea:focus {
+  outline: none;
+  border-color: var(--lingo-primary);
+  background: var(--lingo-white);
+  box-shadow: 0 0 0 3px rgba(224, 123, 57, 0.1);
+}
+
+.lingo-form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.lingo-form-submit {
+  width: 100%;
+  padding: 1rem;
+  background: var(--lingo-gradient);
+  color: var(--lingo-white);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.lingo-form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(224, 123, 57, 0.3);
+}
+
+.lingo-form-success {
+  text-align: center;
+  padding: 3rem;
+  color: var(--lingo-success);
+}
+
+.lingo-form-success span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: rgba(42, 157, 143, 0.1);
+  border-radius: 50%;
+  font-size: 2.5rem;
+  margin: 0 auto 1.5rem;
+}
+
+.lingo-form-success p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+.lingo-footer {
+  background: var(--lingo-dark);
+  color: var(--lingo-white);
+  padding: 3rem 2rem;
+}
+
+.lingo-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lingo-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lingo-footer-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.lingo-footer-slogan {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.lingo-footer p {
+  opacity: 0.6;
+  font-size: 0.85rem;
+}
+
+.lingo-footer-back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--lingo-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+.lingo-footer-back:hover {
+  opacity: 0.8;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .lingo-hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .lingo-hero-text {
+    max-width: 100%;
+  }
+
+  .lingo-hero-ctas {
+    justify-content: center;
+  }
+
+  .lingo-hero-image {
+    display: none;
+  }
+
+  .lingo-courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lingo-teachers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lingo-methodology-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lingo-schedule-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lingo-pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .lingo-pricing-card.popular {
+    transform: none;
+  }
+
+  .lingo-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lingo-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .lingo-nav {
+    display: none;
+  }
+
+  .lingo-menu-btn {
+    display: block;
+  }
+
+  .lingo-hero {
+    min-height: auto;
+    padding: 100px 0 60px;
+  }
+
+  .lingo-hero-text h1 {
+    font-size: 2.25rem;
+  }
+
+  .lingo-hero-text p {
+    font-size: 1rem;
+  }
+
+  .lingo-stats {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 0;
+    border-radius: 0;
+    gap: 1rem;
+  }
+
+  .lingo-stat {
+    border-right: none;
+    border-bottom: 1px solid var(--lingo-border);
+  }
+
+  .lingo-stat:nth-child(3),
+  .lingo-stat:nth-child(4) {
+    border-bottom: none;
+  }
+
+  .lingo-stat:nth-child(odd) {
+    border-right: 1px solid var(--lingo-border);
+  }
+
+  .lingo-stat-value {
+    font-size: 2rem;
+  }
+
+  .lingo-section {
+    padding: 4rem 1rem;
+  }
+
+  .lingo-section-title {
+    font-size: 1.75rem;
+  }
+
+  .lingo-courses-grid,
+  .lingo-teachers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lingo-methodology-grid,
+  .lingo-schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lingo-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .lingo-footer-inner {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .lingo-header-inner {
+    padding: 0 1rem;
+  }
+
+  .lingo-logo-text span:first-child {
+    font-size: 0.95rem;
+  }
+
+  .lingo-hero-text h1 {
+    font-size: 1.75rem;
+  }
+
+  .lingo-hero-ctas {
+    flex-direction: column;
+  }
+
+  .lingo-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .lingo-stats {
+    padding: 2rem 1rem;
+  }
+
+  .lingo-stat-value {
+    font-size: 1.75rem;
+  }
+
+  .lingo-pricing-amount {
+    font-size: 2.5rem;
+  }
+
+  .lingo-form-wrapper {
+    padding: 1.5rem;
+  }
+}

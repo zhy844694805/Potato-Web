@@ -1,19 +1,27 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import SEO from '../../components/SEO'
 import StructuredData from '../../components/StructuredData'
 import { breadcrumbSchema } from '../../utils/schemas'
 import BlogCard from '../../components/business/BlogCard'
-import { categories, getPostsByCategory, getFeaturedPosts } from '../../data/blog'
+import SearchInput from '../../components/ui/SearchInput'
+import { categories, getPostsByCategory, getFeaturedPosts, searchPosts } from '../../data/blog'
 import './Blog.css'
 
 function Blog() {
   const { language } = useLanguage()
   const [activeCategory, setActiveCategory] = useState('all')
+  const [searchQuery, setSearchQuery] = useState('')
   const { ref: featuredRef, inView: featuredInView } = useScrollAnimation({ threshold: 0.1 })
 
-  const filteredPosts = getPostsByCategory(activeCategory)
+  const categoryPosts = getPostsByCategory(activeCategory)
+  const filteredPosts = useMemo(() => {
+    if (!searchQuery.trim()) return categoryPosts
+    return searchPosts(searchQuery, language).filter(post =>
+      activeCategory === 'all' || post.category.value === activeCategory
+    )
+  }, [searchQuery, categoryPosts, activeCategory, language])
   const featuredPosts = getFeaturedPosts()
 
   const seoData = {
@@ -80,8 +88,14 @@ function Blog() {
           </section>
         )}
 
-        {/* Filter */}
+        {/* Search and Filter */}
         <section className="blog-filter">
+          <div className="blog-search">
+            <SearchInput
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
           <div className="filter-buttons">
             {categories.map((cat) => (
               <button

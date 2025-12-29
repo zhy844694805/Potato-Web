@@ -974,6 +974,105 @@ export const portfolioData = [
     images: [
       { url: '/images/portfolio/tcm-1.jpg', caption: { zh: '传统中医诊疗', en: 'Traditional Chinese Medicine' } }
     ]
+  },
+
+  // 19. CloudTask SaaS产品
+  {
+    id: 20,
+    slug: 'cloud-task',
+    category: 'saas',
+    title: { zh: 'CloudTask 项目管理平台', en: 'CloudTask Project Management SaaS' },
+    industry: { zh: 'SaaS软件', en: 'SaaS Software' },
+    year: '2024',
+    color: '#2563eb',
+    shortDesc: { zh: '团队协作与项目管理SaaS平台', en: 'Team collaboration and project management SaaS platform' },
+    client: { zh: 'CloudTask Inc.', en: 'CloudTask Inc.' },
+    description: {
+      zh: '为SaaS创业公司打造的项目管理平台官网。展示任务管理、团队协作、时间追踪、第三方集成等核心功能，包含多层级定价方案展示。',
+      en: 'A project management platform website for a SaaS startup. Showcasing task management, team collaboration, time tracking, third-party integrations with multi-tier pricing display.'
+    },
+    challenge: { zh: '如何清晰展示SaaS产品的功能价值？', en: 'How to clearly present SaaS product value proposition?' },
+    solution: { zh: '清晰的功能模块展示，直观的定价对比表，产品预览截图，用户推荐语，试用CTA。', en: 'Clear feature modules, intuitive pricing comparison, product preview screenshots, testimonials, trial CTA.' },
+    results: [
+      { value: '4周', label: { zh: '开发周期', en: 'Development Time' } },
+      { value: '3档', label: { zh: '定价方案', en: 'Pricing Tiers' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'SaaS Design', 'Pricing Tables'],
+    demoUrl: '/demo/cloud-task',
+    features: [
+      { icon: '📋', title: { zh: '任务管理', en: 'Task Management' }, desc: { zh: '看板/列表视图', en: 'Kanban/List views' } },
+      { icon: '👥', title: { zh: '团队协作', en: 'Collaboration' }, desc: { zh: '实时同步', en: 'Real-time sync' } },
+      { icon: '💰', title: { zh: '定价展示', en: 'Pricing' }, desc: { zh: '多层级方案', en: 'Multi-tier plans' } }
+    ],
+    thumbnail: '/images/portfolio/saas-1.jpg',
+    images: []
+  },
+
+  // 20. LingoBridge 语言学校
+  {
+    id: 21,
+    slug: 'lingo-bridge',
+    category: 'education',
+    title: { zh: 'LingoBridge 语言学校', en: 'LingoBridge Language School' },
+    industry: { zh: '教育培训', en: 'Education' },
+    year: '2024',
+    color: '#f59e0b',
+    shortDesc: { zh: '专业中意双语教学语言学校', en: 'Professional Chinese-Italian bilingual language school' },
+    client: { zh: 'LingoBridge 学校', en: 'LingoBridge School' },
+    description: {
+      zh: '为语言培训学校打造的现代官网。提供中文、意大利语、商务语言、少儿课程等多元化教学服务，展示教师团队、课程体系和学员评价。',
+      en: 'A modern website for a language school. Offering Chinese, Italian, business language, and kids programs with teacher profiles, curriculum system, and student reviews.'
+    },
+    challenge: { zh: '如何展示语言学校的专业教学实力？', en: 'How to showcase language school teaching expertise?' },
+    solution: { zh: '温馨友好的配色，课程分类卡片，教师团队展示，教学方法说明，课程时间表，学员testimonials。', en: 'Warm friendly colors, course category cards, teacher profiles, methodology explanation, schedule, testimonials.' },
+    results: [
+      { value: '4周', label: { zh: '开发周期', en: 'Development Time' } },
+      { value: '4类课程', label: { zh: '课程体系', en: 'Course Types' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'Education Design', 'Card Layout'],
+    demoUrl: '/demo/lingo-bridge',
+    features: [
+      { icon: '📚', title: { zh: '课程展示', en: 'Courses' }, desc: { zh: '多语种课程', en: 'Multi-language courses' } },
+      { icon: '👩‍🏫', title: { zh: '教师团队', en: 'Teachers' }, desc: { zh: '专业师资', en: 'Professional faculty' } },
+      { icon: '📅', title: { zh: '课程安排', en: 'Schedule' }, desc: { zh: '灵活时间', en: 'Flexible timing' } }
+    ],
+    thumbnail: '/images/portfolio/education-1.jpg',
+    images: []
+  },
+
+  // 21. VitaCare 家庭诊所
+  {
+    id: 22,
+    slug: 'vita-care',
+    category: 'healthcare',
+    title: { zh: 'VitaCare 家庭诊所', en: 'VitaCare Family Clinic' },
+    industry: { zh: '医疗健康', en: 'Healthcare' },
+    year: '2024',
+    color: '#10b981',
+    shortDesc: { zh: '专业家庭医疗服务诊所', en: 'Professional family healthcare clinic' },
+    client: { zh: 'VitaCare 诊所', en: 'VitaCare Clinic' },
+    description: {
+      zh: '为家庭诊所打造的专业医疗网站。提供全科医疗、儿科、妇科、中医等综合服务，展示医生团队、营业时间、保险信息和在线预约功能。',
+      en: 'A professional healthcare website for a family clinic. Offering general medicine, pediatrics, gynecology, TCM with doctor profiles, hours, insurance info, and online booking.'
+    },
+    challenge: { zh: '如何建立医疗诊所的专业信任感？', en: 'How to establish professional trust for a medical clinic?' },
+    solution: { zh: '柔和清新的医疗配色，服务项目展示，医生资质介绍，营业时间和位置信息，在线预约表单，保险说明。', en: 'Soft calming healthcare colors, service display, doctor credentials, hours and location, online booking form, insurance info.' },
+    results: [
+      { value: '4周', label: { zh: '开发周期', en: 'Development Time' } },
+      { value: '6科室', label: { zh: '医疗服务', en: 'Services' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'Healthcare Design', 'Booking Form'],
+    demoUrl: '/demo/vita-care',
+    features: [
+      { icon: '🏥', title: { zh: '医疗服务', en: 'Services' }, desc: { zh: '综合医疗', en: 'Comprehensive care' } },
+      { icon: '👨‍⚕️', title: { zh: '医生团队', en: 'Doctors' }, desc: { zh: '专业资质', en: 'Professional credentials' } },
+      { icon: '📅', title: { zh: '在线预约', en: 'Booking' }, desc: { zh: '便捷预约', en: 'Easy appointment' } }
+    ],
+    thumbnail: '/images/portfolio/healthcare-1.jpg',
+    images: []
   }
 ]
 
@@ -994,5 +1093,8 @@ export const categories = [
   { value: 'beauty', label: { zh: '美容养生', en: 'Beauty' } },
   { value: 'professional', label: { zh: '专业服务', en: 'Professional Services' } },
   { value: 'app', label: { zh: '移动应用', en: 'Mobile App' } },
-  { value: 'miniprogram', label: { zh: '小程序', en: 'Mini Program' } }
+  { value: 'miniprogram', label: { zh: '小程序', en: 'Mini Program' } },
+  { value: 'saas', label: { zh: 'SaaS产品', en: 'SaaS Product' } },
+  { value: 'education', label: { zh: '教育培训', en: 'Education' } },
+  { value: 'healthcare', label: { zh: '医疗健康', en: 'Healthcare' } }
 ]

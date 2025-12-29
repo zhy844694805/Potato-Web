@@ -31,6 +31,12 @@
   margin-bottom: 3rem;
 }
 
+.blog-search {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
 .filter-buttons {
   display: flex;
   flex-wrap: wrap;

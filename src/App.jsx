@@ -6,6 +6,7 @@ import ErrorBoundary from './components/ErrorBoundary'
 import Analytics from './components/Analytics'
 import ScrollToTop from './components/ui/ScrollToTop'
 import ContactDrawer from './components/ui/ContactDrawer'
+import ChatWidget from './components/ui/ChatWidget'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import './App.css'
@@ -49,6 +50,9 @@ const ZhengLaw = lazy(() => import('./demos/zheng-law/ZhengLaw'))
 const DragonTravel = lazy(() => import('./demos/dragon-travel/DragonTravel'))
 const MilanHair = lazy(() => import('./demos/milan-hair/MilanHair'))
 const YikangTCM = lazy(() => import('./demos/yikang-tcm/YikangTCM'))
+const CloudTask = lazy(() => import('./demos/cloud-task/CloudTask'))
+const LingoBridge = lazy(() => import('./demos/lingo-bridge/LingoBridge'))
+const VitaCare = lazy(() => import('./demos/vita-care/VitaCare'))
 
 // Loading fallback component with skeleton
 function PageLoader() {
@@ -104,6 +108,9 @@ function AppContent() {
             <Route path="/demo/dragon-travel" element={<DragonTravel />} />
             <Route path="/demo/milan-hair" element={<MilanHair />} />
             <Route path="/demo/yikang-tcm" element={<YikangTCM />} />
+            <Route path="/demo/cloud-task" element={<CloudTask />} />
+            <Route path="/demo/lingo-bridge" element={<LingoBridge />} />
+            <Route path="/demo/vita-care" element={<VitaCare />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>
@@ -139,6 +146,7 @@ function AppContent() {
         </main>
         <Footer />
         <ContactDrawer />
+        <ChatWidget />
       </div>
     </ErrorBoundary>
   )

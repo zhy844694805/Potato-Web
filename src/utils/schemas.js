@@ -113,6 +113,55 @@ export const pricingSchema = (packages, language) => ({
   }))
 })
 
+// 作者/人员结构化数据
+export const personSchema = (person, language) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: person.name[language] || person.name.en,
+  jobTitle: person.role[language] || person.role.en,
+  description: person.bio[language] || person.bio.en,
+  email: person.email,
+  worksFor: {
+    '@type': 'Organization',
+    name: siteConfig.name[language] || siteConfig.name.zh
+  },
+  sameAs: [
+    person.social?.github,
+    person.social?.linkedin
+  ].filter(Boolean)
+})
+
+// 博客文章增强版结构化数据
+export const blogPostingSchema = (post, language) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title[language],
+  description: post.excerpt[language],
+  image: post.thumbnail,
+  datePublished: post.date,
+  dateModified: post.date,
+  author: {
+    '@type': 'Person',
+    name: post.author[language]
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: siteConfig.name[language] || siteConfig.name.zh,
+    logo: {
+      '@type': 'ImageObject',
+      url: getFullUrl(siteConfig.logo)
+    }
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': getFullUrl(`/blog/${post.slug}`)
+  },
+  keywords: post.tags.map(t => t[language]).join(', '),
+  articleSection: post.category[language],
+  wordCount: post.content[language]?.length || 0,
+  inLanguage: language === 'zh' ? 'zh-CN' : language === 'it' ? 'it-IT' : 'en-US'
+})
+
 // 服务结构化数据
 export const serviceSchema = (language) => ({
   '@context': 'https://schema.org',

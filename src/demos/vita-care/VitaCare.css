@@ -1,0 +1,1150 @@
+/* VitaCare Family Clinic - Healthcare Demo Styles */
+/* All classes prefixed with .vitacare- for isolation */
+
+.vitacare-app {
+  /* Healthcare color scheme - calming greens, clean whites, gentle blues */
+  --vitacare-primary: #0d9488;
+  --vitacare-primary-dark: #0f766e;
+  --vitacare-primary-light: #14b8a6;
+  --vitacare-secondary: #3b82f6;
+  --vitacare-secondary-light: #60a5fa;
+  --vitacare-accent: #059669;
+  --vitacare-accent-light: #10b981;
+  --vitacare-text: #1f2937;
+  --vitacare-text-light: #6b7280;
+  --vitacare-text-muted: #9ca3af;
+  --vitacare-bg: #f8fafc;
+  --vitacare-bg-light: #f1f5f9;
+  --vitacare-white: #ffffff;
+  --vitacare-border: #e5e7eb;
+  --vitacare-success: #059669;
+  --vitacare-error: #dc2626;
+  --vitacare-warning: #f59e0b;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  color: var(--vitacare-text);
+  background: var(--vitacare-bg);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Header */
+.vitacare-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--vitacare-white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+}
+
+.vitacare-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vitacare-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--vitacare-primary);
+}
+
+.vitacare-logo-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vitacare-logo-icon svg {
+  width: 36px;
+  height: 36px;
+  color: var(--vitacare-primary);
+}
+
+.vitacare-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.vitacare-logo-text span:first-child {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: var(--vitacare-primary);
+}
+
+.vitacare-logo-text span:last-child {
+  font-size: 0.7rem;
+  color: var(--vitacare-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vitacare-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.vitacare-nav a {
+  text-decoration: none;
+  color: var(--vitacare-text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.vitacare-nav a:hover {
+  color: var(--vitacare-primary);
+}
+
+.vitacare-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--vitacare-primary);
+  transition: width 0.2s;
+}
+
+.vitacare-nav a:hover::after {
+  width: 100%;
+}
+
+.vitacare-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vitacare-lang {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.vitacare-lang button {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--vitacare-border);
+  background: var(--vitacare-white);
+  color: var(--vitacare-text-light);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+
+.vitacare-lang button.active {
+  background: var(--vitacare-primary);
+  color: white;
+  border-color: var(--vitacare-primary);
+}
+
+.vitacare-lang button:hover:not(.active) {
+  border-color: var(--vitacare-primary);
+  color: var(--vitacare-primary);
+}
+
+.vitacare-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.vitacare-mobile-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--vitacare-text);
+  transition: all 0.3s;
+}
+
+/* Hero */
+.vitacare-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  padding-top: 72px;
+}
+
+.vitacare-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.9), rgba(59, 130, 246, 0.8));
+}
+
+.vitacare-hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  max-width: 850px;
+}
+
+.vitacare-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(4px);
+}
+
+.vitacare-hero-badge svg {
+  opacity: 0.9;
+}
+
+.vitacare-hero-content h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vitacare-hero-content > p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vitacare-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.vitacare-hero-cta {
+  display: inline-block;
+  background: var(--vitacare-white);
+  color: var(--vitacare-primary);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.vitacare-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.vitacare-hero-emergency {
+  display: inline-flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+
+.vitacare-hero-emergency:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+/* Section Common */
+.vitacare-section {
+  padding: 5rem 1.5rem;
+}
+
+.vitacare-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.vitacare-section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.vitacare-section-header h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--vitacare-text);
+  margin-bottom: 0.75rem;
+}
+
+.vitacare-section-header p {
+  color: var(--vitacare-text-light);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Services */
+.vitacare-services-section {
+  background: var(--vitacare-white);
+}
+
+.vitacare-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.vitacare-service-card {
+  background: var(--vitacare-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+}
+
+.vitacare-service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: var(--vitacare-primary-light);
+}
+
+.vitacare-service-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--vitacare-primary), var(--vitacare-primary-light));
+  border-radius: 14px;
+  margin-bottom: 1.5rem;
+}
+
+.vitacare-service-icon svg {
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+.vitacare-service-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--vitacare-text);
+  margin-bottom: 0.75rem;
+}
+
+.vitacare-service-card > p {
+  font-size: 0.9rem;
+  color: var(--vitacare-text-light);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.vitacare-service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.vitacare-service-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--vitacare-text);
+  margin-bottom: 0.5rem;
+}
+
+.vitacare-service-features li svg {
+  color: var(--vitacare-success);
+  flex-shrink: 0;
+}
+
+.vitacare-service-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--vitacare-border);
+}
+
+.vitacare-service-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--vitacare-primary);
+}
+
+.vitacare-service-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--vitacare-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.vitacare-service-btn:hover {
+  background: var(--vitacare-primary-dark);
+}
+
+/* Doctors */
+.vitacare-doctors-section {
+  background: var(--vitacare-bg);
+}
+
+.vitacare-doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.vitacare-doctor-card {
+  display: flex;
+  gap: 1.5rem;
+  background: var(--vitacare-white);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+.vitacare-doctor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.vitacare-doctor-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.vitacare-doctor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vitacare-doctor-info {
+  flex: 1;
+}
+
+.vitacare-doctor-info h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--vitacare-text);
+  margin-bottom: 0.25rem;
+}
+
+.vitacare-doctor-chinese {
+  font-size: 0.85rem;
+  color: var(--vitacare-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.vitacare-doctor-role {
+  font-size: 0.9rem;
+  color: var(--vitacare-primary);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.vitacare-doctor-details {
+  margin-bottom: 1rem;
+}
+
+.vitacare-doctor-details p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--vitacare-text-light);
+  margin-bottom: 0.35rem;
+}
+
+.vitacare-doctor-details svg {
+  color: var(--vitacare-primary);
+  flex-shrink: 0;
+}
+
+.vitacare-doctor-details strong {
+  color: var(--vitacare-text);
+  font-weight: 500;
+}
+
+.vitacare-doctor-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--vitacare-bg);
+  color: var(--vitacare-primary);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: 1px solid var(--vitacare-border);
+}
+
+.vitacare-doctor-btn:hover {
+  background: var(--vitacare-primary);
+  color: white;
+  border-color: var(--vitacare-primary);
+}
+
+/* Hours */
+.vitacare-hours-section {
+  background: linear-gradient(135deg, var(--vitacare-primary), var(--vitacare-secondary));
+  color: white;
+  padding: 4rem 1.5rem;
+}
+
+.vitacare-hours-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.vitacare-hours-info h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.vitacare-hours-subtitle {
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.vitacare-hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.vitacare-hours-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.vitacare-hours-day {
+  font-weight: 500;
+}
+
+.vitacare-hours-time {
+  font-weight: 600;
+}
+
+.vitacare-hours-closed {
+  opacity: 0.7;
+  border-bottom: none;
+}
+
+.vitacare-hours-emergency {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.vitacare-phone-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  color: var(--vitacare-primary);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.vitacare-phone-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Testimonials */
+.vitacare-testimonials-section {
+  background: var(--vitacare-white);
+}
+
+.vitacare-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.vitacare-testimonial-card {
+  background: var(--vitacare-bg);
+  padding: 1.5rem;
+  border-radius: 16px;
+  transition: all 0.3s;
+}
+
+.vitacare-testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.vitacare-testimonial-stars {
+  color: var(--vitacare-warning);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.vitacare-testimonial-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--vitacare-text);
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+.vitacare-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.vitacare-testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--vitacare-primary), var(--vitacare-secondary));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.vitacare-testimonial-author strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--vitacare-text);
+}
+
+.vitacare-testimonial-author span {
+  font-size: 0.75rem;
+  color: var(--vitacare-text-muted);
+}
+
+/* Insurance */
+.vitacare-insurance-section {
+  background: var(--vitacare-bg);
+}
+
+.vitacare-insurance-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.vitacare-insurance-providers h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--vitacare-text);
+  margin-bottom: 1.5rem;
+}
+
+.vitacare-insurance-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.vitacare-insurance-item {
+  background: var(--vitacare-white);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--vitacare-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s;
+}
+
+.vitacare-insurance-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.vitacare-insurance-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.vitacare-insurance-card {
+  background: var(--vitacare-white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.vitacare-insurance-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--vitacare-text);
+  margin-bottom: 0.75rem;
+}
+
+.vitacare-insurance-card h4 svg {
+  color: var(--vitacare-primary);
+}
+
+.vitacare-insurance-card p {
+  font-size: 0.9rem;
+  color: var(--vitacare-text-light);
+  line-height: 1.6;
+}
+
+/* Booking */
+.vitacare-booking-section {
+  background: var(--vitacare-white);
+}
+
+.vitacare-booking-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--vitacare-bg);
+  padding: 2.5rem;
+  border-radius: 20px;
+}
+
+.vitacare-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.vitacare-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.vitacare-form-group {
+  margin-bottom: 1rem;
+}
+
+.vitacare-form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--vitacare-text);
+  margin-bottom: 0.5rem;
+}
+
+.vitacare-form-group input,
+.vitacare-form-group select,
+.vitacare-form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--vitacare-border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background: var(--vitacare-white);
+  color: var(--vitacare-text);
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.vitacare-form-group input:focus,
+.vitacare-form-group select:focus,
+.vitacare-form-group textarea:focus {
+  outline: none;
+  border-color: var(--vitacare-primary);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.vitacare-form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.vitacare-radio-group {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.vitacare-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.vitacare-radio input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--vitacare-primary);
+}
+
+.vitacare-radio span {
+  font-size: 0.9rem;
+  color: var(--vitacare-text);
+}
+
+.vitacare-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--vitacare-primary), var(--vitacare-primary-light));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1rem;
+}
+
+.vitacare-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(13, 148, 136, 0.3);
+}
+
+.vitacare-form-success {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--vitacare-success);
+}
+
+.vitacare-form-success svg {
+  margin-bottom: 1.5rem;
+  color: var(--vitacare-success);
+}
+
+.vitacare-form-success p {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+/* Contact */
+.vitacare-contact-section {
+  background: var(--vitacare-bg);
+}
+
+.vitacare-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.vitacare-contact-card {
+  background: var(--vitacare-white);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s;
+}
+
+.vitacare-contact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.vitacare-contact-card svg {
+  color: var(--vitacare-primary);
+  margin-bottom: 1rem;
+}
+
+.vitacare-contact-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--vitacare-text);
+  margin-bottom: 0.75rem;
+}
+
+.vitacare-contact-card p {
+  font-size: 0.9rem;
+  color: var(--vitacare-text-light);
+  line-height: 1.6;
+}
+
+.vitacare-contact-card a {
+  color: var(--vitacare-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.vitacare-contact-card a:hover {
+  text-decoration: underline;
+}
+
+.vitacare-contact-card small {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--vitacare-text-muted);
+}
+
+.vitacare-emergency-card {
+  background: linear-gradient(135deg, var(--vitacare-error), #ef4444);
+  color: white;
+}
+
+.vitacare-emergency-card svg,
+.vitacare-emergency-card h3 {
+  color: white;
+}
+
+.vitacare-emergency-card p,
+.vitacare-emergency-card a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.vitacare-emergency-card a:hover {
+  color: white;
+}
+
+.vitacare-emergency-card small {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Footer */
+.vitacare-footer {
+  background: var(--vitacare-text);
+  color: white;
+  padding: 2rem 1.5rem;
+}
+
+.vitacare-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vitacare-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.vitacare-footer-logo {
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.vitacare-footer-brand span:last-child {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.vitacare-footer-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.vitacare-footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.vitacare-footer-links a:hover {
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .vitacare-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vitacare-doctors-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vitacare-testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vitacare-insurance-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .vitacare-insurance-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .vitacare-contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vitacare-hours-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .vitacare-hours-list {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vitacare-nav {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--vitacare-white);
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    gap: 0;
+  }
+
+  .vitacare-nav.open {
+    display: flex;
+  }
+
+  .vitacare-nav a {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--vitacare-border);
+  }
+
+  .vitacare-nav a:last-child {
+    border-bottom: none;
+  }
+
+  .vitacare-nav a::after {
+    display: none;
+  }
+
+  .vitacare-mobile-toggle {
+    display: flex;
+  }
+
+  .vitacare-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .vitacare-hero-content > p {
+    font-size: 1rem;
+  }
+
+  .vitacare-hero-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .vitacare-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vitacare-doctor-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .vitacare-doctor-image {
+    margin: 0 auto;
+  }
+
+  .vitacare-doctor-details p {
+    justify-content: center;
+  }
+
+  .vitacare-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vitacare-insurance-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .vitacare-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .vitacare-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vitacare-footer-inner {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .vitacare-footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .vitacare-section {
+    padding: 3rem 1rem;
+  }
+
+  .vitacare-section-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .vitacare-booking-wrapper {
+    padding: 1.5rem;
+  }
+
+  .vitacare-insurance-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

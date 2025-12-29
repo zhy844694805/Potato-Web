@@ -127,10 +127,17 @@
   line-height: var(--line-height-normal);
 }
 
+/* Share Buttons */
+.article-share {
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
 /* Navigation */
 .article-navigation {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .back-link {

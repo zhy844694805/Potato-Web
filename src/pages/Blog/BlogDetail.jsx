@@ -5,7 +5,10 @@ import StructuredData from '../../components/StructuredData'
 import { breadcrumbSchema, articleSchema } from '../../utils/schemas'
 import BlogCard from '../../components/business/BlogCard'
 import LazyImage from '../../components/ui/LazyImage'
+import ShareButtons from '../../components/business/ShareButtons'
+import Comments from '../../components/business/Comments'
 import { getBlogBySlug, getRelatedPosts } from '../../data/blog'
+import { siteConfig } from '../../config/site'
 import './BlogDetail.css'
 
 function BlogDetail() {
@@ -93,12 +96,24 @@ function BlogDetail() {
             </div>
           </div>
 
+          {/* Share Buttons */}
+          <div className="article-share">
+            <ShareButtons
+              url={`${siteConfig.url}/blog/${post.slug}`}
+              title={post.title[language]}
+              description={post.excerpt[language]}
+            />
+          </div>
+
           {/* Back to Blog */}
           <div className="article-navigation">
             <Link to="/blog" className="back-link">
               ← {t('返回博客列表', 'Back to Blog', 'Torna al Blog')}
             </Link>
           </div>
+
+          {/* Comments Section */}
+          <Comments slug={post.slug} />
         </div>
 
         {/* Related Posts */}
