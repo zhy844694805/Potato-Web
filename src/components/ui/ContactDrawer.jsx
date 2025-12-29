@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 import { siteConfig } from '../../config/site'
+import BookingWidget from './BookingWidget'
 import './ContactDrawer.css'
 
 function ContactDrawer() {
@@ -95,6 +96,19 @@ function ContactDrawer() {
             <a href={`mailto:${siteConfig.contact.email}`} className="email-link">
               {siteConfig.contact.email}
             </a>
+          </div>
+
+          {/* Booking Section */}
+          <div className="drawer-section">
+            <div className="section-title">
+              <span className="section-icon">📅</span>
+              <span>{t('预约咨询', 'Book a Call', 'Prenota')}</span>
+            </div>
+            <BookingWidget
+              mode="modal"
+              buttonVariant="secondary"
+              buttonText={t('预约免费咨询', 'Book Free Consultation', 'Prenota Consulenza')}
+            />
           </div>
 
           {/* Response Time */}

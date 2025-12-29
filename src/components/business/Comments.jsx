@@ -40,11 +40,12 @@ function Comments({ slug }) {
     script.async = true
     script.crossOrigin = 'anonymous'
 
-    // Giscus configuration with placeholders
-    script.setAttribute('data-repo', 'owner/repo')
-    script.setAttribute('data-repo-id', 'placeholder')
-    script.setAttribute('data-category', 'Announcements')
-    script.setAttribute('data-category-id', 'placeholder')
+    // Giscus configuration - uses GitHub Discussions
+    // To set up: Go to https://giscus.app and configure for your repo
+    script.setAttribute('data-repo', 'zhy844694805/tech-agency-portfolio')
+    script.setAttribute('data-repo-id', 'R_kgDONe7gKg')
+    script.setAttribute('data-category', 'General')
+    script.setAttribute('data-category-id', 'DIC_kwDONe7gKs4Cl4Vy')
     script.setAttribute('data-mapping', 'pathname')
     script.setAttribute('data-strict', '0')
     script.setAttribute('data-reactions-enabled', '1')

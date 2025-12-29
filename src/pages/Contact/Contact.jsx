@@ -5,6 +5,7 @@ import * as yup from 'yup'
 import { useLanguage } from '../../context/LanguageContext'
 import SEO from '../../components/SEO'
 import Button from '../../components/ui/Button'
+import BookingWidget from '../../components/ui/BookingWidget'
 import { siteConfig } from '../../config/site'
 import { trackButtonClick } from '../../utils/analytics'
 import './Contact.css'
@@ -430,6 +431,16 @@ function Contact() {
                 <span className="info-label">{t.contact.response}</span>
                 <span>{t.contact.responseTime}</span>
               </div>
+            </div>
+
+            {/* Booking Widget */}
+            <div className="booking-section">
+              <h4>{language === 'zh' ? '在线预约' : language === 'it' ? 'Prenota Online' : 'Book Online'}</h4>
+              <BookingWidget
+                mode="modal"
+                buttonVariant="primary"
+                buttonText={language === 'zh' ? '预约免费咨询' : language === 'it' ? 'Prenota Consulenza' : 'Book Free Consultation'}
+              />
             </div>
           </aside>
         </div>

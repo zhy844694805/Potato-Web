@@ -16,7 +16,19 @@
     "learnMore": "了解更多",
     "contactUs": "联系我们",
     "viewCase": "查看案例",
-    "viewDetails": "查看详情"
+    "viewDetails": "查看详情",
+    "submit": "提交",
+    "send": "发送",
+    "cancel": "取消",
+    "close": "关闭",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "viewAll": "查看全部",
+    "readMore": "阅读更多",
+    "getQuote": "获取报价",
+    "bookNow": "立即预约",
+    "freeConsultation": "免费咨询"
   },
   "footer": {
     "brand": "极简科技",
@@ -29,11 +41,199 @@
     "faq": "常见问题",
     "testimonials": "评价",
     "about": "关于",
-    "contact": "联系"
+    "contact": "联系",
+    "quickLinks": "快速链接",
+    "followUs": "关注我们",
+    "newsletter": "订阅资讯",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款"
   },
   "common": {
     "loading": "加载中...",
     "error": "出错了",
-    "notFound": "页面未找到"
+    "notFound": "页面未找到",
+    "search": "搜索",
+    "searchPlaceholder": "搜索...",
+    "noResults": "没有找到结果",
+    "showMore": "显示更多",
+    "showLess": "收起",
+    "all": "全部",
+    "category": "分类",
+    "tags": "标签",
+    "share": "分享",
+    "required": "必填",
+    "optional": "选填"
+  },
+  "home": {
+    "hero": {
+      "title": "为意大利华人企业打造专业网站",
+      "subtitle": "网站开发 · 小程序 · 移动应用",
+      "cta": "开始您的项目"
+    },
+    "services": {
+      "title": "我们的服务",
+      "subtitle": "全方位数字化解决方案"
+    },
+    "portfolio": {
+      "title": "精选案例",
+      "subtitle": "我们的作品展示"
+    },
+    "testimonials": {
+      "title": "客户评价",
+      "subtitle": "听听客户怎么说"
+    },
+    "stats": {
+      "clients": "服务客户",
+      "projects": "完成项目",
+      "experience": "年经验"
+    }
+  },
+  "services": {
+    "title": "我们的服务",
+    "subtitle": "专业的网站开发与数字化解决方案",
+    "website": "网站开发",
+    "miniprogram": "小程序开发",
+    "app": "移动应用",
+    "ecommerce": "电商网站",
+    "seo": "SEO优化",
+    "maintenance": "网站维护"
+  },
+  "portfolio": {
+    "title": "案例展示",
+    "subtitle": "我们的作品集",
+    "viewDemo": "查看演示",
+    "viewDetails": "查看详情",
+    "client": "客户",
+    "industry": "行业",
+    "year": "年份",
+    "technologies": "技术栈",
+    "challenge": "挑战",
+    "solution": "解决方案",
+    "results": "成果",
+    "features": "功能特点",
+    "gallery": "项目图片"
+  },
+  "blog": {
+    "title": "博客",
+    "subtitle": "最新资讯与见解",
+    "readTime": "分钟阅读",
+    "publishedOn": "发布于",
+    "author": "作者",
+    "relatedPosts": "相关文章",
+    "categories": "分类",
+    "recentPosts": "最新文章",
+    "searchPosts": "搜索文章",
+    "noPostsFound": "没有找到文章",
+    "comments": "评论",
+    "leaveComment": "发表评论",
+    "sharePost": "分享文章"
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "让我们开始合作",
+    "description": "有项目想法？我们很乐意听取您的需求，并提供专业建议。",
+    "form": {
+      "name": "姓名",
+      "email": "邮箱",
+      "phone": "电话",
+      "company": "公司名称",
+      "service": "服务类型",
+      "budget": "预算范围",
+      "message": "项目描述",
+      "submit": "发送信息",
+      "sending": "发送中...",
+      "success": "信息已发送！我们会尽快与您联系。",
+      "error": "发送失败，请稍后重试或直接联系我们。"
+    },
+    "info": {
+      "title": "联系方式",
+      "email": "邮箱",
+      "phone": "电话",
+      "wechat": "微信",
+      "address": "地址",
+      "hours": "工作时间",
+      "responseTime": "通常24小时内回复"
+    },
+    "booking": {
+      "title": "预约咨询",
+      "button": "预约免费咨询",
+      "description": "选择一个时间，我们会与您详细讨论项目需求。"
+    }
+  },
+  "about": {
+    "title": "关于我们",
+    "subtitle": "专注服务意大利华人企业",
+    "mission": "我们的使命",
+    "vision": "我们的愿景",
+    "team": "团队成员",
+    "story": "我们的故事",
+    "values": "核心价值观"
+  },
+  "faq": {
+    "title": "常见问题",
+    "subtitle": "解答您的疑问",
+    "stillQuestions": "还有其他问题？",
+    "contactSupport": "联系我们"
+  },
+  "newsletter": {
+    "title": "订阅我们的资讯",
+    "subtitle": "获取最新的网站开发技巧和行业资讯",
+    "placeholder": "输入您的邮箱",
+    "button": "订阅",
+    "success": "订阅成功！感谢您的关注。",
+    "error": "订阅失败，请稍后重试。",
+    "privacy": "我们尊重您的隐私，不会发送垃圾邮件。"
+  },
+  "chat": {
+    "title": "在线客服",
+    "greeting": "您好！有什么可以帮助您的？",
+    "placeholder": "输入您的问题...",
+    "send": "发送",
+    "typing": "正在输入...",
+    "offline": "客服暂时离线，请留言或稍后再试。",
+    "faq": "常见问题",
+    "contactHuman": "联系真人客服"
+  },
+  "booking": {
+    "title": "预约咨询",
+    "selectDate": "选择日期",
+    "selectTime": "选择时间",
+    "confirm": "确认预约",
+    "success": "预约成功！我们会发送确认邮件给您。",
+    "cancel": "取消预约"
+  },
+  "share": {
+    "title": "分享",
+    "copyLink": "复制链接",
+    "copied": "已复制！",
+    "shareOn": "分享到",
+    "wechat": "微信",
+    "weibo": "微博",
+    "linkedin": "领英",
+    "twitter": "推特",
+    "facebook": "脸书"
+  },
+  "comments": {
+    "title": "评论",
+    "loading": "加载评论中...",
+    "noComments": "还没有评论，成为第一个评论者！",
+    "signIn": "登录后发表评论",
+    "placeholder": "写下您的评论..."
+  },
+  "validation": {
+    "required": "此项为必填",
+    "email": "请输入有效的邮箱地址",
+    "phone": "请输入有效的电话号码",
+    "minLength": "最少需要{{min}}个字符",
+    "maxLength": "最多{{max}}个字符"
+  },
+  "accessibility": {
+    "skipToContent": "跳转到主内容",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "darkMode": "深色模式",
+    "lightMode": "浅色模式",
+    "language": "切换语言",
+    "scrollToTop": "返回顶部"
   }
 }

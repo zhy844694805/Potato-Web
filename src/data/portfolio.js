@@ -79,7 +79,11 @@ export const portfolioData = [
       { icon: '🍱', title: { zh: '动态菜单', en: 'Dynamic Menu' }, desc: { zh: '分类切换', en: 'Category switch' } }
     ],
     thumbnail: '/images/portfolio/sushi-1.jpg',
-    images: []
+    images: [
+      { url: '/images/portfolio/sushi-1.jpg', caption: { zh: '首页展示', en: 'Homepage' } },
+      { url: '/images/portfolio/sushi-2.jpg', caption: { zh: '菜单页面', en: 'Menu Page' } },
+      { url: '/images/portfolio/sushi-3.jpg', caption: { zh: '门店信息', en: 'Location Info' } }
+    ]
   },
 
   // 1c. Koku Sushi - Nobu风格 (金+黑奢华)
@@ -112,7 +116,11 @@ export const portfolioData = [
       { icon: '📞', title: { zh: '预约体验', en: 'Reservation' }, desc: { zh: '专属服务', en: 'Exclusive service' } }
     ],
     thumbnail: '/images/portfolio/shipping-1.jpg',
-    images: []
+    images: [
+      { url: '/images/portfolio/sushi-1.jpg', caption: { zh: '奢华首页', en: 'Luxury Homepage' } },
+      { url: '/images/portfolio/sushi-2.jpg', caption: { zh: 'Omakase菜单', en: 'Omakase Menu' } },
+      { url: '/images/portfolio/sushi-3.jpg', caption: { zh: '预约系统', en: 'Reservation System' } }
+    ]
   },
 
   // 1d. Yume Sushi - IYO风格 (白色极简)
@@ -145,7 +153,11 @@ export const portfolioData = [
       { icon: '🖼️', title: { zh: '画廊展示', en: 'Gallery' }, desc: { zh: '横向滚动', en: 'Horizontal scroll' } }
     ],
     thumbnail: '/images/portfolio/sushi-2.jpg',
-    images: []
+    images: [
+      { url: '/images/portfolio/sushi-2.jpg', caption: { zh: '极简首页', en: 'Minimal Homepage' } },
+      { url: '/images/portfolio/sushi-1.jpg', caption: { zh: '季节菜单', en: 'Seasonal Menu' } },
+      { url: '/images/portfolio/sushi-3.jpg', caption: { zh: '画廊展示', en: 'Gallery Display' } }
+    ]
   },
 
   // 1e. Golden Koi - Finger's风格 (金棕奢华)
@@ -178,7 +190,11 @@ export const portfolioData = [
       { icon: '📝', title: { zh: '预约系统', en: 'Reservation' }, desc: { zh: '完整表单', en: 'Full booking form' } }
     ],
     thumbnail: '/images/portfolio/sushi-2.jpg',
-    images: []
+    images: [
+      { url: '/images/portfolio/sushi-2.jpg', caption: { zh: '金棕首页', en: 'Gold Homepage' } },
+      { url: '/images/portfolio/sushi-1.jpg', caption: { zh: '多门店展示', en: 'Multi-Location' } },
+      { url: '/images/portfolio/sushi-3.jpg', caption: { zh: '预约表单', en: 'Booking Form' } }
+    ]
   },
 
   // 2. 普拉托时装品牌
@@ -744,7 +760,11 @@ export const portfolioData = [
       { icon: '🛒', title: { zh: '购物车', en: 'Cart' }, desc: { zh: '便捷点单', en: 'Easy ordering' } }
     ],
     thumbnail: '/images/portfolio/boba-1.jpg',
-    images: []
+    images: [
+      { url: '/images/portfolio/boba-1.jpg', caption: { zh: '潮流首页', en: 'Trendy Homepage' } },
+      { url: '/images/portfolio/chinese-food.jpg', caption: { zh: '饮品菜单', en: 'Drink Menu' } },
+      { url: '/images/portfolio/beauty-1.jpg', caption: { zh: '购物车', en: 'Shopping Cart' } }
+    ]
   },
 
   // 14. 中餐馆
@@ -777,7 +797,11 @@ export const portfolioData = [
       { icon: '📅', title: { zh: '在线预约', en: 'Reservation' }, desc: { zh: '便捷订座', en: 'Easy booking' } }
     ],
     thumbnail: '/images/portfolio/restaurant-1.jpg',
-    images: []
+    images: [
+      { url: '/images/portfolio/restaurant-1.jpg', caption: { zh: '传统首页', en: 'Traditional Homepage' } },
+      { url: '/images/portfolio/chinese-food.jpg', caption: { zh: '分类菜单', en: 'Category Menu' } },
+      { url: '/images/portfolio/sushi-1.jpg', caption: { zh: '午市套餐', en: 'Lunch Special' } }
+    ]
   },
 
   // 15. 律师事务所
@@ -1006,7 +1030,11 @@ export const portfolioData = [
       { icon: '💰', title: { zh: '定价展示', en: 'Pricing' }, desc: { zh: '多层级方案', en: 'Multi-tier plans' } }
     ],
     thumbnail: '/images/portfolio/saas-1.jpg',
-    images: []
+    images: [
+      { url: '/images/portfolio/saas-1.jpg', caption: { zh: '产品首页', en: 'Product Homepage' } },
+      { url: '/images/portfolio/finance-1.jpg', caption: { zh: '功能展示', en: 'Features Display' } },
+      { url: '/images/portfolio/trade-1.jpg', caption: { zh: '定价方案', en: 'Pricing Plans' } }
+    ]
   },
 
   // 20. LingoBridge 语言学校
@@ -1039,7 +1067,11 @@ export const portfolioData = [
       { icon: '📅', title: { zh: '课程安排', en: 'Schedule' }, desc: { zh: '灵活时间', en: 'Flexible timing' } }
     ],
     thumbnail: '/images/portfolio/education-1.jpg',
-    images: []
+    images: [
+      { url: '/images/portfolio/education-1.jpg', caption: { zh: '学校首页', en: 'School Homepage' } },
+      { url: '/images/portfolio/finance-1.jpg', caption: { zh: '课程展示', en: 'Courses Display' } },
+      { url: '/images/portfolio/beauty-1.jpg', caption: { zh: '教师团队', en: 'Teacher Team' } }
+    ]
   },
 
   // 21. VitaCare 家庭诊所
@@ -1072,7 +1104,11 @@ export const portfolioData = [
       { icon: '📅', title: { zh: '在线预约', en: 'Booking' }, desc: { zh: '便捷预约', en: 'Easy appointment' } }
     ],
     thumbnail: '/images/portfolio/healthcare-1.jpg',
-    images: []
+    images: [
+      { url: '/images/portfolio/healthcare-1.jpg', caption: { zh: '诊所首页', en: 'Clinic Homepage' } },
+      { url: '/images/portfolio/spa-1.jpg', caption: { zh: '医疗服务', en: 'Medical Services' } },
+      { url: '/images/portfolio/tcm-1.jpg', caption: { zh: '医生团队', en: 'Doctor Team' } }
+    ]
   }
 ]
 

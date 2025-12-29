@@ -278,6 +278,25 @@
   opacity: 0.7;
 }
 
+/* Booking Section */
+.booking-section {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--border-color);
+}
+
+.booking-section h4 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.booking-section .booking-widget__button {
+  width: 100%;
+  justify-content: center;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .contact-content {

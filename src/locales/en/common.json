@@ -16,7 +16,19 @@
     "learnMore": "Learn More",
     "contactUs": "Contact Us",
     "viewCase": "View Case",
-    "viewDetails": "View Details"
+    "viewDetails": "View Details",
+    "submit": "Submit",
+    "send": "Send",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "viewAll": "View All",
+    "readMore": "Read More",
+    "getQuote": "Get Quote",
+    "bookNow": "Book Now",
+    "freeConsultation": "Free Consultation"
   },
   "footer": {
     "brand": "Minimal Tech",
@@ -29,11 +41,199 @@
     "faq": "FAQ",
     "testimonials": "Testimonials",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "quickLinks": "Quick Links",
+    "followUs": "Follow Us",
+    "newsletter": "Newsletter",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
   },
   "common": {
     "loading": "Loading...",
     "error": "Error occurred",
-    "notFound": "Page Not Found"
+    "notFound": "Page Not Found",
+    "search": "Search",
+    "searchPlaceholder": "Search...",
+    "noResults": "No results found",
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "all": "All",
+    "category": "Category",
+    "tags": "Tags",
+    "share": "Share",
+    "required": "Required",
+    "optional": "Optional"
+  },
+  "home": {
+    "hero": {
+      "title": "Professional Websites for Italian Chinese Businesses",
+      "subtitle": "Web Development · Mini Programs · Mobile Apps",
+      "cta": "Start Your Project"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Full-Stack Digital Solutions"
+    },
+    "portfolio": {
+      "title": "Featured Work",
+      "subtitle": "Our Portfolio Showcase"
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "subtitle": "What Our Clients Say"
+    },
+    "stats": {
+      "clients": "Clients Served",
+      "projects": "Projects Completed",
+      "experience": "Years Experience"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Professional Web Development & Digital Solutions",
+    "website": "Website Development",
+    "miniprogram": "Mini Program Development",
+    "app": "Mobile Applications",
+    "ecommerce": "E-commerce Websites",
+    "seo": "SEO Optimization",
+    "maintenance": "Website Maintenance"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Our Work Showcase",
+    "viewDemo": "View Demo",
+    "viewDetails": "View Details",
+    "client": "Client",
+    "industry": "Industry",
+    "year": "Year",
+    "technologies": "Technologies",
+    "challenge": "Challenge",
+    "solution": "Solution",
+    "results": "Results",
+    "features": "Features",
+    "gallery": "Project Gallery"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Latest News & Insights",
+    "readTime": "min read",
+    "publishedOn": "Published on",
+    "author": "Author",
+    "relatedPosts": "Related Posts",
+    "categories": "Categories",
+    "recentPosts": "Recent Posts",
+    "searchPosts": "Search Posts",
+    "noPostsFound": "No posts found",
+    "comments": "Comments",
+    "leaveComment": "Leave a Comment",
+    "sharePost": "Share Post"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Let's Start Working Together",
+    "description": "Have a project in mind? We'd love to hear about your needs and provide professional advice.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "company": "Company",
+      "service": "Service Type",
+      "budget": "Budget Range",
+      "message": "Project Description",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent! We'll get back to you soon.",
+      "error": "Failed to send. Please try again or contact us directly."
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "wechat": "WeChat",
+      "address": "Address",
+      "hours": "Business Hours",
+      "responseTime": "Usually reply within 24 hours"
+    },
+    "booking": {
+      "title": "Book a Consultation",
+      "button": "Book Free Consultation",
+      "description": "Pick a time and we'll discuss your project requirements in detail."
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Dedicated to Serving Italian Chinese Businesses",
+    "mission": "Our Mission",
+    "vision": "Our Vision",
+    "team": "Team Members",
+    "story": "Our Story",
+    "values": "Core Values"
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Answers to Your Questions",
+    "stillQuestions": "Still have questions?",
+    "contactSupport": "Contact Us"
+  },
+  "newsletter": {
+    "title": "Subscribe to Our Newsletter",
+    "subtitle": "Get the latest web development tips and industry insights",
+    "placeholder": "Enter your email",
+    "button": "Subscribe",
+    "success": "Subscribed! Thank you for joining us.",
+    "error": "Subscription failed. Please try again later.",
+    "privacy": "We respect your privacy. No spam."
+  },
+  "chat": {
+    "title": "Live Chat",
+    "greeting": "Hello! How can we help you?",
+    "placeholder": "Type your question...",
+    "send": "Send",
+    "typing": "Typing...",
+    "offline": "Support is currently offline. Please leave a message.",
+    "faq": "Frequently Asked Questions",
+    "contactHuman": "Contact Human Support"
+  },
+  "booking": {
+    "title": "Book a Consultation",
+    "selectDate": "Select Date",
+    "selectTime": "Select Time",
+    "confirm": "Confirm Booking",
+    "success": "Booked! We'll send you a confirmation email.",
+    "cancel": "Cancel Booking"
+  },
+  "share": {
+    "title": "Share",
+    "copyLink": "Copy Link",
+    "copied": "Copied!",
+    "shareOn": "Share on",
+    "wechat": "WeChat",
+    "weibo": "Weibo",
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter",
+    "facebook": "Facebook"
+  },
+  "comments": {
+    "title": "Comments",
+    "loading": "Loading comments...",
+    "noComments": "No comments yet. Be the first to comment!",
+    "signIn": "Sign in to comment",
+    "placeholder": "Write your comment..."
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address",
+    "phone": "Please enter a valid phone number",
+    "minLength": "Minimum {{min}} characters required",
+    "maxLength": "Maximum {{max}} characters allowed"
+  },
+  "accessibility": {
+    "skipToContent": "Skip to main content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "darkMode": "Dark mode",
+    "lightMode": "Light mode",
+    "language": "Change language",
+    "scrollToTop": "Scroll to top"
   }
 }
