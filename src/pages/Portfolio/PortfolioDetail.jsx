@@ -177,7 +177,6 @@ function PortfolioDetail() {
           <ExportPDF
             contentRef={contentRef}
             filename={`${portfolio.slug}-case-study`}
-            title={portfolio.title[language]}
           />
           {portfolio.demoUrl && (
             <Link to={portfolio.demoUrl}>

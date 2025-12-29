@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 import Button from '../ui/Button'
 import './ExportPDF.css'
@@ -7,7 +7,7 @@ import './ExportPDF.css'
  * ExportPDF component - Exports portfolio/content to PDF
  * Uses html2pdf.js for client-side PDF generation
  */
-function ExportPDF({ contentRef, filename = 'document', title }) {
+function ExportPDF({ contentRef, filename = 'document' }) {
   const [isExporting, setIsExporting] = useState(false)
   const { language } = useLanguage()
 
