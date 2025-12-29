@@ -6,10 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 npm run dev          # Start Vite dev server with HMR
-npm run build        # Production build
+npm run build        # Production build (auto-generates sitemap)
 npm run lint         # ESLint checks
 npm run preview      # Preview production build
-npm run generate-sitemap  # Generate sitemap.xml for SEO (run after adding portfolio/blog items)
+npm run generate-sitemap  # Generate sitemap.xml manually (for dev)
 ```
 
 ## Architecture Overview
@@ -22,58 +22,68 @@ This is a React 19 + Vite 7 portfolio/agency website targeting Italian Chinese b
 
 **Theme System:** `ThemeContext` manages light/dark mode. Theme is persisted in localStorage and applied via `[data-theme='dark']` CSS attribute selector.
 
-**Static Data Management:** All content lives in `/src/data/` files (services, portfolio, blog, testimonials). Each file exports both raw data arrays and helper functions like `getLatestPosts(limit)`, `getPortfolioById(id)`.
+**Static Data Management:** All content lives in `/src/data/` files (services, portfolio, blog, testimonials, team). Each file exports both raw data arrays and helper functions like `getLatestPosts(limit)`, `getPortfolioById(id)`, `searchPosts(query)`.
 
-**Demo Sites:** Self-contained client demos in `/src/demos/` (22 demos covering restaurants, professional services, retail, beauty, apps). Each demo has isolated CSS with unique prefixes (e.g., `.sushi-`, `.zheng-`, `.dtravel-`, `.yikang-`) to prevent style conflicts. Demos render without main site layout (no Header/Footer).
+**Demo Sites:** Self-contained client demos in `/src/demos/` (25 demos covering restaurants, professional services, retail, beauty, SaaS, education, healthcare). Each demo has isolated CSS with unique prefixes (e.g., `.sushi-`, `.zheng-`, `.cloudtask-`) to prevent style conflicts. Demos render without main site layout (no Header/Footer).
 
 ### Directory Structure
 
 ```
 src/
 ├── components/
-│   ├── business/    # Domain-specific: ServiceCard, PortfolioCard, BlogCard, TestimonialCard
-│   ├── ui/          # Generic: Button, LazyImage, ThemeToggle, ScrollToTop
+│   ├── business/    # Domain: ServiceCard, PortfolioCard, BlogCard, Comments, ShareButtons, ExportPDF
+│   ├── ui/          # Generic: Button, LazyImage, ThemeToggle, Newsletter, BookingWidget, ChatWidget, SearchInput
 │   └── layout/      # Header, Footer
 ├── context/         # ThemeContext, LanguageContext
-├── data/            # Static content (services, portfolio, blog, testimonials, stats)
+├── data/            # Static content (services, portfolio, blog, testimonials, stats, team)
 ├── demos/           # Client demo sites (self-contained with own CSS/data)
-│   └── {demo-name}/     # Each has: Component.jsx, Component.css, data/
 ├── hooks/           # useScrollAnimation
-├── locales/         # i18n translations (zh/en common.json)
-├── pages/           # Route components (Home, Services, Portfolio, Blog, About, etc.)
+├── locales/         # i18n translations (zh/en/it common.json)
+├── pages/           # Route components (Home, Services, Portfolio, Blog, About, Contact, etc.)
+├── utils/           # schemas.js (SEO structured data), analytics.js
 └── assets/styles/   # CSS design system (variables.css, animations.css)
 ```
 
-### Demo Architecture
+### Key Components
 
-Demos are accessed via `/demo/{slug}` routes and bypass main site layout:
-- **Interactive Web Apps:** Mobile-first designs with full functionality (cart, forms, navigation)
-- **Showcase Pages:** Device frame mockups displaying app screenshots
-- Each demo manages its own language state independently
-- Portfolio entries link to demos via `demoUrl` field
+**LazyImage:** Image component with WebP support, loading states, and error handling. Uses `<picture>` element for format fallback.
 
-### SEO Components
+**BookingWidget:** Calendly integration with 3 modes (button, inline, modal). Configure via `VITE_CALENDLY_URL`.
+
+**Comments:** Giscus-based commenting system using GitHub Discussions. Theme syncs with site dark/light mode.
+
+**ExportPDF:** Client-side PDF export using html2pdf.js. Pass a `contentRef` to export any content.
+
+**ShareButtons:** Social sharing for Twitter, LinkedIn, Facebook, WeChat with copy-to-clipboard support.
+
+### SEO & Structured Data
 
 - `SEO.jsx` - Meta tags, Open Graph, Twitter Cards via react-helmet-async
-- `StructuredData.jsx` - JSON-LD schemas (Organization, Service, Breadcrumb)
-- `Analytics.jsx` - GA4 integration, production-only
+- `StructuredData.jsx` - Supports single schema or array of schemas
+- `schemas.js` exports:
+  - `organizationSchema(language)`
+  - `breadcrumbSchema(items)`
+  - `portfolioSchema(portfolio, language)`
+  - `articleSchema(post, language)`
+  - `serviceSchema(language)`
+  - `faqPageSchema(faqs, language)`
+  - `localBusinessSchema(language, options)`
+  - `individualServiceSchema(service, language)`
+  - `webSiteSchema(language)`
+  - `teamMemberSchema(member, language)`
 
 ### Routing
 
 React Router 7 with dynamic routes:
 - `/services/:id` - Service detail pages
-- `/portfolio/:id` - Portfolio detail pages
-- `/blog/:id` - Blog post pages
+- `/portfolio/:id` - Portfolio detail pages (includes PDF export, ShareButtons)
+- `/blog/:id` - Blog post pages (includes Comments, ShareButtons)
 - `/demo/{slug}` - Client demo sites (rendered without main layout)
-- Catch-all redirects to 404
 
 ### Data File Helpers
 
 ```javascript
-// services.js
-getServiceById(id)
-
-// portfolio.js - categories: restaurant, fashion, trade, beauty, professional, app, miniprogram
+// portfolio.js - categories: restaurant, fashion, trade, beauty, professional, app, miniprogram, saas, education, healthcare
 getPortfolioById(id)
 getPortfolioByCategory(category)
 
@@ -81,29 +91,40 @@ getPortfolioByCategory(category)
 getLatestPosts(limit)
 getPostsByCategory(category)
 getPostBySlug(slug)
+searchPosts(query)  // searches title, excerpt, tags, category
 ```
 
 ### Site Configuration
 
-`/src/config/site.js` contains site-wide settings (URL, contact email, social links). Values can be overridden via environment variables (`VITE_SITE_URL`, `VITE_CONTACT_EMAIL`, etc.).
+`/src/config/site.js` contains site-wide settings. Override via environment variables:
+- `VITE_SITE_URL` - Site URL for SEO
+- `VITE_CONTACT_EMAIL`, `VITE_CONTACT_PHONE`
+- `VITE_SOCIAL_GITHUB`, `VITE_SOCIAL_WECHAT`
+- `VITE_FORMSPREE_ID` - Contact form endpoint
+- `VITE_CALENDLY_URL` - Booking widget URL
+- `VITE_GA_MEASUREMENT_ID` - Google Analytics
 
-### Contact Form
+### Forms & Integrations
 
-Contact form submits to Formspree (`/src/pages/Contact/Contact.jsx`). Update the Formspree endpoint URL when changing the form destination.
+- **Contact Form:** Submits to Formspree (`/src/pages/Contact/Contact.jsx`)
+- **Newsletter:** Formspree integration in Footer
+- **Booking:** Calendly iframe embed
+- **Comments:** Giscus with GitHub repo `zhy844694805/tech-agency-portfolio`
 
 ### Code Splitting
 
-Pages and demos are lazy-loaded using `React.lazy()` in `App.jsx`. Build output is split into chunks:
+Pages and demos are lazy-loaded using `React.lazy()` in `App.jsx`. Build chunks:
 - `vendor` - React, React DOM, React Router
 - `i18n` - i18next libraries
 - `forms` - react-hook-form, yup
+- `html2pdf` - PDF export (dynamically imported)
 
-### PWA Support
+### Build Output
 
-Site is configured as a Progressive Web App via `vite-plugin-pwa`:
-- Offline access with service worker caching
-- Installable on mobile/desktop
-- Manifest at `/manifest.webmanifest`
+Sitemap is auto-generated in `postbuild` script. Output includes:
+- Static pages, portfolio pages, blog pages
+- `robots.txt` with sitemap reference
+- PWA service worker via vite-plugin-pwa
 
 ## Key Dependencies
 
@@ -111,5 +132,6 @@ Site is configured as a Progressive Web App via `vite-plugin-pwa`:
 - i18next + react-i18next for translations
 - react-helmet-async for SEO
 - react-hook-form + yup for forms
+- html2pdf.js for PDF export
 - vite-plugin-pwa for offline support
 - No TypeScript, no CSS framework (pure CSS with design tokens)
