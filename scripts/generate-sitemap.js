@@ -1,14 +1,18 @@
 /* global process */
 // Sitemap Generator for Minimal Tech
 // Run with: node scripts/generate-sitemap.js
-// Or add to build: npm run generate-sitemap && npm run build
+// Or: node scripts/generate-sitemap.js --dist (for postbuild, writes to dist folder)
+// Automatically runs after build via postbuild script
 
-import { writeFileSync, readFileSync } from 'fs'
+import { writeFileSync, readFileSync, existsSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+
+// Check if --dist flag is passed (for postbuild usage)
+const isDistMode = process.argv.includes('--dist')
 
 // Website base URL - 从环境变量读取或使用默认值
 const BASE_URL = process.env.VITE_SITE_URL || 'https://minimaltech.com'
@@ -108,26 +112,38 @@ Disallow: /_/
 
 // 写入文件
 try {
-  const publicPath = join(__dirname, '..', 'public')
+  // Determine output directory based on mode
+  const outputDir = isDistMode ? 'dist' : 'public'
+  const outputPath = join(__dirname, '..', outputDir)
+
+  // Check if output directory exists (especially important for dist mode)
+  if (!existsSync(outputPath)) {
+    console.error(`Error: ${outputDir} directory does not exist.`)
+    if (isDistMode) {
+      console.error('Make sure to run the build first before generating sitemap in dist mode.')
+    }
+    process.exit(1)
+  }
 
   // 生成 sitemap.xml
   const sitemap = generateSitemap()
-  writeFileSync(join(publicPath, 'sitemap.xml'), sitemap, 'utf-8')
+  writeFileSync(join(outputPath, 'sitemap.xml'), sitemap, 'utf-8')
 
   // 生成 robots.txt
   const robots = generateRobots()
-  writeFileSync(join(publicPath, 'robots.txt'), robots, 'utf-8')
+  writeFileSync(join(outputPath, 'robots.txt'), robots, 'utf-8')
 
   console.log('')
-  console.log('✅ Sitemap and robots.txt generated successfully!')
-  console.log(`📍 Base URL: ${BASE_URL}`)
+  console.log('Sitemap and robots.txt generated successfully!')
+  console.log(`Output directory: ${outputDir}/`)
+  console.log(`Base URL: ${BASE_URL}`)
   console.log('')
-  console.log('📊 Total URLs:', allPages.length)
+  console.log('Total URLs:', allPages.length)
   console.log(`   - Static pages: ${staticPages.length}`)
   console.log(`   - Portfolio pages: ${portfolioPages.length}`)
   console.log(`   - Blog pages: ${blogPages.length}`)
   console.log('')
 } catch (error) {
-  console.error('❌ Error generating sitemap:', error)
+  console.error('Error generating sitemap:', error)
   process.exit(1)
 }

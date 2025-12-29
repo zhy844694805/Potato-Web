@@ -162,7 +162,7 @@ export const blogPostingSchema = (post, language) => ({
   inLanguage: language === 'zh' ? 'zh-CN' : language === 'it' ? 'it-IT' : 'en-US'
 })
 
-// 服务结构化数据
+// 服务结构化数据 (通用服务目录)
 export const serviceSchema = (language) => ({
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -206,4 +206,162 @@ export const serviceSchema = (language) => ({
       }
     ]
   }
+})
+
+// 单个服务结构化数据
+export const individualServiceSchema = (service, language) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': getFullUrl(`/services/${service.id}`),
+  name: service.title[language] || service.title.en,
+  description: service.description[language] || service.description.en,
+  provider: {
+    '@type': 'Organization',
+    name: siteConfig.name[language] || siteConfig.name.zh,
+    url: siteConfig.url
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: language === 'zh' ? '意大利' : 'Italy'
+  },
+  serviceType: service.category?.[language] || service.category?.en,
+  ...(service.price && {
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'EUR',
+      ...(service.price.min && service.price.max ? {
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          minPrice: service.price.min,
+          maxPrice: service.price.max,
+          priceCurrency: 'EUR'
+        }
+      } : {
+        price: service.price.amount || service.price
+      })
+    }
+  }),
+  ...(service.features && {
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: language === 'zh' ? '服务特点' : 'Service Features',
+      itemListElement: service.features.map((feature, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'Service',
+          name: feature[language] || feature.en || feature
+        }
+      }))
+    }
+  })
+})
+
+// 本地商家结构化数据
+export const localBusinessSchema = (language, options = {}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': getFullUrl('/#localbusiness'),
+  name: siteConfig.name[language] || siteConfig.name.zh,
+  description: language === 'zh'
+    ? '专注于意大利华人企业的数字化解决方案，提供网站开发、APP开发、小程序开发等服务'
+    : 'Digital solutions for Italian Chinese businesses, providing web development, app development, and mini program services',
+  url: siteConfig.url,
+  logo: getFullUrl(siteConfig.logo),
+  image: options.image || getFullUrl(siteConfig.logo),
+  telephone: siteConfig.contact.phone,
+  email: siteConfig.contact.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: options.city || 'Milano',
+    addressRegion: options.region || 'Lombardia',
+    addressCountry: 'IT',
+    ...(options.streetAddress && { streetAddress: options.streetAddress }),
+    ...(options.postalCode && { postalCode: options.postalCode })
+  },
+  geo: options.geo ? {
+    '@type': 'GeoCoordinates',
+    latitude: options.geo.latitude,
+    longitude: options.geo.longitude
+  } : undefined,
+  priceRange: options.priceRange || '€€',
+  currenciesAccepted: 'EUR',
+  paymentAccepted: language === 'zh' ? '银行转账, PayPal, 微信支付' : 'Bank Transfer, PayPal, WeChat Pay',
+  openingHoursSpecification: options.openingHours || [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '18:00'
+    }
+  ],
+  sameAs: [
+    siteConfig.social.github,
+    siteConfig.social.wechat ? `https://weixin.qq.com/r/${siteConfig.social.wechat}` : null
+  ].filter(Boolean),
+  areaServed: {
+    '@type': 'Country',
+    name: 'Italy'
+  },
+  knowsLanguage: ['zh-CN', 'en', 'it'],
+  slogan: language === 'zh'
+    ? '连接华人企业与意大利市场'
+    : 'Connecting Chinese businesses with the Italian market'
+})
+
+// 网站结构化数据 (含搜索功能)
+export const webSiteSchema = (language) => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': getFullUrl('/#website'),
+  name: siteConfig.name[language] || siteConfig.name.zh,
+  url: siteConfig.url,
+  description: language === 'zh'
+    ? '为意大利华人企业提供专业的数字化解决方案'
+    : 'Professional digital solutions for Italian Chinese businesses',
+  inLanguage: language === 'zh' ? 'zh-CN' : language === 'it' ? 'it-IT' : 'en',
+  publisher: {
+    '@type': 'Organization',
+    '@id': getFullUrl('/#organization'),
+    name: siteConfig.name[language] || siteConfig.name.zh
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteConfig.url}/search?q={search_term_string}`
+    },
+    'query-input': 'required name=search_term_string'
+  }
+})
+
+// 团队成员结构化数据 (增强版)
+export const teamMemberSchema = (member, language) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': getFullUrl(`/team/${member.id || member.slug || ''}`),
+  name: member.name[language] || member.name.en,
+  givenName: member.givenName?.[language] || member.givenName?.en,
+  familyName: member.familyName?.[language] || member.familyName?.en,
+  jobTitle: member.role[language] || member.role.en,
+  description: member.bio[language] || member.bio.en,
+  image: member.avatar || member.image,
+  email: member.email,
+  telephone: member.phone,
+  url: member.website || getFullUrl(`/team/${member.id || member.slug || ''}`),
+  worksFor: {
+    '@type': 'Organization',
+    '@id': getFullUrl('/#organization'),
+    name: siteConfig.name[language] || siteConfig.name.zh
+  },
+  knowsLanguage: member.languages || ['zh-CN', 'en', 'it'],
+  ...(member.skills && {
+    knowsAbout: member.skills.map(skill => skill[language] || skill.en || skill)
+  }),
+  sameAs: [
+    member.social?.github,
+    member.social?.linkedin,
+    member.social?.twitter,
+    member.social?.wechat ? `https://weixin.qq.com/r/${member.social.wechat}` : null
+  ].filter(Boolean)
 })

@@ -32,7 +32,7 @@ function Header() {
   return (
     <>
       <a href="#main-content" className="skip-to-content">
-        {language === 'zh' ? '跳转到主要内容' : 'Skip to main content'}
+        {t('accessibility.skipToContent')}
       </a>
       <header className="header">
         <div className="header-container">

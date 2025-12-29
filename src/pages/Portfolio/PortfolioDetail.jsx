@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import SEO from '../../components/SEO'
@@ -5,12 +6,15 @@ import StructuredData from '../../components/StructuredData'
 import { portfolioSchema } from '../../utils/schemas'
 import Button from '../../components/ui/Button'
 import LazyImage from '../../components/ui/LazyImage'
+import ShareButtons from '../../components/business/ShareButtons'
+import ExportPDF from '../../components/business/ExportPDF'
 import { getPortfolioById } from '../../data/portfolio'
 import './PortfolioDetail.css'
 
 function PortfolioDetail() {
   const { id } = useParams()
   const { language } = useLanguage()
+  const contentRef = useRef(null)
   const portfolio = getPortfolioById(id)
   const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
@@ -28,7 +32,7 @@ function PortfolioDetail() {
         type="article"
       />
       <StructuredData data={portfolioSchema(portfolio, language)} />
-      <div className="container">
+      <div className="container" ref={contentRef}>
         <section className="detail-hero" style={{ borderColor: portfolio.color }}>
           <div className="detail-meta">
             <span className="detail-category" style={{ color: portfolio.color }}>
@@ -155,12 +159,26 @@ function PortfolioDetail() {
           </section>
         )}
 
+        <section className="detail-section detail-share">
+          <h2>{t('分享案例', 'Share This Project', 'Condividi Progetto')}</h2>
+          <ShareButtons
+            url={`${window.location.origin}/portfolio/${portfolio.slug}`}
+            title={portfolio.title[language]}
+            description={portfolio.shortDesc[language]}
+          />
+        </section>
+
         <section className="detail-cta">
           <Link to="/portfolio">
             <Button variant="secondary">
               {t('返回案例列表', 'Back to Portfolio', 'Torna al Portfolio')}
             </Button>
           </Link>
+          <ExportPDF
+            contentRef={contentRef}
+            filename={`${portfolio.slug}-case-study`}
+            title={portfolio.title[language]}
+          />
           {portfolio.demoUrl && (
             <Link to={portfolio.demoUrl}>
               <Button variant="primary" style={{ background: 'linear-gradient(135deg, #d4a574, #8b6914)' }}>

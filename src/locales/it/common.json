@@ -35,5 +35,14 @@
     "loading": "Caricamento...",
     "error": "Si è verificato un errore",
     "notFound": "Pagina Non Trovata"
+  },
+  "accessibility": {
+    "skipToContent": "Vai al contenuto principale",
+    "openMenu": "Apri menu",
+    "closeMenu": "Chiudi menu",
+    "darkMode": "Modalità scura",
+    "lightMode": "Modalità chiara",
+    "language": "Cambia lingua",
+    "scrollToTop": "Torna in alto"
   }
 }
