@@ -14,8 +14,11 @@ class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    // 可以在这里记录错误到日志服务
-    console.error('Error caught by boundary:', error, errorInfo)
+    // Log errors only in development mode
+    if (import.meta.env.DEV) {
+      console.error('Error caught by boundary:', error, errorInfo)
+    }
+    // TODO: Send to error tracking service in production (e.g., Sentry)
   }
 
   handleReset = () => {

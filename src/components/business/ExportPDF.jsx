@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguageText } from '../../hooks/useLanguageText'
 import Button from '../ui/Button'
 import './ExportPDF.css'
 
@@ -9,13 +9,13 @@ import './ExportPDF.css'
  */
 function ExportPDF({ contentRef, filename = 'document' }) {
   const [isExporting, setIsExporting] = useState(false)
-  const { language } = useLanguage()
-
-  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
+  const { t } = useLanguageText()
 
   const handleExport = async () => {
     if (!contentRef?.current) {
-      console.error('Content reference not provided')
+      if (import.meta.env.DEV) {
+        console.error('Content reference not provided')
+      }
       return
     }
 
@@ -46,7 +46,9 @@ function ExportPDF({ contentRef, filename = 'document' }) {
 
       await html2pdf().set(opt).from(element).save()
     } catch (error) {
-      console.error('PDF export failed:', error)
+      if (import.meta.env.DEV) {
+        console.error('PDF export failed:', error)
+      }
     } finally {
       setIsExporting(false)
     }

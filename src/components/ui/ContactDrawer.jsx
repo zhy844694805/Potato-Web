@@ -1,14 +1,12 @@
 import { useState } from 'react'
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguageText } from '../../hooks/useLanguageText'
 import { siteConfig } from '../../config/site'
 import BookingWidget from './BookingWidget'
 import './ContactDrawer.css'
 
 function ContactDrawer() {
   const [isOpen, setIsOpen] = useState(false)
-  const { language } = useLanguage()
-
-  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
+  const { t } = useLanguageText()
 
   return (
     <>

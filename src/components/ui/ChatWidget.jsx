@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 import { siteConfig } from '../../config/site'
+import { showToast } from './Toast'
 import './ChatWidget.css'
 
 // Counter for generating unique message IDs
@@ -285,7 +286,7 @@ function ChatWidget() {
                 className="chat-panel__contact-btn chat-panel__contact-btn--wechat"
                 onClick={() => {
                   navigator.clipboard?.writeText(siteConfig.social.wechat)
-                  alert(`WeChat ID: ${siteConfig.social.wechat}`)
+                  showToast(`WeChat ID copied: ${siteConfig.social.wechat}`, 'success')
                 }}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">

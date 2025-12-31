@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguageText } from '../../hooks/useLanguageText'
 import SEO from '../../components/SEO'
 import Button from '../../components/ui/Button'
 import { getServiceById } from '../../data/services'
@@ -7,9 +7,8 @@ import './ServiceDetail.css'
 
 function ServiceDetail() {
   const { id } = useParams()
-  const { language } = useLanguage()
+  const { t, language } = useLanguageText()
   const service = getServiceById(id)
-  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
   if (!service) {
     return <Navigate to="/404" replace />

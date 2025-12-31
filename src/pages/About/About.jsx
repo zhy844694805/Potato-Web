@@ -1,4 +1,4 @@
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguageText } from '../../hooks/useLanguageText'
 import SEO from '../../components/SEO'
 import StructuredData from '../../components/StructuredData'
 import { organizationSchema } from '../../utils/schemas'
@@ -6,7 +6,7 @@ import { teamMembers, teamStats } from '../../data/team'
 import './About.css'
 
 function About() {
-  const { language } = useLanguage()
+  const { t, language } = useLanguageText()
 
   const seoData = {
     zh: {
@@ -25,8 +25,6 @@ function About() {
       keywords: 'sviluppatore indipendente,full stack,sviluppo web,React,consulente tecnico'
     }
   }
-
-  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
   return (
     <div className="about-page">

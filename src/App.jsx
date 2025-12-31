@@ -25,6 +25,8 @@ const Contact = lazy(() => import('./pages/Contact/Contact'))
 const Pricing = lazy(() => import('./pages/Pricing/Pricing'))
 const FAQ = lazy(() => import('./pages/FAQ/FAQ'))
 const Quote = lazy(() => import('./pages/Quote/Quote'))
+const Demos = lazy(() => import('./pages/Demos/Demos'))
+const Team = lazy(() => import('./pages/Team/Team'))
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'))
 
 // Lazy load demo sites
@@ -139,6 +141,8 @@ function AppContent() {
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/quote" element={<Quote />} />
+              <Route path="/demos" element={<Demos />} />
+              <Route path="/team" element={<Team />} />
               <Route path="/404" element={<NotFound />} />
               <Route path="*" element={<Navigate to="/404" replace />} />
             </Routes>

@@ -1,0 +1,28 @@
+.export-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.export-pdf-icon {
+  font-size: 1.1em;
+}
+
+.export-pdf-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Animation for loading state */
+.export-pdf-btn:disabled .export-pdf-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { translations, firmInfo, services, team, stats, heroImage } from './data/law-data'
+import CasesPage from './pages/CasesPage'
+import FAQPage from './pages/FAQPage'
 import './ZhengLaw.css'
 
 function ZhengLaw() {
   const [language, setLanguage] = useState('zh')
+  const [currentPage, setCurrentPage] = useState('home')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,45 +32,25 @@ function ZhengLaw() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  return (
-    <div className="zheng-app">
-      {/* Header */}
-      <header className="zheng-header">
-        <div className="zheng-header-inner">
-          <a href="#home" className="zheng-logo">
-            <div className="zheng-logo-icon">SZ</div>
-            <div className="zheng-logo-text">
-              <span>STUDIO ZHENG</span>
-              <span>{language === 'zh' ? '郑氏律师事务所' : 'Avvocati'}</span>
-            </div>
-          </a>
+  const handleNavigate = (page) => {
+    setCurrentPage(page)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
-          <nav className="zheng-nav">
-            <a href="#home">{t.nav.home}</a>
-            <a href="#services">{t.nav.services}</a>
-            <a href="#team">{t.nav.team}</a>
-            <a href="#about">{t.nav.about}</a>
-            <a href="#contact">{t.nav.contact}</a>
-          </nav>
+  // Render different pages based on currentPage
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'cases':
+        return <CasesPage language={language} onNavigate={handleNavigate} />
+      case 'faq':
+        return <FAQPage language={language} onNavigate={handleNavigate} />
+      default:
+        return renderHomePage()
+    }
+  }
 
-          <div className="zheng-lang">
-            {['it', 'en', 'zh'].map(lang => (
-              <button
-                key={lang}
-                onClick={() => setLanguage(lang)}
-                className={language === lang ? 'active' : ''}
-              >
-                {lang === 'zh' ? '中' : lang.toUpperCase()}
-              </button>
-            ))}
-          </div>
-
-          <button className="zheng-menu-btn" aria-label="Menu">
-            &#9776;
-          </button>
-        </div>
-      </header>
-
+  const renderHomePage = () => (
+    <>
       {/* Hero Section */}
       <section id="home" className="zheng-hero" style={{ backgroundImage: `url(${heroImage})` }}>
         <div className="zheng-hero-overlay" />
@@ -326,6 +309,52 @@ function ZhengLaw() {
           </div>
         </div>
       </section>
+    </>
+  )
+
+  return (
+    <div className="zheng-app">
+      {/* Header */}
+      <header className="zheng-header">
+        <div className="zheng-header-inner">
+          <a href="#home" className="zheng-logo">
+            <div className="zheng-logo-icon">SZ</div>
+            <div className="zheng-logo-text">
+              <span>STUDIO ZHENG</span>
+              <span>{language === 'zh' ? '郑氏律师事务所' : 'Avvocati'}</span>
+            </div>
+          </a>
+
+          <nav className="zheng-nav">
+            <a href="#home" className={currentPage === 'home' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setCurrentPage('home'); }}>{t.nav.home}</a>
+            <a href="#services" className={currentPage === 'home' ? '' : ''} onClick={(e) => { e.preventDefault(); setCurrentPage('home'); }}>{t.nav.services}</a>
+            <a href="#cases" className={currentPage === 'cases' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setCurrentPage('cases'); }}>{language === 'zh' ? '案例' : language === 'en' ? 'Cases' : 'Casi'}</a>
+            <a href="#faq" className={currentPage === 'faq' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setCurrentPage('faq'); }}>{language === 'zh' ? '问答' : 'FAQ'}</a>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); setCurrentPage('home'); }}>{t.nav.contact}</a>
+          </nav>
+
+          <div className="zheng-lang">
+            {['it', 'en', 'zh'].map(lang => (
+              <button
+                key={lang}
+                onClick={() => setLanguage(lang)}
+                className={language === lang ? 'active' : ''}
+              >
+                {lang === 'zh' ? '中' : lang.toUpperCase()}
+              </button>
+            ))}
+          </div>
+
+          <button className="zheng-menu-btn" aria-label="Menu">
+            &#9776;
+          </button>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main style={{ paddingTop: '70px' }}>
+        {renderPage()}
+      </main>
 
       {/* Footer */}
       <footer className="zheng-footer">

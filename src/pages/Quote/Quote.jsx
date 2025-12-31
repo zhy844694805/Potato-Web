@@ -1,8 +1,10 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguageText } from '../../hooks/useLanguageText'
 import SEO from '../../components/SEO'
 import Button from '../../components/ui/Button'
+import ExportPDF from '../../components/business/ExportPDF'
+import { trackEvent } from '../../utils/analytics'
 import './Quote.css'
 
 // Pricing data - 华人市场友好价格
@@ -47,14 +49,13 @@ const maintenanceOptions = [
 ]
 
 function Quote() {
-  const { language } = useLanguage()
+  const { t, language } = useLanguageText()
   const [projectType, setProjectType] = useState('website')
   const [pages, setPages] = useState('1-5')
   const [selectedFeatures, setSelectedFeatures] = useState(['responsive'])
   const [timeline, setTimeline] = useState('normal')
   const [maintenance, setMaintenance] = useState('none')
-
-  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
+  const quoteRef = useRef(null)
 
   const seoData = {
     zh: {
@@ -81,6 +82,26 @@ function Quote() {
         ? prev.filter(f => f !== featureId)
         : [...prev, featureId]
     )
+    // Track feature selection
+    trackEvent('quote_feature_toggle', {
+      feature: featureId,
+      selected: !selectedFeatures.includes(featureId)
+    })
+  }
+
+  const handleProjectTypeChange = (type) => {
+    setProjectType(type)
+    trackEvent('quote_project_type_change', { project_type: type })
+  }
+
+  const handlePagesChange = (value) => {
+    setPages(value)
+    trackEvent('quote_pages_change', { pages: value })
+  }
+
+  const handleTimelineChange = (value) => {
+    setTimeline(value)
+    trackEvent('quote_timeline_change', { timeline: value })
   }
 
   // Calculate total price
@@ -130,7 +151,7 @@ function Quote() {
           </p>
         </section>
 
-        <div className="quote-content">
+        <div className="quote-content" ref={quoteRef}>
           <div className="quote-form">
             {/* Project Type */}
             <div className="quote-section">
@@ -143,7 +164,7 @@ function Quote() {
                   <button
                     key={key}
                     className={`option-btn ${projectType === key ? 'active' : ''}`}
-                    onClick={() => setProjectType(key)}
+                    onClick={() => handleProjectTypeChange(key)}
                   >
                     <span className="option-label">{value.label[language]}</span>
                     <span className="option-price">€{value.base}+</span>
@@ -163,7 +184,7 @@ function Quote() {
                   <button
                     key={option.value}
                     className={`option-btn ${pages === option.value ? 'active' : ''}`}
-                    onClick={() => setPages(option.value)}
+                    onClick={() => handlePagesChange(option.value)}
                   >
                     {option.label[language]}
                   </button>
@@ -216,7 +237,7 @@ function Quote() {
                   <button
                     key={option.value}
                     className={`option-btn timeline-btn ${timeline === option.value ? 'active' : ''}`}
-                    onClick={() => setTimeline(option.value)}
+                    onClick={() => handleTimelineChange(option.value)}
                   >
                     <span className="option-label">{option.label[language]}</span>
                     {option.multiplier !== 1 && (
@@ -308,6 +329,13 @@ function Quote() {
                     {t('获取正式报价', 'Get Official Quote', 'Richiedi Preventivo Ufficiale')}
                   </Button>
                 </Link>
+                <ExportPDF
+                  contentRef={quoteRef}
+                  filename={`quote-${projectType}-${new Date().toISOString().split('T')[0]}`}
+                  buttonText={t('导出PDF', 'Export PDF', 'Esporta PDF')}
+                  variant="outline"
+                  className="full-width"
+                />
                 <Link to="/portfolio">
                   <Button variant="secondary" className="full-width">
                     {t('查看案例作品', 'View Portfolio', 'Vedi Portfolio')}

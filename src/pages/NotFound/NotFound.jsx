@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguageText } from '../../hooks/useLanguageText'
 import SEO from '../../components/SEO'
 import Button from '../../components/ui/Button'
 import './NotFound.css'
 
 function NotFound() {
-  const { language } = useLanguage()
+  const { t, language } = useLanguageText()
 
   const seoData = {
     zh: {
@@ -24,8 +24,6 @@ function NotFound() {
       keywords: '404,pagina non trovata'
     }
   }
-
-  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
   return (
     <div className="notfound-page">

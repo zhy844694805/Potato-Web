@@ -50,4 +50,83 @@ export const trackOutboundLink = (url, linkText) => {
   })
 }
 
+// Blog related tracking
+export const trackBlogView = (postSlug, postTitle, category) => {
+  trackEvent('blog_view', {
+    post_slug: postSlug,
+    post_title: postTitle,
+    category: category
+  })
+}
+
+export const trackBlogSearch = (query, resultsCount) => {
+  trackEvent('blog_search', {
+    search_query: query,
+    results_count: resultsCount
+  })
+}
+
+// Contact form tracking
+export const trackContactFormSubmit = (formType, serviceType) => {
+  trackEvent('contact_form_submit', {
+    form_type: formType,
+    service_type: serviceType
+  })
+}
+
+// Quote calculator tracking
+export const trackQuoteCalculation = (projectType, totalPrice, features) => {
+  trackEvent('quote_calculation', {
+    project_type: projectType,
+    total_price: totalPrice,
+    features: features.join(',')
+  })
+}
+
+// Newsletter subscription tracking
+export const trackNewsletterSubscribe = (source) => {
+  trackEvent('newsletter_subscribe', {
+    source: source
+  })
+}
+
+// Demo site view tracking
+export const trackDemoView = (demoId, demoName) => {
+  trackEvent('demo_view', {
+    demo_id: demoId,
+    demo_name: demoName
+  })
+}
+
+// PDF export tracking
+export const trackPDFExport = (documentType, documentId) => {
+  trackEvent('pdf_export', {
+    document_type: documentType,
+    document_id: documentId
+  })
+}
+
+// Share button tracking
+export const trackShare = (platform, contentType, contentId) => {
+  trackEvent('share', {
+    platform: platform,
+    content_type: contentType,
+    content_id: contentId
+  })
+}
+
+// Theme toggle tracking
+export const trackThemeToggle = (newTheme) => {
+  trackEvent('theme_toggle', {
+    new_theme: newTheme
+  })
+}
+
+// Booking/consultation tracking
+export const trackBookingClick = (source) => {
+  trackEvent('booking_click', {
+    source: source
+  })
+}
+
 export { GA_MEASUREMENT_ID, ENABLE_ANALYTICS }

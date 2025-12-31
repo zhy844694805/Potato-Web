@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguageText } from '../../hooks/useLanguageText'
 import SEO from '../../components/SEO'
 import StructuredData from '../../components/StructuredData'
 import { serviceSchema } from '../../utils/schemas'
@@ -9,7 +9,7 @@ import { services } from '../../data/services'
 import './Services.css'
 
 function Services() {
-  const { language } = useLanguage()
+  const { t, language } = useLanguageText()
 
   const seoData = {
     zh: {
@@ -28,8 +28,6 @@ function Services() {
       keywords: 'sviluppatore indipendente,sviluppo web,full stack,manutenzione siti,consulenza tecnica'
     }
   }
-
-  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
   return (
     <div className="services-page">

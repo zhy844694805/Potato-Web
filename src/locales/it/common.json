@@ -16,7 +16,19 @@
     "learnMore": "Scopri di Più",
     "contactUs": "Contattaci",
     "viewCase": "Vedi Caso",
-    "viewDetails": "Vedi Dettagli"
+    "viewDetails": "Vedi Dettagli",
+    "submit": "Invia",
+    "send": "Invia",
+    "cancel": "Annulla",
+    "close": "Chiudi",
+    "back": "Indietro",
+    "next": "Avanti",
+    "previous": "Precedente",
+    "viewAll": "Vedi Tutto",
+    "readMore": "Leggi di Più",
+    "getQuote": "Richiedi Preventivo",
+    "bookNow": "Prenota Ora",
+    "freeConsultation": "Consulenza Gratuita"
   },
   "footer": {
     "brand": "Minimal Tech",
@@ -29,12 +41,191 @@
     "faq": "FAQ",
     "testimonials": "Testimonianze",
     "about": "Chi Siamo",
-    "contact": "Contatti"
+    "contact": "Contatti",
+    "quickLinks": "Link Rapidi",
+    "followUs": "Seguici",
+    "newsletter": "Newsletter",
+    "privacyPolicy": "Informativa Privacy",
+    "termsOfService": "Termini di Servizio"
   },
   "common": {
     "loading": "Caricamento...",
     "error": "Si è verificato un errore",
-    "notFound": "Pagina Non Trovata"
+    "notFound": "Pagina Non Trovata",
+    "search": "Cerca",
+    "searchPlaceholder": "Cerca...",
+    "noResults": "Nessun risultato trovato",
+    "showMore": "Mostra di Più",
+    "showLess": "Mostra Meno",
+    "all": "Tutti",
+    "category": "Categoria",
+    "tags": "Tag",
+    "share": "Condividi",
+    "required": "Obbligatorio",
+    "optional": "Facoltativo"
+  },
+  "home": {
+    "hero": {
+      "title": "Siti Web Professionali per Imprese Italo-Cinesi",
+      "subtitle": "Sviluppo Web · Mini Programmi · App Mobile",
+      "cta": "Inizia il Tuo Progetto"
+    },
+    "services": {
+      "title": "I Nostri Servizi",
+      "subtitle": "Soluzioni Digitali Complete"
+    },
+    "portfolio": {
+      "title": "Lavori in Evidenza",
+      "subtitle": "Il Nostro Portfolio"
+    },
+    "testimonials": {
+      "title": "Testimonianze",
+      "subtitle": "Cosa Dicono i Nostri Clienti"
+    },
+    "stats": {
+      "clients": "Clienti Serviti",
+      "projects": "Progetti Completati",
+      "experience": "Anni di Esperienza"
+    }
+  },
+  "services": {
+    "title": "I Nostri Servizi",
+    "subtitle": "Sviluppo Web Professionale e Soluzioni Digitali",
+    "website": "Sviluppo Siti Web",
+    "miniprogram": "Sviluppo Mini Programmi",
+    "app": "Applicazioni Mobile",
+    "ecommerce": "Siti E-commerce",
+    "seo": "Ottimizzazione SEO",
+    "maintenance": "Manutenzione Siti Web"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "I Nostri Lavori",
+    "viewDemo": "Vedi Demo",
+    "viewDetails": "Vedi Dettagli",
+    "client": "Cliente",
+    "industry": "Settore",
+    "year": "Anno",
+    "technologies": "Tecnologie",
+    "challenge": "Sfida",
+    "solution": "Soluzione",
+    "results": "Risultati",
+    "features": "Funzionalità",
+    "gallery": "Galleria Progetto"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Ultime Notizie e Approfondimenti",
+    "readTime": "min di lettura",
+    "publishedOn": "Pubblicato il",
+    "author": "Autore",
+    "relatedPosts": "Articoli Correlati",
+    "categories": "Categorie",
+    "recentPosts": "Articoli Recenti",
+    "searchPosts": "Cerca Articoli",
+    "noPostsFound": "Nessun articolo trovato",
+    "comments": "Commenti",
+    "leaveComment": "Lascia un Commento",
+    "sharePost": "Condividi Articolo"
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Iniziamo a Lavorare Insieme",
+    "description": "Hai un progetto in mente? Saremo lieti di ascoltare le tue esigenze e fornirti consulenza professionale.",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "phone": "Telefono",
+      "company": "Azienda",
+      "service": "Tipo di Servizio",
+      "budget": "Budget Previsto",
+      "message": "Descrizione Progetto",
+      "submit": "Invia Messaggio",
+      "sending": "Invio in corso...",
+      "success": "Messaggio inviato! Ti risponderemo presto.",
+      "error": "Invio fallito. Riprova o contattaci direttamente."
+    },
+    "info": {
+      "title": "Informazioni di Contatto",
+      "email": "Email",
+      "phone": "Telefono",
+      "wechat": "WeChat",
+      "address": "Indirizzo",
+      "hours": "Orari di Lavoro",
+      "responseTime": "Risposta entro 24 ore"
+    },
+    "booking": {
+      "title": "Prenota una Consulenza",
+      "button": "Prenota Consulenza Gratuita",
+      "description": "Scegli un orario e discuteremo i requisiti del tuo progetto in dettaglio."
+    }
+  },
+  "about": {
+    "title": "Chi Siamo",
+    "subtitle": "Dedicati alle Imprese Italo-Cinesi",
+    "mission": "La Nostra Missione",
+    "vision": "La Nostra Visione",
+    "team": "Il Nostro Team",
+    "story": "La Nostra Storia",
+    "values": "I Nostri Valori"
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Risposte alle Tue Domande",
+    "stillQuestions": "Hai ancora domande?",
+    "contactSupport": "Contattaci"
+  },
+  "newsletter": {
+    "title": "Iscriviti alla Newsletter",
+    "subtitle": "Ricevi consigli sullo sviluppo web e novità del settore",
+    "placeholder": "Inserisci la tua email",
+    "button": "Iscriviti",
+    "success": "Iscrizione completata! Grazie per averci scelto.",
+    "error": "Iscrizione fallita. Riprova più tardi.",
+    "privacy": "Rispettiamo la tua privacy. Niente spam."
+  },
+  "chat": {
+    "title": "Chat dal Vivo",
+    "greeting": "Ciao! Come possiamo aiutarti?",
+    "placeholder": "Scrivi la tua domanda...",
+    "send": "Invia",
+    "typing": "Sta scrivendo...",
+    "offline": "Supporto attualmente offline. Lascia un messaggio.",
+    "faq": "Domande Frequenti",
+    "contactHuman": "Contatta Supporto Umano"
+  },
+  "booking": {
+    "title": "Prenota una Consulenza",
+    "selectDate": "Seleziona Data",
+    "selectTime": "Seleziona Orario",
+    "confirm": "Conferma Prenotazione",
+    "success": "Prenotato! Ti invieremo una email di conferma.",
+    "cancel": "Annulla Prenotazione"
+  },
+  "share": {
+    "title": "Condividi",
+    "copyLink": "Copia Link",
+    "copied": "Copiato!",
+    "shareOn": "Condividi su",
+    "wechat": "WeChat",
+    "weibo": "Weibo",
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter",
+    "facebook": "Facebook"
+  },
+  "comments": {
+    "title": "Commenti",
+    "loading": "Caricamento commenti...",
+    "noComments": "Nessun commento. Sii il primo a commentare!",
+    "signIn": "Accedi per commentare",
+    "placeholder": "Scrivi il tuo commento..."
+  },
+  "validation": {
+    "required": "Campo obbligatorio",
+    "email": "Inserisci un indirizzo email valido",
+    "phone": "Inserisci un numero di telefono valido",
+    "minLength": "Minimo {{min}} caratteri richiesti",
+    "maxLength": "Massimo {{max}} caratteri consentiti"
   },
   "accessibility": {
     "skipToContent": "Vai al contenuto principale",

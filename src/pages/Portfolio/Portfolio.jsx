@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguageText } from '../../hooks/useLanguageText'
 import SEO from '../../components/SEO'
 import StructuredData from '../../components/StructuredData'
 import { breadcrumbSchema } from '../../utils/schemas'
@@ -8,7 +8,7 @@ import { portfolioData, categories } from '../../data/portfolio'
 import './Portfolio.css'
 
 function Portfolio() {
-  const { language } = useLanguage()
+  const { t, language } = useLanguageText()
   const [activeCategory, setActiveCategory] = useState('all')
 
   const filteredPortfolio =
@@ -33,8 +33,6 @@ function Portfolio() {
       keywords: 'capacità,sviluppo web,full stack,servizi tecnici,portfolio sviluppo'
     }
   }
-
-  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
   const breadcrumbItems = [
     { name: t('首页', 'Home', 'Home'), url: '/' },

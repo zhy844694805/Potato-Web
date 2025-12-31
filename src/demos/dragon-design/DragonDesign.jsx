@@ -36,7 +36,9 @@ function DragonDesign() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
+    if (import.meta.env.DEV) {
+      console.log('Form submitted:', formData)
+    }
     setSubmitted(true)
     setTimeout(() => {
       setSubmitted(false)

@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguageText } from '../../hooks/useLanguageText'
 import SEO from '../../components/SEO'
 import StructuredData from '../../components/StructuredData'
 import { breadcrumbSchema, articleSchema } from '../../utils/schemas'
@@ -13,10 +13,9 @@ import './BlogDetail.css'
 
 function BlogDetail() {
   const { id } = useParams()
-  const { language } = useLanguage()
+  const { t, language } = useLanguageText()
 
   const post = getBlogBySlug(id)
-  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
   if (!post) {
     return <Navigate to="/404" replace />

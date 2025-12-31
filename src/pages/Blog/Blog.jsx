@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { useLanguage } from '../../context/LanguageContext'
+import { useLanguageText } from '../../hooks/useLanguageText'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import SEO from '../../components/SEO'
 import StructuredData from '../../components/StructuredData'
@@ -10,7 +10,7 @@ import { categories, getPostsByCategory, getFeaturedPosts, searchPosts } from '.
 import './Blog.css'
 
 function Blog() {
-  const { language } = useLanguage()
+  const { t, language } = useLanguageText()
   const [activeCategory, setActiveCategory] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
   const { ref: featuredRef, inView: featuredInView } = useScrollAnimation({ threshold: 0.1 })
@@ -41,8 +41,6 @@ function Blog() {
       keywords: 'blog tecnico,sviluppo web,full stack,React,sviluppatore indipendente'
     }
   }
-
-  const t = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
 
   const breadcrumbItems = [
     { name: t('首页', 'Home', 'Home'), url: '/' },
