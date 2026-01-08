@@ -1,9 +1,10 @@
+import { memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { trackServiceView } from '../../utils/analytics'
 import './ServiceCard.css'
 
-function ServiceCard({ service }) {
+const ServiceCard = memo(function ServiceCard({ service }) {
   const { language } = useLanguage()
   const navigate = useNavigate()
 
@@ -34,6 +35,6 @@ function ServiceCard({ service }) {
       <div className="service-arrow">→</div>
     </div>
   )
-}
+})
 
 export default ServiceCard

@@ -6,13 +6,17 @@ import StructuredData from '../../components/StructuredData'
 import { breadcrumbSchema } from '../../utils/schemas'
 import BlogCard from '../../components/business/BlogCard'
 import SearchInput from '../../components/ui/SearchInput'
+import Pagination from '../../components/ui/Pagination'
 import { categories, getPostsByCategory, getFeaturedPosts, searchPosts } from '../../data/blog'
 import './Blog.css'
+
+const ITEMS_PER_PAGE = 9
 
 function Blog() {
   const { t, language } = useLanguageText()
   const [activeCategory, setActiveCategory] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
   const { ref: featuredRef, inView: featuredInView } = useScrollAnimation({ threshold: 0.1 })
 
   const categoryPosts = getPostsByCategory(activeCategory)
@@ -22,7 +26,30 @@ function Blog() {
       activeCategory === 'all' || post.category.value === activeCategory
     )
   }, [searchQuery, categoryPosts, activeCategory, language])
+
+  const totalPages = Math.ceil(filteredPosts.length / ITEMS_PER_PAGE)
+
+  const currentItems = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+    const endIndex = startIndex + ITEMS_PER_PAGE
+    return filteredPosts.slice(startIndex, endIndex)
+  }, [filteredPosts, currentPage])
+
   const featuredPosts = getFeaturedPosts()
+
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category)
+    setCurrentPage(1) // Reset to first page
+  }
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value)
+    setCurrentPage(1) // Reset to first page
+  }
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page)
+  }
 
   const seoData = {
     zh: {
@@ -91,7 +118,7 @@ function Blog() {
           <div className="blog-search">
             <SearchInput
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={handleSearchChange}
             />
           </div>
           <div className="filter-buttons">
@@ -99,7 +126,7 @@ function Blog() {
               <button
                 key={cat.value}
                 className={`filter-btn ${activeCategory === cat.value ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat.value)}
+                onClick={() => handleCategoryChange(cat.value)}
               >
                 {cat.label[language]}
               </button>
@@ -109,7 +136,7 @@ function Blog() {
 
         {/* All Posts */}
         <section className="blog-grid">
-          {filteredPosts.map((post) => (
+          {currentItems.map((post) => (
             <BlogCard key={post.id} post={post} />
           ))}
         </section>
@@ -122,6 +149,14 @@ function Blog() {
                 : 'No articles found'}
             </p>
           </div>
+        )}
+
+        {totalPages > 1 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
         )}
       </div>
     </div>

@@ -32,3 +32,28 @@
   border-color: var(--text-primary);
   transform: translateY(-2px);
 }
+
+/* Dark mode support */
+[data-theme='dark'] .btn-primary {
+  background: #fff;
+  color: #1a1a1a;
+  border-color: #fff;
+}
+
+[data-theme='dark'] .btn-primary:hover {
+  background: #e5e5e5;
+  color: #1a1a1a;
+  border-color: #e5e5e5;
+}
+
+[data-theme='dark'] .btn-secondary {
+  background: transparent;
+  color: #fff;
+  border-color: var(--border-color);
+}
+
+[data-theme='dark'] .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+  color: #fff;
+}

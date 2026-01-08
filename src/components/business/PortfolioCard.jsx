@@ -1,10 +1,11 @@
+import { memo } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { trackPortfolioView } from '../../utils/analytics'
 import LazyImage from '../ui/LazyImage'
 import './PortfolioCard.css'
 
-function PortfolioCard({ portfolio }) {
+const PortfolioCard = memo(function PortfolioCard({ portfolio }) {
   const { language } = useLanguage()
 
   const handleClick = () => {
@@ -49,6 +50,6 @@ function PortfolioCard({ portfolio }) {
       <div className="portfolio-hover">查看项目 →</div>
     </Link>
   )
-}
+})
 
 export default PortfolioCard

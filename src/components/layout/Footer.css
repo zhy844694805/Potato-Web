@@ -99,6 +99,64 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
+/* Dark mode support */
+[data-theme='dark'] .footer {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+[data-theme='dark'] .footer-content {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .footer-newsletter .newsletter-wrapper {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme='dark'] .footer-newsletter .newsletter-title {
+  color: #fff;
+}
+
+[data-theme='dark'] .footer-newsletter .newsletter-description {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='dark'] .footer-newsletter .newsletter-input {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+[data-theme='dark'] .footer-newsletter .newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme='dark'] .footer-newsletter .newsletter-input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme='dark'] .footer-newsletter .newsletter-button {
+  background: #fff;
+  color: #1a1a1a;
+  border-color: #fff;
+}
+
+[data-theme='dark'] .footer-newsletter .newsletter-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme='dark'] .footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='dark'] .footer-links a:hover {
+  color: #fff;
+}
+
+[data-theme='dark'] .copyright {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 @media (max-width: 768px) {
   .footer-main {
     flex-direction: column;

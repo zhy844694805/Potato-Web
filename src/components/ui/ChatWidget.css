@@ -155,8 +155,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-height: 120px;
-  max-height: 200px;
+  min-height: 150px;
+  max-height: 300px;
   background: var(--color-bg-primary);
 }
 
@@ -210,6 +210,7 @@
   padding: 12px 16px;
   border-top: 1px solid var(--border-color);
   background: var(--color-bg-secondary);
+  flex-shrink: 0;
 }
 
 .chat-panel__faq-title {
@@ -219,12 +220,34 @@
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wide);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+.chat-panel__faq-title::after {
+  content: '▼';
+  font-size: 10px;
+  transition: transform var(--duration-fast);
+}
+
+.chat-panel__faq--collapsed .chat-panel__faq-title::after {
+  transform: rotate(-90deg);
 }
 
 .chat-panel__faq-list {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  max-height: 400px;
+  overflow: hidden;
+  transition: max-height var(--duration-normal) var(--ease-smooth);
+}
+
+.chat-panel__faq--collapsed .chat-panel__faq-list {
+  max-height: 0;
 }
 
 .chat-panel__faq-button {
@@ -405,13 +428,246 @@
   background: var(--color-gray-400);
 }
 
+/* Tab Navigation */
+.chat-panel__tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--color-bg-secondary);
+}
+
+.chat-panel__tab {
+  flex: 1;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all var(--duration-fast) var(--ease-smooth);
+  border-bottom: 2px solid transparent;
+}
+
+.chat-panel__tab:hover {
+  color: var(--text-primary);
+  background: var(--color-gray-100);
+}
+
+.chat-panel__tab--active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  background: transparent;
+}
+
+.chat-panel__tab svg {
+  opacity: 0.7;
+  transition: opacity var(--duration-fast);
+}
+
+.chat-panel__tab--active svg {
+  opacity: 1;
+}
+
+/* Tab Content */
+.chat-panel__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 440px;
+}
+
+/* Contact Info Section */
+.chat-panel__contact-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.contact-section {
+  padding: 16px;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.contact-section:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-primary);
+}
+
+.contact-section__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: var(--color-primary);
+}
+
+.contact-section__header h4 {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.contact-section__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* WeChat QR Code */
+.wechat-qr {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wechat-qr img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wechat-qr-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  opacity: 0.5;
+}
+
+.wechat-id {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.wechat-id strong {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Contact Buttons */
+.contact-btn {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+  border: none;
+  display: block;
+}
+
+.contact-btn--wechat {
+  background: #07c160;
+  color: white;
+}
+
+.contact-btn--wechat:hover {
+  background: #06a352;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(7, 193, 96, 0.3);
+}
+
+.contact-btn--phone {
+  background: var(--gradient-growth);
+  color: white !important;
+  text-decoration: none;
+}
+
+.contact-btn--phone:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  color: white !important;
+}
+
+.contact-btn--email {
+  background: var(--gradient-trust);
+  color: white;
+}
+
+.contact-btn--email:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Contact Footer */
+.contact-footer {
+  text-align: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.response-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--color-gray-100);
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Dark Mode Support for New Elements */
+[data-theme='dark'] .chat-panel__tabs {
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme='dark'] .chat-panel__tab:hover {
+  background: var(--color-gray-200);
+}
+
+[data-theme='dark'] .contact-section {
+  background: var(--color-gray-100);
+  border-color: var(--border-color);
+}
+
+[data-theme='dark'] .contact-section:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .wechat-qr {
+  background: var(--color-gray-200);
+}
+
+[data-theme='dark'] .response-badge {
+  background: var(--color-gray-200);
+  color: var(--text-secondary);
+}
+
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   .chat-widget,
   .chat-panel,
   .chat-message,
   .chat-panel__contact,
-  .chat-panel__faq-button {
+  .chat-panel__faq-button,
+  .chat-panel__tab,
+  .contact-section,
+  .contact-btn {
     transition: none;
     animation: none;
   }

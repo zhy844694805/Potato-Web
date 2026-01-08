@@ -5,7 +5,6 @@ import { ThemeProvider } from './context/ThemeContext'
 import ErrorBoundary from './components/ErrorBoundary'
 import Analytics from './components/Analytics'
 import ScrollToTop from './components/ui/ScrollToTop'
-import ContactDrawer from './components/ui/ContactDrawer'
 import ChatWidget from './components/ui/ChatWidget'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
@@ -149,7 +148,6 @@ function AppContent() {
           </Suspense>
         </main>
         <Footer />
-        <ContactDrawer />
         <ChatWidget />
       </div>
     </ErrorBoundary>

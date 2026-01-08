@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 import './TestimonialCard.css'
 
-function TestimonialCard({ testimonial }) {
+const TestimonialCard = memo(function TestimonialCard({ testimonial }) {
   const { language } = useLanguage()
 
   const renderStars = (rating) => {
@@ -47,6 +48,6 @@ function TestimonialCard({ testimonial }) {
       <div className="testimonial-date">{testimonial.date}</div>
     </div>
   )
-}
+})
 
 export default TestimonialCard

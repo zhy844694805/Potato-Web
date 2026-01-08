@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 import { siteConfig } from '../../config/site'
 import { showToast } from './Toast'
+import BookingWidget from './BookingWidget'
 import './ChatWidget.css'
 
 // Counter for generating unique message IDs
@@ -88,14 +89,19 @@ const translations = {
     it: 'Assistente AI'
   },
   welcomeMessage: {
-    zh: '您好！我是AI助手。请选择以下常见问题，或直接联系我们获取更多帮助。',
-    en: 'Hello! I\'m the AI assistant. Please select a common question below, or contact us directly for more help.',
-    it: 'Ciao! Sono l\'assistente AI. Seleziona una domanda comune qui sotto, o contattaci direttamente per ulteriore assistenza.'
+    zh: '您好！我是AI助手。请选择以下常见问题，或切换到联系方式标签获取更多帮助。',
+    en: 'Hello! I\'m the AI assistant. Please select a common question below, or switch to the Contact tab for more help.',
+    it: 'Ciao! Sono l\'assistente AI. Seleziona una domanda comune qui sotto, o passa alla scheda Contatto per ulteriore assistenza.'
   },
   faqTitle: {
     zh: '常见问题',
     en: 'FAQ',
     it: 'FAQ'
+  },
+  contactTitle: {
+    zh: '联系方式',
+    en: 'Contact',
+    it: 'Contatto'
   },
   contactPrompt: {
     zh: '没有找到您想要的答案？',
@@ -108,9 +114,54 @@ const translations = {
     it: 'Scrivici'
   },
   addWeChat: {
-    zh: '添加微信',
-    en: 'Add WeChat',
-    it: 'Aggiungi WeChat'
+    zh: '复制微信号',
+    en: 'Copy WeChat ID',
+    it: 'Copia ID WeChat'
+  },
+  wechatCopied: {
+    zh: '微信号已复制！请打开微信搜索添加好友',
+    en: 'WeChat ID copied! Please open WeChat and search to add friend',
+    it: 'ID WeChat copiato! Apri WeChat e cerca per aggiungere'
+  },
+  callUs: {
+    zh: '电话咨询',
+    en: 'Call Us',
+    it: 'Chiamaci'
+  },
+  bookConsultation: {
+    zh: '预约咨询',
+    en: 'Book Consultation',
+    it: 'Prenota'
+  },
+  wechatSection: {
+    zh: '微信联系',
+    en: 'WeChat',
+    it: 'WeChat'
+  },
+  phoneSection: {
+    zh: '电话',
+    en: 'Phone',
+    it: 'Telefono'
+  },
+  emailSection: {
+    zh: '邮箱',
+    en: 'Email',
+    it: 'Email'
+  },
+  bookingSection: {
+    zh: '预约',
+    en: 'Booking',
+    it: 'Prenotazione'
+  },
+  wechatId: {
+    zh: '微信号',
+    en: 'WeChat ID',
+    it: 'ID WeChat'
+  },
+  responseTime: {
+    zh: '通常24小时内回复',
+    en: 'Usually reply within 24h',
+    it: 'Risposta entro 24 ore'
   },
   close: {
     zh: '关闭',
@@ -118,16 +169,18 @@ const translations = {
     it: 'Chiudi'
   },
   openChat: {
-    zh: '打开聊天',
-    en: 'Open Chat',
-    it: 'Apri Chat'
+    zh: '联系我们',
+    en: 'Contact Us',
+    it: 'Contattaci'
   }
 }
 
 function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState('faq') // 'faq' or 'contact'
   const [messages, setMessages] = useState([])
   const [showContactOptions, setShowContactOptions] = useState(false)
+  const [faqCollapsed, setFaqCollapsed] = useState(false)
   const hasShownWelcome = useRef(false)
   const messagesEndRef = useRef(null)
   const { language } = useLanguage()
@@ -138,6 +191,22 @@ function ChatWidget() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
+
+  // Handle ESC key to close chat widget
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape)
+      return () => {
+        document.removeEventListener('keydown', handleEscape)
+      }
+    }
+  }, [isOpen])
 
   const handleQuestionClick = useCallback((faq) => {
     // Add user question
@@ -156,6 +225,8 @@ function ChatWidget() {
 
     setMessages(prev => [...prev, userMessage, botMessage])
     setShowContactOptions(true)
+    // Collapse FAQ list to show more messages
+    setFaqCollapsed(true)
   }, [language])
 
   const toggleChat = useCallback(() => {
@@ -231,72 +302,210 @@ function ChatWidget() {
           </button>
         </div>
 
-        {/* Messages Area */}
-        <div className="chat-panel__messages">
-          {messages.map(message => (
-            <div
-              key={message.id}
-              className={`chat-message chat-message--${message.type}`}
-            >
-              <div className="chat-message__content">
-                {message.content.split('\n').map((line, i) => (
-                  <span key={i}>
-                    {line}
-                    {i < message.content.split('\n').length - 1 && <br />}
-                  </span>
+        {/* Tab Navigation */}
+        <div className="chat-panel__tabs">
+          <button
+            className={`chat-panel__tab ${activeTab === 'faq' ? 'chat-panel__tab--active' : ''}`}
+            onClick={() => setActiveTab('faq')}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            {t('faqTitle')}
+          </button>
+          <button
+            className={`chat-panel__tab ${activeTab === 'contact' ? 'chat-panel__tab--active' : ''}`}
+            onClick={() => setActiveTab('contact')}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            {t('contactTitle')}
+          </button>
+        </div>
+
+        {/* Tab Content */}
+        <div className="chat-panel__content">
+          {/* FAQ Tab */}
+          {activeTab === 'faq' && (
+            <>
+              {/* Messages Area */}
+              <div className="chat-panel__messages">
+                {messages.map(message => (
+                  <div
+                    key={message.id}
+                    className={`chat-message chat-message--${message.type}`}
+                  >
+                    <div className="chat-message__content">
+                      {message.content.split('\n').map((line, i) => (
+                        <span key={i}>
+                          {line}
+                          {i < message.content.split('\n').length - 1 && <br />}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 ))}
+                <div ref={messagesEndRef} />
+              </div>
+
+              {/* FAQ Questions */}
+              <div className={`chat-panel__faq ${faqCollapsed ? 'chat-panel__faq--collapsed' : ''}`}>
+                <div
+                  className="chat-panel__faq-title"
+                  onClick={() => setFaqCollapsed(!faqCollapsed)}
+                >
+                  {t('faqTitle')}
+                </div>
+                <div className="chat-panel__faq-list">
+                  {faqData.map(faq => (
+                    <button
+                      key={faq.id}
+                      className="chat-panel__faq-button"
+                      onClick={() => handleQuestionClick(faq)}
+                    >
+                      {faq.question[language] || faq.question.en}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Contact Options */}
+              {showContactOptions && (
+                <div className="chat-panel__contact">
+                  <p className="chat-panel__contact-prompt">{t('contactPrompt')}</p>
+                  <div className="chat-panel__contact-buttons">
+                    <a
+                      href={`mailto:${siteConfig.contact.email}`}
+                      className="chat-panel__contact-btn chat-panel__contact-btn--email"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                      </svg>
+                      {t('emailUs')}
+                    </a>
+                    <button
+                      className="chat-panel__contact-btn chat-panel__contact-btn--wechat"
+                      onClick={() => {
+                        navigator.clipboard?.writeText(siteConfig.social.wechat)
+                        showToast(t('wechatCopied'), 'success')
+                      }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5.5 4.5c0 2.5-2.5 4.5-5.5 4.5-.7 0-1.4-.1-2-.3l-2 1-.5-1.5c-1.5-1-2.5-2.5-2.5-4.2 0-2.5 2.5-4.5 5.5-4.5h1c.3-2.8 3.2-5 6.5-5 .8 0 1.5.1 2.2.3l1.8-.8-.3 1.4c1.3.9 2.3 2.3 2.3 4 0 2.6-2.5 4.6-5.5 4.6h-.5z"/>
+                      </svg>
+                      {t('addWeChat')}
+                    </button>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* Contact Tab */}
+          {activeTab === 'contact' && (
+            <div className="chat-panel__contact-info">
+              {/* WeChat Section */}
+              <div className="contact-section">
+                <div className="contact-section__header">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5.5 4.5c0 2.5-2.5 4.5-5.5 4.5-.7 0-1.4-.1-2-.3l-2 1-.5-1.5c-1.5-1-2.5-2.5-2.5-4.2 0-2.5 2.5-4.5 5.5-4.5h1c.3-2.8 3.2-5 6.5-5 .8 0 1.5.1 2.2.3l1.8-.8-.3 1.4c1.3.9 2.3 2.3 2.3 4 0 2.6-2.5 4.6-5.5 4.6h-.5z"/>
+                  </svg>
+                  <h4>{t('wechatSection')}</h4>
+                </div>
+                <div className="contact-section__content">
+                  <div className="wechat-qr">
+                    <img
+                      src="/wechat-qr.png"
+                      alt="WeChat QR Code"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                        e.target.nextSibling.style.display = 'flex'
+                      }}
+                    />
+                    <div className="wechat-qr-fallback" style={{ display: 'none' }}>
+                      <span>📱</span>
+                    </div>
+                  </div>
+                  <p className="wechat-id">
+                    {t('wechatId')}: <strong>{siteConfig.social.wechat}</strong>
+                  </p>
+                  <button
+                    className="contact-btn contact-btn--wechat"
+                    onClick={() => {
+                      navigator.clipboard?.writeText(siteConfig.social.wechat)
+                      showToast(t('wechatCopied'), 'success')
+                    }}
+                  >
+                    {t('addWeChat')}
+                  </button>
+                </div>
+              </div>
+
+              {/* Phone Section */}
+              <div className="contact-section">
+                <div className="contact-section__header">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                  <h4>{t('phoneSection')}</h4>
+                </div>
+                <div className="contact-section__content">
+                  <a href={`tel:${siteConfig.contact.phone}`} className="contact-btn contact-btn--phone">
+                    {siteConfig.contact.phone}
+                  </a>
+                </div>
+              </div>
+
+              {/* Email Section */}
+              <div className="contact-section">
+                <div className="contact-section__header">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <h4>{t('emailSection')}</h4>
+                </div>
+                <div className="contact-section__content">
+                  <a href={`mailto:${siteConfig.contact.email}`} className="contact-btn contact-btn--email">
+                    {siteConfig.contact.email}
+                  </a>
+                </div>
+              </div>
+
+              {/* Booking Section */}
+              <div className="contact-section">
+                <div className="contact-section__header">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <h4>{t('bookingSection')}</h4>
+                </div>
+                <div className="contact-section__content">
+                  <BookingWidget
+                    mode="modal"
+                    buttonVariant="secondary"
+                    buttonText={t('bookConsultation')}
+                  />
+                </div>
+              </div>
+
+              {/* Response Time */}
+              <div className="contact-footer">
+                <span className="response-badge">
+                  ⚡ {t('responseTime')}
+                </span>
               </div>
             </div>
-          ))}
-          <div ref={messagesEndRef} />
+          )}
         </div>
-
-        {/* FAQ Questions */}
-        <div className="chat-panel__faq">
-          <div className="chat-panel__faq-title">{t('faqTitle')}</div>
-          <div className="chat-panel__faq-list">
-            {faqData.map(faq => (
-              <button
-                key={faq.id}
-                className="chat-panel__faq-button"
-                onClick={() => handleQuestionClick(faq)}
-              >
-                {faq.question[language] || faq.question.en}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Contact Options */}
-        {showContactOptions && (
-          <div className="chat-panel__contact">
-            <p className="chat-panel__contact-prompt">{t('contactPrompt')}</p>
-            <div className="chat-panel__contact-buttons">
-              <a
-                href={`mailto:${siteConfig.contact.email}`}
-                className="chat-panel__contact-btn chat-panel__contact-btn--email"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                {t('emailUs')}
-              </a>
-              <button
-                className="chat-panel__contact-btn chat-panel__contact-btn--wechat"
-                onClick={() => {
-                  navigator.clipboard?.writeText(siteConfig.social.wechat)
-                  showToast(`WeChat ID copied: ${siteConfig.social.wechat}`, 'success')
-                }}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm5.5 4.5c0 2.5-2.5 4.5-5.5 4.5-.7 0-1.4-.1-2-.3l-2 1-.5-1.5c-1.5-1-2.5-2.5-2.5-4.2 0-2.5 2.5-4.5 5.5-4.5h1c.3-2.8 3.2-5 6.5-5 .8 0 1.5.1 2.2.3l1.8-.8-.3 1.4c1.3.9 2.3 2.3 2.3 4 0 2.6-2.5 4.6-5.5 4.6h-.5z"/>
-                </svg>
-                {t('addWeChat')}
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   )

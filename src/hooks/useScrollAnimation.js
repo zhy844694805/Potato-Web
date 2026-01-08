@@ -1,7 +1,36 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
+
+// Shared IntersectionObserver instances cache
+const observerCache = new Map()
 
 /**
- * Custom hook for scroll-triggered animations
+ * Get or create a shared IntersectionObserver instance
+ * @param {Object} options - Observer options
+ * @returns {IntersectionObserver} - Shared observer instance
+ */
+const getSharedObserver = (options) => {
+  const key = JSON.stringify(options)
+
+  if (!observerCache.has(key)) {
+    const callbacks = new Map()
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const callback = callbacks.get(entry.target)
+        if (callback) {
+          callback(entry)
+        }
+      })
+    }, options)
+
+    observerCache.set(key, { observer, callbacks })
+  }
+
+  return observerCache.get(key)
+}
+
+/**
+ * Custom hook for scroll-triggered animations (optimized with shared observers)
  * @param {Object} options - Configuration options
  * @param {number} options.threshold - Percentage of element visibility to trigger (0-1)
  * @param {string} options.rootMargin - Margin around root (e.g., '0px 0px -100px 0px')
@@ -18,37 +47,37 @@ export const useScrollAnimation = (options = {}) => {
   const ref = useRef(null)
   const [inView, setInView] = useState(false)
 
+  const handleIntersection = useCallback((entry) => {
+    if (entry.isIntersecting) {
+      setInView(true)
+
+      // If triggerOnce is true, stop observing after first trigger
+      if (triggerOnce && ref.current) {
+        const { observer, callbacks } = getSharedObserver({ threshold, rootMargin })
+        observer.unobserve(ref.current)
+        callbacks.delete(ref.current)
+      }
+    } else if (!triggerOnce) {
+      setInView(false)
+    }
+  }, [triggerOnce, threshold, rootMargin])
+
   useEffect(() => {
     const element = ref.current
     if (!element) return
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true)
+    const { observer, callbacks } = getSharedObserver({ threshold, rootMargin })
 
-          // If triggerOnce is true, stop observing after first trigger
-          if (triggerOnce) {
-            observer.unobserve(element)
-          }
-        } else if (!triggerOnce) {
-          setInView(false)
-        }
-      },
-      {
-        threshold,
-        rootMargin
-      }
-    )
-
+    callbacks.set(element, handleIntersection)
     observer.observe(element)
 
     return () => {
       if (element) {
         observer.unobserve(element)
+        callbacks.delete(element)
       }
     }
-  }, [threshold, rootMargin, triggerOnce])
+  }, [threshold, rootMargin, handleIntersection])
 
   return { ref, inView }
 }

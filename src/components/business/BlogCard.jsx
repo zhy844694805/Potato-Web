@@ -1,10 +1,11 @@
+import { memo } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { trackEvent } from '../../utils/analytics'
 import LazyImage from '../ui/LazyImage'
 import './BlogCard.css'
 
-function BlogCard({ post }) {
+const BlogCard = memo(function BlogCard({ post }) {
   const { language } = useLanguage()
 
   const handleClick = () => {
@@ -56,6 +57,6 @@ function BlogCard({ post }) {
       </div>
     </Link>
   )
-}
+})
 
 export default BlogCard

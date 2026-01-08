@@ -76,12 +76,20 @@ export function showToast(message, type = 'info', duration = 3000) {
   const toast = document.createElement('div')
   toast.className = `toast toast--${type}`
   toast.setAttribute('role', 'alert')
-  toast.innerHTML = `
-    <span class="toast__message">${message}</span>
-    <button class="toast__close" aria-label="Close notification">&times;</button>
-  `
 
-  const closeBtn = toast.querySelector('.toast__close')
+  // Create message element safely (prevent XSS)
+  const messageSpan = document.createElement('span')
+  messageSpan.className = 'toast__message'
+  messageSpan.textContent = message
+
+  // Create close button
+  const closeBtn = document.createElement('button')
+  closeBtn.className = 'toast__close'
+  closeBtn.setAttribute('aria-label', 'Close notification')
+  closeBtn.innerHTML = '&times;'
+
+  toast.appendChild(messageSpan)
+  toast.appendChild(closeBtn)
   closeBtn.addEventListener('click', () => {
     toast.classList.add('toast--closing')
     setTimeout(() => toast.remove(), 200)

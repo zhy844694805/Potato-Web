@@ -1,20 +1,42 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useLanguageText } from '../../hooks/useLanguageText'
 import SEO from '../../components/SEO'
 import StructuredData from '../../components/StructuredData'
 import { breadcrumbSchema } from '../../utils/schemas'
 import PortfolioCard from '../../components/business/PortfolioCard'
+import Pagination from '../../components/ui/Pagination'
 import { portfolioData, categories } from '../../data/portfolio'
 import './Portfolio.css'
+
+const ITEMS_PER_PAGE = 6
 
 function Portfolio() {
   const { t, language } = useLanguageText()
   const [activeCategory, setActiveCategory] = useState('all')
+  const [currentPage, setCurrentPage] = useState(1)
 
-  const filteredPortfolio =
-    activeCategory === 'all'
+  const filteredPortfolio = useMemo(() => {
+    return activeCategory === 'all'
       ? portfolioData
       : portfolioData.filter((item) => item.category === activeCategory)
+  }, [activeCategory])
+
+  const totalPages = Math.ceil(filteredPortfolio.length / ITEMS_PER_PAGE)
+
+  const currentItems = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+    const endIndex = startIndex + ITEMS_PER_PAGE
+    return filteredPortfolio.slice(startIndex, endIndex)
+  }, [filteredPortfolio, currentPage])
+
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category)
+    setCurrentPage(1) // Reset to first page when category changes
+  }
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page)
+  }
 
   const seoData = {
     zh: {
@@ -64,7 +86,7 @@ function Portfolio() {
               <button
                 key={cat.value}
                 className={`filter-btn ${activeCategory === cat.value ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat.value)}
+                onClick={() => handleCategoryChange(cat.value)}
               >
                 {cat.label[language]}
               </button>
@@ -73,10 +95,26 @@ function Portfolio() {
         </section>
 
         <section className="portfolio-grid">
-          {filteredPortfolio.map((portfolio) => (
+          {currentItems.map((portfolio) => (
             <PortfolioCard key={portfolio.id} portfolio={portfolio} />
           ))}
         </section>
+
+        {filteredPortfolio.length === 0 && (
+          <div className="no-results">
+            <p>
+              {t('暂无相关作品', 'No portfolio items found', 'Nessun elemento trovato')}
+            </p>
+          </div>
+        )}
+
+        {totalPages > 1 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        )}
       </div>
     </div>
   )
