@@ -37,7 +37,7 @@
 }
 
 .filter-btn.active {
-  background: var(--text-primary);
+  background: #1a1a1a;
   border-color: var(--text-primary);
   color: #fff;
 }
@@ -46,4 +46,11 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .filter-btn.active {
+  background: #fff;
+  color: #1a1a1a;
+  border-color: #fff;
 }

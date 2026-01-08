@@ -63,9 +63,9 @@
 }
 
 .filter-btn.active {
-  background: var(--text-primary);
-  color: var(--color-bg-primary);
-  border-color: var(--text-primary);
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
 }
 
 .blog-grid {
@@ -92,6 +92,13 @@
 .fade-in-up.in-view {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Dark mode support */
+[data-theme='dark'] .filter-btn.active {
+  background: #fff;
+  color: #1a1a1a;
+  border-color: #fff;
 }
 
 /* Responsive */

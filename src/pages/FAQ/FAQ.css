@@ -38,9 +38,9 @@
 }
 
 .category-tab.active {
-  background: var(--text-primary);
-  color: var(--color-bg-primary);
-  border-color: var(--text-primary);
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
 }
 
 .category-icon {
@@ -97,9 +97,9 @@
 }
 
 .faq-item.open .faq-icon {
-  background: var(--text-primary);
-  color: var(--color-bg-primary);
-  border-color: var(--text-primary);
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
 }
 
 .faq-answer {
@@ -118,6 +118,19 @@
   color: var(--text-secondary);
   line-height: var(--line-height-relaxed);
   font-size: var(--font-size-base);
+}
+
+/* Dark mode support */
+[data-theme='dark'] .category-tab.active {
+  background: #fff;
+  color: #1a1a1a;
+  border-color: #fff;
+}
+
+[data-theme='dark'] .faq-item.open .faq-icon {
+  background: #fff;
+  color: #1a1a1a;
+  border-color: #fff;
 }
 
 /* Responsive */

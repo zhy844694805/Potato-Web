@@ -97,8 +97,8 @@
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--text-primary);
-  color: var(--color-bg-primary);
+  background: #1a1a1a;
+  color: #fff;
   padding: 4px 16px;
   border-radius: var(--radius-full);
   font-size: var(--font-size-xs);
@@ -280,6 +280,12 @@
   font-size: var(--font-size-lg);
   color: var(--text-secondary);
   margin-bottom: var(--spacing-lg);
+}
+
+/* Dark mode support */
+[data-theme='dark'] .pricing-badge {
+  background: #fff;
+  color: #1a1a1a;
 }
 
 /* Responsive */

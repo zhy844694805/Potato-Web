@@ -10,9 +10,9 @@
 }
 
 .btn-primary {
-  background: var(--text-primary);
+  background: #1a1a1a;
   color: #fff;
-  border-color: var(--text-primary);
+  border-color: #1a1a1a;
 }
 
 .btn-primary:hover {
@@ -23,13 +23,13 @@
 
 .btn-secondary {
   background: transparent;
-  color: var(--text-primary);
+  color: #1a1a1a;
   border-color: var(--border-color);
 }
 
 .btn-secondary:hover {
-  background: var(--color-bg-primary);
-  border-color: var(--text-primary);
+  background: rgba(0, 0, 0, 0.05);
+  border-color: #1a1a1a;
   transform: translateY(-2px);
 }
 

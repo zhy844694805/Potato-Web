@@ -78,8 +78,8 @@
 }
 
 .filter-btn.active {
-  background: var(--text-primary);
-  color: var(--color-bg-primary);
+  background: #1a1a1a;
+  color: #fff;
   border-color: var(--text-primary);
 }
 
@@ -112,6 +112,13 @@
 .fade-in-up.delay-100 { transition-delay: 0.1s; }
 .fade-in-up.delay-200 { transition-delay: 0.2s; }
 .fade-in-up.delay-300 { transition-delay: 0.3s; }
+
+/* Dark mode support */
+[data-theme='dark'] .filter-btn.active {
+  background: #fff;
+  color: #1a1a1a;
+  border-color: #fff;
+}
 
 /* Responsive */
 @media (max-width: 1024px) {

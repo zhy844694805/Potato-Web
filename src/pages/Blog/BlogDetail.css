@@ -153,8 +153,8 @@
 }
 
 .back-link:hover {
-  background: var(--text-primary);
-  color: var(--color-bg-primary);
+  background: #1a1a1a;
+  color: #fff;
   border-color: var(--text-primary);
 }
 
@@ -177,6 +177,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+}
+
+/* Dark mode support */
+[data-theme='dark'] .back-link:hover {
+  background: #fff;
+  color: #1a1a1a;
+  border-color: #fff;
 }
 
 /* Responsive */
