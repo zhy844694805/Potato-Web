@@ -1,5 +1,5 @@
 /* global process */
-// Sitemap Generator for Minimal Tech
+// Sitemap Generator for Wise Minimal
 // Run with: node scripts/generate-sitemap.js
 // Or: node scripts/generate-sitemap.js --dist (for postbuild, writes to dist folder)
 // Automatically runs after build via postbuild script
@@ -14,8 +14,25 @@ const __dirname = dirname(__filename)
 // Check if --dist flag is passed (for postbuild usage)
 const isDistMode = process.argv.includes('--dist')
 
-// Website base URL - 从环境变量读取或使用默认值
-const BASE_URL = process.env.VITE_SITE_URL || 'https://minimaltech.com'
+// Read .env file to get VITE_SITE_URL
+function getEnvVariable(key, defaultValue) {
+  try {
+    const envPath = join(__dirname, '..', '.env')
+    if (existsSync(envPath)) {
+      const envContent = readFileSync(envPath, 'utf-8')
+      const match = envContent.match(new RegExp(`${key}=(.+)`))
+      if (match && match[1]) {
+        return match[1].trim()
+      }
+    }
+  } catch (error) {
+    // Ignore error, use default
+  }
+  return defaultValue
+}
+
+// Website base URL - 从.env文件读取或使用默认值
+const BASE_URL = getEnvVariable('VITE_SITE_URL', 'https://aimodel.it')
 
 // 读取数据文件获取动态页面
 function getDataFromFile(relativePath) {

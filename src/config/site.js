@@ -5,9 +5,9 @@ export const siteConfig = {
 
   // 网站名称
   name: {
-    zh: import.meta.env.VITE_SITE_NAME || 'AI Model',
-    en: 'AI Model',
-    it: 'AI Model'
+    zh: import.meta.env.VITE_SITE_NAME || '慧界极简',
+    en: 'Wise Minimal',
+    it: 'Wise Minimal'
   },
 
   // 联系方式

@@ -37,7 +37,7 @@ function Header() {
       <header className="header">
         <div className="header-container">
         <Link to="/" className="header-brand">
-          {language === 'zh' ? '极简科技' : 'Minimal Tech'}
+          {language === 'zh' ? '慧界极简' : 'Wise Minimal'}
         </Link>
 
         <nav

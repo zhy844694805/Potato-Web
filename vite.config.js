@@ -33,8 +33,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt', 'sitemap.xml'],
       manifest: {
-        name: '极简科技 | Minimal Tech',
-        short_name: '极简科技',
+        name: '慧界极简 | Wise Minimal',
+        short_name: '慧界极简',
         description: '专业Web开发与全栈解决方案',
         theme_color: '#667eea',
         background_color: '#ffffff',

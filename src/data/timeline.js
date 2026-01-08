@@ -61,8 +61,8 @@ export const timeline = [
         month: { zh: '1月', en: 'January' },
         title: { zh: '公司成立', en: 'Company Founded' },
         description: {
-          zh: '极简科技正式成立，开启数字化服务新篇章',
-          en: 'Minimal Tech officially founded, opening new chapter in digital services'
+          zh: '慧界极简正式成立，开启数字化服务新篇章',
+          en: 'Wise Minimal officially founded, opening new chapter in digital services'
         }
       }
     ]

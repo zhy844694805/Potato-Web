@@ -1,10 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- 主渐变色 - 品牌紫色 -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
     </linearGradient>
+
+    <!-- 光芒渐变 -->
+    <radialGradient id="glowGradient" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#667eea;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.2" />
+    </radialGradient>
   </defs>
-  <rect width="100" height="100" rx="20" fill="url(#grad)"/>
-  <text x="50" y="68" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="white" text-anchor="middle">M</text>
+
+  <!-- 背景 -->
+  <rect width="100" height="100" rx="18" fill="url(#mainGradient)"/>
+
+  <!-- 外围光晕效果 -->
+  <circle cx="50" cy="50" r="35" fill="url(#glowGradient)" opacity="0.3"/>
+
+  <!-- 智慧之光 - 中心核心 -->
+  <circle cx="50" cy="50" r="12" fill="#ffffff" opacity="0.95"/>
+
+  <!-- 放射光芒 - 8条对称光线 -->
+  <!-- 上 -->
+  <path d="M 50 20 L 52 35 L 48 35 Z" fill="#ffffff" opacity="0.85"/>
+  <!-- 右上 -->
+  <path d="M 70.7 29.3 L 62 40 L 60 36.5 Z" fill="#ffffff" opacity="0.75"/>
+  <!-- 右 -->
+  <path d="M 80 50 L 65 52 L 65 48 Z" fill="#ffffff" opacity="0.85"/>
+  <!-- 右下 -->
+  <path d="M 70.7 70.7 L 60 63.5 L 62 60 Z" fill="#ffffff" opacity="0.75"/>
+  <!-- 下 -->
+  <path d="M 50 80 L 48 65 L 52 65 Z" fill="#ffffff" opacity="0.85"/>
+  <!-- 左下 -->
+  <path d="M 29.3 70.7 L 38 60 L 40 63.5 Z" fill="#ffffff" opacity="0.75"/>
+  <!-- 左 -->
+  <path d="M 20 50 L 35 48 L 35 52 Z" fill="#ffffff" opacity="0.85"/>
+  <!-- 左上 -->
+  <path d="M 29.3 29.3 L 40 36.5 L 38 40 Z" fill="#ffffff" opacity="0.75"/>
+
+  <!-- 中间环 - 增加层次感 -->
+  <circle cx="50" cy="50" r="20" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="50" cy="50" r="8" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
 </svg>

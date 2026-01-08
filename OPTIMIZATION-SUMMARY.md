@@ -2,7 +2,7 @@
 
 ## Date: December 19, 2025
 
-This document summarizes all optimizations implemented to improve SEO, performance, and analytics for the Minimal Tech website.
+This document summarizes all optimizations implemented to improve SEO, performance, and analytics for the Wise Minimal website.
 
 ---
 
@@ -73,7 +73,7 @@ Search engine crawler instructions:
 - References sitemap location
 - Prepared for future admin/private area restrictions
 
-**Location:** `https://minimaltech.com/robots.txt`
+**Location:** `https://wiseminimal.com/robots.txt`
 
 ### XML Sitemap
 
@@ -99,7 +99,7 @@ Search engine crawler instructions:
 npm run generate-sitemap
 ```
 
-**Location:** `https://minimaltech.com/sitemap.xml`
+**Location:** `https://wiseminimal.com/sitemap.xml`
 
 ---
 

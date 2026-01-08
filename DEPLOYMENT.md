@@ -14,7 +14,7 @@ Create a `.env` file in the root directory with the following variables:
 # Site URL (used for SEO, sitemap, and canonical URLs)
 VITE_SITE_URL=https://your-domain.com
 
-# Site Name (optional, defaults to "AI Model")
+# Site Name (optional, defaults to "慧界极简")
 VITE_SITE_NAME=Your Company Name
 
 # ===========================================

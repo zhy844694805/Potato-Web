@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>慧界极简 LOGO 预览</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: #f5f5f5;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 48px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 50px;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .logo-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 150px;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .bg-white {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+    }
+
+    .bg-dark {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .bg-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .logo-display img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .specs {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .spec-label {
+      color: #666;
+    }
+
+    .spec-value {
+      color: #333;
+      font-weight: 500;
+    }
+
+    .design-concept {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .design-concept h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .design-concept ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .design-concept li {
+      padding: 12px 0;
+      padding-left: 30px;
+      position: relative;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .design-concept li:before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-size: 18px;
+    }
+
+    .color-palette {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .color-palette h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .colors {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .color-item {
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .color-swatch {
+      height: 100px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .color-name {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .color-code {
+      font-family: 'Courier New', monospace;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>慧界极简 LOGO</h1>
+    <p class="subtitle">WISE MINIMAL Brand Identity</p>
+
+    <!-- 设计理念 -->
+    <div class="design-concept">
+      <h2>💡 设计理念</h2>
+      <ul>
+        <li><strong>智慧之光：</strong>中心圆点象征智慧的源泉，代表"慧"字的核心含义</li>
+        <li><strong>放射光芒：</strong>8条对称光线代表智慧的传播与影响力，向四面八方延伸</li>
+        <li><strong>极简美学：</strong>采用简洁的几何图形，体现"极简"的设计哲学</li>
+        <li><strong>科技渐变：</strong>使用品牌紫色渐变，传达现代科技感与创新精神</li>
+        <li><strong>和谐平衡：</strong>圆形与放射线条的结合，展现完整性与动态平衡</li>
+      </ul>
+    </div>
+
+    <!-- LOGO版本 -->
+    <div class="grid">
+      <!-- 完整LOGO -->
+      <div class="card">
+        <h3 class="card-title">完整版 LOGO</h3>
+        <p class="card-desc">包含图标和文字，适合用于网站头部、名片、官方文档等正式场合</p>
+        <div class="logo-display bg-white">
+          <img src="/logo.svg" alt="慧界极简完整LOGO" style="max-width: 280px;">
+        </div>
+        <div class="specs">
+          <div class="spec-item">
+            <span class="spec-label">文件名</span>
+            <span class="spec-value">logo.svg</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">尺寸</span>
+            <span class="spec-value">280 × 100 px</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">适用场景</span>
+            <span class="spec-value">网站头部、文档、宣传品</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 浅色背景LOGO -->
+      <div class="card">
+        <h3 class="card-title">浅色背景版</h3>
+        <p class="card-desc">深色文字配色，适合用于浅色背景，如白纸、浅色网页等</p>
+        <div class="logo-display bg-white">
+          <img src="/logo-light.svg" alt="慧界极简浅色版LOGO" style="max-width: 280px;">
+        </div>
+        <div class="specs">
+          <div class="spec-item">
+            <span class="spec-label">文件名</span>
+            <span class="spec-value">logo-light.svg</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">尺寸</span>
+            <span class="spec-value">280 × 100 px</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">适用场景</span>
+            <span class="spec-value">打印材料、白色背景</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 图标LOGO -->
+      <div class="card">
+        <h3 class="card-title">图标版 LOGO</h3>
+        <p class="card-desc">仅包含图标，适合用于社交媒体头像、App图标、小尺寸展示</p>
+        <div class="logo-display bg-white">
+          <img src="/logo-icon.svg" alt="慧界极简图标" style="max-width: 100px;">
+        </div>
+        <div class="specs">
+          <div class="spec-item">
+            <span class="spec-label">文件名</span>
+            <span class="spec-value">logo-icon.svg</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">尺寸</span>
+            <span class="spec-value">100 × 100 px</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">适用场景</span>
+            <span class="spec-value">社交媒体、App图标</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Favicon -->
+      <div class="card">
+        <h3 class="card-title">网站图标 (Favicon)</h3>
+        <p class="card-desc">浏览器标签页图标，带紫色渐变背景，白色图形</p>
+        <div class="logo-display bg-gradient">
+          <img src="/favicon.svg" alt="慧界极简Favicon" style="max-width: 80px;">
+        </div>
+        <div class="specs">
+          <div class="spec-item">
+            <span class="spec-label">文件名</span>
+            <span class="spec-value">favicon.svg</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">尺寸</span>
+            <span class="spec-value">100 × 100 px</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">适用场景</span>
+            <span class="spec-value">浏览器标签页、收藏夹</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 品牌色彩 -->
+    <div class="color-palette">
+      <h2>🎨 品牌色彩</h2>
+      <div class="colors">
+        <div class="color-item">
+          <div class="color-swatch" style="background: #667eea;"></div>
+          <div class="color-name">主色调</div>
+          <div class="color-code">#667eea</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #764ba2;"></div>
+          <div class="color-name">辅助色</div>
+          <div class="color-code">#764ba2</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+          <div class="color-name">品牌渐变</div>
+          <div class="color-code">Gradient</div>
+        </div>
+        <div class="color-item">
+          <div class="color-swatch" style="background: #ffffff; border: 1px solid #e0e0e0;"></div>
+          <div class="color-name">白色</div>
+          <div class="color-code">#ffffff</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

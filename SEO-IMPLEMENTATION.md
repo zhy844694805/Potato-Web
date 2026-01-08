@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document provides a comprehensive overview of the SEO (Search Engine Optimization) implementation for the Minimal Tech website. All SEO optimizations follow modern best practices and support both Chinese and English languages.
+This document provides a comprehensive overview of the SEO (Search Engine Optimization) implementation for the Wise Minimal website. All SEO optimizations follow modern best practices and support both Chinese and English languages.
 
 ## Implementation Date
 
@@ -30,7 +30,7 @@ import SEO from '../../components/SEO'
 
 <SEO
   title="首页"
-  description="极简科技 - 专注于数字产品设计与开发"
+  description="慧界极简 - 专注于数字产品设计与开发"
   keywords="网站开发,APP开发,小程序开发"
   path="/"
   image="https://example.com/image.jpg" // Optional
@@ -86,7 +86,7 @@ const breadcrumbItems = [
 ### 1. Home Page (`/src/pages/Home/Home.jsx`)
 - ✅ SEO meta tags
 - ✅ Organization structured data
-- **Keywords:** 网站开发, APP开发, 小程序开发, 软件定制, 数字产品设计, 极简设计
+- **Keywords:** 网站开发, APP开发, 小程序开发, 软件定制, 数字产品设计, 慧界极简
 
 ### 2. Services Page (`/src/pages/Services/Services.jsx`)
 - ✅ SEO meta tags
@@ -106,7 +106,7 @@ const breadcrumbItems = [
 ### 5. About Page (`/src/pages/About/About.jsx`)
 - ✅ SEO meta tags
 - ✅ Organization structured data
-- **Keywords:** 关于我们, 公司介绍, 团队介绍, 极简科技, 数字产品设计
+- **Keywords:** 关于我们, 公司介绍, 团队介绍, 慧界极简, 数字产品设计
 
 ### 6. 404 Not Found (`/src/pages/NotFound/NotFound.jsx`)
 - ✅ SEO meta tags with noindex directive
@@ -144,12 +144,12 @@ All SEO content supports both Chinese (zh) and English (en) through the `Languag
 const seoData = {
   zh: {
     title: '首页',
-    description: '极简科技 - 专注于数字产品设计与开发...',
+    description: '慧界极简 - 专注于数字产品设计与开发...',
     keywords: '网站开发,APP开发,小程序开发,软件定制'
   },
   en: {
     title: 'Home',
-    description: 'Minimal Tech - Focused on digital product design...',
+    description: 'Wise Minimal - Focused on digital product design...',
     keywords: 'web development,app development,mini program,custom software'
   }
 }
@@ -166,7 +166,7 @@ const seoData = {
 
 ### 1. **Title Tag Optimization**
 - Format: `Page Title | Site Name`
-- Bilingual site names: 极简科技 (zh) / Minimal Tech (en)
+- Bilingual site names: 慧界极简 (zh) / Wise Minimal (en)
 - Unique titles for each page
 - Length: Under 60 characters
 
