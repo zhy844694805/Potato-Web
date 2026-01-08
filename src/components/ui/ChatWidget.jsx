@@ -340,12 +340,26 @@ function ChatWidget() {
                     className={`chat-message chat-message--${message.type}`}
                   >
                     <div className="chat-message__content">
-                      {message.content.split('\n').map((line, i) => (
-                        <span key={i}>
-                          {line}
-                          {i < message.content.split('\n').length - 1 && <br />}
-                        </span>
-                      ))}
+                      {message.content.split('\n').map((line, i) => {
+                        // Check if line is a list item (starts with -)
+                        const isListItem = line.trim().startsWith('-')
+
+                        if (isListItem) {
+                          return (
+                            <div key={i} className="chat-message__list-item">
+                              <span className="chat-message__bullet">•</span>
+                              <span>{line.trim().substring(1).trim()}</span>
+                            </div>
+                          )
+                        }
+
+                        return (
+                          <span key={i} className="chat-message__line">
+                            {line}
+                            {i < message.content.split('\n').length - 1 && <br />}
+                          </span>
+                        )
+                      })}
                     </div>
                   </div>
                 ))}
