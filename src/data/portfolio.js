@@ -1109,6 +1109,83 @@ export const portfolioData = [
       { url: '/images/portfolio/spa-1.jpg', caption: { zh: '医疗服务', en: 'Medical Services' } },
       { url: '/images/portfolio/tcm-1.jpg', caption: { zh: '医生团队', en: 'Doctor Team' } }
     ]
+  },
+
+  // 22. Ocean Bloom 植物基海鲜品牌
+  {
+    id: 23,
+    slug: 'ocean-bloom',
+    category: 'restaurant',
+    title: { zh: 'Ocean Bloom 植物基海鲜', en: 'Ocean Bloom Plant-Based Seafood' },
+    industry: { zh: '食品行业', en: 'Food Industry' },
+    year: '2024',
+    color: '#002922',
+    shortDesc: { zh: '创新植物基海鲜品牌官网', en: 'Innovative plant-based seafood brand website' },
+    client: { zh: 'Ocean Bloom 食品', en: 'Ocean Bloom Foods' },
+    description: {
+      zh: '为创新植物基海鲜品牌打造的现代官网。展示环保理念、产品系列、食谱灵感和餐饮服务合作信息，采用深海绿和沙滩色的独特配色方案。',
+      en: 'A modern website for an innovative plant-based seafood brand. Showcasing eco-friendly philosophy, product line, recipe inspiration, and food service partnerships with unique deepsea green and shoreline color scheme.'
+    },
+    challenge: { zh: '如何传达植物基海鲜的创新理念和环保价值？', en: 'How to convey the innovation and environmental value of plant-based seafood?' },
+    solution: { zh: '深海绿+沙滩色配色，产品轮播展示，食谱灵感区，海洋保护数据可视化，B2B餐饮合作表单。', en: 'Deepsea green + shoreline colors, product carousel, recipe inspiration section, ocean conservation data visualization, B2B food service form.' },
+    results: [
+      { value: '5周', label: { zh: '开发周期', en: 'Development Time' } },
+      { value: '10+', label: { zh: '产品展示', en: 'Products' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'CSS3', 'Modern Animation'],
+    demoUrl: '/demo/ocean-bloom',
+    features: [
+      { icon: '🌊', title: { zh: '环保理念', en: 'Eco Mission' }, desc: { zh: '海洋保护数据', en: 'Ocean protection data' } },
+      { icon: '🦐', title: { zh: '产品展示', en: 'Products' }, desc: { zh: '植物基海鲜系列', en: 'Plant-based seafood line' } },
+      { icon: '👨‍🍳', title: { zh: '食谱灵感', en: 'Recipes' }, desc: { zh: '创意烹饪方案', en: 'Creative cooking ideas' } }
+    ],
+    thumbnail: '/images/portfolio/restaurant-1.jpg',
+    images: [
+      { url: '/images/portfolio/restaurant-1.jpg', caption: { zh: '品牌首页', en: 'Brand Homepage' } },
+      { url: '/images/portfolio/sushi-1.jpg', caption: { zh: '产品展示', en: 'Product Display' } },
+      { url: '/images/portfolio/sushi-2.jpg', caption: { zh: '食谱页面', en: 'Recipe Page' } }
+    ]
+  },
+
+  // 24. 禅庵 Omakase - 高端寿司餐厅
+  {
+    id: 24,
+    slug: 'omakase-zen',
+    category: 'restaurant',
+    title: { zh: '禅庵 Omakase 高端寿司', en: 'Omakase Zen Premium Sushi' },
+    industry: { zh: '高端餐饮', en: 'Fine Dining' },
+    year: '2024',
+    color: '#c9a962',
+    shortDesc: { zh: '米兰顶级日本料理，匠心独运的omakase体验', en: 'Milan\'s finest Japanese cuisine, artisan omakase experience' },
+    client: { zh: '禅庵 Omakase Zen', en: 'Omakase Zen' },
+    description: {
+      zh: '为米兰顶级日本料理餐厅打造的高端品牌网站。禅庵仅设八个席位，主厨田中正道以三十年精湛技艺，为客人呈现最纯粹的omakase体验。网站需要传达出极致的匠心精神与日式美学。',
+      en: 'A premium brand website for Milan\'s top Japanese restaurant. With only eight seats, Chef Masamichi Tanaka brings thirty years of expertise to deliver the purest omakase experience. The website needed to convey ultimate craftsmanship and Japanese aesthetics.'
+    },
+    challenge: {
+      zh: '如何通过网站设计传达出高端日料的精致与禅意？需要一个既能展示米其林级别的品质，又能提供优雅预订体验的网站。',
+      en: 'How to convey the refinement and Zen spirit of high-end Japanese cuisine through website design? A website was needed that could showcase Michelin-level quality while providing an elegant reservation experience.'
+    },
+    solution: { zh: '采用金、黑、米白奢华配色，日式书法字体，流畅滚动动画，全屏视觉呈现，优雅的预约表单设计。', en: 'Luxurious gold, black, and cream color palette, Japanese calligraphy typography, smooth scroll animations, full-screen visual presentation, elegant reservation form design.' },
+    results: [
+      { value: '4周', label: { zh: '开发周期', en: 'Development Time' } },
+      { value: '8席', label: { zh: '限量席位', en: 'Exclusive Seats' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'CSS3', 'Premium Animation'],
+    demoUrl: '/demo/omakase-zen',
+    features: [
+      { icon: '🍣', title: { zh: '极致视觉', en: 'Stunning Visuals' }, desc: { zh: '高端大气设计', en: 'Premium elegant design' } },
+      { icon: '👨‍🍳', title: { zh: '主厨介绍', en: 'Chef Profile' }, desc: { zh: '米其林大师', en: 'Michelin master' } },
+      { icon: '📅', title: { zh: '优雅预约', en: 'Elegant Booking' }, desc: { zh: '限量席位预订', en: 'Limited seat reservation' } }
+    ],
+    thumbnail: '/images/portfolio/sushi-1.jpg',
+    images: [
+      { url: '/images/portfolio/sushi-1.jpg', caption: { zh: '品牌首页', en: 'Brand Homepage' } },
+      { url: '/images/portfolio/sushi-2.jpg', caption: { zh: '菜品展示', en: 'Dish Showcase' } },
+      { url: '/images/portfolio/restaurant-1.jpg', caption: { zh: '预约页面', en: 'Reservation Page' } }
+    ]
   }
 ]
 

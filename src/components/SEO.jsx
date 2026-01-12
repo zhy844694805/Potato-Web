@@ -16,19 +16,19 @@ function SEO({
   // 站点信息
   const siteInfo = {
     zh: {
-      siteName: '慧界极简',
+      siteName: '土豆引擎',
       siteDescription: '专注于数字产品设计与开发的创新公司，提供网站开发、APP开发、小程序开发和软件定制服务',
-      author: '慧界极简团队'
+      author: '土豆引擎团队'
     },
     en: {
-      siteName: 'Wise Minimal',
+      siteName: 'Potato Engine',
       siteDescription: 'Innovative company focused on digital product design and development, providing web development, app development, mini-program development, and custom software services',
-      author: 'Wise Minimal Team'
+      author: 'Potato Engine Team'
     },
     it: {
-      siteName: 'Wise Minimal',
+      siteName: 'Potato Engine',
       siteDescription: 'Azienda innovativa specializzata nella progettazione e sviluppo di prodotti digitali, offrendo sviluppo web, app, mini-programmi e servizi software personalizzati',
-      author: 'Team Wise Minimal'
+      author: 'Team Potato Engine'
     }
   }
 

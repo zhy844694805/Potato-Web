@@ -10,6 +10,11 @@ npm run build        # Production build (auto-generates sitemap)
 npm run lint         # ESLint checks
 npm run preview      # Preview production build
 npm run generate-sitemap  # Generate sitemap.xml manually (for dev)
+
+# Testing
+npm run test         # Run tests in watch mode (Vitest)
+npm run test:run     # Run tests once
+npm run test:coverage  # Run tests with coverage report
 ```
 
 ## Architecture Overview
@@ -125,6 +130,24 @@ Sitemap is auto-generated in `postbuild` script. Output includes:
 - Static pages, portfolio pages, blog pages
 - `robots.txt` with sitemap reference
 - PWA service worker via vite-plugin-pwa
+
+## Production Deployment
+
+This site uses PM2 for production process management:
+
+```bash
+pm2 list                          # View running processes
+pm2 restart tech-agency-portfolio # Restart after code changes
+pm2 logs tech-agency-portfolio    # View logs
+```
+
+**Typical deployment workflow:**
+```bash
+npm run build                     # Build production assets
+pm2 restart tech-agency-portfolio # Restart PM2 service
+```
+
+PM2 configuration is in `ecosystem.config.cjs`. The site runs on port 5173 via `npm run preview`.
 
 ## Key Dependencies
 

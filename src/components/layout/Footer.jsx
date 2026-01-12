@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Newsletter from '../ui/Newsletter'
@@ -38,4 +39,5 @@ function Footer() {
   )
 }
 
-export default Footer
+// Memoize Footer to prevent unnecessary re-renders
+export default memo(Footer)

@@ -5,9 +5,9 @@ export const siteConfig = {
 
   // 网站名称
   name: {
-    zh: import.meta.env.VITE_SITE_NAME || '慧界极简',
-    en: 'Wise Minimal',
-    it: 'Wise Minimal'
+    zh: import.meta.env.VITE_SITE_NAME || '土豆建站',
+    en: 'Potato Web',
+    it: 'Potato Web'
   },
 
   // 联系方式
@@ -26,10 +26,10 @@ export const siteConfig = {
   formspreeId: import.meta.env.VITE_FORMSPREE_ID || 'xeejgvrn',
 
   // SEO 默认图片
-  defaultImage: 'https://aimodel.it/favicon.svg',
+  defaultImage: 'https://aimodel.it/logo.jpg',
 
   // Logo 路径
-  logo: '/favicon.svg'
+  logo: '/logo.jpg'
 }
 
 // 获取完整 URL

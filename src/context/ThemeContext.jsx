@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState, useEffect, useMemo, useCallback } from 'react'
 
 const ThemeContext = createContext()
 
@@ -17,26 +17,30 @@ export const ThemeProvider = ({ children }) => {
   }, [theme])
 
   // Toggle between light and dark themes
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
-  }
+  }, [])
 
   // Set specific theme
-  const setSpecificTheme = (newTheme) => {
+  const setSpecificTheme = useCallback((newTheme) => {
     if (newTheme === 'light' || newTheme === 'dark') {
       setTheme(newTheme)
     }
-  }
+  }, [])
+
+  // Memoize context value to prevent unnecessary re-renders
+  const value = useMemo(
+    () => ({
+      theme,
+      toggleTheme,
+      setTheme: setSpecificTheme,
+      isDark: theme === 'dark'
+    }),
+    [theme, toggleTheme, setSpecificTheme]
+  )
 
   return (
-    <ThemeContext.Provider
-      value={{
-        theme,
-        toggleTheme,
-        setTheme: setSpecificTheme,
-        isDark: theme === 'dark'
-      }}
-    >
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   )

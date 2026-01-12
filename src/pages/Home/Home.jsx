@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useLanguage } from '../../context/LanguageContext'
@@ -30,11 +31,13 @@ function Home() {
   const { ref: testimonialsRef, inView: testimonialsInView } = useScrollAnimation({ threshold: 0.1 })
   const { ref: ctaRef, inView: ctaInView } = useScrollAnimation({ threshold: 0.3 })
 
-  const featuredCases = portfolioData.slice(0, 4)
-  const featuredBlogs = getLatestPosts(3)
-  const featuredTestimonials = getLatestTestimonials(3)
+  // Memoize featured content to prevent recalculation on every render
+  const featuredCases = useMemo(() => portfolioData.slice(0, 4), [])
+  const featuredBlogs = useMemo(() => getLatestPosts(3), [])
+  const featuredTestimonials = useMemo(() => getLatestTestimonials(3), [])
 
-  const seoData = {
+  // Memoize SEO data based on language
+  const seoData = useMemo(() => ({
     zh: {
       title: '首页',
       description: '独立开发者 - 专注于Web开发和全栈解决方案，为个人和小型企业提供高性价比的技术服务。',
@@ -50,7 +53,7 @@ function Home() {
       description: 'Sviluppatore Indipendente - Focalizzato sullo sviluppo web e soluzioni full-stack, fornendo servizi tecnici convenienti per privati e piccole imprese.',
       keywords: 'sviluppatore indipendente,sviluppo web,full stack,sviluppo React,sviluppatore freelance'
     }
-  }
+  }), [])
 
   return (
     <div className="home">

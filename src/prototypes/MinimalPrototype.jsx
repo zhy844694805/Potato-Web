@@ -220,7 +220,7 @@ function MinimalPrototype() {
       <footer className="minimal-footer">
         <div className="container">
           <div className="footer-content">
-            <div className="footer-brand">慧界极简</div>
+            <div className="footer-brand">极简匠心</div>
             <div className="footer-links">
               <a href="#services">服务</a>
               <a href="#cases">案例</a>
@@ -229,7 +229,7 @@ function MinimalPrototype() {
             </div>
           </div>
           <div className="footer-bottom">
-            <div className="copyright">© 2024 慧界极简. 保留所有权利.</div>
+            <div className="copyright">© 2024 极简匠心. 保留所有权利.</div>
           </div>
         </div>
       </footer>

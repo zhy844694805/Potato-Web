@@ -31,10 +31,10 @@ export default defineConfig({
     }),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'robots.txt', 'sitemap.xml'],
+      includeAssets: ['logo.jpg', 'robots.txt', 'sitemap.xml'],
       manifest: {
-        name: '慧界极简 | Wise Minimal',
-        short_name: '慧界极简',
+        name: '土豆引擎 | Potato Engine',
+        short_name: '土豆引擎',
         description: '专业Web开发与全栈解决方案',
         theme_color: '#667eea',
         background_color: '#ffffff',
@@ -42,21 +42,21 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: '/favicon.svg',
+            src: '/logo.jpg',
             sizes: '192x192',
-            type: 'image/svg+xml',
+            type: 'image/jpeg',
             purpose: 'any maskable'
           },
           {
-            src: '/favicon.svg',
+            src: '/logo.jpg',
             sizes: '512x512',
-            type: 'image/svg+xml',
+            type: 'image/jpeg',
             purpose: 'any maskable'
           }
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2}'],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,

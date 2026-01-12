@@ -54,6 +54,8 @@ const YikangTCM = lazy(() => import('./demos/yikang-tcm/YikangTCM'))
 const CloudTask = lazy(() => import('./demos/cloud-task/CloudTask'))
 const LingoBridge = lazy(() => import('./demos/lingo-bridge/LingoBridge'))
 const VitaCare = lazy(() => import('./demos/vita-care/VitaCare'))
+const OceanBloom = lazy(() => import('./demos/ocean-bloom/OceanBloom'))
+const OmakaseZen = lazy(() => import('./demos/omakase-zen/OmakaseZen'))
 
 // Loading fallback component with skeleton
 function PageLoader() {
@@ -112,6 +114,8 @@ function AppContent() {
             <Route path="/demo/cloud-task" element={<CloudTask />} />
             <Route path="/demo/lingo-bridge" element={<LingoBridge />} />
             <Route path="/demo/vita-care" element={<VitaCare />} />
+            <Route path="/demo/ocean-bloom" element={<OceanBloom />} />
+            <Route path="/demo/omakase-zen" element={<OmakaseZen />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>

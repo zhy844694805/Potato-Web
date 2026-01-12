@@ -1,5 +1,5 @@
 /* global process */
-// Sitemap Generator for Wise Minimal
+// Sitemap Generator for Minimal Craft
 // Run with: node scripts/generate-sitemap.js
 // Or: node scripts/generate-sitemap.js --dist (for postbuild, writes to dist folder)
 // Automatically runs after build via postbuild script

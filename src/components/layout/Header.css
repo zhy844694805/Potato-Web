@@ -60,12 +60,27 @@
 }
 
 .header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-size: 1.5rem;
   font-weight: var(--font-weight-normal);
   color: var(--text-primary);
   text-decoration: none;
   letter-spacing: var(--letter-spacing-wide);
   transition: opacity var(--duration-fast) var(--ease-smooth);
+}
+
+.header-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.header-brand-text {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-medium);
 }
 
 .header-brand:hover {
