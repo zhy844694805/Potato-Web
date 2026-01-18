@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useDCLanguage } from '../DragonCourt'
 import GoldParticles from '../components/GoldParticles'
+import useScrollAnimation from '../hooks/useScrollAnimation'
+import { useMouseParallax } from '../hooks/useParallax'
 import { siteInfo, heroData, statsData, heritageData, menuItems, testimonials } from '../data/siteData'
 
 function HomePage() {
@@ -10,6 +12,12 @@ function HomePage() {
   const [videoLoaded, setVideoLoaded] = useState(false)
   const videoRef = useRef(null)
   const basePath = '/demo/dragon-court'
+
+  // Enable scroll-triggered animations
+  useScrollAnimation(0.15)
+
+  // Mouse parallax for hero content
+  const heroContentRef = useMouseParallax(15)
 
   const featuredDishes = menuItems.filter(item => item.featured).slice(0, 4)
 
@@ -24,7 +32,7 @@ function HomePage() {
 
       {/* Hero Section */}
       <section className="dc-hero">
-        <div className="dc-hero-bg">
+        <div className="dc-hero-bg dc-parallax-bg">
           <video
             ref={videoRef}
             className={`dc-hero-video ${videoLoaded ? 'loaded' : ''}`}
@@ -44,15 +52,15 @@ function HomePage() {
           <div className="dc-hero-overlay"></div>
         </div>
 
-        <div className="dc-hero-content">
-          <div className="dc-hero-dragon">龍</div>
+        <div className="dc-hero-content" ref={heroContentRef}>
+          <div className="dc-hero-dragon dc-fade-in-up">龍</div>
           <h1 className="dc-hero-title">
-            <span className="dc-title-zh">龙庭</span>
-            <span className="dc-title-en">DRAGON COURT</span>
+            <span className="dc-title-zh dc-fade-in-up dc-delay-1">龙庭</span>
+            <span className="dc-title-en dc-fade-in-up dc-delay-2">DRAGON COURT</span>
           </h1>
-          <p className="dc-hero-subtitle">{t(heroData.subtitle)}</p>
-          <p className="dc-hero-text">{t(heroData.text)}</p>
-          <div className="dc-hero-buttons">
+          <p className="dc-hero-subtitle dc-fade-in-up dc-delay-3">{t(heroData.subtitle)}</p>
+          <p className="dc-hero-text dc-fade-in-up dc-delay-4">{t(heroData.text)}</p>
+          <div className="dc-hero-buttons dc-fade-in-up dc-delay-5">
             <Link to={`${basePath}/reservation`} className="dc-hero-cta primary">
               <span>{language === 'zh' ? '立即预约' : 'Reserve Now'}</span>
               <span className="dc-cta-arrow">→</span>
@@ -63,9 +71,9 @@ function HomePage() {
           </div>
         </div>
 
-        <div className="dc-hero-stats">
+        <div className="dc-hero-stats dc-fade-in-up dc-delay-6">
           {statsData.map((stat, i) => (
-            <div key={i} className="dc-stat">
+            <div key={i} className="dc-stat" style={{ animationDelay: `${i * 0.1}s` }}>
               <span className="dc-stat-number">{stat.number}</span>
               <span className="dc-stat-label">{t(stat.label)}</span>
             </div>
@@ -81,7 +89,7 @@ function HomePage() {
       {/* Heritage Preview */}
       <section className="dc-section dc-heritage-preview">
         <div className="dc-container">
-          <div className="dc-section-header">
+          <div className="dc-section-header dc-animate-on-scroll">
             <span className="dc-section-icon">鳳</span>
             <h2 className="dc-section-title">
               {language === 'zh' ? '百年传承' : 'Century of Heritage'}
@@ -91,7 +99,7 @@ function HomePage() {
 
           <div className="dc-heritage-grid">
             {heritageData.values.map((item, i) => (
-              <div key={i} className="dc-heritage-card">
+              <div key={i} className={`dc-heritage-card dc-animate-on-scroll dc-stagger-${i % 3}`}>
                 <div className="dc-heritage-image">
                   <img src={item.image} alt={t(item.title)} loading="lazy" />
                   <div className="dc-heritage-icon">{item.icon}</div>
@@ -104,7 +112,7 @@ function HomePage() {
             ))}
           </div>
 
-          <div className="dc-section-cta">
+          <div className="dc-section-cta dc-animate-on-scroll">
             <Link to={`${basePath}/about`} className="dc-btn-outline">
               {language === 'zh' ? '了解更多' : 'Learn More'}
             </Link>
@@ -115,7 +123,7 @@ function HomePage() {
       {/* Featured Dishes */}
       <section className="dc-section dc-dishes-preview light">
         <div className="dc-container">
-          <div className="dc-section-header">
+          <div className="dc-section-header dc-animate-on-scroll">
             <span className="dc-section-icon">膳</span>
             <h2 className="dc-section-title">
               {language === 'zh' ? '御膳精选' : 'Signature Dishes'}
@@ -127,7 +135,7 @@ function HomePage() {
 
           <div className="dc-dishes-grid home">
             {featuredDishes.map((dish, i) => (
-              <div key={i} className="dc-dish-card">
+              <div key={i} className={`dc-dish-card dc-animate-on-scroll dc-stagger-${i % 4}`}>
                 <div className="dc-dish-image">
                   <img src={dish.image} alt={t(dish.name)} loading="lazy" />
                   <div className="dc-dish-overlay">
@@ -142,7 +150,7 @@ function HomePage() {
             ))}
           </div>
 
-          <div className="dc-section-cta">
+          <div className="dc-section-cta dc-animate-on-scroll">
             <Link to={`${basePath}/menu`} className="dc-btn-gold">
               {language === 'zh' ? '查看完整菜单' : 'View Full Menu'}
             </Link>
@@ -153,7 +161,7 @@ function HomePage() {
       {/* Testimonials */}
       <section className="dc-section dc-testimonials-preview">
         <div className="dc-container">
-          <div className="dc-section-header">
+          <div className="dc-section-header dc-animate-on-scroll">
             <span className="dc-section-icon">贊</span>
             <h2 className="dc-section-title">
               {language === 'zh' ? '宾客赞誉' : 'Guest Reviews'}
@@ -162,7 +170,7 @@ function HomePage() {
 
           <div className="dc-testimonials-grid">
             {testimonials.map((item, i) => (
-              <div key={i} className="dc-testimonial-card">
+              <div key={i} className={`dc-testimonial-card dc-animate-on-scroll dc-stagger-${i % 3}`}>
                 <div className="dc-testimonial-rating">
                   {'★'.repeat(item.rating)}
                 </div>
@@ -178,7 +186,7 @@ function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="dc-section dc-cta-section">
+      <section className="dc-section dc-cta-section dc-animate-on-scroll">
         <div className="dc-cta-bg">
           <img src="https://images.pexels.com/photos/3201920/pexels-photo-3201920.jpeg?auto=compress&w=1920" alt="" />
           <div className="dc-cta-overlay"></div>

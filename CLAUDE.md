@@ -31,6 +31,8 @@ This is a React 19 + Vite 7 portfolio/agency website targeting Italian Chinese b
 
 **Demo Sites:** Self-contained client demos in `/src/demos/` (28 demos covering restaurants, professional services, retail, beauty, SaaS, education, healthcare). Each demo has isolated CSS with unique prefixes (e.g., `.sushi-`, `.zheng-`, `.dc-`) to prevent style conflicts. Demos render without main site layout (no Header/Footer).
 
+**IMPORTANT: Multi-page demos** (like dragon-court) require wildcard routing: `/demo/dragon-court/*` in `App.jsx` to enable nested routes. Missing `/*` will break sub-page navigation.
+
 ### Directory Structure
 
 ```
@@ -85,6 +87,8 @@ React Router 7 with dynamic routes:
 - `/blog/:id` - Blog post pages (includes Comments, ShareButtons)
 - `/demo/{slug}` - Client demo sites (rendered without main layout)
 
+**CRITICAL:** Multi-page demos MUST use wildcard routing pattern: `/demo/{slug}/*` in `App.jsx`. Without `/*`, nested routes (e.g., `/demo/dragon-court/about`) will 404. All demo routes in `App.jsx` should include `/*` to enable proper nested routing.
+
 ### Demo Site Structure
 
 Each demo in `/src/demos/{name}/` typically contains:
@@ -93,8 +97,14 @@ Each demo in `/src/demos/{name}/` typically contains:
 - `components/` - Demo-specific components (Header, Footer, etc.)
 - `pages/` - Demo page components (for multi-page demos)
 - `data/siteData.js` - Demo content and configuration
+- `hooks/` - Demo-specific hooks (optional, for animations/effects)
 
 Multi-page demos (e.g., dragon-court) use React Router nested routes and their own language context.
+
+**Animation Hooks Available:**
+- `useScrollAnimation(threshold)` - Triggers `.dc-visible` class when elements enter viewport
+- `useParallax(speed)` - Scroll-based parallax movement
+- `useMouseParallax(intensity)` - Mouse-follow parallax effect
 
 ### Data File Helpers
 
@@ -150,6 +160,7 @@ This site uses PM2 for production process management:
 pm2 list                          # View running processes
 pm2 restart tech-agency-portfolio # Restart after code changes
 pm2 logs tech-agency-portfolio    # View logs
+pm2 logs tech-agency-portfolio --lines 100  # View last 100 lines
 ```
 
 **Typical deployment workflow:**
@@ -158,7 +169,33 @@ npm run build                     # Build production assets
 pm2 restart tech-agency-portfolio # Restart PM2 service
 ```
 
-PM2 configuration is in `ecosystem.config.cjs`. The site runs on port 5173 via `npm run preview`.
+PM2 configuration is in `ecosystem.config.cjs`. The site runs on port 5173 via `npm run preview`. Logs are written to `/home/claude/.pm2/logs/`.
+
+## Troubleshooting Common Issues
+
+**Demo sub-pages returning 404:**
+- Check `/demo/{slug}/*` route in `App.jsx` includes the `/*` wildcard
+- Verify demo component uses `<Routes>` with nested `<Route>` paths without leading slash
+
+**Language switcher not working:**
+- Verify `LanguageProvider` wraps `App`
+- Check `useDCLanguage()` hook is used within demo's context provider
+- Data objects must have `{ zh: '...', en: '...', it: '...' }` structure
+
+**CSS conflicts between demos:**
+- Ensure each demo uses unique CSS prefix (e.g., `.dc-`, `.sushi-`, `.zheng-`)
+- Check for global styles bleeding into demo components
+- Demo routes should be `isDemo` check which excludes main layout
+
+**Build failures:**
+- Large PDF export bundle (1MB+) is expected - dynamically imported
+- Run `npm run optimize-images` if image issues occur
+- Check Vite bundle analyzer at `dist/stats.html` after build
+
+**Animation hooks not working:**
+- Ensure `useScrollAnimation()` is called in component
+- Verify elements have `.dc-animate-on-scroll` class
+- Check threshold value (0.1-0.2 works best)
 
 ## Key Dependencies
 

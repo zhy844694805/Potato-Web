@@ -4363,3 +4363,552 @@
     opacity: 1;
   }
 }
+
+/* ==================== SCROLL ANIMATION CLASSES ==================== */
+
+/* Initial state for scroll-triggered elements */
+.dc-animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* Visible state - triggered when element enters viewport */
+.dc-animate-on-scroll.dc-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for grid items */
+.dc-stagger-0 { transition-delay: 0s; }
+.dc-stagger-1 { transition-delay: 0.15s; }
+.dc-stagger-2 { transition-delay: 0.3s; }
+.dc-stagger-3 { transition-delay: 0.45s; }
+
+/* Fade in from left */
+.dc-animate-on-scroll.dc-fade-left {
+  transform: translateX(-40px);
+}
+.dc-animate-on-scroll.dc-fade-left.dc-visible {
+  transform: translateX(0);
+}
+
+/* Fade in from right */
+.dc-animate-on-scroll.dc-fade-right {
+  transform: translateX(40px);
+}
+.dc-animate-on-scroll.dc-fade-right.dc-visible {
+  transform: translateX(0);
+}
+
+/* Scale up effect */
+.dc-animate-on-scroll.dc-scale-up {
+  transform: scale(0.9);
+}
+.dc-animate-on-scroll.dc-scale-up.dc-visible {
+  transform: scale(1);
+}
+
+/* ==================== PAGE LOAD ANIMATIONS ==================== */
+
+.dc-fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.dc-fade-in-down {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeInDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.dc-fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.dc-fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.dc-scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Delay variations */
+.dc-delay-1 { animation-delay: 0.1s; }
+.dc-delay-2 { animation-delay: 0.2s; }
+.dc-delay-3 { animation-delay: 0.3s; }
+.dc-delay-4 { animation-delay: 0.4s; }
+.dc-delay-5 { animation-delay: 0.5s; }
+.dc-delay-6 { animation-delay: 0.6s; }
+.dc-delay-7 { animation-delay: 0.7s; }
+.dc-delay-8 { animation-delay: 0.8s; }
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==================== PARALLAX EFFECTS ==================== */
+
+.dc-parallax-bg {
+  will-change: transform;
+}
+
+/* Smooth parallax for hero backgrounds */
+.dc-parallax-bg .dc-hero-video,
+.dc-parallax-bg .dc-hero-fallback {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ==================== MAGNIFIER EFFECT FOR IMAGES ==================== */
+
+.dc-image-magnifier {
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.dc-image-magnifier img {
+  transition: transform 0.3s ease;
+}
+
+.dc-image-magnifier:hover img {
+  transform: scale(1.1);
+}
+
+/* ==================== GLITCH TEXT EFFECT ==================== */
+
+.dc-glitch-text {
+  position: relative;
+}
+
+.dc-glitch-text::before,
+.dc-glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dc-glitch-text:hover::before {
+  animation: glitch-1 0.3s infinite linear alternate-reverse;
+  color: #ff00ff;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.dc-glitch-text:hover::after {
+  animation: glitch-2 0.3s infinite linear alternate-reverse;
+  color: #00ffff;
+  z-index: -2;
+  opacity: 0.8;
+}
+
+@keyframes glitch-1 {
+  0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 0); }
+  20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, 0); }
+  40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 0); }
+  60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, 0); }
+  80% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 0); }
+  100% { clip-path: inset(30% 0 50% 0); transform: translate(2px, 0); }
+}
+
+@keyframes glitch-2 {
+  0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, 0); }
+  20% { clip-path: inset(30% 0 20% 0); transform: translate(-2px, 0); }
+  40% { clip-path: inset(70% 0 10% 0); transform: translate(2px, 0); }
+  60% { clip-path: inset(20% 0 50% 0); transform: translate(-2px, 0); }
+  80% { clip-path: inset(50% 0 30% 0); transform: translate(2px, 0); }
+  100% { clip-path: inset(0% 0 80% 0); transform: translate(-2px, 0); }
+}
+
+/* ==================== TYPING EFFECT ==================== */
+
+.dc-typing-text {
+  overflow: hidden;
+  border-right: 2px solid var(--dc-gold);
+  white-space: nowrap;
+  animation: typing 3s steps(40) 1s forwards,
+             blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--dc-gold); }
+}
+
+/* ==================== TEXT REVEAL ANIMATION ==================== */
+
+.dc-text-reveal {
+  overflow: hidden;
+}
+
+.dc-text-reveal span {
+  display: inline-block;
+  transform: translateY(100%);
+  animation: textReveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.dc-text-reveal span:nth-child(1) { animation-delay: 0.1s; }
+.dc-text-reveal span:nth-child(2) { animation-delay: 0.2s; }
+.dc-text-reveal span:nth-child(3) { animation-delay: 0.3s; }
+.dc-text-reveal span:nth-child(4) { animation-delay: 0.4s; }
+.dc-text-reveal span:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes textReveal {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ==================== 3D CARD TILT EFFECT ==================== */
+
+.dc-3d-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.dc-3d-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.dc-3d-card:hover .dc-3d-card-inner {
+  transform: rotateY(10deg) rotateX(5deg);
+}
+
+.dc-3d-card .dc-card-front,
+.dc-3d-card .dc-card-back {
+  backface-visibility: hidden;
+}
+
+.dc-3d-card .dc-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ==================== MORPHING SHAPES ==================== */
+
+.dc-morph-bg {
+  animation: morphing 15s ease-in-out infinite;
+}
+
+@keyframes morphing {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+  }
+  75% {
+    border-radius: 60% 40% 60% 30% / 70% 30% 50% 60%;
+  }
+}
+
+/* ==================== RIPPLE EFFECT ==================== */
+
+.dc-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.dc-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.dc-ripple:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* ==================== NEON GLOW TEXT ==================== */
+
+.dc-neon-text {
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px var(--dc-gold),
+    0 0 82px var(--dc-gold),
+    0 0 92px var(--dc-gold),
+    0 0 102px var(--dc-gold),
+    0 0 151px var(--dc-gold);
+  animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  from {
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px var(--dc-gold),
+      0 0 82px var(--dc-gold);
+  }
+  to {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 7px #fff,
+      0 0 14px #fff,
+      0 0 28px var(--dc-gold),
+      0 0 56px var(--dc-gold),
+      0 0 70px var(--dc-gold-light);
+  }
+}
+
+/* ==================== FLOATING ANIMATION VARIANTS ==================== */
+
+.dc-float-slow {
+  animation: luxuryFloat 8s ease-in-out infinite;
+}
+
+.dc-float-medium {
+  animation: luxuryFloat 4s ease-in-out infinite;
+}
+
+.dc-float-fast {
+  animation: luxuryFloat 2s ease-in-out infinite;
+}
+
+/* ==================== ROTATION EFFECTS ==================== */
+
+.dc-rotate-slow {
+  animation: rotate 20s linear infinite;
+}
+
+.dc-rotate-medium {
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==================== PULSE EFFECTS ==================== */
+
+.dc-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.3),
+                0 0 10px rgba(212, 175, 55, 0.2),
+                0 0 15px rgba(212, 175, 55, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.6),
+                0 0 20px rgba(212, 175, 55, 0.4),
+                0 0 30px rgba(212, 175, 55, 0.2);
+  }
+}
+
+.dc-pulse-scale {
+  animation: pulseScale 2s ease-in-out infinite;
+}
+
+@keyframes pulseScale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* ==================== COUNTING ANIMATION ==================== */
+
+.dc-count-up {
+  display: inline-block;
+  animation: countUp 2s ease-out forwards;
+}
+
+/* ==================== LOADING SKELETON ==================== */
+
+.dc-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0.05) 0%,
+    rgba(212, 175, 55, 0.1) 50%,
+    rgba(212, 175, 55, 0.05) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ==================== MAGNETIC BUTTON EFFECT ==================== */
+
+.dc-magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dc-magnetic-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ==================== CARD TILT ON MOUSE MOVE ==================== */
+
+.dc-tilt-card {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.dc-tilt-card-inner {
+  transition: transform 0.1s;
+  transform-style: preserve-3d;
+}
+
+/* ==================== INFINITE SCROLL MARQUEE ==================== */
+
+.dc-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.dc-marquee-content {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ==================== REVEAL FROM CENTER ==================== */
+
+.dc-reveal-center {
+  animation: revealCenter 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes revealCenter {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* ==================== WAVE ANIMATION ==================== */
+
+.dc-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.dc-wave::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.3),
+    transparent
+  );
+  animation: wave 3s infinite;
+}
+
+@keyframes wave {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* ==================== ENHANCED RESPONSIVE FOR ANIMATIONS ==================== */
+
+@media (max-width: 768px) {
+  .dc-fade-in-up,
+  .dc-fade-in-down,
+  .dc-fade-in-left,
+  .dc-fade-in-right {
+    animation-duration: 0.5s;
+  }
+
+  .dc-animate-on-scroll {
+    transition-duration: 0.5s;
+  }
+
+  .dc-glitch-text:hover::before,
+  .dc-glitch-text:hover::after {
+    animation: none;
+  }
+}

@@ -117,7 +117,7 @@ function AppContent() {
             <Route path="/demo/vita-care" element={<VitaCare />} />
             <Route path="/demo/ocean-bloom" element={<OceanBloom />} />
             <Route path="/demo/omakase-zen" element={<OmakaseZen />} />
-            <Route path="/demo/dragon-court" element={<DragonCourt />} />
+            <Route path="/demo/dragon-court/*" element={<DragonCourt />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>
