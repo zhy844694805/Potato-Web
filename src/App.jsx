@@ -56,6 +56,7 @@ const LingoBridge = lazy(() => import('./demos/lingo-bridge/LingoBridge'))
 const VitaCare = lazy(() => import('./demos/vita-care/VitaCare'))
 const OceanBloom = lazy(() => import('./demos/ocean-bloom/OceanBloom'))
 const OmakaseZen = lazy(() => import('./demos/omakase-zen/OmakaseZen'))
+const DragonCourt = lazy(() => import('./demos/dragon-court/DragonCourt'))
 
 // Loading fallback component with skeleton
 function PageLoader() {
@@ -116,6 +117,7 @@ function AppContent() {
             <Route path="/demo/vita-care" element={<VitaCare />} />
             <Route path="/demo/ocean-bloom" element={<OceanBloom />} />
             <Route path="/demo/omakase-zen" element={<OmakaseZen />} />
+            <Route path="/demo/dragon-court" element={<DragonCourt />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>

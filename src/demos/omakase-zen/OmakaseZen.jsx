@@ -445,30 +445,6 @@ function OmakaseZen() {
             <span className="ozx-logo-en">{siteData.name.en}</span>
           </button>
 
-          <nav className={`ozx-nav ${menuOpen ? 'open' : ''}`}>
-            <button className="ozx-nav-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
-              <span></span>
-              <span></span>
-            </button>
-            {navItems.map((item, i) => (
-              <button
-                key={item.id}
-                className={activeSection === item.id ? 'active' : ''}
-                onClick={() => scrollToSection(item.id)}
-                style={{ animationDelay: `${i * 0.1}s` }}
-              >
-                {t(item.label)}
-              </button>
-            ))}
-            <div className="ozx-mobile-lang">
-              {['zh', 'en', 'it'].map(l => (
-                <button key={l} onClick={() => setLang(l)} className={lang === l ? 'active' : ''}>
-                  {l.toUpperCase()}
-                </button>
-              ))}
-            </div>
-          </nav>
-
           <div className="ozx-header-actions">
             <div className="ozx-lang-switch">
               {['zh', 'en', 'it'].map(l => (
@@ -487,6 +463,31 @@ function OmakaseZen() {
           </button>
         </div>
       </header>
+
+      {/* Mobile Navigation - 独立于 header 避免 stacking context 问题 */}
+      <nav className={`ozx-nav ${menuOpen ? 'open' : ''}`}>
+        <button className="ozx-nav-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
+          <span></span>
+          <span></span>
+        </button>
+        {navItems.map((item, i) => (
+          <button
+            key={item.id}
+            className={activeSection === item.id ? 'active' : ''}
+            onClick={() => scrollToSection(item.id)}
+            style={{ animationDelay: `${i * 0.1}s` }}
+          >
+            {t(item.label)}
+          </button>
+        ))}
+        <div className="ozx-mobile-lang">
+          {['zh', 'en', 'it'].map(l => (
+            <button key={l} onClick={() => setLang(l)} className={lang === l ? 'active' : ''}>
+              {l.toUpperCase()}
+            </button>
+          ))}
+        </div>
+      </nav>
 
       {/* Hero Section */}
       <section id="home" className="ozx-hero">

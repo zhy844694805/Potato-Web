@@ -1186,6 +1186,47 @@ export const portfolioData = [
       { url: '/images/portfolio/sushi-2.jpg', caption: { zh: '菜品展示', en: 'Dish Showcase' } },
       { url: '/images/portfolio/restaurant-1.jpg', caption: { zh: '预约页面', en: 'Reservation Page' } }
     ]
+  },
+
+  // 25. 龙庭 Dragon Court - 高端中餐厅
+  {
+    id: 25,
+    slug: 'dragon-court',
+    category: 'restaurant',
+    title: { zh: '龙庭 · 皇家御膳', en: 'Dragon Court Imperial Cuisine' },
+    industry: { zh: '高端中餐', en: 'Fine Chinese Dining' },
+    year: '2024',
+    color: '#d4af37',
+    shortDesc: { zh: '米兰顶级中华料理，传承百年宫廷御膳精髓', en: 'Milan\'s premier Chinese restaurant, inheriting century-old imperial cuisine' },
+    client: { zh: '龙庭 Dragon Court', en: 'Dragon Court Milano' },
+    description: {
+      zh: '为米兰顶级中餐厅「龙庭」打造的奢华品牌网站。龙庭传承清朝御膳房六代皇家御厨秘方，将千年宫廷料理精髓与现代创意完美融合。网站需要展现皇家气派、匠心传承与极致美食体验。',
+      en: 'A luxurious brand website for Milan\'s premier Chinese restaurant "Dragon Court". Inheriting six generations of Qing Dynasty imperial kitchen recipes, Dragon Court perfectly blends thousand-year palace cuisine with modern creativity. The website needed to showcase royal grandeur, artisan heritage, and ultimate culinary experience.'
+    },
+    challenge: {
+      zh: '如何通过网站设计传达出中华宫廷料理的皇家气派与匠心精神？需要一个既能彰显米其林级别的尊贵品质，又能提供优雅预订体验的高端网站。',
+      en: 'How to convey the royal grandeur and artisan spirit of Chinese imperial cuisine through website design? A premium website was needed that could showcase Michelin-level prestige while providing an elegant reservation experience.'
+    },
+    solution: { zh: '采用金、深红、黑的皇家配色，中式书法元素，金色粒子特效，全屏视频展示，流畅滚动动画，优雅的预约系统设计。', en: 'Imperial gold, deep crimson, and black color palette, Chinese calligraphy elements, gold particle effects, full-screen video showcase, smooth scroll animations, elegant reservation system design.' },
+    results: [
+      { value: '4周', label: { zh: '开发周期', en: 'Development Time' } },
+      { value: '★★★', label: { zh: '米其林评级', en: 'Michelin Stars' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'CSS3', 'Canvas Animation', 'Video Background'],
+    demoUrl: '/demo/dragon-court',
+    features: [
+      { icon: '🐉', title: { zh: '皇家视觉', en: 'Imperial Design' }, desc: { zh: '金色粒子特效', en: 'Gold particle effects' } },
+      { icon: '👨‍🍳', title: { zh: '御厨传承', en: 'Master Chef' }, desc: { zh: '六代御膳传人', en: 'Six generations legacy' } },
+      { icon: '🏮', title: { zh: '中式美学', en: 'Chinese Aesthetics' }, desc: { zh: '宫廷元素设计', en: 'Imperial elements' } },
+      { icon: '📅', title: { zh: '尊享预约', en: 'VIP Reservation' }, desc: { zh: '高端预订体验', en: 'Premium booking' } }
+    ],
+    thumbnail: '/images/portfolio/restaurant-1.jpg',
+    images: [
+      { url: '/images/portfolio/restaurant-1.jpg', caption: { zh: '品牌首页', en: 'Brand Homepage' } },
+      { url: '/images/portfolio/restaurant-2.jpg', caption: { zh: '御膳菜单', en: 'Imperial Menu' } },
+      { url: '/images/portfolio/restaurant-3.jpg', caption: { zh: '主厨介绍', en: 'Chef Profile' } }
+    ]
   }
 ]
 

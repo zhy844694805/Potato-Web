@@ -29,7 +29,7 @@ This is a React 19 + Vite 7 portfolio/agency website targeting Italian Chinese b
 
 **Static Data Management:** All content lives in `/src/data/` files (services, portfolio, blog, testimonials, team). Each file exports both raw data arrays and helper functions like `getLatestPosts(limit)`, `getPortfolioById(id)`, `searchPosts(query)`.
 
-**Demo Sites:** Self-contained client demos in `/src/demos/` (25 demos covering restaurants, professional services, retail, beauty, SaaS, education, healthcare). Each demo has isolated CSS with unique prefixes (e.g., `.sushi-`, `.zheng-`, `.cloudtask-`) to prevent style conflicts. Demos render without main site layout (no Header/Footer).
+**Demo Sites:** Self-contained client demos in `/src/demos/` (28 demos covering restaurants, professional services, retail, beauty, SaaS, education, healthcare). Each demo has isolated CSS with unique prefixes (e.g., `.sushi-`, `.zheng-`, `.dc-`) to prevent style conflicts. Demos render without main site layout (no Header/Footer).
 
 ### Directory Structure
 
@@ -84,6 +84,17 @@ React Router 7 with dynamic routes:
 - `/portfolio/:id` - Portfolio detail pages (includes PDF export, ShareButtons)
 - `/blog/:id` - Blog post pages (includes Comments, ShareButtons)
 - `/demo/{slug}` - Client demo sites (rendered without main layout)
+
+### Demo Site Structure
+
+Each demo in `/src/demos/{name}/` typically contains:
+- `{Name}.jsx` - Main component with context providers
+- `{Name}.css` - Isolated styles with unique prefix (e.g., `.dc-` for dragon-court)
+- `components/` - Demo-specific components (Header, Footer, etc.)
+- `pages/` - Demo page components (for multi-page demos)
+- `data/siteData.js` - Demo content and configuration
+
+Multi-page demos (e.g., dragon-court) use React Router nested routes and their own language context.
 
 ### Data File Helpers
 

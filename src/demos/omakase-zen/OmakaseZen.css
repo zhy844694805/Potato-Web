@@ -229,9 +229,27 @@
 }
 
 .ozx-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2.5rem;
+  padding: 1.5rem 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.ozx-nav button {
+  pointer-events: auto;
+}
+
+/* 桌面端隐藏关闭按钮和语言切换 */
+.ozx-nav .ozx-nav-close,
+.ozx-nav .ozx-mobile-lang {
+  display: none;
 }
 
 .ozx-nav-close {
@@ -1373,19 +1391,24 @@
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100vw;
+    height: 100vh;
     background: var(--ozx-black);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    padding: 0;
     transform: translateX(100%);
     transition: transform var(--ozx-transition-slow);
     z-index: 99999;
     overflow-y: auto;
+    pointer-events: none;
   }
 
   .ozx-nav.open {
     transform: translateX(0);
+    pointer-events: auto;
   }
 
   .ozx-nav-close {
