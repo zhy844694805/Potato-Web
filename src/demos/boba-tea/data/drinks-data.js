@@ -733,3 +733,343 @@ export const navigation = {
   locations: { it: 'Sedi', en: 'Locations', zh: '门店' },
   order: { it: 'Ordina Ora', en: 'Order Now', zh: '立即下单' }
 }
+
+// Seasonal Limited Edition Drinks
+export const seasonalDrinks = [
+  {
+    id: 'seasonal-1',
+    name: { it: 'Sakura Cherry Blossom', en: 'Sakura Cherry Blossom', zh: '樱花特调' },
+    description: { it: 'Tè ai fiori di ciliegio con lychee e petali edibili', en: 'Cherry blossom tea with lychee and edible petals', zh: '樱花茶配荔枝和可食用花瓣' },
+    price: 7.50,
+    image: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=600',
+    season: { it: 'Primavera 2024', en: 'Spring 2024', zh: '2024春季' },
+    available: { it: 'Disponibile fino al 31 Marzo', en: 'Available until March 31', zh: '截止3月31日' },
+    limited: true
+  },
+  {
+    id: 'seasonal-2',
+    name: { it: 'Winter Wonderland', en: 'Winter Wonderland', zh: '冬日仙境' },
+    description: { it: 'Cioccolato bianco con panna montata e scaglie di cioccolato', en: 'White chocolate with whipped cream and chocolate flakes', zh: '白巧克力配鲜奶油和巧克力碎' },
+    price: 7.20,
+    image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600',
+    season: { it: 'Inverno 2024', en: 'Winter 2024', zh: '2024冬季' },
+    available: { it: 'Disponibile fino al 28 Febbraio', en: 'Available until February 28', zh: '截止2月28日' },
+    limited: true
+  },
+  {
+    id: 'seasonal-3',
+    name: { it: 'Golden Osmanthus', en: 'Golden Osmanthus', zh: '桂花乌龙' },
+    description: { it: 'Tè oolong con fiori di osmanto e miele', en: 'Oolong tea with osmanthus flowers and honey', zh: '桂花乌龙茶配蜂蜜' },
+    price: 6.80,
+    image: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600',
+    season: { it: 'Autunno 2024', en: 'Autumn 2024', zh: '2024秋季' },
+    available: { it: 'Solo Settembre-Ottobre', en: 'September-October Only', zh: '仅限9-10月' },
+    limited: true
+  }
+]
+
+// Boba Making Process Steps
+export const makingProcess = [
+  {
+    id: 1,
+    title: { it: 'Selezione Ingredienti', en: 'Ingredient Selection', zh: '食材挑选' },
+    description: { it: 'Selezioniamo solo tapioca di alta qualità importata direttamente da Taiwan', en: 'We select only high-quality tapioca imported directly from Taiwan', zh: '我们只选用直接从台湾进口的优质木薯粉' },
+    icon: '🌾',
+    time: { it: '5 min', en: '5 min', zh: '5分钟' }
+  },
+  {
+    id: 2,
+    title: { it: 'Impasto Fresco', en: 'Fresh Dough', zh: '新鲜面团' },
+    description: { it: 'Impastiamo la tapioca con acqua calda ogni mattina alle 6:00', en: 'We knead tapioca with hot water every morning at 6:00 AM', zh: '每天早上6点用热水揉制木薯面团' },
+    icon: '👨‍🍳',
+    time: { it: '15 min', en: '15 min', zh: '15分钟' }
+  },
+  {
+    id: 3,
+    title: { it: 'Formazione Perle', en: 'Pearl Formation', zh: '珍珠成型' },
+    description: { it: 'Ogni perla è modellata a mano per garantire dimensioni perfette', en: 'Each pearl is hand-shaped to ensure perfect size', zh: '每颗珍珠都手工塑形，保证完美尺寸' },
+    icon: '⚪',
+    time: { it: '20 min', en: '20 min', zh: '20分钟' }
+  },
+  {
+    id: 4,
+    title: { it: 'Cottura Lenta', en: 'Slow Cooking', zh: '慢火煮制' },
+    description: { it: 'Bollitura lenta per 25 minuti per ottenere la consistenza perfetta Q', en: 'Slow boil for 25 minutes to achieve perfect Q texture', zh: '慢火煮25分钟，达到完美Q弹口感' },
+    icon: '🔥',
+    time: { it: '25 min', en: '25 min', zh: '25分钟' }
+  },
+  {
+    id: 5,
+    title: { it: 'Caramellatura', en: 'Caramelization', zh: '焦糖化' },
+    description: { it: 'Immersione in zucchero di canna artigianale per 10 minuti', en: 'Soaked in artisan brown sugar for 10 minutes', zh: '浸泡在手工黑糖中10分钟' },
+    icon: '🍯',
+    time: { it: '10 min', en: '10 min', zh: '10分钟' }
+  },
+  {
+    id: 6,
+    title: { it: 'Servizio Immediato', en: 'Immediate Service', zh: '立即供应' },
+    description: { it: 'Servite fresche entro 4 ore dalla preparazione per massima freschezza', en: 'Served fresh within 4 hours of preparation for maximum freshness', zh: '制作完成后4小时内供应，保证最佳新鲜度' },
+    icon: '🧋',
+    time: { it: '< 4h', en: '< 4h', zh: '< 4小时' }
+  }
+]
+
+// Instagram Photo Wall
+export const instagramPhotos = [
+  {
+    id: 1,
+    image: 'https://images.unsplash.com/photo-1558857563-b371033873b8?w=400&h=400&fit=crop',
+    likes: 2453,
+    username: '@sarah_milano'
+  },
+  {
+    id: 2,
+    image: 'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=400&h=400&fit=crop',
+    likes: 1892,
+    username: '@luca_foodie'
+  },
+  {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=400&h=400&fit=crop',
+    likes: 3201,
+    username: '@giulia_tea'
+  },
+  {
+    id: 4,
+    image: 'https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=400&h=400&fit=crop',
+    likes: 2876,
+    username: '@chen_boba'
+  },
+  {
+    id: 5,
+    image: 'https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=400&h=400&fit=crop',
+    likes: 1654,
+    username: '@maria_drinks'
+  },
+  {
+    id: 6,
+    image: 'https://images.unsplash.com/photo-1546173159-315724a31696?w=400&h=400&fit=crop',
+    likes: 4123,
+    username: '@marco_lifestyle'
+  },
+  {
+    id: 7,
+    image: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=400&fit=crop',
+    likes: 2234,
+    username: '@sofia_tea_time'
+  },
+  {
+    id: 8,
+    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=400&fit=crop',
+    likes: 3567,
+    username: '@wei_bubble'
+  }
+]
+
+// Popular Combos Recommendations
+export const popularCombos = [
+  {
+    id: 'combo-1',
+    name: { it: 'Classic Lover', en: 'Classic Lover', zh: '经典爱好者' },
+    description: { it: 'Per chi ama il classico', en: 'For classic enthusiasts', zh: '给经典爱好者' },
+    drink: 'Classic Pearl Milk Tea',
+    toppings: ['Classic Boba', 'Pudding'],
+    customization: { size: 'large', ice: 'regular', sweetness: '100' },
+    totalPrice: 6.00,
+    savings: 1.20,
+    image: 'https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=400'
+  },
+  {
+    id: 'combo-2',
+    name: { it: 'Caramel Dream', en: 'Caramel Dream', zh: '焦糖梦想' },
+    description: { it: 'Il più venduto del mese', en: 'Best seller of the month', zh: '本月最畅销' },
+    drink: 'Brown Sugar Boba Latte',
+    toppings: ['Brown Sugar Boba', 'Sweet Cream'],
+    customization: { size: 'regular', ice: 'less', sweetness: '70' },
+    totalPrice: 7.00,
+    savings: 1.50,
+    popular: true,
+    image: 'https://images.unsplash.com/photo-1558857563-b371033873b8?w=400'
+  },
+  {
+    id: 'combo-3',
+    name: { it: 'Tropical Paradise', en: 'Tropical Paradise', zh: '热带天堂' },
+    description: { it: 'Fresco e fruttato', en: 'Fresh and fruity', zh: '清新果香' },
+    drink: 'Mango Pomelo Sago',
+    toppings: ['Coconut Jelly', 'Mango Popping Boba'],
+    customization: { size: 'large', ice: 'regular', sweetness: '50' },
+    totalPrice: 7.80,
+    savings: 1.70,
+    image: 'https://images.unsplash.com/photo-1546173159-315724a31696?w=400'
+  },
+  {
+    id: 'combo-4',
+    name: { it: 'Matcha Magic', en: 'Matcha Magic', zh: '抹茶魔法' },
+    description: { it: 'Cremoso e rilassante', en: 'Creamy and soothing', zh: '香浓舒缓' },
+    drink: 'Matcha Latte Boba',
+    toppings: ['Classic Boba', 'Red Bean'],
+    customization: { size: 'regular', ice: 'less', sweetness: '50' },
+    totalPrice: 7.20,
+    savings: 1.40,
+    image: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=400'
+  }
+]
+
+// Lucky Wheel Prizes
+export const wheelPrizes = [
+  {
+    id: 1,
+    name: { it: 'Drink Gratis', en: 'Free Drink', zh: '免费饮品' },
+    description: { it: 'Qualsiasi drink dal menu', en: 'Any drink from menu', zh: '菜单任选一杯' },
+    color: '#FFD700',
+    probability: 5
+  },
+  {
+    id: 2,
+    name: { it: 'Topping Gratis', en: 'Free Topping', zh: '免费加料' },
+    description: { it: 'Un topping a scelta', en: 'One topping of choice', zh: '任选一份加料' },
+    color: '#FF6B6B',
+    probability: 15
+  },
+  {
+    id: 3,
+    name: { it: '20% Sconto', en: '20% Off', zh: '8折优惠' },
+    description: { it: 'Sul prossimo ordine', en: 'On next order', zh: '下单立减' },
+    color: '#4ECDC4',
+    probability: 20
+  },
+  {
+    id: 4,
+    name: { it: '10% Sconto', en: '10% Off', zh: '9折优惠' },
+    description: { it: 'Sul prossimo ordine', en: 'On next order', zh: '下单立减' },
+    color: '#95E1D3',
+    probability: 30
+  },
+  {
+    id: 5,
+    name: { it: 'Upgrade Size', en: 'Size Upgrade', zh: '升杯' },
+    description: { it: 'Gratis Large', en: 'Free Large', zh: '免费升大杯' },
+    color: '#F38181',
+    probability: 20
+  },
+  {
+    id: 6,
+    name: { it: '50 Punti', en: '50 Points', zh: '50积分' },
+    description: { it: 'Punti fedeltà extra', en: 'Extra loyalty points', zh: '额外积分奖励' },
+    color: '#AA96DA',
+    probability: 10
+  }
+]
+
+// Live Order Stats
+export const liveStats = {
+  todayOrders: { it: 'Ordini Oggi', en: 'Orders Today', zh: '今日订单' },
+  popularNow: { it: 'Più Popolare Ora', en: 'Popular Now', zh: '当前热门' },
+  activeUsers: { it: 'Utenti Attivi', en: 'Active Users', zh: '活跃用户' }
+}
+
+// Brand Story Timeline
+export const brandTimeline = [
+  {
+    id: 1,
+    year: '2019',
+    title: { it: 'L\'Ispirazione', en: 'The Inspiration', zh: '灵感诞生' },
+    description: { it: 'Due amici si incontrano a Taipei e si innamorano del bubble tea autentico', en: 'Two friends meet in Taipei and fall in love with authentic bubble tea', zh: '两位好友在台北相遇，爱上了正宗珍珠奶茶' },
+    icon: '💡',
+    color: '#FFD700'
+  },
+  {
+    id: 2,
+    year: '2020',
+    title: { it: 'La Formazione', en: 'The Training', zh: '专业培训' },
+    description: { it: 'Apprendimento delle tecniche tradizionali dalle migliori tea house di Taiwan', en: 'Learning traditional techniques from the best tea houses in Taiwan', zh: '在台湾最好的茶馆学习传统技艺' },
+    icon: '🎓',
+    color: '#FF6B6B'
+  },
+  {
+    id: 3,
+    year: '2021',
+    title: { it: 'Il Grande Ritorno', en: 'The Return', zh: '归国创业' },
+    description: { it: 'Apertura del primo negozio a Milano con ricette autentiche taiwanese', en: 'Opening the first store in Milan with authentic Taiwanese recipes', zh: '在米兰开设第一家店，带来正宗台湾配方' },
+    icon: '🏪',
+    color: '#4ECDC4'
+  },
+  {
+    id: 4,
+    year: '2022',
+    title: { it: 'L\'Espansione', en: 'The Growth', zh: '快速扩张' },
+    description: { it: 'Apertura di altre due sedi e 50.000+ clienti felici', en: 'Opening two more locations and 50,000+ happy customers', zh: '新开两家分店，服务超过5万顾客' },
+    icon: '📈',
+    color: '#95E1D3'
+  },
+  {
+    id: 5,
+    year: '2023',
+    title: { it: 'L\'Innovazione', en: 'Innovation', zh: '创新发展' },
+    description: { it: 'Lancio del programma fedeltà e delle edizioni stagionali limitate', en: 'Launch of loyalty program and seasonal limited editions', zh: '推出会员计划和季节限定系列' },
+    icon: '🚀',
+    color: '#F38181'
+  },
+  {
+    id: 6,
+    year: '2024',
+    title: { it: 'Il Futuro', en: 'The Future', zh: '未来展望' },
+    description: { it: 'Espansione in tutta Italia e nuove collaborazioni internazionali', en: 'Expansion across Italy and new international collaborations', zh: '在意大利全国扩张，建立国际合作' },
+    icon: '✨',
+    color: '#AA96DA'
+  }
+]
+
+// Floating Menu Items
+export const floatingMenuItems = [
+  {
+    id: 'rewards',
+    icon: '🎁',
+    label: { it: 'Premi', en: 'Rewards', zh: '积分' },
+    link: '#rewards'
+  },
+  {
+    id: 'locations',
+    icon: '📍',
+    label: { it: 'Sedi', en: 'Locations', zh: '门店' },
+    link: '#locations'
+  },
+  {
+    id: 'whatsapp',
+    icon: '💬',
+    label: { it: 'Chat', en: 'Chat', zh: '聊天' },
+    link: 'https://wa.me/390287462915'
+  }
+]
+
+// Achievement Milestones
+export const achievements = [
+  {
+    id: 1,
+    value: 50000,
+    label: { it: 'Clienti Serviti', en: 'Customers Served', zh: '服务顾客' },
+    icon: '👥',
+    suffix: '+'
+  },
+  {
+    id: 2,
+    value: 1500000,
+    label: { it: 'Perle Fatte a Mano', en: 'Handmade Pearls', zh: '手工珍珠' },
+    icon: '⚫',
+    suffix: '+'
+  },
+  {
+    id: 3,
+    value: 25,
+    label: { it: 'Gusti Unici', en: 'Unique Flavors', zh: '独特口味' },
+    icon: '🧋',
+    suffix: ''
+  },
+  {
+    id: 4,
+    value: 99,
+    label: { it: 'Soddisfazione', en: 'Satisfaction', zh: '满意度' },
+    icon: '⭐',
+    suffix: '%'
+  }
+]

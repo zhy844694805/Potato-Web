@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import {
   restaurantInfo,
   categories,
@@ -13,7 +13,16 @@ import {
   reviews,
   rewardTiers,
   locations,
-  faqItems
+  faqItems,
+  seasonalDrinks,
+  makingProcess,
+  instagramPhotos,
+  popularCombos,
+  wheelPrizes,
+  liveStats,
+  brandTimeline,
+  floatingMenuItems,
+  achievements
 } from './data/drinks-data'
 import './BobaTea.css'
 
@@ -34,6 +43,18 @@ function BobaTea() {
   const [expandedFaq, setExpandedFaq] = useState(null)
   const [newsletterEmail, setNewsletterEmail] = useState('')
   const [newsletterSubmitted, setNewsletterSubmitted] = useState(false)
+  const [wheelSpinning, setWheelSpinning] = useState(false)
+  const [wheelRotation, setWheelRotation] = useState(0)
+  const [wheelPrize, setWheelPrize] = useState(null)
+  const [todayOrderCount, setTodayOrderCount] = useState(1247)
+  const [activeUserCount, setActiveUserCount] = useState(83)
+  const [floatingMenuOpen, setFloatingMenuOpen] = useState(false)
+  const [animatedAchievements, setAnimatedAchievements] = useState(
+    achievements.map(() => ({ current: 0, hasAnimated: false }))
+  )
+  const [flippedCards, setFlippedCards] = useState(new Set())
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const achievementsRef = useRef(null)
   const cartIdCounter = useRef(0)
 
   const t = (obj) => obj[language] || obj.en
@@ -154,8 +175,175 @@ function BobaTea() {
     setActiveReviewIndex((prev) => (prev - 1 + reviews.length) % reviews.length)
   }
 
+  // Lucky Wheel Spin
+  const spinWheel = () => {
+    if (wheelSpinning) return
+
+    setWheelSpinning(true)
+    setWheelPrize(null)
+
+    // Calculate prize based on probability
+    const random = Math.random() * 100
+    let cumulative = 0
+    let selectedPrize = wheelPrizes[0]
+
+    for (const prize of wheelPrizes) {
+      cumulative += prize.probability
+      if (random <= cumulative) {
+        selectedPrize = prize
+        break
+      }
+    }
+
+    // Calculate rotation (5-10 full spins + position for selected prize)
+    const prizeIndex = wheelPrizes.findIndex(p => p.id === selectedPrize.id)
+    const prizeAngle = (360 / wheelPrizes.length) * prizeIndex
+    const fullSpins = 5 + Math.floor(Math.random() * 5)
+    const totalRotation = wheelRotation + (fullSpins * 360) + (360 - prizeAngle)
+
+    setWheelRotation(totalRotation)
+
+    setTimeout(() => {
+      setWheelPrize(selectedPrize)
+      setWheelSpinning(false)
+    }, 4000)
+  }
+
+  // Live stats animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTodayOrderCount(prev => prev + Math.floor(Math.random() * 3))
+      setActiveUserCount(prev => {
+        const change = Math.floor(Math.random() * 7) - 3
+        return Math.max(50, Math.min(150, prev + change))
+      })
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  // Mouse parallax effect
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth - 0.5) * 20,
+        y: (e.clientY / window.innerHeight - 0.5) * 20
+      })
+    }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
+  // Animated counter for achievements
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animatedAchievements.forEach((_, index) => {
+              if (!animatedAchievements[index].hasAnimated) {
+                animateCounter(index)
+              }
+            })
+          }
+        })
+      },
+      { threshold: 0.5 }
+    )
+
+    if (achievementsRef.current) {
+      observer.observe(achievementsRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
+  const animateCounter = (index) => {
+    const targetValue = achievements[index].value
+    const duration = 2000
+    const startTime = Date.now()
+
+    const updateCounter = () => {
+      const elapsed = Date.now() - startTime
+      const progress = Math.min(elapsed / duration, 1)
+
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4)
+      const currentValue = Math.floor(easeOutQuart * targetValue)
+
+      setAnimatedAchievements(prev => {
+        const newState = [...prev]
+        newState[index] = {
+          current: currentValue,
+          hasAnimated: progress === 1
+        }
+        return newState
+      })
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter)
+      }
+    }
+
+    requestAnimationFrame(updateCounter)
+  }
+
+  // Toggle card flip
+  const toggleCardFlip = (drinkId) => {
+    setFlippedCards(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(drinkId)) {
+        newSet.delete(drinkId)
+      } else {
+        newSet.add(drinkId)
+      }
+      return newSet
+    })
+  }
+
   return (
     <div className="boba-app">
+      {/* Bubble Particles Background */}
+      <div className="boba-particles">
+        {Array.from({ length: 15 }).map((_, i) => (
+          <div
+            key={i}
+            className="boba-particle"
+            style={{
+              left: `${Math.random() * 100}%`,
+              animationDuration: `${15 + Math.random() * 10}s`,
+              animationDelay: `${Math.random() * 5}s`,
+              width: `${20 + Math.random() * 40}px`,
+              height: `${20 + Math.random() * 40}px`
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Floating Action Menu */}
+      <div className={`boba-floating-menu ${floatingMenuOpen ? 'open' : ''}`}>
+        <button
+          className="boba-floating-toggle"
+          onClick={() => setFloatingMenuOpen(!floatingMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {floatingMenuOpen ? '✕' : '☰'}
+        </button>
+        <div className="boba-floating-items">
+          {floatingMenuItems.map(item => (
+            <a
+              key={item.id}
+              href={item.link}
+              className="boba-floating-item"
+              title={t(item.label)}
+              onClick={() => setFloatingMenuOpen(false)}
+            >
+              <span className="boba-floating-icon">{item.icon}</span>
+              <span className="boba-floating-label">{t(item.label)}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
       {/* Header */}
       <header className="boba-header">
         <div className="boba-logo">BOBA DREAM</div>
@@ -190,7 +378,9 @@ function BobaTea() {
       </header>
 
       {/* Hero Section */}
-      <section className="boba-hero">
+      <section className="boba-hero" style={{
+        transform: `translate(${mousePosition.x * 0.05}px, ${mousePosition.y * 0.05}px)`
+      }}>
         <h1>{restaurantInfo.name}</h1>
         <p className="boba-tagline">{t(restaurantInfo.tagline)}</p>
         <p className="boba-subtitle">{t(translations.hero.subtitle)}</p>
@@ -226,6 +416,100 @@ function BobaTea() {
         ))}
       </section>
 
+      {/* Achievements Counter */}
+      <section ref={achievementsRef} className="boba-achievements">
+        <h2 className="boba-section-title">
+          {language === 'it' ? 'I Nostri Traguardi' : language === 'zh' ? '我们的成就' : 'Our Achievements'}
+        </h2>
+        <div className="boba-achievements-grid">
+          {achievements.map((achievement, index) => (
+            <div key={achievement.id} className="boba-achievement-card">
+              <span className="boba-achievement-icon">{achievement.icon}</span>
+              <div className="boba-achievement-value">
+                {animatedAchievements[index].current.toLocaleString()}{achievement.suffix}
+              </div>
+              <div className="boba-achievement-label">{t(achievement.label)}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Brand Timeline */}
+      <section className="boba-timeline-section">
+        <h2 className="boba-section-title">
+          {language === 'it' ? 'La Nostra Storia' : language === 'zh' ? '品牌故事' : 'Our Story'}
+        </h2>
+        <p className="boba-timeline-subtitle">
+          {language === 'it' ? 'Il viaggio dal sogno alla realtà' : language === 'zh' ? '从梦想到现实的旅程' : 'The journey from dream to reality'}
+        </p>
+        <div className="boba-timeline">
+          {brandTimeline.map((milestone, index) => (
+            <div key={milestone.id} className={`boba-timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
+              <div className="boba-timeline-content" style={{ borderColor: milestone.color }}>
+                <div className="boba-timeline-year" style={{ background: milestone.color }}>
+                  {milestone.year}
+                </div>
+                <div className="boba-timeline-icon">{milestone.icon}</div>
+                <h3>{t(milestone.title)}</h3>
+                <p>{t(milestone.description)}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Live Stats Banner */}
+      <section className="boba-live-stats">
+        <div className="boba-live-stat-item">
+          <span className="boba-live-stat-icon">📊</span>
+          <div>
+            <span className="boba-live-stat-value">{todayOrderCount}+</span>
+            <span className="boba-live-stat-label">{t(liveStats.todayOrders)}</span>
+          </div>
+        </div>
+        <div className="boba-live-stat-item">
+          <span className="boba-live-stat-icon">🔥</span>
+          <div>
+            <span className="boba-live-stat-value">Brown Sugar</span>
+            <span className="boba-live-stat-label">{t(liveStats.popularNow)}</span>
+          </div>
+        </div>
+        <div className="boba-live-stat-item">
+          <span className="boba-live-stat-icon">👥</span>
+          <div>
+            <span className="boba-live-stat-value">{activeUserCount}</span>
+            <span className="boba-live-stat-label">{t(liveStats.activeUsers)}</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Seasonal Limited Edition */}
+      <section className="boba-seasonal">
+        <h2 className="boba-section-title">
+          <span className="boba-title-badge">LIMITED</span>
+          {language === 'it' ? 'Edizione Limitata Stagionale' : language === 'zh' ? '季节限定' : 'Seasonal Limited Edition'}
+        </h2>
+        <div className="boba-seasonal-grid">
+          {seasonalDrinks.map(drink => (
+            <div key={drink.id} className="boba-seasonal-card">
+              <div className="boba-seasonal-badge">{t(drink.season)}</div>
+              <img src={drink.image} alt={t(drink.name)} />
+              <div className="boba-seasonal-content">
+                <h3>{t(drink.name)}</h3>
+                <p>{t(drink.description)}</p>
+                <div className="boba-seasonal-footer">
+                  <span className="boba-seasonal-price">&euro;{drink.price.toFixed(2)}</span>
+                  <span className="boba-seasonal-available">{t(drink.available)}</span>
+                </div>
+                <button className="boba-btn boba-btn-primary">
+                  {language === 'it' ? 'Ordina Ora' : language === 'zh' ? '立即下单' : 'Order Now'}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Menu Section */}
       <section id="menu" className="boba-menu">
         <h2 className="boba-section-title">{t(translations.menu.title)}</h2>
@@ -244,32 +528,85 @@ function BobaTea() {
           ))}
         </div>
 
-        {/* Drinks Grid */}
+        {/* Drinks Grid with 3D Flip */}
         <div className="boba-drinks-grid">
           {filteredDrinks.map(drink => (
             <div
               key={drink.id}
-              className={`boba-drink-card ${drink.popular ? 'popular' : ''} ${drink.isNew ? 'new' : ''}`}
-              onClick={() => openCustomization(drink)}
+              className={`boba-drink-card-wrapper ${flippedCards.has(drink.id) ? 'flipped' : ''}`}
             >
-              {drink.popular && <span className="boba-badge boba-badge-hot">HOT</span>}
-              {drink.isNew && <span className="boba-badge boba-badge-new">{t(translations.menu.new)}</span>}
-              <img src={drink.image} alt={t(drink.name)} className="boba-drink-image" />
-              <div className="boba-drink-info">
-                <h3 className="boba-drink-name">{t(drink.name)}</h3>
-                <p className="boba-drink-desc">{t(drink.description)}</p>
-                {drink.calories && (
-                  <span className="boba-drink-calories">{drink.calories} kcal</span>
-                )}
-                <div className="boba-drink-footer">
-                  <span className="boba-drink-price">&euro;{drink.price.toFixed(2)}</span>
-                  <button
-                    className="boba-add-btn"
-                    onClick={(e) => quickAddToCart(e, drink)}
-                    title={t(translations.menu.addToCart)}
-                  >
-                    +
-                  </button>
+              <div className="boba-drink-card-flipper">
+                {/* Front Side */}
+                <div className={`boba-drink-card boba-drink-card-front ${drink.popular ? 'popular' : ''} ${drink.isNew ? 'new' : ''}`}>
+                  {drink.popular && <span className="boba-badge boba-badge-hot">HOT</span>}
+                  {drink.isNew && <span className="boba-badge boba-badge-new">{t(translations.menu.new)}</span>}
+                  <img src={drink.image} alt={t(drink.name)} className="boba-drink-image" />
+                  <div className="boba-drink-info">
+                    <h3 className="boba-drink-name">{t(drink.name)}</h3>
+                    <p className="boba-drink-desc">{t(drink.description)}</p>
+                    {drink.calories && (
+                      <span className="boba-drink-calories">{drink.calories} kcal</span>
+                    )}
+                    <div className="boba-drink-footer">
+                      <span className="boba-drink-price">&euro;{drink.price.toFixed(2)}</span>
+                      <button
+                        className="boba-flip-btn"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          toggleCardFlip(drink.id)
+                        }}
+                        title={language === 'it' ? 'Info' : language === 'zh' ? '详情' : 'Details'}
+                      >
+                        ℹ️
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Back Side */}
+                <div className="boba-drink-card boba-drink-card-back">
+                  <div className="boba-drink-back-content">
+                    <h3>{t(drink.name)}</h3>
+                    {drink.ingredients && (
+                      <div className="boba-drink-ingredients">
+                        <strong>{language === 'it' ? 'Ingredienti:' : language === 'zh' ? '配料：' : 'Ingredients:'}</strong>
+                        <p>{t(drink.ingredients)}</p>
+                      </div>
+                    )}
+                    <div className="boba-drink-details">
+                      {drink.calories && (
+                        <div className="boba-detail-item">
+                          <span>🔥</span>
+                          <span>{drink.calories} kcal</span>
+                        </div>
+                      )}
+                      <div className="boba-detail-item">
+                        <span>💰</span>
+                        <span>&euro;{drink.price.toFixed(2)}</span>
+                      </div>
+                    </div>
+                    <div className="boba-drink-back-actions">
+                      <button
+                        className="boba-btn boba-btn-primary boba-btn-small"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          toggleCardFlip(drink.id)
+                          openCustomization(drink)
+                        }}
+                      >
+                        {t(translations.menu.customize)}
+                      </button>
+                      <button
+                        className="boba-btn boba-btn-outline boba-btn-small"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          toggleCardFlip(drink.id)
+                        }}
+                      >
+                        {language === 'it' ? 'Indietro' : language === 'zh' ? '返回' : 'Back'}
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -286,6 +623,80 @@ function BobaTea() {
               <span className="boba-topping-icon">{topping.icon}</span>
               <div className="boba-topping-name">{t(topping.name)}</div>
               <div className="boba-topping-price">+&euro;{topping.price.toFixed(2)}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Boba Making Process */}
+      <section className="boba-making-process">
+        <h2 className="boba-section-title">
+          {language === 'it' ? 'Come Facciamo le Nostre Perle' : language === 'zh' ? '珍珠制作工艺' : 'How We Make Our Pearls'}
+        </h2>
+        <p className="boba-process-subtitle">
+          {language === 'it' ? 'Ogni perla è un\'opera d\'arte artigianale' : language === 'zh' ? '每颗珍珠都是手工艺术品' : 'Every pearl is a handcrafted work of art'}
+        </p>
+        <div className="boba-process-timeline">
+          {makingProcess.map((step, index) => (
+            <div key={step.id} className="boba-process-step">
+              <div className="boba-process-number">{index + 1}</div>
+              <div className="boba-process-icon">{step.icon}</div>
+              <div className="boba-process-content">
+                <h3>{t(step.title)}</h3>
+                <p>{t(step.description)}</p>
+                <span className="boba-process-time">⏱ {t(step.time)}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="boba-process-total">
+          <span className="boba-process-total-label">
+            {language === 'it' ? 'Tempo Totale di Preparazione' : language === 'zh' ? '总制作时间' : 'Total Preparation Time'}
+          </span>
+          <span className="boba-process-total-value">~75 {language === 'it' ? 'minuti' : language === 'zh' ? '分钟' : 'minutes'}</span>
+        </div>
+      </section>
+
+      {/* Popular Combos */}
+      <section className="boba-combos">
+        <h2 className="boba-section-title">
+          {language === 'it' ? 'Combo Più Popolari' : language === 'zh' ? '热门套餐推荐' : 'Popular Combos'}
+        </h2>
+        <p className="boba-combos-subtitle">
+          {language === 'it' ? 'Risparmia ordinando i nostri combo speciali' : language === 'zh' ? '订购特惠套餐更划算' : 'Save more with our special combos'}
+        </p>
+        <div className="boba-combos-grid">
+          {popularCombos.map(combo => (
+            <div key={combo.id} className={`boba-combo-card ${combo.popular ? 'popular' : ''}`}>
+              {combo.popular && <span className="boba-combo-hot">🔥 HOT</span>}
+              <img src={combo.image} alt={t(combo.name)} />
+              <div className="boba-combo-content">
+                <h3>{t(combo.name)}</h3>
+                <p className="boba-combo-desc">{t(combo.description)}</p>
+                <div className="boba-combo-includes">
+                  <div className="boba-combo-include-item">
+                    <span className="boba-combo-include-icon">🧋</span>
+                    <span>{combo.drink}</span>
+                  </div>
+                  {combo.toppings.map((topping, idx) => (
+                    <div key={idx} className="boba-combo-include-item">
+                      <span className="boba-combo-include-icon">+</span>
+                      <span>{topping}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="boba-combo-pricing">
+                  <div className="boba-combo-price">
+                    <span className="boba-combo-price-current">&euro;{combo.totalPrice.toFixed(2)}</span>
+                    <span className="boba-combo-savings">
+                      {language === 'it' ? 'Risparmi' : language === 'zh' ? '节省' : 'Save'} &euro;{combo.savings.toFixed(2)}
+                    </span>
+                  </div>
+                  <button className="boba-btn boba-btn-primary">
+                    {language === 'it' ? 'Aggiungi' : language === 'zh' ? '加入购物车' : 'Add to Cart'}
+                  </button>
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -370,6 +781,93 @@ function BobaTea() {
             />
           ))}
         </div>
+      </section>
+
+      {/* Lucky Wheel */}
+      <section className="boba-lucky-wheel-section">
+        <h2 className="boba-section-title">
+          {language === 'it' ? 'Ruota della Fortuna' : language === 'zh' ? '幸运转盘' : 'Lucky Wheel'}
+        </h2>
+        <p className="boba-wheel-subtitle">
+          {language === 'it' ? 'Gira la ruota e vinci premi esclusivi!' : language === 'zh' ? '转动转盘，赢取专属奖励！' : 'Spin the wheel and win exclusive prizes!'}
+        </p>
+
+        <div className="boba-wheel-container">
+          <div className="boba-wheel-wrapper">
+            <div className="boba-wheel-pointer">▼</div>
+            <div
+              className="boba-wheel"
+              style={{
+                transform: `rotate(${wheelRotation}deg)`,
+                transition: wheelSpinning ? 'transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99)' : 'none'
+              }}
+            >
+              {wheelPrizes.map((prize, index) => {
+                const angle = (360 / wheelPrizes.length) * index
+                return (
+                  <div
+                    key={prize.id}
+                    className="boba-wheel-segment"
+                    style={{
+                      transform: `rotate(${angle}deg)`,
+                      background: prize.color
+                    }}
+                  >
+                    <span className="boba-wheel-prize-text">
+                      {t(prize.name)}
+                    </span>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
+          <button
+            className={`boba-btn boba-btn-primary boba-spin-btn ${wheelSpinning ? 'spinning' : ''}`}
+            onClick={spinWheel}
+            disabled={wheelSpinning}
+          >
+            {wheelSpinning
+              ? (language === 'it' ? 'Girando...' : language === 'zh' ? '转动中...' : 'Spinning...')
+              : (language === 'it' ? 'Gira Ora!' : language === 'zh' ? '立即转动' : 'Spin Now!')}
+          </button>
+
+          {wheelPrize && (
+            <div className="boba-wheel-result">
+              <h3>🎉 {language === 'it' ? 'Hai Vinto!' : language === 'zh' ? '恭喜中奖！' : 'You Won!'}</h3>
+              <p className="boba-wheel-prize-name">{t(wheelPrize.name)}</p>
+              <p className="boba-wheel-prize-desc">{t(wheelPrize.description)}</p>
+              <button className="boba-btn boba-btn-outline">
+                {language === 'it' ? 'Usa Ora' : language === 'zh' ? '立即使用' : 'Use Now'}
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Instagram Photo Wall */}
+      <section className="boba-instagram">
+        <h2 className="boba-section-title">
+          #{language === 'it' ? 'BobaDreamMilano' : language === 'zh' ? 'Boba梦想米兰' : 'BobaDreamMilano'}
+        </h2>
+        <p className="boba-instagram-subtitle">
+          {language === 'it' ? 'Condividi il tuo momento Boba con noi!' : language === 'zh' ? '分享你的Boba时刻！' : 'Share your Boba moment with us!'}
+        </p>
+        <div className="boba-instagram-grid">
+          {instagramPhotos.map(photo => (
+            <div key={photo.id} className="boba-instagram-photo">
+              <img src={photo.image} alt={photo.username} />
+              <div className="boba-instagram-overlay">
+                <span className="boba-instagram-username">{photo.username}</span>
+                <span className="boba-instagram-likes">❤️ {photo.likes.toLocaleString()}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button className="boba-btn boba-btn-outline boba-instagram-cta">
+          <span>📸</span>
+          {language === 'it' ? 'Segui su Instagram' : language === 'zh' ? '在Instagram上关注我们' : 'Follow on Instagram'}
+        </button>
       </section>
 
       {/* Locations Section */}

@@ -106,6 +106,13 @@ Multi-page demos (e.g., dragon-court) use React Router nested routes and their o
 - `useParallax(speed)` - Scroll-based parallax movement
 - `useMouseParallax(intensity)` - Mouse-follow parallax effect
 
+**Advanced UI Patterns in Demos:**
+- **3D Flip Cards**: Use perspective and backface-visibility for card flip animations
+- **Scroll-triggered Counters**: IntersectionObserver + requestAnimationFrame for number animations
+- **Particle Backgrounds**: Fixed positioned elements with keyframe animations
+- **Floating Action Menus**: Fixed positioning with transform animations for expand/collapse
+- **Timeline Components**: Alternating left/right layout with center line and connecting arrows
+
 ### Data File Helpers
 
 ```javascript
@@ -206,3 +213,22 @@ PM2 configuration is in `ecosystem.config.cjs`. The site runs on port 5173 via `
 - html2pdf.js for PDF export
 - vite-plugin-pwa for offline support
 - No TypeScript, no CSS framework (pure CSS with design tokens)
+
+## Demo Site Examples
+
+The repository contains 28 fully functional demo sites. Notable examples:
+
+**dragon-court (龙庭)**: Multi-page Chinese restaurant with nested routing, visual enhancement system, image galleries, and reservation system.
+
+**boba-tea**: Bubble tea shop with advanced UI effects including:
+- 3D flip product cards with front/back content
+- Animated particle background (floating bubbles)
+- Scroll-triggered achievement counters
+- Interactive lucky wheel with prize system
+- Brand story timeline with alternating layout
+- Floating action menu
+- Mouse parallax effects on hero section
+
+**bubble-vibe**: Modern bubble tea cafe with minimalist design, season specials, and interactive ordering.
+
+All demos follow the same pattern: self-contained components, isolated CSS with unique prefixes, trilingual support, and responsive design.
