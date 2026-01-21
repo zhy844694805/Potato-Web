@@ -434,51 +434,74 @@ function BobaTea() {
         </div>
       </section>
 
-      {/* Brand Timeline */}
-      <section className="boba-timeline-section">
-        <h2 className="boba-section-title">
-          {language === 'it' ? 'La Nostra Storia' : language === 'zh' ? '品牌故事' : 'Our Story'}
-        </h2>
-        <p className="boba-timeline-subtitle">
-          {language === 'it' ? 'Il viaggio dal sogno alla realtà' : language === 'zh' ? '从梦想到现实的旅程' : 'The journey from dream to reality'}
-        </p>
-        <div className="boba-timeline">
+      {/* Brand Story - Redesigned */}
+      <section className="boba-story-section">
+        <div className="boba-story-hero">
+          <div className="boba-story-hero-bg">
+            <div className="boba-story-bubble" style={{ left: '10%', animationDelay: '0s' }}></div>
+            <div className="boba-story-bubble" style={{ left: '25%', animationDelay: '1.5s' }}></div>
+            <div className="boba-story-bubble" style={{ left: '50%', animationDelay: '3s' }}></div>
+            <div className="boba-story-bubble" style={{ left: '75%', animationDelay: '2s' }}></div>
+            <div className="boba-story-bubble" style={{ left: '90%', animationDelay: '0.5s' }}></div>
+          </div>
+          <div className="boba-story-hero-content">
+            <span className="boba-story-badge">2019 - 2026</span>
+            <h2 className="boba-story-title">
+              {language === 'it' ? 'Il Nostro Viaggio' : language === 'zh' ? '我们的旅程' : 'Our Journey'}
+            </h2>
+            <p className="boba-story-subtitle">
+              {language === 'it'
+                ? 'Dalla passione per il bubble tea a un brand amato da migliaia di clienti'
+                : language === 'zh'
+                ? '从对珍珠奶茶的热爱到成为数千客户喜爱的品牌'
+                : 'From a passion for bubble tea to a brand loved by thousands'}
+            </p>
+          </div>
+        </div>
+
+        <div className="boba-story-grid">
           {brandTimeline.map((milestone, index) => (
-            <div key={milestone.id} className={`boba-timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
-              <div className="boba-timeline-content" style={{ borderColor: milestone.color }}>
-                <div className="boba-timeline-year" style={{ background: milestone.color }}>
-                  {milestone.year}
-                </div>
-                <div className="boba-timeline-icon">{milestone.icon}</div>
-                <h3>{t(milestone.title)}</h3>
-                <p>{t(milestone.description)}</p>
+            <div
+              key={milestone.id}
+              className="boba-story-card"
+              style={{
+                '--card-color': milestone.color,
+                animationDelay: `${index * 0.1}s`
+              }}
+            >
+              <div className="boba-story-card-inner">
+                <div className="boba-story-card-glow" style={{ background: milestone.color }}></div>
+                <div className="boba-story-card-number">{milestone.year}</div>
+                <div className="boba-story-card-icon">{milestone.icon}</div>
+                <h3 className="boba-story-card-title">{t(milestone.title)}</h3>
+                <p className="boba-story-card-desc">{t(milestone.description)}</p>
+                <div className="boba-story-card-shine"></div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Live Stats Banner */}
-      <section className="boba-live-stats">
-        <div className="boba-live-stat-item">
-          <span className="boba-live-stat-icon">📊</span>
-          <div>
-            <span className="boba-live-stat-value">{todayOrderCount}+</span>
-            <span className="boba-live-stat-label">{t(liveStats.todayOrders)}</span>
+      {/* Live Stats Banner - Simple & Clean */}
+      <section className="boba-stats-simple">
+        <div className="boba-stats-wrapper">
+          <div className="boba-stat-item">
+            <div className="boba-stat-value">{todayOrderCount}</div>
+            <div className="boba-stat-text">{t(liveStats.todayOrders)}</div>
           </div>
-        </div>
-        <div className="boba-live-stat-item">
-          <span className="boba-live-stat-icon">🔥</span>
-          <div>
-            <span className="boba-live-stat-value">Brown Sugar</span>
-            <span className="boba-live-stat-label">{t(liveStats.popularNow)}</span>
+
+          <div className="boba-stat-divider"></div>
+
+          <div className="boba-stat-item boba-stat-highlight">
+            <div className="boba-stat-value">Brown Sugar</div>
+            <div className="boba-stat-text">{t(liveStats.popularNow)}</div>
           </div>
-        </div>
-        <div className="boba-live-stat-item">
-          <span className="boba-live-stat-icon">👥</span>
-          <div>
-            <span className="boba-live-stat-value">{activeUserCount}</span>
-            <span className="boba-live-stat-label">{t(liveStats.activeUsers)}</span>
+
+          <div className="boba-stat-divider"></div>
+
+          <div className="boba-stat-item">
+            <div className="boba-stat-value">{activeUserCount}</div>
+            <div className="boba-stat-text">{t(liveStats.activeUsers)}</div>
           </div>
         </div>
       </section>

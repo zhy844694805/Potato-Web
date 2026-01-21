@@ -16,19 +16,19 @@ function SEO({
   // 站点信息
   const siteInfo = {
     zh: {
-      siteName: '土豆引擎',
-      siteDescription: '专注于数字产品设计与开发的创新公司，提供网站开发、APP开发、小程序开发和软件定制服务',
-      author: '土豆引擎团队'
+      siteName: '土豆建站',
+      siteDescription: '专业网站建设服务，为意大利华人企业提供网站开发、小程序开发、移动应用和数字化解决方案',
+      author: '土豆建站团队'
     },
     en: {
-      siteName: 'Potato Engine',
-      siteDescription: 'Innovative company focused on digital product design and development, providing web development, app development, mini-program development, and custom software services',
-      author: 'Potato Engine Team'
+      siteName: 'Potato Web',
+      siteDescription: 'Professional website development services for Italian-Chinese businesses, providing web development, mini-programs, mobile apps, and digital solutions',
+      author: 'Potato Web Team'
     },
     it: {
-      siteName: 'Potato Engine',
-      siteDescription: 'Azienda innovativa specializzata nella progettazione e sviluppo di prodotti digitali, offrendo sviluppo web, app, mini-programmi e servizi software personalizzati',
-      author: 'Team Potato Engine'
+      siteName: 'Potato Web',
+      siteDescription: 'Servizi professionali di sviluppo web per imprese italo-cinesi, offrendo sviluppo siti web, mini-programmi, app mobile e soluzioni digitali',
+      author: 'Team Potato Web'
     }
   }
 
@@ -61,13 +61,18 @@ function SEO({
       <meta name="twitter:image" content={image} />
 
       {/* 额外的 SEO 标签 */}
-      <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index, follow" />
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="bingbot" content="index, follow" />
       <link rel="canonical" content={url} />
+
+      {/* 地理位置信息 */}
+      <meta name="geo.region" content="IT" />
+      <meta name="geo.placename" content="Milano" />
 
       {/* 移动端优化 */}
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-      <meta name="theme-color" content="#1a1a1a" />
+      <meta name="theme-color" content="#667eea" />
 
       {/* 备用语言链接 - 支持三语 */}
       <link rel="alternate" hrefLang="zh" href={`${url}?lang=zh`} />

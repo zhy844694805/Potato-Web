@@ -12,9 +12,12 @@ const PortfolioCard = memo(function PortfolioCard({ portfolio }) {
     trackPortfolioView(portfolio.id, portfolio.title[language])
   }
 
+  // If portfolio has demo URL, link to demo; otherwise link to detail page
+  const linkTo = portfolio.demoUrl || `/portfolio/${portfolio.slug}`
+
   return (
     <Link
-      to={`/portfolio/${portfolio.slug}`}
+      to={linkTo}
       className="portfolio-card"
       onClick={handleClick}
     >

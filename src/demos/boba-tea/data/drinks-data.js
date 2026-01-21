@@ -1013,10 +1013,26 @@ export const brandTimeline = [
   {
     id: 6,
     year: '2024',
-    title: { it: 'Il Futuro', en: 'The Future', zh: '未来展望' },
-    description: { it: 'Espansione in tutta Italia e nuove collaborazioni internazionali', en: 'Expansion across Italy and new international collaborations', zh: '在意大利全国扩张，建立国际合作' },
-    icon: '✨',
+    title: { it: 'La Rivoluzione Digitale', en: 'Digital Revolution', zh: '数字革命' },
+    description: { it: 'Lancio dell\'app mobile e sistema di ordinazione smart', en: 'Launch of mobile app and smart ordering system', zh: '推出移动应用和智能点单系统' },
+    icon: '📱',
     color: '#AA96DA'
+  },
+  {
+    id: 7,
+    year: '2025',
+    title: { it: 'Sostenibilità', en: 'Sustainability', zh: '可持续发展' },
+    description: { it: 'Packaging 100% biodegradabile e certificazione eco-friendly', en: '100% biodegradable packaging and eco-friendly certification', zh: '100%可降解包装，获得环保认证' },
+    icon: '🌱',
+    color: '#6BCF7F'
+  },
+  {
+    id: 8,
+    year: '2026',
+    title: { it: 'L\'Eccellenza Italiana', en: 'Italian Excellence', zh: '意大利卓越' },
+    description: { it: 'Riconosciuto come miglior brand di bubble tea in Italia, 15+ sedi', en: 'Recognized as Italy\'s best bubble tea brand, 15+ locations', zh: '成为意大利最佳珍珠奶茶品牌，15+门店' },
+    icon: '🏆',
+    color: '#FFB84D'
   }
 ]
 

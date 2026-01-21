@@ -31,10 +31,10 @@ export default defineConfig({
     }),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['logo.jpg', 'robots.txt', 'sitemap.xml'],
+      includeAssets: ['favicon.png', 'apple-touch-icon.png', 'robots.txt', 'sitemap.xml'],
       manifest: {
-        name: '土豆引擎 | Potato Engine',
-        short_name: '土豆引擎',
+        name: '土豆建站 | Potato Web',
+        short_name: '土豆建站',
         description: '专业Web开发与全栈解决方案',
         theme_color: '#667eea',
         background_color: '#ffffff',
@@ -42,21 +42,24 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: '/logo.jpg',
+            src: '/logo-192.png',
             sizes: '192x192',
-            type: 'image/jpeg',
+            type: 'image/png',
             purpose: 'any maskable'
           },
           {
-            src: '/logo.jpg',
+            src: '/logo-512.png',
             sizes: '512x512',
-            type: 'image/jpeg',
+            type: 'image/png',
             purpose: 'any maskable'
           }
         ]
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,jpeg,woff,woff2}'],
+        // 跳过等待，立即激活新 SW
+        skipWaiting: true,
+        clientsClaim: true,
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -73,13 +76,55 @@ export default defineConfig({
             }
           },
           {
+            urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-webfonts',
+              expiration: {
+                maxEntries: 30,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          },
+          {
             urlPattern: /^https:\/\/images\.unsplash\.com\/.*/i,
             handler: 'CacheFirst',
             options: {
               cacheName: 'unsplash-images-cache',
               expiration: {
-                maxEntries: 50,
+                maxEntries: 100,
                 maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          },
+          {
+            urlPattern: /^https:\/\/images\.pexels\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'pexels-images-cache',
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          },
+          {
+            urlPattern: /^https:\/\/videos\.pexels\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'pexels-videos-cache',
+              expiration: {
+                maxEntries: 20,
+                maxAgeSeconds: 60 * 60 * 24 * 7 // 7 days
               },
               cacheableResponse: {
                 statuses: [0, 200]
@@ -100,17 +145,31 @@ export default defineConfig({
     rollupOptions: {
       output: {
         // Manual chunk splitting for better caching
-        manualChunks: {
+        manualChunks(id) {
           // Core React libraries
-          vendor: ['react', 'react-dom', 'react-router-dom'],
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom') || id.includes('node_modules/react-router')) {
+            return 'vendor'
+          }
           // Internationalization
-          i18n: ['i18next', 'react-i18next'],
+          if (id.includes('node_modules/i18next') || id.includes('node_modules/react-i18next')) {
+            return 'i18n'
+          }
           // Form libraries
-          forms: ['react-hook-form', '@hookform/resolvers', 'yup'],
+          if (id.includes('node_modules/react-hook-form') || id.includes('node_modules/@hookform') || id.includes('node_modules/yup')) {
+            return 'forms'
+          }
           // PDF export (lazy loaded, large bundle)
-          'pdf-export': ['html2pdf.js'],
+          if (id.includes('node_modules/html2pdf')) {
+            return 'pdf-export'
+          }
           // SEO utilities
-          'seo-utils': ['react-helmet-async']
+          if (id.includes('node_modules/react-helmet-async')) {
+            return 'seo-utils'
+          }
+          // Large data files
+          if (id.includes('src/data/portfolio.js') || id.includes('src/data/blog.js')) {
+            return 'data'
+          }
         },
         // Better file naming for caching
         chunkFileNames: 'assets/js/[name]-[hash].js',

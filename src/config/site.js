@@ -26,7 +26,7 @@ export const siteConfig = {
   formspreeId: import.meta.env.VITE_FORMSPREE_ID || 'xeejgvrn',
 
   // SEO 默认图片
-  defaultImage: 'https://aimodel.it/logo.jpg',
+  defaultImage: 'https://aimodel.it/logo-512.png',
 
   // Logo 路径
   logo: '/logo.jpg'

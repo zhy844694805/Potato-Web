@@ -614,12 +614,17 @@
 }
 
 .contact-btn--phone {
-  background: var(--gradient-growth);
+  background: linear-gradient(135deg, #10b981, #059669);
   color: white !important;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
 }
 
 .contact-btn--phone:hover {
+  background: linear-gradient(135deg, #059669, #047857);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
   color: white !important;

@@ -1,4 +1,4 @@
-# 极简匠心 LOGO 使用指南
+# 土豆建站 LOGO 使用指南
 
 ## 📁 LOGO 文件说明
 
@@ -65,13 +65,13 @@
 
 ```html
 <!-- 完整LOGO -->
-<img src="/logo.svg" alt="极简匠心" width="280" height="100">
+<img src="/logo.svg" alt="土豆建站" width="280" height="100">
 
 <!-- 浅色背景版 -->
-<img src="/logo-light.svg" alt="极简匠心" width="280" height="100">
+<img src="/logo-light.svg" alt="土豆建站" width="280" height="100">
 
 <!-- 图标版 -->
-<img src="/logo-icon.svg" alt="极简匠心" width="100" height="100">
+<img src="/logo-icon.svg" alt="土豆建站" width="100" height="100">
 ```
 
 ### 在React组件中使用
@@ -83,7 +83,7 @@ import logoLight from '/logo-light.svg'
 import logoIcon from '/logo-icon.svg'
 
 // 使用
-<img src={logo} alt="极简匠心" className="header-logo" />
+<img src={logo} alt="土豆建站" className="header-logo" />
 ```
 
 ### 作为CSS背景
@@ -181,4 +181,4 @@ LOGO周围应保持至少等于图标高度25%的空白区域，确保视觉清�
 
 ---
 
-**© 2024 极简匠心 | Minimal Craft. 保留所有权利.**
+**© 2024 土豆建站 | Potato Web. 保留所有权利.**

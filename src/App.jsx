@@ -15,7 +15,6 @@ const Home = lazy(() => import('./pages/Home/Home'))
 const Services = lazy(() => import('./pages/Services/Services'))
 const ServiceDetail = lazy(() => import('./pages/Services/ServiceDetail'))
 const Portfolio = lazy(() => import('./pages/Portfolio/Portfolio'))
-const PortfolioDetail = lazy(() => import('./pages/Portfolio/PortfolioDetail'))
 const Blog = lazy(() => import('./pages/Blog/Blog'))
 const BlogDetail = lazy(() => import('./pages/Blog/BlogDetail'))
 const Testimonials = lazy(() => import('./pages/Testimonials/Testimonials'))
@@ -57,6 +56,8 @@ const VitaCare = lazy(() => import('./demos/vita-care/VitaCare'))
 const OceanBloom = lazy(() => import('./demos/ocean-bloom/OceanBloom'))
 const OmakaseZen = lazy(() => import('./demos/omakase-zen/OmakaseZen'))
 const DragonCourt = lazy(() => import('./demos/dragon-court/DragonCourt'))
+const BubbleVibe = lazy(() => import('./demos/bubble-vibe/BubbleVibe'))
+const TechZone = lazy(() => import('./demos/tech-zone/TechZone'))
 
 // Loading fallback component with skeleton
 function PageLoader() {
@@ -118,6 +119,8 @@ function AppContent() {
             <Route path="/demo/ocean-bloom" element={<OceanBloom />} />
             <Route path="/demo/omakase-zen" element={<OmakaseZen />} />
             <Route path="/demo/dragon-court/*" element={<DragonCourt />} />
+            <Route path="/demo/bubble-vibe" element={<BubbleVibe />} />
+            <Route path="/demo/tech-zone/*" element={<TechZone />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>
@@ -137,7 +140,6 @@ function AppContent() {
               <Route path="/services" element={<Services />} />
               <Route path="/services/:id" element={<ServiceDetail />} />
               <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/portfolio/:id" element={<PortfolioDetail />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogDetail />} />
               <Route path="/testimonials" element={<Testimonials />} />

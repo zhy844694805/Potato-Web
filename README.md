@@ -1,4 +1,4 @@
-# 极简匠心 (Minimal Craft)
+# 土豆建站 (Potato Web)
 
 A modern React portfolio website for a tech agency targeting Italian Chinese businesses, featuring trilingual support (Italian/English/Chinese), 25 demo sites, and comprehensive SEO optimization.
 

@@ -9,7 +9,6 @@ import './Quote.css'
 
 // Pricing data - 华人市场友好价格
 const projectTypes = {
-  landing: { base: 200, label: { zh: '落地页', en: 'Landing Page', it: 'Landing Page' } },
   website: { base: 500, label: { zh: '企业网站', en: 'Business Website', it: 'Sito Aziendale' } },
   ecommerce: { base: 1000, label: { zh: '电商网站', en: 'E-commerce', it: 'E-commerce' } },
   webapp: { base: 2000, label: { zh: '全栈应用', en: 'Full-Stack App', it: 'App Full-Stack' } },

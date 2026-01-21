@@ -1,5 +1,5 @@
 /* global process */
-// Sitemap Generator for Minimal Craft
+// Sitemap Generator for Potato Web
 // Run with: node scripts/generate-sitemap.js
 // Or: node scripts/generate-sitemap.js --dist (for postbuild, writes to dist folder)
 // Automatically runs after build via postbuild script
@@ -90,11 +90,12 @@ const blogPages = blogSlugs.map(slug => ({
 // 合并所有页面
 const allPages = [...staticPages, ...portfolioPages, ...blogPages]
 
-// 生成 XML sitemap
+// 生成 XML sitemap (支持三语: 中文、英文、意大利语)
 function generateSitemap() {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${allPages
   .map(
     page => `  <url>
@@ -104,6 +105,8 @@ ${allPages
     <priority>${page.priority}</priority>
     <xhtml:link rel="alternate" hreflang="zh" href="${BASE_URL}${page.url}?lang=zh" />
     <xhtml:link rel="alternate" hreflang="en" href="${BASE_URL}${page.url}?lang=en" />
+    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}${page.url}?lang=it" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${page.url}" />
   </url>`
   )
   .join('\n')}
@@ -112,18 +115,41 @@ ${allPages
   return sitemap
 }
 
-// 生成 robots.txt
+// 生成 robots.txt (增强版，支持Google和Bing)
 function generateRobots() {
   return `# Robots.txt for ${BASE_URL}
+# 土豆建站 | Potato Web
+
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemap location
 Sitemap: ${BASE_URL}/sitemap.xml
 
-# Disallow admin/private paths (if any)
+# Disallow admin/private paths
 Disallow: /api/
 Disallow: /_/
+Disallow: /admin/
+
+# Disallow demo sites from being indexed separately
+Disallow: /demo/
+
+# Allow all crawlers to access images and assets
+Allow: /assets/
+Allow: /images/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
 `
 }
 

@@ -4,21 +4,40 @@ import { siteConfig, getFullUrl } from '../config/site'
 export const organizationSchema = (language) => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': getFullUrl('/#organization'),
   name: siteConfig.name[language] || siteConfig.name.zh,
+  alternateName: language === 'zh' ? 'Potato Web' : '土豆建站',
   url: siteConfig.url,
-  logo: getFullUrl(siteConfig.logo),
+  logo: {
+    '@type': 'ImageObject',
+    url: getFullUrl('/logo-512.png'),
+    width: 512,
+    height: 512
+  },
+  image: getFullUrl('/logo-512.png'),
   description: language === 'zh'
-    ? '独立开发者，专注于Web开发和全栈解决方案'
-    : 'Independent developer focused on web development and full-stack solutions',
+    ? '专业网站建设服务，为意大利华人企业提供网站开发、小程序开发、移动应用和数字化解决方案'
+    : language === 'it'
+    ? 'Servizi professionali di sviluppo web per imprese italo-cinesi'
+    : 'Professional website development services for Italian-Chinese businesses',
   address: {
     '@type': 'PostalAddress',
-    addressCountry: 'CN'
+    addressLocality: 'Milano',
+    addressRegion: 'Lombardia',
+    addressCountry: 'IT'
   },
-  contactPoint: siteConfig.contact.email ? {
+  contactPoint: {
     '@type': 'ContactPoint',
+    telephone: siteConfig.contact.phone,
     email: siteConfig.contact.email,
-    contactType: 'customer service'
-  } : undefined,
+    contactType: 'customer service',
+    availableLanguage: ['Chinese', 'English', 'Italian']
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Italy'
+  },
+  knowsLanguage: ['zh-CN', 'en', 'it'],
   sameAs: [siteConfig.social.github].filter(Boolean)
 })
 
@@ -166,12 +185,16 @@ export const blogPostingSchema = (post, language) => ({
 export const serviceSchema = (language) => ({
   '@context': 'https://schema.org',
   '@type': 'Service',
-  serviceType: language === 'zh' ? 'Web开发与全栈解决方案' : 'Web Development & Full-Stack Solutions',
+  serviceType: language === 'zh' ? 'Web开发与全栈解决方案' : language === 'it' ? 'Sviluppo Web e Soluzioni Full-Stack' : 'Web Development & Full-Stack Solutions',
   provider: {
     '@type': 'Organization',
+    '@id': getFullUrl('/#organization'),
     name: siteConfig.name[language] || siteConfig.name.zh
   },
-  areaServed: 'CN',
+  areaServed: {
+    '@type': 'Country',
+    name: 'Italy'
+  },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: language === 'zh' ? '服务目录' : 'Service Catalog',
