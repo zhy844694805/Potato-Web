@@ -1227,6 +1227,50 @@ export const portfolioData = [
       { url: '/images/portfolio/restaurant-2.jpg', caption: { zh: '御膳菜单', en: 'Imperial Menu' } },
       { url: '/images/portfolio/restaurant-3.jpg', caption: { zh: '主厨介绍', en: 'Chef Profile' } }
     ]
+  },
+
+  // 26. TechZone 科技领域 - 电商独立站
+  {
+    id: 26,
+    slug: 'tech-zone',
+    category: 'ecommerce',
+    title: { zh: 'TechZone 科技领域电商', en: 'TechZone E-commerce Platform' },
+    industry: { zh: '电子商务', en: 'E-commerce' },
+    year: '2024',
+    color: '#3b82f6',
+    shortDesc: { zh: '全功能电商独立站，含后台管理系统', en: 'Full-featured e-commerce with admin dashboard' },
+    client: { zh: 'TechZone 科技', en: 'TechZone Tech' },
+    description: {
+      zh: '一个完整的电商独立站解决方案，包含商品展示、购物车、结账流程、心愿单等完整购物功能，以及管理员后台系统。支持商品管理、用户管理、订单管理等全方位电商运营功能。',
+      en: 'A complete e-commerce solution featuring product catalog, shopping cart, checkout flow, wishlist, and a full admin dashboard. Supports product management, user management, and order management for comprehensive e-commerce operations.'
+    },
+    challenge: {
+      zh: '如何构建一个既有完整购物体验，又具备强大后台管理能力的电商系统？需要在前端展示与后台管理之间实现无缝衔接。',
+      en: 'How to build an e-commerce system with both complete shopping experience and powerful backend management? Seamless integration between frontend and admin panel was essential.'
+    },
+    solution: {
+      zh: '采用React组件化架构，Context API管理全局状态，localStorage持久化购物车和心愿单数据，独立的管理员认证系统和仪表盘。',
+      en: 'React component architecture with Context API for global state, localStorage for cart and wishlist persistence, independent admin authentication and dashboard system.'
+    },
+    results: [
+      { value: '30+', label: { zh: '商品数量', en: 'Products' } },
+      { value: '8', label: { zh: '商品分类', en: 'Categories' } },
+      { value: '3语', label: { zh: '语言支持', en: 'Languages' } }
+    ],
+    technologies: ['React', 'Context API', 'LocalStorage', 'CSS3'],
+    demoUrl: '/demo/tech-zone',
+    features: [
+      { icon: '🛒', title: { zh: '购物车系统', en: 'Shopping Cart' }, desc: { zh: '实时更新，持久化存储', en: 'Real-time updates, persistent storage' } },
+      { icon: '❤️', title: { zh: '心愿单', en: 'Wishlist' }, desc: { zh: '收藏喜欢的商品', en: 'Save favorite products' } },
+      { icon: '🔐', title: { zh: '管理后台', en: 'Admin Panel' }, desc: { zh: '商品/用户/订单管理', en: 'Products/Users/Orders management' } },
+      { icon: '🔍', title: { zh: '商品搜索', en: 'Product Search' }, desc: { zh: '智能搜索和筛选', en: 'Smart search and filtering' } }
+    ],
+    thumbnail: '/images/portfolio/tech-1.jpg',
+    images: [
+      { url: '/images/portfolio/tech-1.jpg', caption: { zh: '商城首页', en: 'Store Homepage' } },
+      { url: '/images/portfolio/tech-2.jpg', caption: { zh: '商品列表', en: 'Product Listing' } },
+      { url: '/images/portfolio/tech-3.jpg', caption: { zh: '管理后台', en: 'Admin Dashboard' } }
+    ]
   }
 ]
 
@@ -1250,5 +1294,6 @@ export const categories = [
   { value: 'miniprogram', label: { zh: '小程序', en: 'Mini Program' } },
   { value: 'saas', label: { zh: 'SaaS产品', en: 'SaaS Product' } },
   { value: 'education', label: { zh: '教育培训', en: 'Education' } },
-  { value: 'healthcare', label: { zh: '医疗健康', en: 'Healthcare' } }
+  { value: 'healthcare', label: { zh: '医疗健康', en: 'Healthcare' } },
+  { value: 'ecommerce', label: { zh: '电子商务', en: 'E-commerce' } }
 ]
