@@ -17,7 +17,7 @@ export const services = [
       { zh: '响应式设计', en: 'Responsive Design', it: 'Design Responsive' }
     ],
     longDescription: {
-      zh: '专注于开发现代化的响应式网站，无论是企业官网、个人博客还是产品落地页。使用React、Vue等现代前端框架，确保网站快速、美观且易于维护。\n\n我会亲自负责项目的每一个环节，从需求沟通、设计实现到上线部署。直接沟通意味着更快速的响应，更灵活的调整，更高效的开发流程。',
+      zh: '专注于开发现代化的响应式网站，无论是企业官网、个人博客还是产品落地页。使用React、Vue等现代前端框架，确保网站快速、美观且易于维护.\n\n我会亲自负责项目的每一个环节，从需求沟通、设计实现到上线部署。直接沟通意味着更快速的响应，更灵活的调整，更高效的开发流程。',
       en: 'Focused on developing modern responsive websites, whether corporate sites, personal blogs, or product landing pages. Using modern frontend frameworks like React and Vue to ensure websites are fast, beautiful, and easy to maintain.\n\nI personally handle every aspect of the project, from requirement communication and design implementation to deployment. Direct communication means faster response and more efficient development.',
       it: 'Specializzato nello sviluppo di siti web moderni e responsive, che siano siti aziendali, blog personali o landing page. Utilizzo framework frontend moderni come React e Vue per garantire siti veloci, belli e facili da mantenere.\n\nGestisco personalmente ogni aspetto del progetto, dalla comunicazione dei requisiti al design fino al deployment. Comunicazione diretta significa risposte più rapide e sviluppo più efficiente.'
     }

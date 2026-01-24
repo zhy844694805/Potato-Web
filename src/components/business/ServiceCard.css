@@ -100,19 +100,17 @@
 
 /* Arrow */
 .service-arrow {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  font-size: 1.5rem;
-  color: var(--border-color);
-  transition: all 0.2s;
+  align-self: flex-end;
+  font-size: 2rem;
+  color: var(--text-primary);
+  transition: transform 0.2s;
   font-family: var(--font-mono);
-  font-weight: bold;
-  opacity: 1; /* Always visible */
-  transform: none;
+  font-weight: 300;
+  line-height: 1;
+  margin-top: 1rem;
 }
 
 .service-card:hover .service-arrow {
   color: #000;
-  transform: rotate(-45deg); /* Point top-right */
+  transform: translateX(10px); /* Move right instead of rotate */
 }
