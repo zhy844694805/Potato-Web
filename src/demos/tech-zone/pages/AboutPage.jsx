@@ -6,47 +6,38 @@ export default function AboutPage() {
   const about = translations.about;
 
   const stats = [
-    { value: '50K+', label: { zh: '满意客户', en: 'Happy Customers', it: 'Clienti Soddisfatti' } },
-    { value: '1000+', label: { zh: '产品种类', en: 'Products', it: 'Prodotti' } },
-    { value: '15+', label: { zh: '品牌合作', en: 'Brand Partners', it: 'Partner Brand' } },
-    { value: '99%', label: { zh: '好评率', en: 'Satisfaction Rate', it: 'Tasso di Soddisfazione' } }
+    { value: '98.4%', label: { zh: '系统正常运行时间', en: 'System Uptime', it: 'Tempo di Attività' }, code: 'UPTIME' },
+    { value: '50K+', label: { zh: '已连接节点', en: 'Connected Nodes', it: 'Nodi Connessi' }, code: 'NODES' },
+    { value: '150+', label: { zh: '全球合作伙伴', en: 'Global Protocols', it: 'Protocolli Globali' }, code: 'PRTCLS' },
+    { value: '24/7', label: { zh: '监控覆盖', en: 'Monitoring', it: 'Monitoraggio' }, code: 'MNTR' }
   ];
 
   const values = [
     {
-      icon: '🎯',
-      title: { zh: '品质优先', en: 'Quality First', it: 'Qualità Prima' },
+      icon: '01',
+      title: { zh: '精准', en: 'Precision', it: 'Precisione' },
       description: {
-        zh: '我们只销售经过严格筛选的优质产品，确保每一件商品都能满足您的期望。',
-        en: 'We only sell carefully selected premium products, ensuring every item meets your expectations.',
-        it: 'Vendiamo solo prodotti premium accuratamente selezionati, garantendo che ogni articolo soddisfi le tue aspettative.'
+        zh: '零误差容忍。我们筛选的产品如同经过编译的代码一样精确。',
+        en: 'Zero error tolerance. Our curated products are as precise as compiled code.',
+        it: 'Tolleranza zero errori. I nostri prodotti curati sono precisi come codice compilato.'
       }
     },
     {
-      icon: '💡',
-      title: { zh: '创新科技', en: 'Innovation', it: 'Innovazione' },
+      icon: '02',
+      title: { zh: '创新', en: 'Innovation', it: 'Innovazione' },
       description: {
-        zh: '紧跟科技前沿，为您带来最新、最酷的电子产品。',
-        en: 'Staying at the forefront of technology, bringing you the latest and coolest electronics.',
-        it: 'Restare all\'avanguardia della tecnologia, portandoti l\'elettronica più recente e innovativa.'
+        zh: '始终运行在最新版本。我们为您带来科技前沿的测试版体验。',
+        en: 'Always running on the latest build. We bring you the bleeding-edge beta experience.',
+        it: 'Sempre in esecuzione sull\'ultima build. Ti offriamo l\'esperienza beta all\'avanguardia.'
       }
     },
     {
-      icon: '🤝',
-      title: { zh: '客户至上', en: 'Customer Focus', it: 'Focus sul Cliente' },
+      icon: '03',
+      title: { zh: '安全', en: 'Security', it: 'Sicurezza' },
       description: {
-        zh: '您的满意是我们的追求。我们提供全方位的售前售后服务。',
-        en: 'Your satisfaction is our pursuit. We provide comprehensive pre and post-sales service.',
-        it: 'La tua soddisfazione è il nostro obiettivo. Forniamo un servizio pre e post-vendita completo.'
-      }
-    },
-    {
-      icon: '🌍',
-      title: { zh: '可持续发展', en: 'Sustainability', it: 'Sostenibilità' },
-      description: {
-        zh: '我们致力于环保包装和负责任的产品回收计划。',
-        en: 'We are committed to eco-friendly packaging and responsible product recycling programs.',
-        it: 'Siamo impegnati in imballaggi eco-friendly e programmi di riciclo responsabile dei prodotti.'
+        zh: '端到端加密的购物体验。您的满意度和隐私受到最高级别的保护。',
+        en: 'End-to-end encrypted shopping experience. Your satisfaction and privacy are protected at the kernel level.',
+        it: 'Esperienza di acquisto crittografata end-to-end. La tua soddisfazione e privacy sono protette a livello di kernel.'
       }
     }
   ];
@@ -54,139 +45,171 @@ export default function AboutPage() {
   const team = [
     {
       name: 'Marco Chen',
-      role: { zh: '创始人兼CEO', en: 'Founder & CEO', it: 'Fondatore e CEO' },
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&q=80'
+      role: 'SYS_ADMIN // CEO',
+      status: 'ONLINE',
+      image: '/images/blog/api-design.jpg' 
     },
     {
       name: 'Sofia Li',
-      role: { zh: '首席运营官', en: 'Chief Operating Officer', it: 'Direttore Operativo' },
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80'
+      role: 'OPS_LEAD // COO',
+      status: 'BUSY',
+      image: '/images/blog/devops.jpg'
     },
     {
-      name: 'Alessandro Wu',
-      role: { zh: '技术总监', en: 'Tech Director', it: 'Direttore Tecnico' },
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80'
+      name: 'Alex Wu',
+      role: 'NET_ARCH // CTO',
+      status: 'ONLINE',
+      image: '/images/blog/security.jpg'
     },
     {
       name: 'Elena Zhang',
-      role: { zh: '客户体验主管', en: 'Customer Experience Lead', it: 'Responsabile Esperienza Cliente' },
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80'
+      role: 'UX_CORE // CPO',
+      status: 'AWAY',
+      image: '/images/blog/react-perf.jpg'
     }
   ];
 
   return (
     <div className="tz-about-page">
-      {/* Hero */}
-      <section className="tz-about-hero">
+      {/* Cyber Hero */}
+      <section className="tz-about-hero-cyber">
+        <div className="tz-hero-grid-bg"></div>
         <div className="tz-container">
-          <h1>{t(about.title)}</h1>
-          <p>{t(siteConfig.description)}</p>
+          <div className="tz-hero-cyber-content">
+            <div className="tz-glitch-wrapper">
+              <h1 className="tz-glitch-text" data-text={t(about.title)}>{t(about.title)}</h1>
+            </div>
+            <p className="tz-terminal-text">
+              <span className="tz-prompt">root@techzone:~$</span> {t(about.subtitle)}
+              <span className="tz-cursor">_</span>
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="tz-about-stats">
+      {/* System Metrics */}
+      <section className="tz-section tz-metrics-section">
         <div className="tz-container">
-          <div className="tz-stats-grid">
+          <div className="tz-section-header-cyber">
+            <span className="tz-section-idx">01</span>
+            <h2>SYSTEM_METRICS</h2>
+            <div className="tz-line-deco"></div>
+          </div>
+          <div className="tz-stats-grid-cyber">
             {stats.map((stat, index) => (
-              <div key={index} className="tz-stat-item">
-                <span className="tz-stat-value">{stat.value}</span>
-                <span className="tz-stat-label">{t(stat.label)}</span>
+              <div key={index} className="tz-stat-card-cyber">
+                <div className="tz-stat-header">
+                  <span className="tz-stat-code">[{stat.code}]</span>
+                  <div className="tz-status-dot"></div>
+                </div>
+                <span className="tz-stat-value-cyber">{stat.value}</span>
+                <span className="tz-stat-label-cyber">{t(stat.label)}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="tz-about-section">
+      {/* Initialization Sequence (Story) */}
+      <section className="tz-section tz-story-section">
         <div className="tz-container">
-          <div className="tz-about-content">
-            <div className="tz-about-text">
-              <h2>{t(about.story)}</h2>
-              <p>
-                {t({
-                  zh: '科技领域成立于2020年，由一群热爱科技的年轻人创立。我们的目标很简单：让每个人都能轻松获得最新的科技产品。',
-                  en: 'TechZone was founded in 2020 by a group of young tech enthusiasts. Our goal is simple: to make the latest tech accessible to everyone.',
-                  it: 'TechZone è stata fondata nel 2020 da un gruppo di giovani appassionati di tecnologia. Il nostro obiettivo è semplice: rendere la tecnologia più recente accessibile a tutti.'
-                })}
-              </p>
-              <p>
-                {t({
-                  zh: '从最初的小型网店发展到如今服务数万客户的电商平台，我们始终坚持为客户提供最优质的产品和服务。我们与全球顶级品牌建立了长期合作关系，确保每一件产品都是正品。',
-                  en: 'From a small online store to an e-commerce platform serving tens of thousands of customers, we have always been committed to providing the best products and services. We have established long-term partnerships with top global brands to ensure every product is authentic.',
-                  it: 'Da un piccolo negozio online a una piattaforma e-commerce che serve decine di migliaia di clienti, ci siamo sempre impegnati a fornire i migliori prodotti e servizi. Abbiamo stabilito partnership a lungo termine con i migliori brand globali per garantire l\'autenticità di ogni prodotto.'
-                })}
-              </p>
+          <div className="tz-split-layout">
+            <div className="tz-story-visual">
+              <div className="tz-image-frame-cyber">
+                <img
+                  src="/images/blog/server-room.jpg" 
+                  alt="Server Room"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://images.unsplash.com/photo-1558494949-ef526b0042a0?w=600&q=80'; // Fallback
+                  }}
+                />
+                <div className="tz-frame-corner tl"></div>
+                <div className="tz-frame-corner tr"></div>
+                <div className="tz-frame-corner bl"></div>
+                <div className="tz-frame-corner br"></div>
+              </div>
             </div>
-            <div className="tz-about-image">
-              <img
-                src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=600&q=80"
-                alt="TechZone Office"
-              />
+            <div className="tz-story-content">
+              <div className="tz-section-header-cyber">
+                <span className="tz-section-idx">02</span>
+                <h2>{t(about.ourStory)}</h2>
+              </div>
+              <div className="tz-terminal-log">
+                <div className="tz-log-entry">
+                  <span className="tz-log-time">[2020.01.15]</span>
+                  <span className="tz-log-msg">{t({
+                    zh: '启动核心模块。TechZone 协议v1.0 上线。',
+                    en: 'Initiating core modules. TechZone Protocol v1.0 online.',
+                    it: 'Avvio moduli core. Protocollo TechZone v1.0 online.'
+                  })}</span>
+                </div>
+                <div className="tz-log-entry">
+                  <span className="tz-log-time">[2021.06.20]</span>
+                  <span className="tz-log-msg">{t({
+                    zh: '带宽扩展。用户基数突破 10,000 节点。',
+                    en: 'Bandwidth expansion. User base exceeds 10,000 nodes.',
+                    it: 'Espansione larghezza di banda. Base utenti supera 10.000 nodi.'
+                  })}</span>
+                </div>
+                <div className="tz-log-entry">
+                  <span className="tz-log-time">[2023.11.11]</span>
+                  <span className="tz-log-msg active">{t({
+                    zh: '系统全面升级。建立全球物流网络接口。',
+                    en: 'Full system upgrade. Established global logistics network interface.',
+                    it: 'Aggiornamento completo sistema. Interfaccia rete logistica globale stabilita.'
+                  })}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="tz-about-section tz-about-mission">
+      {/* Core Protocols (Values) */}
+      <section className="tz-section tz-values-section">
         <div className="tz-container">
-          <h2>{t(about.mission)}</h2>
-          <p className="tz-mission-text">
-            {t({
-              zh: '让科技改变生活，让每个人都能享受智能时代带来的便利与乐趣。',
-              en: 'Let technology change lives, enabling everyone to enjoy the convenience and joy of the smart era.',
-              it: 'Lasciare che la tecnologia cambi la vita, permettendo a tutti di godere della convenienza e della gioia dell\'era digitale.'
-            })}
-          </p>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="tz-about-section">
-        <div className="tz-container">
-          <h2>{t(about.values)}</h2>
-          <div className="tz-values-grid">
+          <div className="tz-section-header-cyber">
+            <span className="tz-section-idx">03</span>
+            <h2>{t(about.ourValues)}</h2>
+            <div className="tz-line-deco"></div>
+          </div>
+          <div className="tz-values-grid-cyber">
             {values.map((value, index) => (
-              <div key={index} className="tz-value-card">
-                <span className="tz-value-icon">{value.icon}</span>
+              <div key={index} className="tz-value-card-cyber">
+                <div className="tz-value-icon-cyber">{value.icon}</div>
                 <h3>{t(value.title)}</h3>
                 <p>{t(value.description)}</p>
+                <div className="tz-card-scanline"></div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section className="tz-about-section tz-about-team">
+      {/* Active Units (Team) */}
+      <section className="tz-section tz-team-section">
         <div className="tz-container">
-          <h2>{t({ zh: '我们的团队', en: 'Our Team', it: 'Il Nostro Team' })}</h2>
-          <div className="tz-team-grid">
+          <div className="tz-section-header-cyber">
+            <span className="tz-section-idx">04</span>
+            <h2>{t(about.ourTeam)}</h2>
+            <div className="tz-line-deco"></div>
+          </div>
+          <div className="tz-team-grid-cyber">
             {team.map((member, index) => (
-              <div key={index} className="tz-team-card">
-                <div className="tz-team-image">
-                  <img src={member.image} alt={member.name} />
+              <div key={index} className="tz-team-card-cyber">
+                <div className="tz-team-visual">
+                  <div className="tz-team-img-wrapper">
+                    <img src={member.image} alt={member.name} />
+                  </div>
+                  <div className={`tz-unit-status ${member.status.toLowerCase()}`}>
+                    {member.status}
+                  </div>
                 </div>
-                <h3>{member.name}</h3>
-                <p>{t(member.role)}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="tz-about-section tz-about-features">
-        <div className="tz-container">
-          <h2>{t({ zh: '为什么选择我们', en: 'Why Choose Us', it: 'Perché Sceglierci' })}</h2>
-          <div className="tz-features-grid">
-            {features.map((feature, index) => (
-              <div key={index} className="tz-feature-card">
-                <span className="tz-feature-icon">{feature.icon}</span>
-                <h3>{t(feature.title)}</h3>
-                <p>{t(feature.description)}</p>
+                <div className="tz-team-info">
+                  <h3>{member.name}</h3>
+                  <p className="tz-mono-text">{member.role}</p>
+                </div>
               </div>
             ))}
           </div>

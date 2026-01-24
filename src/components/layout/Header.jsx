@@ -57,7 +57,7 @@ function Header() {
       <header className="header">
         <div className="header-container">
         <Link to="/" className="header-brand">
-          <img src="/logo.svg" alt="Logo" className="header-logo" />
+          <img src="/logo-brutalist.svg" alt="Logo" className="header-logo" />
           <span className="header-brand-text">{language === 'zh' ? '土豆建站' : 'Potato Web'}</span>
         </Link>
 

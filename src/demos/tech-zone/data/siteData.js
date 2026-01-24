@@ -204,20 +204,20 @@ export const translations = {
     orderNumber: { zh: '订单号', en: 'Order Number', it: 'Numero Ordine' }
   },
   about: {
-    title: { zh: '关于科技领域', en: 'About TechZone', it: 'Chi è TechZone' },
-    subtitle: { zh: '您值得信赖的科技产品合作伙伴', en: 'Your Trusted Tech Partner', it: 'Il Tuo Partner Tech di Fiducia' },
-    ourStory: { zh: '我们的故事', en: 'Our Story', it: 'La Nostra Storia' },
-    ourMission: { zh: '我们的使命', en: 'Our Mission', it: 'La Nostra Missione' },
-    ourValues: { zh: '我们的价值观', en: 'Our Values', it: 'I Nostri Valori' },
-    ourTeam: { zh: '我们的团队', en: 'Our Team', it: 'Il Nostro Team' }
+    title: { zh: '核心身份', en: 'Identity Core', it: 'Nucleo Identità' },
+    subtitle: { zh: '构建未来的数字架构', en: 'Architecting the Digital Future', it: 'Architettando il Futuro Digitale' },
+    ourStory: { zh: '初始化序列', en: 'Initialization', it: 'Inizializzazione' },
+    ourMission: { zh: '最高指令', en: 'Prime Directive', it: 'Direttiva Primaria' },
+    ourValues: { zh: '核心协议', en: 'Core Protocols', it: 'Protocolli Core' },
+    ourTeam: { zh: '执行单元', en: 'Active Units', it: 'Unità Attive' }
   },
   contact: {
-    title: { zh: '联系我们', en: 'Contact Us', it: 'Contattaci' },
-    getInTouch: { zh: '我们随时为您服务', en: 'We\'re here to help', it: 'Siamo qui per aiutarti' },
-    sendMessage: { zh: '发送消息', en: 'Send Message', it: 'Invia Messaggio' },
-    name: { zh: '姓名', en: 'Name', it: 'Nome' },
-    message: { zh: '留言', en: 'Message', it: 'Messaggio' },
-    messageSent: { zh: '消息已发送！', en: 'Message sent successfully!', it: 'Messaggio inviato!' }
+    title: { zh: '建立连接', en: 'Establish Uplink', it: 'Stabilire Connessione' },
+    getInTouch: { zh: '准备数据传输...', en: 'Ready for data transmission...', it: 'Pronto per la trasmissione dati...' },
+    sendMessage: { zh: '发送指令', en: 'Transmit Data', it: 'Trasmetti Dati' },
+    name: { zh: '用户ID', en: 'User ID', it: 'ID Utente' },
+    message: { zh: '数据包内容', en: 'Data Payload', it: 'Carico Dati' },
+    messageSent: { zh: '传输成功！', en: 'Transmission Successful!', it: 'Trasmissione Riuscita!' }
   },
   footer: {
     shopLinks: { zh: '购物指南', en: 'Shop', it: 'Negozio' },

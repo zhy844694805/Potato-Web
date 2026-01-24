@@ -60,6 +60,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  color: var(--text-primary);
 }
 
 .service-type-btn:hover, .service-type-btn.active {

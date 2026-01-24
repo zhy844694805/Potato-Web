@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTZLanguage } from '../context/TZLanguageContext';
 import { useTZCart } from '../context/TZCartContext';
@@ -15,6 +15,18 @@ export default function TZHeader() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+
+  // Keyboard shortcut for search
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setSearchOpen(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const nav = translations.nav;
   const basePath = '/demo/tech-zone';
@@ -59,9 +71,9 @@ export default function TZHeader() {
 
         {/* Actions */}
         <div className="tz-header-actions">
-          {/* Search Toggle */}
+          {/* Search Toggle (Redesigned) */}
           <button
-            className="tz-header-btn tz-search-toggle"
+            className="tz-search-trigger"
             onClick={() => setSearchOpen(!searchOpen)}
             aria-label="Search"
           >
@@ -69,6 +81,8 @@ export default function TZHeader() {
               <circle cx="11" cy="11" r="8"/>
               <path d="M21 21l-4.35-4.35"/>
             </svg>
+            <span className="tz-search-trigger-text">{t(nav.search)}...</span>
+            <span className="tz-search-shortcut">⌘K</span>
           </button>
 
           {/* Wishlist */}
