@@ -89,11 +89,14 @@ function Portfolio() {
 
         {/* Grid */}
         <section className="portfolio-grid-layout">
-          {currentItems.map((portfolio) => (
-            <div key={portfolio.id} className="portfolio-grid-item">
-              <PortfolioCard portfolio={portfolio} />
-            </div>
-          ))}
+          {currentItems.map((portfolio, index) => {
+            const size = (index % 6 === 0) ? 'large' : 'standard'
+            return (
+              <div key={portfolio.id} className={`portfolio-grid-item ${size}`}>
+                <PortfolioCard portfolio={portfolio} size={size} />
+              </div>
+            )
+          })}
         </section>
 
         {/* Footer / Pagination */}

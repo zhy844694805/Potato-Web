@@ -4,29 +4,34 @@
   display: flex;
   flex-direction: column;
   background: var(--color-bg-primary);
-  border: 1px solid var(--border-color);
+  /* Border is handled by grid gap in parent, but we keep it for mobile or standalone use if needed */
   text-decoration: none;
   color: inherit;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   height: 100%;
+  position: relative;
 }
 
 .portfolio-card:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 8px 8px 0 var(--text-primary);
-  border-color: var(--text-primary);
-  z-index: 10;
+  background: var(--color-bg-secondary);
 }
 
 /* Image Section */
 .portfolio-image-container {
   position: relative;
   width: 100%;
+  /* Use aspect-ratio as baseline, but allow flex to stretch it */
   aspect-ratio: 16/9;
   overflow: hidden;
   border-bottom: 1px solid var(--border-color);
   filter: grayscale(100%);
-  transition: filter 0.3s;
+  transition: filter 0.4s ease;
+}
+
+.portfolio-card.large .portfolio-image-container {
+  aspect-ratio: 16/9; /* Maintain ratio for large cards too, or make it flexible */
+  flex: 1; /* For large cards, let image take available space */
+  min-height: 400px;
 }
 
 .portfolio-card:hover .portfolio-image-container {
@@ -37,7 +42,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .portfolio-card:hover .portfolio-thumbnail {
@@ -66,8 +71,9 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.2s;
-  background: rgba(0, 0, 0, 0.4);
+  transition: opacity 0.3s;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
 }
 
 .portfolio-card:hover .portfolio-overlay {
@@ -77,13 +83,14 @@
 .view-project-btn {
   background: var(--color-acid-green);
   color: #000;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.5rem;
   font-family: var(--font-mono);
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 0.8rem;
-  transform: translateY(10px);
-  transition: transform 0.2s;
+  font-size: 0.9rem;
+  transform: translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 4px 4px 0 #000;
 }
 
 .portfolio-card:hover .view-project-btn {
@@ -95,12 +102,18 @@
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  flex: 1;
   background: var(--color-bg-primary);
+  border-top: 1px solid transparent;
+  transition: background 0.3s;
+}
+
+.portfolio-card.large .portfolio-info {
+  padding: 2.5rem;
 }
 
 .portfolio-card:hover .portfolio-info {
   background: var(--color-bg-secondary);
+  border-top-color: var(--border-color);
 }
 
 /* Meta Data */
@@ -124,10 +137,24 @@
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   line-height: 1.1;
   text-transform: uppercase;
   color: var(--text-primary);
+}
+
+.portfolio-card.large .portfolio-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Description */
+.portfolio-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 80%;
 }
 
 /* Footer */
@@ -140,15 +167,33 @@
   font-size: 0.75rem;
   color: var(--text-light);
   text-transform: uppercase;
+  padding-top: 1rem; /* spacing if desc exists */
 }
 
 .portfolio-arrow {
-  font-size: 1.2rem;
-  transition: transform 0.2s;
+  font-size: 1.5rem;
+  transition: transform 0.3s;
   color: var(--text-primary);
+  font-weight: 300;
 }
 
 .portfolio-card:hover .portfolio-arrow {
-  transform: translate(2px, -2px);
+  transform: translate(4px, -4px);
   color: var(--color-primary);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .portfolio-card.large .portfolio-title {
+    font-size: 1.8rem;
+  }
+  
+  .portfolio-image-container {
+    aspect-ratio: 4/3;
+  }
+  
+  .portfolio-card.large .portfolio-image-container {
+    min-height: auto;
+    flex: none;
+  }
 }

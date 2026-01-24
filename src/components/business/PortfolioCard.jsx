@@ -5,7 +5,7 @@ import { trackPortfolioView } from '../../utils/analytics'
 import LazyImage from '../ui/LazyImage'
 import './PortfolioCard.css'
 
-const PortfolioCard = memo(function PortfolioCard({ portfolio }) {
+const PortfolioCard = memo(function PortfolioCard({ portfolio, size = 'standard' }) {
   const { language } = useLanguage()
 
   const handleClick = () => {
@@ -21,7 +21,7 @@ const PortfolioCard = memo(function PortfolioCard({ portfolio }) {
   return (
     <Link
       to={linkTo}
-      className="portfolio-card"
+      className={`portfolio-card ${size}`}
       onClick={handleClick}
     >
       <div className="portfolio-image-container">
@@ -48,6 +48,10 @@ const PortfolioCard = memo(function PortfolioCard({ portfolio }) {
         </div>
         
         <h3 className="portfolio-title">{portfolio.title[language]}</h3>
+        
+        {size === 'large' && portfolio.shortDesc && (
+          <p className="portfolio-desc font-mono">{portfolio.shortDesc[language]}</p>
+        )}
         
         <div className="portfolio-footer">
           <span className="portfolio-category">{portfolio.industry[language]}</span>
