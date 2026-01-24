@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useRestaurantLanguage } from '../SakuraMilano'
 import {
@@ -12,123 +13,141 @@ function HomePage() {
   const { language } = useRestaurantLanguage()
   const t = translations[language]
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active')
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    document.querySelectorAll('.sushi-reveal').forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="sushi-home">
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="sushi-hero">
-        <div
-          className="sushi-hero-bg"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
-        <div className="sushi-hero-overlay" />
+        <div className="sushi-hero-bg" style={{ backgroundImage: `url(${heroImage})` }}></div>
+        <div className="sushi-hero-overlay"></div>
         <div className="sushi-hero-content">
-          <div className="sushi-hero-logo">🌸</div>
+          <div className="sushi-hero-decoration">
+            <div className="sushi-vertical-line"></div>
+            <span className="sushi-hero-logo-text">桜 · ミラノ</span>
+          </div>
           <h1>Sakura Milano</h1>
           <p className="sushi-hero-tagline">{t.hero.tagline}</p>
-          <p className="sushi-hero-subtitle">{t.hero.subtitle}</p>
-          <Link to="/demo/sakura-milano/reservation" className="sushi-btn sushi-btn-primary">
-            {t.hero.cta}
-          </Link>
-        </div>
-      </section>
-
-      {/* Featured Dishes */}
-      <section className="sushi-section">
-        <div className="sushi-container">
-          <div className="sushi-section-header">
-            <h2 className="sushi-heading-2">{t.home.featured}</h2>
-            <div className="sushi-divider" />
-          </div>
-
-          <div className="sushi-featured-grid">
-            {featuredItems.map((item) => (
-              <Link
-                to="/demo/sakura-milano/menu"
-                key={item.id}
-                className="sushi-featured-card"
-              >
-                <img src={item.image} alt={item.name[language]} />
-                <div className="sushi-featured-overlay">
-                  <h3>{item.name[language]}</h3>
-                  <p>{item.description[language]}</p>
-                  <div className="sushi-featured-price">€{item.price}</div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: 'var(--sushi-space-xl)' }}>
-            <Link to="/demo/sakura-milano/menu" className="sushi-btn sushi-btn-outline">
-              {language === 'it' ? 'Vedi Menu Completo' : language === 'zh' ? '查看完整菜单' : 'View Full Menu'}
+          <div className="sushi-hero-btn-group">
+             <Link to="/demo/sakura-milano/reservation" className="sushi-btn sushi-btn-primary">
+              {t.hero.cta}
+            </Link>
+             <Link to="/demo/sakura-milano/menu" className="sushi-btn sushi-btn-outline">
+              {language === 'it' ? 'Menu' : language === 'zh' ? '菜单' : 'Menu'}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* About Preview */}
+      {/* Intro Text */}
+      <section className="sushi-section">
+        <div className="sushi-container sushi-reveal">
+          <div className="sushi-section-header">
+            <span className="sushi-section-subtitle">Since 2010</span>
+            <h2 className="sushi-heading-2">{language === 'it' ? 'L\'Arte del Sushi' : language === 'zh' ? '寿司的艺术' : 'The Art of Sushi'}</h2>
+            <div className="sushi-divider"></div>
+            <p className="sushi-text-lead">
+              {language === 'it' 
+                ? 'Dove la tradizione giapponese incontra l\'eleganza milanese. Un\'esperienza gastronomica senza compromessi.' 
+                : language === 'zh'
+                ? '当日本传统遇上米兰优雅。一场不妥协的美食体验。'
+                : 'Where Japanese tradition meets Milanese elegance. An uncompromising gastronomic experience.'}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Menu (Parallax Cards) */}
       <section className="sushi-section" style={{ background: 'var(--sushi-bg-secondary)' }}>
         <div className="sushi-container">
-          <div className="sushi-about-grid">
-            <div className="sushi-about-image sushi-fade-in-up">
-              <img src={chefImage} alt="Chef Marco Tanaka" />
-            </div>
-            <div className="sushi-about-content">
-              <h2 className="sushi-heading-2 sushi-text-gold">{t.home.aboutPreview}</h2>
-              <div className="sushi-divider" style={{ margin: 'var(--sushi-space-md) 0' }} />
-              <p>{t.home.aboutText}</p>
-              <Link
-                to="/demo/sakura-milano/about"
-                className="sushi-btn sushi-btn-outline"
-                style={{ marginTop: 'var(--sushi-space-md)' }}
+           <div className="sushi-featured-grid">
+            {featuredItems.map((item, index) => (
+              <Link 
+                to="/demo/sakura-milano/menu" 
+                key={item.id} 
+                className="sushi-featured-card sushi-reveal"
+                style={{ transitionDelay: `${index * 0.1}s` }}
               >
-                {t.home.learnMore} →
+                <div className="sushi-featured-image-wrapper">
+                  <img src={item.image} alt={item.name[language]} />
+                </div>
+                <div className="sushi-featured-overlay">
+                  <div className="sushi-featured-content">
+                    <span className="sushi-featured-price">€{item.price}</span>
+                    <h3 className="sushi-featured-title">{item.name[language]}</h3>
+                    <p className="sushi-featured-desc">{item.description[language]}</p>
+                  </div>
+                </div>
               </Link>
+            ))}
+           </div>
+        </div>
+      </section>
+
+      {/* Atmosphere / Story Split */}
+      <section className="sushi-atmosphere-section">
+        <div className="sushi-atmosphere-image">
+           <img src={atmosphereImages[0]?.url || heroImage} alt="Atmosphere" />
+        </div>
+        <div className="sushi-atmosphere-content">
+          <div className="sushi-reveal">
+            <span className="sushi-section-subtitle">Atmosphere</span>
+            <h2 className="sushi-heading-2">{t.home.atmosphere}</h2>
+            <div className="sushi-divider" style={{ margin: '2rem 0' }}></div>
+            <p className="sushi-text-gray" style={{ marginBottom: '2rem' }}>
+               {language === 'it' 
+                ? 'Un ambiente intimo e raffinato, progettato per esaltare i sensi.' 
+                : language === 'zh'
+                ? '私密而精致的环境，旨在提升感官体验。'
+                : 'An intimate and refined environment, designed to heighten the senses.'}
+            </p>
+            <div className="sushi-gallery" style={{ gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              {atmosphereImages.slice(1, 3).map((img, i) => (
+                <div key={i} className="sushi-gallery-item">
+                  <img src={img.url} alt="Detail" />
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Atmosphere Gallery */}
-      <section className="sushi-section">
-        <div className="sushi-container">
-          <div className="sushi-section-header">
-            <h2 className="sushi-heading-2">{t.home.atmosphere}</h2>
-            <div className="sushi-divider" />
+      {/* Chef Section */}
+      <section className="sushi-chef-preview">
+        <div className="sushi-chef-bg-text">TANAKA</div>
+        <div className="sushi-chef-content-box sushi-reveal">
+          <div className="sushi-chef-image-circle">
+            <img src={chefImage} alt="Chef" />
           </div>
-
-          <div className="sushi-gallery">
-            {atmosphereImages.map((image, index) => (
-              <div key={index} className="sushi-gallery-item">
-                <img src={image.url} alt={image.caption[language]} />
-                <div className="sushi-gallery-caption">{image.caption[language]}</div>
-              </div>
-            ))}
-          </div>
+          <h2 className="sushi-heading-2">{t.home.aboutPreview}</h2>
+          <p className="sushi-text-gray" style={{ maxWidth: '600px', margin: '0 auto 2rem' }}>{t.home.aboutText}</p>
+          <Link to="/demo/sakura-milano/about" className="sushi-btn sushi-btn-outline">
+            {t.home.learnMore}
+          </Link>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section
-        className="sushi-section"
-        style={{
-          background: 'linear-gradient(to right, var(--sushi-bg-secondary), var(--sushi-bg-primary))',
-          textAlign: 'center'
-        }}
-      >
-        <div className="sushi-container-narrow">
-          <h2 className="sushi-heading-2" style={{ marginBottom: 'var(--sushi-space-sm)' }}>
-            {language === 'it'
-              ? 'Prenota la Tua Esperienza'
-              : language === 'zh'
-              ? '预订您的用餐体验'
-              : 'Book Your Experience'}
-          </h2>
-          <p className="sushi-text-gray" style={{ marginBottom: 'var(--sushi-space-lg)' }}>
-            {language === 'it'
-              ? 'Lasciati trasportare in un viaggio culinario unico'
-              : language === 'zh'
-              ? '让我们带您踏上独特的美食之旅'
-              : 'Let us take you on a unique culinary journey'}
+      {/* Footer CTA */}
+      <section className="sushi-cta-section">
+        <div className="sushi-cta-content sushi-reveal">
+          <h2 className="sushi-heading-1">{language === 'it' ? 'Prenota Ora' : language === 'zh' ? '立即预订' : 'Book Now'}</h2>
+          <p className="sushi-text-lead" style={{ marginBottom: '2rem' }}>
+            {language === 'it' ? 'Assicurati il tuo tavolo per una serata indimenticabile.' : language === 'zh' ? '预订您的餐桌，享受难忘的夜晚。' : 'Secure your table for an unforgettable evening.'}
           </p>
           <Link to="/demo/sakura-milano/reservation" className="sushi-btn sushi-btn-primary">
             {t.hero.cta}
