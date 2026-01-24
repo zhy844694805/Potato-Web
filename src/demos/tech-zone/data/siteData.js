@@ -50,7 +50,16 @@ export const categories = [
 ];
 
 export const brands = [
-  'Apple', 'Samsung', 'Sony', 'Xiaomi', 'DJI', 'Bose', 'JBL', 'Anker', 'Logitech', 'Google'
+  { id: 'apple', name: 'Apple' },
+  { id: 'samsung', name: 'Samsung' },
+  { id: 'sony', name: 'Sony' },
+  { id: 'xiaomi', name: 'Xiaomi' },
+  { id: 'dji', name: 'DJI' },
+  { id: 'bose', name: 'Bose' },
+  { id: 'jbl', name: 'JBL' },
+  { id: 'anker', name: 'Anker' },
+  { id: 'logitech', name: 'Logitech' },
+  { id: 'google', name: 'Google' }
 ];
 
 export const translations = {
@@ -136,7 +145,22 @@ export const translations = {
     addAllToCart: { zh: '全部加入购物车', en: 'Add All to Cart', it: 'Aggiungi Tutto al Carrello' },
     clearWishlist: { zh: '清空收藏夹', en: 'Clear Wishlist', it: 'Svuota Preferiti' },
     clearCart: { zh: '清空购物车', en: 'Clear Cart', it: 'Svuota Carrello' },
-    updateCart: { zh: '更新购物车', en: 'Update Cart', it: 'Aggiorna Carrello' }
+    updateCart: { zh: '更新购物车', en: 'Update Cart', it: 'Aggiorna Carrello' },
+    quantity: { zh: '数量', en: 'Quantity', it: 'Quantità' },
+    results: { zh: '个结果', en: 'results', it: 'risultati' },
+    noResults: { zh: '未找到商品', en: 'No products found', it: 'Nessun prodotto trovato' },
+    clearFilters: { zh: '清除筛选', en: 'Clear Filters', it: 'Cancella Filtri' },
+    allCategories: { zh: '所有分类', en: 'All Categories', it: 'Tutte le Categorie' },
+    allBrands: { zh: '所有品牌', en: 'All Brands', it: 'Tutti i Marchi' },
+    priceRange: { zh: '价格区间', en: 'Price Range', it: 'Fascia di Prezzo' },
+    sortBy: {
+      default: { zh: '默认排序', en: 'Default', it: 'Predefinito' },
+      priceAsc: { zh: '价格从低到高', en: 'Price: Low to High', it: 'Prezzo: Crescente' },
+      priceDesc: { zh: '价格从高到低', en: 'Price: High to Low', it: 'Prezzo: Decrescente' },
+      nameAsc: { zh: '名称 A-Z', en: 'Name: A to Z', it: 'Nome: A-Z' },
+      rating: { zh: '评分最高', en: 'Highest Rated', it: 'Più Votati' },
+      newest: { zh: '最新上架', en: 'Newest', it: 'Più Recenti' }
+    }
   },
   product: {
     description: { zh: '商品描述', en: 'Description', it: 'Descrizione' },

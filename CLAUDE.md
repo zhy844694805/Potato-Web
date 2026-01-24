@@ -6,13 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 npm run dev          # Start Vite dev server with HMR
-npm run build        # Production build (auto-generates sitemap)
+npm run build        # Production build (includes image optimization + sitemap)
 npm run lint         # ESLint checks
 npm run preview      # Preview production build
 
 # Testing
 npm run test         # Run tests in watch mode (Vitest)
 npm run test:run     # Run tests once
+npm run test:coverage  # Run tests with coverage
 npx vitest run src/tests/components/Button.test.jsx  # Single test file
 ```
 
@@ -22,13 +23,13 @@ React 19 + Vite 7 portfolio website for Italian Chinese businesses, with triling
 
 ### Core Patterns
 
-**Trilingual Content:** Main site uses `{ zh: "...", en: "..." }`. Demo sites use `{ it: "...", en: "...", zh: "..." }`. Access via `useLanguage()` hook.
+**Trilingual Content:** Main site uses `{ zh: "...", en: "..." }`. Demo sites use `{ it: "...", en: "...", zh: "..." }`. Access via `useLanguage()` hook from `src/context/LanguageContext.jsx`.
 
 **Theme System:** `ThemeContext` manages light/dark mode, persisted in localStorage, applied via `[data-theme='dark']`.
 
 **Static Data:** Content in `/src/data/` with helper functions like `getPortfolioById(id)`, `getLatestPosts(limit)`, `searchPosts(query)`.
 
-**Demo Sites:** 30 self-contained demos in `/src/demos/`. Each has isolated CSS with unique prefix (e.g., `.dc-`, `.tz-`). Demos render without main site Header/Footer.
+**Demo Sites:** 30 self-contained demos in `/src/demos/`. Each has isolated CSS with unique prefix (e.g., `.dc-`, `.tz-`). Demos render without main site Header/Footer (controlled in `App.jsx` via `isDemo` check).
 
 ### Directory Structure
 
@@ -41,6 +42,7 @@ src/
 ├── context/         # ThemeContext, LanguageContext
 ├── data/            # Static content (services, portfolio, blog, testimonials, team)
 ├── demos/           # 30 client demo sites (self-contained)
+├── hooks/           # Custom hooks (useScrollAnimation, useLanguageText)
 ├── pages/           # Route components
 └── utils/           # schemas.js (SEO structured data), analytics.js
 ```
@@ -49,19 +51,31 @@ src/
 
 Dynamic routes: `/services/:id`, `/portfolio/:id`, `/blog/:id`, `/demo/{slug}`
 
-**CRITICAL:** Multi-page demos MUST use wildcard routing: `/demo/{slug}/*` in `App.jsx`. Without `/*`, nested routes will 404.
+**CRITICAL:** Multi-page demos MUST use wildcard routing in `App.jsx`:
+```jsx
+// Correct - supports nested routes like /demo/tech-zone/admin/products
+<Route path="/demo/tech-zone/*" element={<TechZone />} />
+
+// Wrong - nested routes will 404
+<Route path="/demo/tech-zone" element={<TechZone />} />
+```
+
+Currently using wildcards: `sakura-milano`, `dragon-court`, `tech-zone`
 
 ### Demo Site Structure
 
 Each demo in `/src/demos/{name}/`:
-- `{Name}.jsx` - Main component with context providers
-- `{Name}.css` - Isolated styles with unique prefix
-- `components/`, `pages/`, `data/siteData.js`
+- `{Name}.jsx` - Main component with its own context providers and internal routing
+- `{Name}.css` - Isolated styles with unique prefix (e.g., `.tz-` for TechZone)
+- `components/` - Demo-specific components
+- `pages/` - Demo page components
+- `data/siteData.js` - Demo content and translations
+- `context/` - Demo-specific contexts (cart, auth, etc.)
 
 Notable demos:
 - **dragon-court**: Multi-page restaurant with nested routing
 - **tech-zone**: E-commerce with admin panel (`/demo/tech-zone/admin`, login: admin/admin123)
-- **boba-tea**: Advanced UI effects (3D cards, parallax, counters)
+- **boba-tea**: Advanced UI effects (3D cards, parallax, animated counters)
 
 ### SEO
 
@@ -75,6 +89,14 @@ Notable demos:
 - **Comments:** Giscus (GitHub Discussions)
 - **PDF Export:** html2pdf.js via ExportPDF component
 
+## Environment Variables
+
+Copy `.env.example` to `.env`. Key variables:
+- `VITE_SITE_URL` - Production site URL
+- `VITE_FORMSPREE_ID` - Contact form backend
+- `VITE_CALENDLY_URL` - Booking widget
+- `VITE_GA_MEASUREMENT_ID` - Google Analytics 4
+
 ## Production Deployment
 
 ```bash
@@ -87,11 +109,11 @@ PM2 config in `ecosystem.config.cjs`. Runs on port 5173.
 
 ## Troubleshooting
 
-**Demo 404:** Check `/demo/{slug}/*` has `/*` wildcard in `App.jsx`
+**Demo 404 on nested routes:** Add `/*` wildcard to the route path in `App.jsx`
 
-**CSS conflicts:** Each demo needs unique CSS prefix
+**CSS conflicts between demos:** Each demo needs unique CSS prefix (check existing: `.dc-`, `.tz-`, `.bt-`, etc.)
 
-**Language issues:** Data must have `{ zh, en, it }` structure
+**Language issues:** Data objects must have `{ zh, en, it }` structure for trilingual content
 
 ## Key Dependencies
 

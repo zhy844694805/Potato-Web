@@ -25,3 +25,4 @@ dist-ssr
 
 # Generated files
 mmqrcode*.png
+.env
