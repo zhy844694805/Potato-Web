@@ -6,6 +6,8 @@ import ErrorBoundary from './components/ErrorBoundary'
 import Analytics from './components/Analytics'
 import ScrollToTop from './components/ui/ScrollToTop'
 import ChatWidget from './components/ui/ChatWidget'
+import CustomCursor from './components/ui/CustomCursor'
+import SmoothScroll from './components/ui/SmoothScroll'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import './App.css'
@@ -131,33 +133,36 @@ function AppContent() {
     <ErrorBoundary language={language}>
       <Analytics />
       <ScrollToTop />
-      <div className="app">
-        <Header />
-        <main id="main-content" className="main-content">
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/services/:id" element={<ServiceDetail />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:id" element={<BlogDetail />} />
-              <Route path="/testimonials" element={<Testimonials />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/pricing" element={<Pricing />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/quote" element={<Quote />} />
-              <Route path="/demos" element={<Demos />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/404" element={<NotFound />} />
-              <Route path="*" element={<Navigate to="/404" replace />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <Footer />
-        <ChatWidget />
-      </div>
+      <CustomCursor />
+      <SmoothScroll>
+        <div className="app">
+          <Header />
+          <main id="main-content" className="main-content">
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/services/:id" element={<ServiceDetail />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:id" element={<BlogDetail />} />
+                <Route path="/testimonials" element={<Testimonials />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/quote" element={<Quote />} />
+                <Route path="/demos" element={<Demos />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="/404" element={<NotFound />} />
+                <Route path="*" element={<Navigate to="/404" replace />} />
+              </Routes>
+            </Suspense>
+          </main>
+          <Footer />
+          <ChatWidget />
+        </div>
+      </SmoothScroll>
     </ErrorBoundary>
   )
 }

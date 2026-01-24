@@ -6,10 +6,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline-color: var(--color-acid-green);
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
@@ -17,33 +19,87 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  background: var(--color-bg-secondary);
+  background: var(--color-bg-primary);
   color: var(--text-primary);
+  line-height: 1.6;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+/* 全局噪点纹理 (Tech-Brutalism Signature) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+}
+
+[data-theme='dark'] body::before {
+  opacity: 0.05;
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 #root {
   min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
-/* Scrollbar Styling */
+/* 选中文本样式 */
+::selection {
+  background: var(--color-acid-green);
+  color: #000;
+}
+
+/* Custom Scrollbar - Cyber Style */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
+  width: 10px;
+  height: 10px;
   background: var(--color-bg-primary);
 }
 
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+  border-left: 1px solid var(--border-color);
+}
+
 ::-webkit-scrollbar-thumb {
-  background: var(--color-gray-300);
-  border-radius: 4px;
+  background: var(--color-gray-500);
+  border: 2px solid var(--color-bg-secondary);
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gray-400);
+  background: var(--color-acid-green);
+}
+
+/* Utilities for Tech Design */
+.text-acid { color: var(--color-acid-green); }
+.text-violet { color: var(--color-cyber-violet); }
+.bg-acid { background-color: var(--color-acid-green); color: #000; }
+.border-acid { border: 1px solid var(--color-acid-green); }
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .glass-panel {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }

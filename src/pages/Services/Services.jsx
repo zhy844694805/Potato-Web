@@ -38,53 +38,45 @@ function Services() {
         path="/services"
       />
       <StructuredData data={serviceSchema(language)} />
-      <div className="container">
-        <section className="services-hero">
-          <h1 className="page-title">
-            {t('服务项目', 'Services', 'Servizi')}
+      
+      <div className="brutalist-container">
+        {/* Header Section */}
+        <section className="page-header-brutalist">
+          <div className="header-meta font-mono">
+            <span>// SERVICES</span>
+            <span>SYSTEM_CAPABILITIES_LIST</span>
+          </div>
+          <h1 className="page-title-giant">
+            {t('核心服务', 'OUR SERVICES', 'I NOSTRI SERVIZI')}
           </h1>
-          <p className="page-subtitle">
-            {t('为你提供专业的Web开发和技术服务',
-              'Providing professional web development and technical services',
-              'Fornendo servizi professionali di sviluppo web e tecnici')}
-          </p>
+          <div className="header-decoration-line"></div>
         </section>
 
-        <section className="services-list">
-          {services.map((service) => (
-            <div key={service.id} className="service-detail">
-              <div className="service-detail-header">
-                <ServiceCard service={service} />
-              </div>
-              <div className="service-detail-content">
-                <h3>{t('服务特点', 'Features', 'Caratteristiche')}</h3>
-                <ul className="feature-list">
-                  {service.features.map((feature, i) => (
-                    <li key={i}>{feature[language]}</li>
-                  ))}
-                </ul>
-                {service.longDescription && (
-                  <p className="service-long-desc">
-                    {service.longDescription[language]}
-                  </p>
-                )}
-              </div>
+        {/* Services Grid */}
+        <section className="services-grid-layout">
+          {services.map((service, index) => (
+            <div key={service.id} className="service-grid-item">
+              <div className="service-index font-mono">{(index + 1).toString().padStart(2, '0')}</div>
+              <ServiceCard service={service} />
             </div>
           ))}
         </section>
 
-        <section className="services-cta">
-          <h2>{t('准备开始你的项目？', 'Ready to Start Your Project?', 'Pronto per Iniziare il Tuo Progetto?')}</h2>
-          <p>
-            {t('联系我，获取项目咨询和报价',
-              'Contact me for project consultation and quotes',
-              'Contattami per consulenza e preventivi')}
-          </p>
-          <Link to="/contact">
-            <Button variant="primary">
-              {t('立即咨询', 'Contact Now', 'Contatta Ora')}
-            </Button>
-          </Link>
+        {/* CTA Section */}
+        <section className="services-cta-brutalist">
+          <div className="cta-content">
+            <h2 className="cta-title">
+              {t('准备开始？', 'READY TO START?', 'PRONTO PER INIZIARE?')}
+            </h2>
+            <p className="cta-desc font-mono">
+              {t('联系我，获取项目咨询和报价',
+                'INITIALIZE PROJECT CONSULTATION SEQUENCE.',
+                'INIZIALIZZA SEQUENZA DI CONSULENZA.')}
+            </p>
+            <Link to="/contact" className="btn-brutalist big">
+              {t('立即咨询', 'CONTACT NOW', 'CONTATTA ORA')}
+            </Link>
+          </div>
         </section>
       </div>
     </div>

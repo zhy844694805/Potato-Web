@@ -1,375 +1,201 @@
+/* Tech-Brutalism About Page */
+
 .about-page {
-  margin-top: 80px;
-  padding: var(--spacing-3xl) 0;
+  padding-top: 64px;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
 }
 
-.about-hero {
-  text-align: center;
-  margin-bottom: 5rem;
-}
-
-.about-intro,
-.about-team,
-.about-timeline,
-.about-values {
-  margin-bottom: 6rem;
-}
-
-.about-intro h2,
-.about-team h2,
-.about-timeline h2,
-.about-values h2 {
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-normal);
-  margin-bottom: 3rem;
-  color: var(--text-primary);
-}
-
-.about-intro p {
-  font-size: var(--font-size-lg);
-  color: var(--text-secondary);
-  line-height: var(--line-height-normal);
-  max-width: 900px;
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-}
-
-.team-member {
-  text-align: center;
-}
-
-.member-avatar {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, var(--color-gray-200), var(--color-gray-300));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-light);
-  color: var(--text-secondary);
-}
-
-.member-name {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-medium);
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
-}
-
-.member-position {
-  font-size: var(--font-size-sm);
-  color: var(--text-light);
-  margin-bottom: 1rem;
-}
-
-.member-bio {
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-  line-height: var(--line-height-normal);
-}
-
-.timeline {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.timeline-year {
-  display: flex;
-  gap: 3rem;
-  margin-bottom: 3rem;
-  padding-bottom: 3rem;
+.page-header-brutalist {
+  padding: 6rem 5% 4rem;
   border-bottom: 1px solid var(--border-color);
 }
 
-.timeline-year:last-child {
+/* Intro Grid */
+.about-grid-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.intro-text {
+  padding: 4rem 5%;
+  border-right: 1px solid var(--border-color);
+}
+
+.intro-title {
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+.intro-para {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.intro-stats {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.stat-box {
+  padding: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-box:last-child {
   border-bottom: none;
 }
 
-.year-label {
-  flex-shrink: 0;
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-light);
+.stat-num {
+  font-size: 4rem;
+  font-weight: bold;
   color: var(--text-primary);
+  line-height: 1;
 }
 
-.year-events {
-  flex: 1;
-}
-
-.event-item {
-  margin-bottom: 2rem;
-}
-
-.event-item:last-child {
-  margin-bottom: 0;
-}
-
-.event-month {
-  font-size: var(--font-size-sm);
-  color: var(--text-light);
-  margin-bottom: 0.5rem;
-}
-
-.event-content h4 {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-medium);
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
-}
-
-.event-content p {
-  font-size: var(--font-size-base);
+.stat-desc {
   color: var(--text-secondary);
-  line-height: var(--line-height-normal);
-}
-
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-}
-
-.value-item {
-  text-align: center;
-}
-
-.value-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-.value-item h3 {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-medium);
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-}
-
-.value-item p {
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-  line-height: var(--line-height-normal);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
 }
 
 /* Team Section */
-.team-intro {
-  font-size: var(--font-size-lg);
-  color: var(--text-secondary);
-  max-width: 700px;
-  margin-bottom: 3rem;
-}
-
-.team-stats {
+.section-divider {
+  padding: 1rem 5%;
+  background: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--border-color);
   display: flex;
-  justify-content: center;
-  gap: 3rem;
-  margin-bottom: 4rem;
-  flex-wrap: wrap;
-}
-
-.stat-item {
-  text-align: center;
-}
-
-.stat-value {
-  display: block;
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
-  margin-bottom: 0.5rem;
-}
-
-.stat-label {
-  font-size: var(--font-size-sm);
+  justify-content: space-between;
   color: var(--text-secondary);
+  font-size: 0.8rem;
 }
 
-.team-card {
-  background: var(--bg-secondary);
-  border-radius: var(--radius-xl);
-  padding: 2rem;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid var(--border-color);
-}
-
-.team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-}
-
-.team-avatar {
-  margin-bottom: 1.5rem;
-}
-
-.avatar-placeholder {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark, #1d4ed8));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-medium);
-  color: white;
-}
-
-.team-name {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.team-role {
-  font-size: var(--font-size-sm);
-  color: var(--color-primary);
-  margin-bottom: 1rem;
-  font-weight: var(--font-weight-medium);
-}
-
-.team-bio {
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-  line-height: var(--line-height-relaxed);
-  margin-bottom: 1.5rem;
-}
-
-.team-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.skill-tag {
-  background: var(--bg-tertiary, var(--color-gray-100));
-  color: var(--text-secondary);
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-}
-
-.team-social {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.team-social a {
-  color: var(--text-secondary);
-  transition: color 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-}
-
-.team-social a:hover {
-  color: var(--color-primary);
-}
-
-/* About Skills Section */
-.about-skills {
-  margin-bottom: 6rem;
-}
-
-.about-skills h2 {
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-normal);
-  margin-bottom: 3rem;
-  color: var(--text-primary);
-}
-
-.skills-grid {
+.team-grid-brutalist {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.skill-category {
-  background: var(--bg-secondary);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  border: 1px solid var(--border-color);
-}
-
-.skill-category h3 {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid var(--color-primary);
-}
-
-.skill-category ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.skill-category li {
-  padding: 0.5rem 0;
-  color: var(--text-secondary);
-  font-size: var(--font-size-sm);
+  grid-template-columns: repeat(3, 1fr);
   border-bottom: 1px solid var(--border-color);
 }
 
-.skill-category li:last-child {
-  border-bottom: none;
+.team-member-card {
+  padding: 2rem;
+  border-right: 1px solid var(--border-color);
+  background: var(--color-bg-primary);
+  transition: all 0.2s;
 }
 
-/* About CTA Section */
-.about-cta {
-  text-align: center;
-  padding: 4rem;
-  background: var(--bg-secondary);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--border-color);
+.team-member-card:last-child {
+  border-right: none;
 }
 
-.about-cta h2 {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: 1.5rem;
-  color: var(--text-primary);
+.team-member-card:hover {
+  background: var(--color-acid-green);
 }
 
-.about-cta p {
-  font-size: var(--font-size-lg);
+.team-member-card:hover * {
+  color: #000;
+}
+
+.member-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  font-size: 0.7rem;
   color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: var(--line-height-relaxed);
+  text-transform: uppercase;
 }
 
-@media (max-width: 768px) {
-  .timeline-year {
-    flex-direction: column;
-    gap: 1rem;
-  }
+.member-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
 
-  .team-stats {
-    gap: 2rem;
-  }
+.member-skills {
+  color: var(--color-primary);
+  font-size: 0.8rem;
+}
 
-  .stat-value {
-    font-size: var(--font-size-3xl);
-  }
+.team-member-card:hover .member-skills {
+  color: #000;
+}
 
-  .about-cta {
-    padding: 2rem;
+/* Philosophy */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.philo-item {
+  padding: 4rem 2rem;
+  text-align: center;
+  border-right: 1px solid var(--border-color);
+}
+
+.philo-item:last-child {
+  border-right: none;
+}
+
+.philo-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.philo-item h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about-grid-intro {
+    grid-template-columns: 1fr;
+  }
+  
+  .intro-text {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .intro-stats {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  
+  .stat-box {
+    border-bottom: none;
+    border-right: 1px solid var(--border-color);
+  }
+  
+  .team-grid-brutalist {
+    grid-template-columns: 1fr;
+  }
+  
+  .team-member-card {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .philo-item {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
   }
 }

@@ -15,24 +15,16 @@ const PortfolioCard = memo(function PortfolioCard({ portfolio }) {
   // If portfolio has demo URL, link to demo; otherwise link to detail page
   const linkTo = portfolio.demoUrl || `/portfolio/${portfolio.slug}`
 
+  // Format ID to ensure 2 digits (e.g., 01, 05)
+  const formattedId = portfolio.id < 10 ? `0${portfolio.id}` : portfolio.id
+
   return (
     <Link
       to={linkTo}
       className="portfolio-card"
       onClick={handleClick}
     >
-      <div className="portfolio-header">
-        <div className="portfolio-number">0{portfolio.id}</div>
-        <div className="portfolio-year">{portfolio.year}</div>
-      </div>
-      <div className="portfolio-content">
-        <div className="portfolio-category" style={{ color: portfolio.color }}>
-          {portfolio.industry[language]}
-        </div>
-        <h3 className="portfolio-title">{portfolio.title[language]}</h3>
-        <p className="portfolio-description">{portfolio.shortDesc[language]}</p>
-      </div>
-      <div className="portfolio-visual">
+      <div className="portfolio-image-container">
         {portfolio.thumbnail ? (
           <LazyImage
             src={portfolio.thumbnail}
@@ -40,17 +32,28 @@ const PortfolioCard = memo(function PortfolioCard({ portfolio }) {
             className="portfolio-thumbnail"
           />
         ) : (
-          <div
-            className="portfolio-placeholder"
-            style={{
-              background: `linear-gradient(135deg, ${portfolio.color}20, ${portfolio.color}10)`
-            }}
-          >
-            <div className="visual-shape" style={{ borderColor: portfolio.color }}></div>
+          <div className="portfolio-placeholder">
+            <span>NO IMAGE</span>
           </div>
         )}
+        <div className="portfolio-overlay">
+          <span className="view-project-btn">VIEW PROJECT</span>
+        </div>
       </div>
-      <div className="portfolio-hover">查看项目 →</div>
+      
+      <div className="portfolio-info">
+        <div className="portfolio-meta">
+          <span className="portfolio-id">[{formattedId}]</span>
+          <span className="portfolio-year">{portfolio.year || '2024'}</span>
+        </div>
+        
+        <h3 className="portfolio-title">{portfolio.title[language]}</h3>
+        
+        <div className="portfolio-footer">
+          <span className="portfolio-category">{portfolio.industry[language]}</span>
+          <span className="portfolio-arrow">↗</span>
+        </div>
+      </div>
     </Link>
   )
 })

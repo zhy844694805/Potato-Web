@@ -1,77 +1,118 @@
+/* Tech-Brutalism Service Card - Modular System Style */
+
 .service-card {
   position: relative;
-  padding: 3rem 2rem;
+  padding: 2.5rem;
   background: var(--color-bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  transition: all var(--duration-normal) var(--ease-smooth);
+  /* Remove rounded corners */
+  border-radius: 0; 
+  transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
   cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
+/* Hover State: Inverted High Contrast */
 .service-card:hover {
-  background: var(--color-bg-secondary);
-  border-color: var(--text-primary);
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-md);
+  background: var(--color-acid-green);
+  border-color: var(--color-acid-green);
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0 var(--text-primary);
+  z-index: 10;
 }
 
+/* Icon */
 .service-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.8;
-  transition: transform var(--duration-fast) var(--ease-smooth);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  opacity: 1;
+  color: var(--color-primary);
+  transition: color 0.2s;
 }
 
 .service-card:hover .service-icon {
+  color: #000; /* Black icon on acid green */
   transform: scale(1.1);
 }
 
+/* Title */
 .service-title {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-medium);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
   margin-bottom: 1rem;
   color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
+.service-card:hover .service-title {
+  color: #000;
+}
+
+/* Description */
 .service-description {
-  font-size: var(--font-size-base);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: var(--line-height-normal);
-  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
 }
 
+.service-card:hover .service-description {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Tags */
 .service-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 0.5rem;
   margin-bottom: 2rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.service-card:hover .service-tags {
+  border-top-color: rgba(0, 0, 0, 0.2);
 }
 
 .tag {
-  padding: 0.4rem 1rem;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
   color: var(--text-secondary);
-  transition: all var(--duration-fast) var(--ease-smooth);
+  border-radius: 0;
 }
 
 .service-card:hover .tag {
-  background: rgba(0, 0, 0, 0.08);
-  color: var(--text-primary);
+  border-color: #000;
+  color: #000;
+  background: transparent;
 }
 
+/* Arrow */
 .service-arrow {
   position: absolute;
-  bottom: 2rem;
-  right: 2rem;
+  top: 1.5rem;
+  right: 1.5rem;
   font-size: 1.5rem;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all var(--duration-fast) var(--ease-smooth);
+  color: var(--border-color);
+  transition: all 0.2s;
+  font-family: var(--font-mono);
+  font-weight: bold;
+  opacity: 1; /* Always visible */
+  transform: none;
 }
 
 .service-card:hover .service-arrow {
-  opacity: 1;
-  transform: translateX(0);
+  color: #000;
+  transform: rotate(-45deg); /* Point top-right */
 }

@@ -1,56 +1,151 @@
+/* Tech-Brutalism Portfolio Page */
+
 .portfolio-page {
-  margin-top: 80px;
-  padding: var(--spacing-3xl) 0;
+  padding-top: 64px;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
 }
 
-.portfolio-hero {
-  text-align: center;
-  margin-bottom: 4rem;
+.page-header-brutalist {
+  padding: 6rem 5% 4rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.portfolio-filter {
-  margin-bottom: 4rem;
+.header-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
 }
 
-.filter-buttons {
+.page-title-giant {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.9;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.header-decoration-line {
+  width: 100px;
+  height: 10px;
+  background-color: var(--color-primary);
+}
+
+/* Filter Bar */
+.portfolio-filter-bar {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 5%;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--color-bg-secondary);
+  overflow-x: auto;
+}
+
+.filter-label {
+  margin-right: 2rem;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.filter-list {
   display: flex;
   gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 .filter-btn {
-  padding: 0.8rem 1.5rem;
   background: transparent;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-full);
+  border: none;
   color: var(--text-secondary);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
   cursor: pointer;
-  transition: all var(--duration-fast) var(--ease-smooth);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  padding: 0;
+  transition: color 0.2s;
+  white-space: nowrap;
 }
 
 .filter-btn:hover {
-  border-color: var(--text-primary);
   color: var(--text-primary);
 }
 
 .filter-btn.active {
-  background: #1a1a1a;
-  border-color: var(--text-primary);
-  color: #fff;
+  color: var(--color-primary);
+  text-decoration: underline;
 }
 
-.portfolio-grid {
+/* Grid Layout */
+.portfolio-grid-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--border-color);
 }
 
-/* Dark mode support */
-[data-theme='dark'] .filter-btn.active {
-  background: #fff;
-  color: #1a1a1a;
-  border-color: #fff;
+.portfolio-grid-item {
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  height: 100%;
+}
+
+.portfolio-grid-item:nth-child(3n) {
+  border-right: none;
+}
+
+/* Card Overrides within Grid */
+.portfolio-grid-item .portfolio-card {
+  border: none;
+  height: 100%;
+}
+
+.portfolio-grid-item .portfolio-card:hover {
+  transform: none;
+  box-shadow: none;
+  z-index: 1;
+}
+
+/* Footer Bar */
+.portfolio-footer-bar {
+  padding: 2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-count {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .portfolio-grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .portfolio-grid-item:nth-child(3n) {
+    border-right: 1px solid var(--border-color);
+  }
+  
+  .portfolio-grid-item:nth-child(2n) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .portfolio-grid-item {
+    border-right: none;
+  }
+  
+  .portfolio-footer-bar {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

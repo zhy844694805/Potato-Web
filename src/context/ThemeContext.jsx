@@ -4,10 +4,10 @@ import { createContext, useContext, useState, useEffect, useMemo, useCallback } 
 const ThemeContext = createContext()
 
 export const ThemeProvider = ({ children }) => {
-  // Check for saved theme preference or default to 'light'
+  // Check for saved theme preference or default to 'dark'
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem('theme')
-    return savedTheme || 'light'
+    return savedTheme || 'dark'
   })
 
   // Update theme in localStorage and HTML attribute

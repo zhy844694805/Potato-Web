@@ -31,7 +31,7 @@ function Portfolio() {
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category)
-    setCurrentPage(1) // Reset to first page when category changes
+    setCurrentPage(1) 
   }
 
   const handlePageChange = (page) => {
@@ -39,21 +39,9 @@ function Portfolio() {
   }
 
   const seoData = {
-    zh: {
-      title: '服务能力',
-      description: '独立开发者服务能力展示，包括Web开发、全栈应用、数据平台等技术服务',
-      keywords: '服务能力,Web开发,全栈开发,技术服务,开发案例'
-    },
-    en: {
-      title: 'Capabilities',
-      description: 'Independent developer service capabilities including web development, full-stack applications, data platforms and more',
-      keywords: 'capabilities,web development,full stack,technical services,development portfolio'
-    },
-    it: {
-      title: 'Capacità',
-      description: 'Capacità di servizio dello sviluppatore indipendente tra cui sviluppo web, applicazioni full-stack, piattaforme dati e altro',
-      keywords: 'capacità,sviluppo web,full stack,servizi tecnici,portfolio sviluppo'
-    }
+    zh: { title: '案例作品', description: '服务能力展示' },
+    en: { title: 'Portfolio', description: 'Service Capabilities' },
+    it: { title: 'Portfolio', description: 'Capacità di Servizio' }
   }
 
   const breadcrumbItems = [
@@ -66,55 +54,61 @@ function Portfolio() {
       <SEO
         title={seoData[language].title}
         description={seoData[language].description}
-        keywords={seoData[language].keywords}
         path="/portfolio"
       />
       <StructuredData data={breadcrumbSchema(breadcrumbItems)} />
-      <div className="container">
-        <section className="portfolio-hero">
-          <h1 className="page-title">
-            {t('服务能力展示', 'Service Capabilities', 'Capacità di Servizio')}
+      
+      <div className="brutalist-container">
+        {/* Header */}
+        <section className="page-header-brutalist">
+          <div className="header-meta font-mono">
+            <span>// ARCHIVE</span>
+            <span>PROJECT_INDEX_V1.0</span>
+          </div>
+          <h1 className="page-title-giant">
+            {t('精选案例', 'SELECTED WORKS', 'LAVORI SELEZIONATI')}
           </h1>
-          <p className="page-subtitle">
-            {t('了解我可以为你提供的开发服务', 'Discover the development services I can provide for you', 'Scopri i servizi di sviluppo che posso offrirti')}
-          </p>
+          <div className="header-decoration-line"></div>
         </section>
 
-        <section className="portfolio-filter">
-          <div className="filter-buttons">
+        {/* Filter Bar */}
+        <div className="portfolio-filter-bar font-mono">
+          <div className="filter-label">FILTER_BY:</div>
+          <div className="filter-list">
             {categories.map((cat) => (
               <button
                 key={cat.value}
                 className={`filter-btn ${activeCategory === cat.value ? 'active' : ''}`}
                 onClick={() => handleCategoryChange(cat.value)}
               >
-                {cat.label[language]}
+                [{cat.label[language].toUpperCase()}]
               </button>
             ))}
           </div>
-        </section>
+        </div>
 
-        <section className="portfolio-grid">
+        {/* Grid */}
+        <section className="portfolio-grid-layout">
           {currentItems.map((portfolio) => (
-            <PortfolioCard key={portfolio.id} portfolio={portfolio} />
+            <div key={portfolio.id} className="portfolio-grid-item">
+              <PortfolioCard portfolio={portfolio} />
+            </div>
           ))}
         </section>
 
-        {filteredPortfolio.length === 0 && (
-          <div className="no-results">
-            <p>
-              {t('暂无相关作品', 'No portfolio items found', 'Nessun elemento trovato')}
-            </p>
+        {/* Footer / Pagination */}
+        <div className="portfolio-footer-bar">
+          <div className="result-count font-mono">
+            SHOWING {currentItems.length} / {filteredPortfolio.length} RESULTS
           </div>
-        )}
-
-        {totalPages > 1 && (
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
-        )}
+          {totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          )}
+        </div>
       </div>
     </div>
   )

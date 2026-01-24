@@ -1,140 +1,116 @@
+/* Tech-Brutalism Blog Page */
+
 .blog-page {
-  padding: 6rem 0 8rem;
+  padding-top: 64px;
   min-height: 100vh;
+  background-color: var(--color-bg-primary);
 }
 
-.blog-hero {
-  text-align: center;
-  margin-bottom: 4rem;
+.page-header-brutalist {
+  padding: 6rem 5% 4rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.blog-featured {
-  margin-bottom: 4rem;
-}
-
-.blog-featured .section-title {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-medium);
+.page-title-giant {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.9;
+  font-weight: 700;
+  text-transform: uppercase;
   color: var(--text-primary);
   margin-bottom: 2rem;
-  text-align: center;
 }
 
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.blog-filter {
-  margin-bottom: 3rem;
-}
-
-.blog-search {
+/* Toolbar */
+.blog-toolbar {
   display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.filter-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.filter-btn {
-  padding: 0.8rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  border-bottom: 1px solid var(--border-color);
   background: var(--color-bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all var(--duration-fast) var(--ease-smooth);
-  font-family: inherit;
 }
 
-.filter-btn:hover {
-  background: var(--color-bg-primary);
+.blog-categories {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
+.cat-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.cat-btn:hover {
   border-color: var(--text-primary);
   color: var(--text-primary);
 }
 
-.filter-btn.active {
-  background: #1a1a1a;
-  color: #fff;
-  border-color: #1a1a1a;
+.cat-btn.active {
+  background: var(--color-acid-green);
+  border-color: var(--color-primary);
+  color: #000;
+  font-weight: bold;
 }
 
-.blog-grid {
+.blog-search-container {
+  width: 300px;
+}
+
+/* Blog Grid - 2 columns for wider reading experience */
+.blog-grid-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2.5rem;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+  border-bottom: 1px solid var(--border-color);
 }
 
-.no-results {
-  text-align: center;
-  padding: 4rem 2rem;
-  color: var(--text-light);
-  font-size: var(--font-size-lg);
+.blog-grid-item {
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 2rem;
 }
 
-/* Animations */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+.blog-grid-item:nth-child(2n) {
+  border-right: none;
 }
 
-.fade-in-up.in-view {
-  opacity: 1;
-  transform: translateY(0);
+/* Footer */
+.blog-footer-bar {
+  padding: 2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Dark mode support */
-[data-theme='dark'] .filter-btn.active {
-  background: #fff;
-  color: #1a1a1a;
-  border-color: #fff;
+.result-info {
+  font-size: 0.8rem;
+  color: var(--color-primary);
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .blog-grid,
-  .featured-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-}
-
 @media (max-width: 768px) {
-  .blog-page {
-    padding: 4rem 0 6rem;
-  }
-
-  .blog-hero {
-    margin-bottom: 3rem;
-  }
-
-  .blog-featured {
-    margin-bottom: 3rem;
-  }
-
-  .blog-grid,
-  .featured-grid {
-    grid-template-columns: 1fr;
+  .blog-toolbar {
+    flex-direction: column;
     gap: 1.5rem;
+    align-items: stretch;
   }
-
-  .filter-buttons {
-    gap: 0.8rem;
+  
+  .blog-search-container {
+    width: 100%;
   }
-
-  .filter-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: var(--font-size-xs);
+  
+  .blog-grid-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .blog-grid-item {
+    border-right: none;
   }
 }

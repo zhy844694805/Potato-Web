@@ -1,0 +1,11 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景：酸性绿 -->
+  <rect width="100" height="100" fill="#CCFF00"/>
+  
+  <!-- 图形：抽象的 P / 终端方块，黑色 -->
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M25 25H75V65H55V75H45V65H25V25ZM45 45H55V45H45V45Z" fill="black"/>
+  
+  <!-- 装饰细节：类似电路或光标的缺口 -->
+  <rect x="55" y="45" width="20" height="20" fill="black"/>
+  <rect x="25" y="65" width="20" height="10" fill="black"/>
+</svg>

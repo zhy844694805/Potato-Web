@@ -1,130 +1,123 @@
-/* 极简现代风格 - 设计系统变量 */
+/* 极简现代风格 + 科技粗犷主义 (Tech-Brutalism) 变量 */
 
 :root {
-  /* 颜色系统 - 黑白灰 */
-  --color-primary: #1a1a1a;
-  --color-bg-primary: #fafafa;
-  --color-bg-secondary: #ffffff;
-  --color-bg-hero: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  /* --- 核心调色板 --- */
+  --color-acid-green: #CCFF00;
+  --color-cyber-violet: #BC13FE;
+  --color-electric-blue: #00F0FF;
+  --color-neon-pink: #FF00FF;
+  --color-pure-black: #050505;
+  --color-pure-white: #FFFFFF;
+  
+  /* --- 字体系统 --- */
+  /* 主字体 - 现代无衬线 */
+  --font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  /* 代码/科技字体 - 等宽 */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* 字号 - 更加夸张的对比 */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+  --font-size-4xl: 4.5rem;
+  --font-size-5xl: 6rem;
+  --font-size-6xl: 8rem; /* 巨型标题 */
+
+  /* --- 亮色模式 (保持干净，但增加锋利感) --- */
+  --color-primary: #000000;
+  --color-accent: var(--color-cyber-violet);
+  
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f4f4f5;
+  --color-bg-tertiary: #e4e4e7;
+  --color-bg-hero: #ffffff;
 
   /* 灰度 */
-  --color-gray-100: #f5f5f5;
-  --color-gray-200: #e5e5e5;
-  --color-gray-300: #ddd;
-  --color-gray-400: #999;
-  --color-gray-500: #666;
+  --color-gray-100: #f4f4f5;
+  --color-gray-200: #e4e4e7;
+  --color-gray-300: #d4d4d8;
+  --color-gray-400: #a1a1aa;
+  --color-gray-500: #71717a;
+  --color-gray-800: #27272a;
+  --color-gray-900: #18181b;
 
-  /* 强调色渐变 - 温和专业的配色 */
-  --gradient-purple: linear-gradient(135deg, #6366f1, #8b5cf6);
-  --gradient-warm: linear-gradient(135deg, #f59e0b, #d97706);
-  --gradient-blue: linear-gradient(135deg, #3b82f6, #06b6d4);
-  --gradient-dark: linear-gradient(135deg, #1a1a1a, #525252);
-  --gradient-trust: linear-gradient(135deg, #0ea5e9, #6366f1);
+  /* 文本 */
+  --text-primary: #18181b;
+  --text-secondary: #71717a;
+  --text-light: #a1a1aa;
+  --text-on-accent: #ffffff;
 
-  /* 文本颜色 */
-  --text-primary: #1a1a1a;
-  --text-secondary: #666;
-  --text-light: #999;
-
-  /* 字体系统 - 优化中文显示 */
-  --font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Segoe UI', 'Roboto', sans-serif;
-  --font-weight-light: 200;
-  --font-weight-normal: 300;
-  --font-weight-medium: 500;
-
-  /* 字号 */
-  --font-size-xs: 0.85rem;
-  --font-size-sm: 0.9rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.1rem;
-  --font-size-xl: 1.3rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 2rem;
-  --font-size-4xl: 3rem;
-  --font-size-5xl: 4rem;
-  --font-size-6xl: 6rem;
-
-  /* 行高 */
-  --line-height-tight: 1.1;
-  --line-height-normal: 1.7;
-  --line-height-relaxed: 1.8;
-
-  /* 字间距 */
-  --letter-spacing-tight: 0.5px;
-  --letter-spacing-normal: 1px;
-  --letter-spacing-wide: 2px;
-  --letter-spacing-wider: 3px;
-
-  /* 间距系统 */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-  --spacing-2xl: 5rem;
-  --spacing-3xl: 8rem;
-  --spacing-4xl: 10rem;
-
-  /* 边框与圆角 */
-  --radius-sm: 12px;
-  --radius-md: 20px;
-  --radius-lg: 30px;
-  --radius-full: 50px;
+  /* 边框与装饰 */
   --border-width: 1px;
-  --border-color: #e5e5e5;
-  --border-color-dark: #1a1a1a;
+  --border-color: #e4e4e7;
+  --border-color-hover: #000000;
+  
+  --radius-sm: 2px;   /* 更锐利的圆角 */
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
 
-  /* 阴影 */
-  --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 20px 60px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 30px 90px rgba(0, 0, 0, 0.15);
+  /* 阴影 - 硬阴影 */
+  --shadow-sm: 2px 2px 0px rgba(0,0,0,0.1);
+  --shadow-md: 4px 4px 0px rgba(0,0,0,0.1);
+  --shadow-lg: 8px 8px 0px rgba(0,0,0,0.1);
+  --shadow-neon: 0 0 0 transparent;
 
-  /* 动画 */
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-in-out: ease-in-out;
-  --duration-fast: 0.3s;
-  --duration-normal: 0.4s;
-  --duration-slow: 0.6s;
-  --duration-very-slow: 1s;
+  /* 渐变 */
+  --gradient-main: linear-gradient(135deg, var(--color-pure-black), var(--color-gray-800));
 }
 
-/* 暗黑模式 */
+/* --- 暗黑模式 (沉浸式科技感) --- */
 [data-theme='dark'] {
-  /* 颜色系统 - 反转 */
-  --color-primary: #fafafa;
-  --color-bg-primary: #1a1a1a;
-  --color-bg-secondary: #242424;
-  --color-bg-hero: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  /* 核心颜色 */
+  --color-primary: var(--color-acid-green);
+  --color-accent: var(--color-electric-blue);
+  
+  --color-bg-primary: #050505;    /* 深黑 */
+  --color-bg-secondary: #0A0A0A;  /* 次黑 */
+  --color-bg-tertiary: #121212;
+  --color-bg-hero: #050505;
 
-  /* 灰度 - 暗色调整 */
-  --color-gray-100: #2a2a2a;
-  --color-gray-200: #333;
-  --color-gray-300: #444;
-  --color-gray-400: #999;
-  --color-gray-500: #bbb;
+  /* 灰度 */
+  --color-gray-100: #121212;
+  --color-gray-200: #1E1E1E;
+  --color-gray-300: #2D2D2D;
+  --color-gray-400: #555555;
+  --color-gray-500: #888888;
+  --color-gray-800: #dddddd;
+  --color-gray-900: #ffffff;
 
-  /* 文本颜色 */
-  --text-primary: #fafafa;
-  --text-secondary: #bbb;
-  --text-light: #888;
+  /* 文本 */
+  --text-primary: #EDEDED;
+  --text-secondary: #888888;
+  --text-light: #555555;
+  --text-on-accent: #000000;
 
-  /* 边框 */
-  --border-color: #333;
-  --border-color-dark: #fafafa;
+  /* 边框 - 科技感细线 */
+  --border-color: #222222;
+  --border-color-hover: var(--color-acid-green);
 
-  /* 阴影 - 暗模式下更柔和 */
-  --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 20px 60px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 30px 90px rgba(0, 0, 0, 0.5);
+  /* 阴影 - 霓虹辉光 */
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.5);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.6);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.8);
+  --shadow-neon: 0 0 10px rgba(204, 255, 0, 0.3), 0 0 20px rgba(204, 255, 0, 0.1);
 }
 
-/* 响应式断点 */
+/* 响应式调整 */
 @media (max-width: 768px) {
   :root {
-    --font-size-6xl: 3rem;
-    --font-size-5xl: 2.5rem;
-    --font-size-4xl: 2rem;
-    --spacing-3xl: 5rem;
-    --spacing-4xl: 6rem;
+    --font-size-6xl: 4rem;
+    --font-size-5xl: 3rem;
+    --font-size-4xl: 2.5rem;
   }
 }

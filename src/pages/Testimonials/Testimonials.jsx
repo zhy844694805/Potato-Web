@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
-import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 import SEO from '../../components/SEO'
 import StructuredData from '../../components/StructuredData'
 import { breadcrumbSchema } from '../../utils/schemas'
@@ -12,16 +11,15 @@ function Testimonials() {
   const { language } = useLanguage()
   const [activeFilter, setActiveFilter] = useState('all')
   const tr = (zh, en, it) => language === 'zh' ? zh : language === 'it' ? it : en
-  const { ref: statsRef, inView: statsInView } = useScrollAnimation({ threshold: 0.2 })
 
-  // Extract unique tags from all testimonials
+  // Extract unique tags
   const allTags = [...new Set(testimonials.flatMap(t => t.tags.map(tag => tag[language])))]
 
   const filterOptions = [
-    { value: 'all', label: { zh: '全部', en: 'All', it: 'Tutti' } },
+    { value: 'all', label: { zh: '全部', en: 'ALL', it: 'TUTTI' } },
     ...allTags.map(tag => ({
       value: tag,
-      label: { zh: tag, en: tag, it: tag }
+      label: { zh: tag, en: tag.toUpperCase(), it: tag.toUpperCase() }
     }))
   ]
 
@@ -32,118 +30,67 @@ function Testimonials() {
       )
 
   const seoData = {
-    zh: {
-      title: '客户评价',
-      description: '查看客户对我们服务的真实评价和反馈，了解项目合作体验',
-      keywords: '客户评价,用户反馈,项目评价,服务质量,独立开发者'
-    },
-    en: {
-      title: 'Testimonials',
-      description: 'Read real client reviews and feedback about our services and project collaboration experience',
-      keywords: 'testimonials,client reviews,project feedback,service quality,independent developer'
-    },
-    it: {
-      title: 'Testimonianze',
-      description: 'Leggi le recensioni e i feedback reali dei clienti sui nostri servizi e l\'esperienza di collaborazione',
-      keywords: 'testimonianze,recensioni clienti,feedback progetti,qualità servizio,sviluppatore indipendente'
-    }
+    zh: { title: '客户评价', description: '真实用户反馈数据库' },
+    en: { title: 'Feedback', description: 'User Feedback Database' },
+    it: { title: 'Feedback', description: 'Database Feedback Utenti' }
   }
 
-  const breadcrumbItems = [
-    { name: tr('首页', 'Home', 'Home'), url: '/' },
-    { name: tr('客户评价', 'Testimonials', 'Testimonianze'), url: '/testimonials' }
-  ]
-
   const stats = [
-    {
-      value: '10',
-      suffix: '+',
-      label: { zh: '客户评价', en: 'Client Reviews', it: 'Recensioni Clienti' }
-    },
-    {
-      value: '100',
-      suffix: '%',
-      label: { zh: '五星好评', en: '5-Star Rating', it: 'Valutazione 5 Stelle' }
-    },
-    {
-      value: '95',
-      suffix: '%',
-      label: { zh: '客户推荐', en: 'Recommendation', it: 'Raccomandazione' }
-    }
+    { label: 'TOTAL_REVIEWS', value: '50+' },
+    { label: 'SATISFACTION', value: '100%' },
+    { label: 'NPS_SCORE', value: '95' }
   ]
 
   return (
     <div className="testimonials-page">
-      <SEO
-        title={seoData[language].title}
-        description={seoData[language].description}
-        keywords={seoData[language].keywords}
-        path="/testimonials"
-      />
-      <StructuredData data={breadcrumbSchema(breadcrumbItems)} />
-
-      <div className="container">
-        <section className="testimonials-hero">
-          <h1 className="page-title">
-            {tr('客户评价', 'Client Testimonials', 'Testimonianze dei Clienti')}
-          </h1>
-          <p className="page-subtitle">
-            {tr('真实的客户反馈，见证我们的服务质量与专业态度',
-              'Real client feedback showcasing our service quality and professional attitude',
-              'Feedback reali dei clienti che dimostrano la qualità del servizio e l\'atteggiamento professionale')}
-          </p>
-        </section>
-
-        {/* Stats Section */}
-        <section
-          ref={statsRef}
-          className={`testimonials-stats fade-in-up ${statsInView ? 'in-view' : ''}`}
-        >
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className={`stat-item fade-in-up delay-${(index + 1) * 100} ${statsInView ? 'in-view' : ''}`}
-              >
-                <div className="stat-value">
-                  {stat.value}
-                  {stat.suffix}
-                </div>
-                <div className="stat-label">{stat.label[language]}</div>
-              </div>
-            ))}
+      <SEO title={seoData[language].title} description={seoData[language].description} path="/testimonials" />
+      
+      <div className="brutalist-container">
+        <section className="page-header-brutalist">
+          <div className="header-meta font-mono">
+            <span>// DATABASE</span>
+            <span>USER_FEEDBACK_LOGS</span>
           </div>
+          <h1 className="page-title-giant">
+            {tr('客户评价', 'CLIENT FEEDBACK', 'FEEDBACK CLIENTI')}
+          </h1>
+          <div className="header-decoration-line"></div>
         </section>
 
-        {/* Filter Section */}
-        <section className="testimonials-filter">
-          <div className="filter-buttons">
+        {/* Stats Row */}
+        <div className="stats-row font-mono">
+          {stats.map((stat, i) => (
+            <div key={i} className="stats-cell">
+              <span className="stats-label">{stat.label}</span>
+              <span className="stats-val">{stat.value}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Filter Bar */}
+        <div className="filter-bar-brutalist font-mono">
+          <div className="filter-label">FILTER_LOGS:</div>
+          <div className="filter-list">
             {filterOptions.map((option) => (
               <button
                 key={option.value}
                 className={`filter-btn ${activeFilter === option.value ? 'active' : ''}`}
                 onClick={() => setActiveFilter(option.value)}
               >
-                {option.label[language]}
+                [{option.label[language]}]
               </button>
             ))}
           </div>
-        </section>
+        </div>
 
-        {/* Testimonials Grid */}
-        <section className="testimonials-grid">
+        {/* Grid */}
+        <div className="testimonials-grid-layout">
           {filteredTestimonials.map((testimonial) => (
-            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+            <div key={testimonial.id} className="testimonial-grid-item">
+              <TestimonialCard testimonial={testimonial} />
+            </div>
           ))}
-        </section>
-
-        {filteredTestimonials.length === 0 && (
-          <div className="no-results">
-            <p>
-              {tr('暂无相关评价', 'No testimonials found', 'Nessuna testimonianza trovata')}
-            </p>
-          </div>
-        )}
+        </div>
       </div>
     </div>
   )

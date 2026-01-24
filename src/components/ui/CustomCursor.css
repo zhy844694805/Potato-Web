@@ -1,0 +1,95 @@
+.cursor-outer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-acid-green);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+  mix-blend-mode: difference;
+  /* Center the cursor visually */
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+.cursor-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-acid-green);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  mix-blend-mode: difference;
+  /* Center the cursor visually */
+  margin-top: -4px;
+  margin-left: -4px;
+}
+
+/* Hover state */
+.cursor-outer.cursor-hovered {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(204, 255, 0, 0.1);
+  border-color: transparent;
+  margin-top: -30px;
+  margin-left: -30px;
+}
+
+.cursor-inner.cursor-hovered {
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  margin-top: -30px;
+  margin-left: -30px;
+}
+
+/* Click state */
+.cursor-outer.cursor-clicked {
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  margin-left: -15px;
+}
+
+.cursor-inner.cursor-clicked {
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  margin-left: -15px;
+  background-color: var(--color-cyber-violet);
+}
+
+/* Hide default cursor only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  
+  a, button, input, select, textarea {
+    cursor: none;
+  }
+}
+
+/* Hide custom cursor on mobile */
+@media (max-width: 768px) {
+  .cursor-outer, .cursor-inner {
+    display: none;
+  }
+  
+  body {
+    cursor: auto;
+  }
+  
+  a, button, input, select, textarea {
+    cursor: pointer;
+  }
+}

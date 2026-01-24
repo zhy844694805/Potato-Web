@@ -1,110 +1,102 @@
+/* Tech-Brutalism Testimonial - Terminal Log Style */
+
 .testimonial-card {
   position: relative;
-  padding: 2.5rem;
+  padding: 2rem;
   background: var(--color-bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  transition: all var(--duration-normal) var(--ease-smooth);
+  border-radius: 0;
+  transition: all 0.2s;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .testimonial-card:hover {
-  background: var(--color-bg-secondary);
-  border-color: var(--text-primary);
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+  box-shadow: 4px 4px 0 var(--color-primary);
+  transform: translate(-2px, -2px);
 }
 
+/* Header & Stars */
 .testimonial-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .testimonial-rating {
   display: flex;
-  gap: 0.2rem;
+  gap: 2px;
+  font-family: var(--font-mono);
+  color: var(--color-primary);
+  font-size: 0.8rem;
 }
 
 .star {
-  font-size: 1.2rem;
-  color: var(--border-color);
-  transition: all var(--duration-fast) var(--ease-smooth);
+  color: var(--text-light);
 }
 
 .star.filled {
-  color: #FFD700;
+  color: var(--color-primary);
 }
 
-.testimonial-card:hover .star.filled {
-  transform: scale(1.1);
-}
-
+/* Quote */
 .testimonial-content {
   flex: 1;
   margin-bottom: 1.5rem;
 }
 
 .testimonial-quote {
-  font-size: var(--font-size-base);
-  color: var(--text-secondary);
-  line-height: var(--line-height-relaxed);
-  font-style: italic;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-style: normal;
   position: relative;
 }
 
+.testimonial-quote::before {
+  content: '>';
+  margin-right: 0.5rem;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+/* Author */
 .testimonial-author {
-  margin-bottom: 1.5rem;
+  margin-top: auto;
   padding-top: 1rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px dotted var(--border-color);
+  font-family: var(--font-mono);
 }
 
 .author-name {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-medium);
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
 }
 
 .author-role {
-  font-size: var(--font-size-sm);
-  color: var(--text-light);
-}
-
-.testimonial-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-}
-
-.testimonial-tags .tag {
-  padding: 0.3rem 0.8rem;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-xs);
+  font-size: 0.75rem;
   color: var(--text-secondary);
-  transition: all var(--duration-fast) var(--ease-smooth);
+  display: block;
 }
 
-.testimonial-card:hover .tag {
-  background: rgba(0, 0, 0, 0.08);
-  color: var(--text-primary);
+/* Tags & Date */
+.testimonial-tags {
+  display: none; /* Hide tags to keep it clean */
 }
 
 .testimonial-date {
-  font-size: var(--font-size-xs);
+  font-size: 0.7rem;
   color: var(--text-light);
+  font-family: var(--font-mono);
+  float: right;
   opacity: 0.6;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .testimonial-card {
-    padding: 2rem;
-  }
-
-  .testimonial-quote {
-    font-size: var(--font-size-sm);
-  }
 }
