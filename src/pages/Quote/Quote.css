@@ -57,6 +57,39 @@
   font-weight: bold;
 }
 
+/* Included Features */
+.included-features {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: var(--color-bg-secondary);
+  border-left: 3px solid var(--color-primary);
+}
+
+.included-label {
+  display: block;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.included-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.included-list li {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.included-list li:last-child {
+  border-bottom: none;
+}
+
 /* Feature Matrix */
 .feature-matrix {
   display: grid;
@@ -121,6 +154,11 @@
 
 .text-green {
   color: var(--color-primary);
+}
+
+.text-dim {
+  opacity: 0.6;
+  font-size: 0.85rem;
 }
 
 .total-line {

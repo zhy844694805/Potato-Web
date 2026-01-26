@@ -8,7 +8,17 @@ import './Quote.css'
 // Constants remain the same...
 const projectTypes = {
   website: { base: 500, label: { zh: '企业网站', en: 'WEB', it: 'WEB' } },
-  ecommerce: { base: 1000, label: { zh: '电商网站', en: 'E-COMMERCE', it: 'E-COMMERCE' } },
+  ecommerce: {
+    base: 500,
+    label: { zh: '电商网站', en: 'E-COMMERCE', it: 'E-COMMERCE' },
+    includes: [
+      { zh: '基础支付集成（单一支付方式）', en: 'Basic payment (single gateway)', it: 'Pagamento base (singolo gateway)' },
+      { zh: '基础用户系统（注册/登录）', en: 'Basic auth (register/login)', it: 'Auth base (registra/login)' },
+      { zh: '基础后台管理（订单/产品）', en: 'Basic admin (orders/products)', it: 'Admin base (ordini/prodotti)' },
+      { zh: '产品展示（最多20个）', en: 'Product display (max 20)', it: 'Vetrina prodotti (max 20)' },
+      { zh: '购物车功能', en: 'Shopping cart', it: 'Carrello' }
+    ]
+  },
   webapp: { base: 2000, label: { zh: '全栈应用', en: 'APP', it: 'APP' } },
   miniprogram: { base: 800, label: { zh: '小程序', en: 'MINI-PROG', it: 'MINI-PROG' } }
 }
@@ -27,6 +37,18 @@ const features = [
   { id: 'analytics', price: 50, label: { zh: '数据分析', en: 'ANALYTICS', it: 'ANALYTICS' } },
   { id: 'payment', price: 200, label: { zh: '支付集成', en: 'PAYMENT_GW', it: 'PAYMENT_GW' } },
   { id: 'auth', price: 150, label: { zh: '用户系统', en: 'USER_AUTH', it: 'USER_AUTH' } }
+]
+
+// E-commerce specific features (shown when ecommerce is selected)
+const ecommerceFeatures = [
+  { id: 'multi_payment', price: 200, label: { zh: '多支付方式', en: 'MULTI_PAY', it: 'MULTI_PAY' } },
+  { id: 'multi_user', price: 150, label: { zh: '多用户权限', en: 'MULTI_USER', it: 'MULTI_USER' } },
+  { id: 'inventory', price: 150, label: { zh: '库存管理', en: 'INVENTORY', it: 'INVENTARIO' } },
+  { id: 'coupon', price: 100, label: { zh: '优惠券系统', en: 'COUPON_SYS', it: 'COUPON_SYS' } },
+  { id: 'shipping', price: 120, label: { zh: '物流追踪', en: 'SHIPPING', it: 'SPEDIZIONE' } },
+  { id: 'reviews', price: 80, label: { zh: '产品评价', en: 'REVIEWS', it: 'RECENSIONI' } },
+  { id: 'multilang', price: 100, label: { zh: '多语言支持', en: 'MULTI_LANG', it: 'MULTI_LANG' } },
+  { id: 'analytics', price: 50, label: { zh: '销售分析', en: 'SALES_DATA', it: 'DATI_VENDITE' } }
 ]
 
 const timelines = [
@@ -48,6 +70,14 @@ function Quote() {
     it: { title: 'Preventivo', description: 'Calcolatore Costi Sviluppo Web' }
   }
 
+  // Get current features based on project type
+  const currentFeatures = projectType === 'ecommerce' ? ecommerceFeatures : features
+
+  const handleProjectTypeChange = (type) => {
+    setProjectType(type)
+    setSelectedFeatures([]) // Clear selections when switching project type
+  }
+
   const toggleFeature = (featureId) => {
     setSelectedFeatures(prev =>
       prev.includes(featureId)
@@ -60,8 +90,9 @@ function Quote() {
     const basePrice = projectTypes[projectType].base
     const pageMultiplier = pageOptions.find(p => p.value === pages)?.multiplier || 1
     const timelineMultiplier = timelines.find(t => t.value === timeline)?.multiplier || 1
+    const activeFeatures = projectType === 'ecommerce' ? ecommerceFeatures : features
     const featuresPrice = selectedFeatures.reduce((sum, featureId) => {
-      const feature = features.find(f => f.id === featureId)
+      const feature = activeFeatures.find(f => f.id === featureId)
       return sum + (feature?.price || 0)
     }, 0)
     const subtotal = (basePrice * pageMultiplier + featuresPrice) * timelineMultiplier
@@ -96,12 +127,22 @@ function Quote() {
                   <button
                     key={key}
                     className={`config-btn font-mono ${projectType === key ? 'active' : ''}`}
-                    onClick={() => setProjectType(key)}
+                    onClick={() => handleProjectTypeChange(key)}
                   >
                     {value.label[language]}
                   </button>
                 ))}
               </div>
+              {projectTypes[projectType].includes && (
+                <div className="included-features font-mono">
+                  <span className="included-label">{t('已包含基础功能', 'INCLUDED_BASIC', 'INCLUSO_BASE')}:</span>
+                  <ul className="included-list">
+                    {projectTypes[projectType].includes.map((item, index) => (
+                      <li key={index}>+ {item[language]}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             {/* 2. Scale */}
@@ -122,9 +163,11 @@ function Quote() {
 
             {/* 3. Modules */}
             <div className="config-group">
-              <label className="group-label font-mono">[03] MODULES</label>
+              <label className="group-label font-mono">
+                [03] {projectType === 'ecommerce' ? t('电商模块', 'E-COM MODULES', 'MODULI E-COM') : 'MODULES'}
+              </label>
               <div className="feature-matrix">
-                {features.map((feature) => (
+                {currentFeatures.map((feature) => (
                   <div
                     key={feature.id}
                     className={`matrix-cell font-mono ${selectedFeatures.includes(feature.id) ? 'active' : ''}`}
@@ -170,6 +213,15 @@ function Quote() {
               <div className="log-line text-green">>> BASE_SYSTEM: {projectTypes[projectType].label['en']}</div>
               <div className="log-line text-green">>> SCALE_FACTOR: {pages}</div>
               <div className="log-line text-green">>> MODULES_LOADED: {selectedFeatures.length}</div>
+              {projectTypes[projectType].includes && (
+                <>
+                  <br />
+                  <div className="log-line">>> INCLUDED_BASIC:</div>
+                  {projectTypes[projectType].includes.map((item, index) => (
+                    <div key={index} className="log-line text-dim">   + {item['en']}</div>
+                  ))}
+                </>
+              )}
               <br />
               <div className="log-line">--------------------------------</div>
               <div className="log-line total-line">
