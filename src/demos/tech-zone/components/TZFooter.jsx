@@ -30,7 +30,9 @@ export default function TZFooter() {
           <div className="tz-footer-top">
             <div className="tz-footer-brand-area">
               <Link to={basePath} className="tz-footer-logo">
-                <span className="tz-logo-icon">⚡</span>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="tz-logo-icon">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
                 <span className="tz-logo-text">{t(siteConfig.name)}</span>
               </Link>
               <p className="tz-footer-mission">

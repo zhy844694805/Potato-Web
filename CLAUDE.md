@@ -29,7 +29,7 @@ React 19 + Vite 7 portfolio website for Italian Chinese businesses, with triling
 
 **Static Data:** Content in `/src/data/` with helper functions like `getPortfolioById(id)`, `getLatestPosts(limit)`, `searchPosts(query)`.
 
-**Demo Sites:** 30 self-contained demos in `/src/demos/`. Each has isolated CSS with unique prefix (e.g., `.dc-`, `.tz-`). Demos render without main site Header/Footer (controlled in `App.jsx` via `isDemo` check).
+**Demo Sites:** 32 self-contained demos in `/src/demos/`. Each has isolated CSS with unique prefix (e.g., `.dc-`, `.tz-`). Demos render without main site Header/Footer (controlled in `App.jsx` via `isDemo` check).
 
 ### Directory Structure
 
@@ -41,8 +41,9 @@ src/
 │   └── layout/      # Header, Footer
 ├── context/         # ThemeContext, LanguageContext
 ├── data/            # Static content (services, portfolio, blog, testimonials, team)
-├── demos/           # 30 client demo sites (self-contained)
+├── demos/           # 32 client demo sites (self-contained)
 ├── hooks/           # Custom hooks (useScrollAnimation, useLanguageText)
+├── locales/         # i18n translations (zh/en/it JSON files)
 ├── pages/           # Route components
 └── utils/           # schemas.js (SEO structured data), analytics.js
 ```

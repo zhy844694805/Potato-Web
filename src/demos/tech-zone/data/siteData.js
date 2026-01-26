@@ -1,7 +1,7 @@
 // TechZone Site Configuration and Translations
 
 export const siteConfig = {
-  name: { zh: '科技领域', en: 'TechZone', it: 'TechZone' },
+  name: { zh: '赛博核心', en: 'CYBER CORE', it: 'CYBER CORE' },
   tagline: {
     zh: '您的科技产品首选商城',
     en: 'Your Premier Tech Destination',
