@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTZLanguage } from '../../context/TZLanguageContext';
 import { useTZAdmin } from '../../context/TZAdminContext';
 import { translations, siteConfig } from '../../data/siteData';
@@ -8,7 +8,6 @@ import { dashboardStats } from '../../data/mockData';
 export default function AdminDashboard() {
   const { t } = useTZLanguage();
   const { isAuthenticated, login, logout, products, users, orders, resetData } = useTZAdmin();
-  const navigate = useNavigate();
   const admin = translations.admin;
 
   const [loginForm, setLoginForm] = useState({ username: '', password: '' });

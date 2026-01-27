@@ -7,15 +7,17 @@ export default function CustomCursor() {
   const cursorInnerRef = useRef(null)
   const [clicked, setClicked] = useState(false)
   const [linkHovered, setLinkHovered] = useState(false)
-  const [hidden, setHidden] = useState(false)
+  const [hidden] = useState(() => {
+    // Hide cursor on touch devices
+    if (typeof navigator !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      return true
+    }
+    return false
+  })
   const location = useLocation()
 
   useEffect(() => {
-    // Hide cursor on touch devices
-    if (typeof navigator !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      setHidden(true)
-      return
-    }
+    if (hidden) return
 
     const cursor = cursorRef.current
     const cursorInner = cursorInnerRef.current

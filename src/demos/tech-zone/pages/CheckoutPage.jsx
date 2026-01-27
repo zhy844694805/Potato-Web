@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTZLanguage } from '../context/TZLanguageContext';
 import { useTZCart } from '../context/TZCartContext';
 import { translations, siteConfig } from '../data/siteData';
@@ -7,7 +7,6 @@ import { translations, siteConfig } from '../data/siteData';
 export default function CheckoutPage() {
   const { t } = useTZLanguage();
   const { cart, cartTotal, clearCart } = useTZCart();
-  const navigate = useNavigate();
   const checkout = translations.checkout;
   const common = translations.common;
   const basePath = '/demo/tech-zone';

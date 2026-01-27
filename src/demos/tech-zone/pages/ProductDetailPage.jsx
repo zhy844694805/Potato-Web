@@ -29,19 +29,18 @@ export default function ProductDetailPage() {
   const productTrans = translations.product;
   const basePath = '/demo/tech-zone';
 
-  // Load reviews
+  // Load reviews and reset state on product change
   useEffect(() => {
     if (product) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setReviews(getReviewsByProductId(product.id));
     }
-  }, [product]);
-
-  // Reset quantity on product change
-  useEffect(() => {
+     
     setQuantity(1);
+     
     setActiveTab('description');
     window.scrollTo(0, 0);
-  }, [id]);
+  }, [id, product]);
 
   if (!product) {
     return (

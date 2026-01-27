@@ -25,7 +25,7 @@ function getEnvVariable(key, defaultValue) {
         return match[1].trim()
       }
     }
-  } catch (error) {
+  } catch {
     // Ignore error, use default
   }
   return defaultValue
@@ -52,10 +52,6 @@ function getDataFromFile(relativePath) {
   }
 }
 
-// 获取 portfolio slugs
-const portfolioSlugs = getDataFromFile('src/data/portfolio.js')
-console.log(`Found ${portfolioSlugs.length} portfolio items`)
-
 // 获取 blog slugs
 const blogSlugs = getDataFromFile('src/data/blog.js')
 console.log(`Found ${blogSlugs.length} blog posts`)
@@ -66,19 +62,14 @@ const today = new Date().toISOString().split('T')[0]
 const staticPages = [
   { url: '/', changefreq: 'weekly', priority: '1.0' },
   { url: '/services', changefreq: 'monthly', priority: '0.9' },
-  { url: '/portfolio', changefreq: 'weekly', priority: '0.9' },
+  { url: '/demos', changefreq: 'weekly', priority: '0.9' },
   { url: '/blog', changefreq: 'weekly', priority: '0.9' },
   { url: '/testimonials', changefreq: 'monthly', priority: '0.8' },
   { url: '/about', changefreq: 'monthly', priority: '0.8' },
-  { url: '/contact', changefreq: 'monthly', priority: '0.8' }
+  { url: '/contact', changefreq: 'monthly', priority: '0.8' },
+  { url: '/quote', changefreq: 'monthly', priority: '0.8' },
+  { url: '/faq', changefreq: 'monthly', priority: '0.7' }
 ]
-
-// Portfolio 详情页
-const portfolioPages = portfolioSlugs.map(slug => ({
-  url: `/portfolio/${slug}`,
-  changefreq: 'monthly',
-  priority: '0.7'
-}))
 
 // Blog 详情页
 const blogPages = blogSlugs.map(slug => ({
@@ -88,7 +79,7 @@ const blogPages = blogSlugs.map(slug => ({
 }))
 
 // 合并所有页面
-const allPages = [...staticPages, ...portfolioPages, ...blogPages]
+const allPages = [...staticPages, ...blogPages]
 
 // 生成 XML sitemap (支持三语: 中文、英文、意大利语)
 function generateSitemap() {
@@ -183,7 +174,6 @@ try {
   console.log('')
   console.log('Total URLs:', allPages.length)
   console.log(`   - Static pages: ${staticPages.length}`)
-  console.log(`   - Portfolio pages: ${portfolioPages.length}`)
   console.log(`   - Blog pages: ${blogPages.length}`)
   console.log('')
 } catch (error) {

@@ -201,8 +201,8 @@ export default function ContactPage() {
     |  [ACTIVE]       |
     |                 |
     |   (o)           |
-    |   /|\           |
-    |   / \           |
+    |   /|\\           |
+    |   / \\           |
     +-----------------+
 `}
                   </pre>

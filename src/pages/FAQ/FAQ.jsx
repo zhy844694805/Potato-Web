@@ -30,7 +30,7 @@ function FAQItem({ faq, isOpen, onToggle }) {
         role="region"
       >
         <div className="answer-content font-mono">
-          <span className="answer-arrow">>> </span>
+          <span className="answer-arrow">{">>"} </span>
           {faq.answer[language]}
         </div>
       </div>

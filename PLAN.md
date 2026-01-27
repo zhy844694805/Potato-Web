@@ -1,156 +1,108 @@
-# TechZone 电商 Demo 视觉升级计划
+# 页面合并实施计划
 
-## 目标
-将 TechZone 打造成惊艳的电商展示案例，适合作为小红书引流素材截图使用。
-
----
-
-## 一、首页视觉升级 (HomePage.jsx + TechZone.css)
-
-### 1.1 Hero 区域增强
-- **视差滚动效果**: 背景图随滚动移动，创造深度感
-- **动态文字动画**: 标题淡入 + 上滑动画
-- **渐变叠加层**: 更酷炫的多色渐变 (蓝→紫→粉)
-- **脉冲光效按钮**: CTA 按钮带呼吸光效
-
-### 1.2 产品卡片 3D 效果
-- **悬停 3D 倾斜**: 鼠标移入时卡片微倾斜 (perspective + rotateX/Y)
-- **光泽反射效果**: 卡片表面随鼠标移动的高光
-- **阴影增强**: 悬停时更深的动态阴影
-- **图片缩放**: hover 时图片放大 1.1 倍
-
-### 1.3 滚动入场动画
-- **淡入上滑**: 各区块滚动进入视口时动画显现
-- **交错动画**: 产品网格卡片依次动画进入
+## 概述
+合并三组功能重复的页面，简化网站结构，提升用户体验。
 
 ---
 
-## 二、结账页面支付 UI (CheckoutPage.jsx)
+## 一、Pricing + Quote 合并
 
-### 2.1 支付方式卡片设计
-添加以下支付方式的精美 UI 卡片:
+### 目标
+创建带标签切换的单一报价页面，包含"套餐选择"和"自定义报价"两种模式。
 
-| 支付方式 | 图标/Logo | 描述 |
-|---------|----------|------|
-| 信用卡/借记卡 | 💳 Visa/Mastercard | Credit/Debit Card |
-| Apple Pay | Apple Logo | 快捷支付 |
-| Google Pay | G Pay Logo | 快捷支付 |
-| PayPal | PP Logo | PayPal 支付 |
-| 微信支付 | 微信绿色图标 | WeChat Pay |
-| 支付宝 | 蓝色支付宝图标 | Alipay |
+### 修改文件
 
-### 2.2 支付卡片视觉效果
-- **玻璃拟态设计**: 半透明磨砂玻璃效果
-- **悬停发光**: 选中的支付方式边框发光
-- **品牌色彩**: 各支付方式使用其品牌色 (微信绿、支付宝蓝等)
-- **选中动画**: 点击时缩放反馈 + 打勾动画
+#### 1. `src/pages/Pricing/Pricing.jsx` (重构)
+- 添加标签切换状态 `activeTab: 'packages' | 'custom'`
+- 支持 URL 参数 `?tab=custom` 切换到自定义报价
+- 将原 Quote 页面逻辑整合为 `renderCustomQuote()` 函数
+- 保留 PDF 导出功能（从 Quote 页面）
 
-### 2.3 信用卡输入表单美化
-- **卡片预览**: 实时显示卡号在虚拟卡片上
-- **浮动标签**: 输入框标签动画
-- **卡组织识别**: 根据卡号自动显示 Visa/Mastercard 图标
+#### 2. `src/pages/Pricing/Pricing.css`
+- 合并 Quote.css 样式
+- 添加标签切换器样式 `.pricing-tabs`
 
----
+#### 3. `src/App.jsx`
+- 删除 Quote lazy import
+- 添加重定向: `/quote` → `/pricing?tab=custom`
 
-## 三、商品详情页增强 (ProductDetailPage.jsx)
+#### 4. `src/components/layout/Header.jsx`
+- 从 navItems 中删除 quote 路由
 
-### 3.1 图片画廊升级
-- **缩放动画**: 点击图片时平滑放大
-- **缩略图悬停预览**: hover 时快速切换主图
-- **图片加载动画**: 骨架屏 + 淡入效果
+#### 5. `src/locales/*/common.json` (zh/en/it)
+- 删除 nav.quote 和 footer.quote
 
-### 3.2 价格和促销视觉
-- **价格动画**: 折扣价格带闪烁效果
-- **倒计时增强**: 脉冲 + 渐变背景的紧迫感设计
-- **库存紧张提示**: 低库存时带动画警告
+#### 6. 删除文件
+- `src/pages/Quote/Quote.jsx`
+- `src/pages/Quote/Quote.css`
 
 ---
 
-## 四、全局视觉增强 (TechZone.css)
+## 二、About + Team 合并
 
-### 4.1 配色升级
-```css
-/* 新增渐变色 */
---tz-gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
---tz-gradient-hot: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
---tz-gradient-success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+### 目标
+将 Team 页面的详细团队信息整合到 About 页面。
 
-/* 玻璃效果 */
---tz-glass-bg: rgba(255, 255, 255, 0.15);
---tz-glass-blur: blur(10px);
-```
+### 修改文件
 
-### 4.2 新增动画库
-- `fadeInUp` - 淡入上滑
-- `fadeInScale` - 淡入缩放
-- `pulse` - 脉冲呼吸
-- `shimmer` - 光泽流动
-- `bounce` - 弹跳
-- `wiggle` - 摇晃
+#### 1. `src/pages/About/About.jsx`
+- 扩展团队区域，显示完整信息（bio、skills、social）
+- 添加 "加入我们" CTA
 
-### 4.3 按钮升级
-- **渐变背景**: 主按钮使用渐变
-- **悬停效果**: 背景位移 + 阴影增强
-- **点击反馈**: scale(0.95) 按下效果
+#### 2. `src/pages/About/About.css`
+- 合并 Team.css 中的样式（头像、技能条、社交链接）
+
+#### 3. `src/App.jsx`
+- 删除 Team lazy import
+- 添加重定向: `/team` → `/about`
+
+#### 4. 删除文件
+- `src/pages/Team/Team.jsx`
+- `src/pages/Team/Team.css`
 
 ---
 
-## 五、购物车微交互
+## 三、Portfolio + Demos 合并
 
-### 5.1 添加购物车动画
-- **飞入动画**: 商品图片飞向购物车图标
-- **数量徽章弹跳**: 数字更新时弹跳动画
-- **成功提示**: 底部 toast 带滑入动画
+### 目标
+将 Demos 作为 Portfolio 的一个"模板"分类展示。
 
-### 5.2 购物车侧边栏
-- **商品入场动画**: 列表项交错淡入
-- **数量变化动画**: 数字滚动效果
-- **滑出效果**: 删除商品时滑出消失
+### 修改文件
 
----
+#### 1. `src/data/portfolio.js`
+- 在 categories 添加 `template` 分类
 
-## 实施步骤
+#### 2. `src/pages/Portfolio/Portfolio.jsx`
+- 导入 demos 数据
+- 当选择 template 分类时显示 demos
+- Demo 卡片链接到 `/demo/{slug}`
 
-### 第一阶段: CSS 动画基础
-1. 在 TechZone.css 中添加动画 keyframes
-2. 添加新的配色变量和渐变
-3. 创建玻璃拟态样式类
+#### 3. `src/pages/Portfolio/Portfolio.css`
+- 添加 demo 卡片样式（如需）
 
-### 第二阶段: 首页视觉升级
-4. Hero 区域视差和动画效果
-5. 产品卡片 3D 悬停效果
-6. 滚动入场动画 (使用 Intersection Observer)
+#### 4. `src/App.jsx`
+- 删除 Demos lazy import
+- 添加重定向: `/demos` → `/portfolio?category=template`
 
-### 第三阶段: 结账页支付 UI
-7. 添加支付方式数据和翻译
-8. 创建支付方式卡片组件
-9. 美化信用卡输入表单
-
-### 第四阶段: 细节打磨
-10. 商品详情页增强
-11. 购物车微交互
-12. 整体测试和优化
+#### 5. 删除文件
+- `src/pages/Demos/Demos.jsx`
+- `src/pages/Demos/Demos.css`
 
 ---
 
-## 涉及文件
+## 执行顺序
 
-| 文件 | 修改内容 |
-|------|---------|
-| `TechZone.css` | 动画、渐变、玻璃效果、按钮样式 |
-| `HomePage.jsx` | Hero动画、滚动监听、产品卡片效果 |
-| `CheckoutPage.jsx` | 支付方式UI、表单美化 |
-| `ProductDetailPage.jsx` | 图片动画、价格效果 |
-| `TZProductCard.jsx` | 3D悬停效果 |
-| `siteData.js` | 支付方式翻译文案 |
-| `components/TZPaymentMethods.jsx` | 新组件 - 支付方式选择器 |
+1. **Pricing + Quote** - 最独立，可先完成
+2. **About + Team** - 简单内容合并
+3. **Portfolio + Demos** - 需处理不同数据结构
 
 ---
 
-## 预期效果
+## 验证清单
 
-完成后，TechZone 将具备:
-- 现代感十足的视觉设计
-- 流畅的动画和交互体验
-- 多种国际支付方式展示
-- 适合截图分享到社交媒体的惊艳效果
+- [ ] 旧 URL 正确重定向
+- [ ] 导航菜单更新
+- [ ] 三语言正常
+- [ ] PDF 导出功能正常
+- [ ] Demo 链接可用
+- [ ] `npm run build` 成功

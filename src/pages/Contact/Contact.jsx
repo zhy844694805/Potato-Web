@@ -4,12 +4,13 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useLanguage } from '../../context/LanguageContext'
 import SEO from '../../components/SEO'
+import StructuredData from '../../components/StructuredData'
 import Button from '../../components/ui/Button'
 import { siteConfig } from '../../config/site'
-import { trackButtonClick } from '../../utils/analytics'
+import { localBusinessSchema } from '../../utils/schemas'
 import './Contact.css'
 
-const createSchema = (language) => yup.object({
+const createSchema = () => yup.object({
   name: yup.string().required(),
   email: yup.string().email().required(),
   message: yup.string().required()
@@ -30,7 +31,7 @@ function Contact() {
     it: { title: 'Contatti', subtitle: 'STABILIRE CONNESSIONE' }
   }[language]
 
-  const onSubmit = async (data) => {
+  const onSubmit = async () => {
     setIsSubmitting(true)
     // Simulate submission
     setTimeout(() => {
@@ -43,6 +44,7 @@ function Contact() {
   return (
     <div className="contact-page">
       <SEO title={t.title} description="Contact Page" path="/contact" />
+      <StructuredData data={localBusinessSchema(language)} />
       
       <div className="brutalist-container">
         <section className="page-header-brutalist">
@@ -104,7 +106,7 @@ function Contact() {
 
               {submitStatus === 'success' && (
                 <div className="success-msg font-mono">
-                  >> TRANSMISSION_RECEIVED. ACKNOWLEDGED.
+                  {">> TRANSMISSION_RECEIVED. ACKNOWLEDGED."}
                 </div>
               )}
             </form>

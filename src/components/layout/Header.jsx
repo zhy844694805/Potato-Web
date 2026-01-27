@@ -16,9 +16,8 @@ function Header() {
   const navItems = useMemo(() => [
     { path: '/', label: t('nav.home') },
     { path: '/services', label: t('nav.services') },
-    { path: '/pricing', label: t('nav.pricing') },
     { path: '/quote', label: t('nav.quote') },
-    { path: '/portfolio', label: t('nav.portfolio') },
+    { path: '/demos', label: t('nav.demos') },
     { path: '/blog', label: t('nav.blog') },
     { path: '/faq', label: t('nav.faq') },
     { path: '/testimonials', label: t('nav.testimonials') },

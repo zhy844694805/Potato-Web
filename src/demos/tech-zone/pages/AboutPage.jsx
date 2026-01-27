@@ -1,5 +1,5 @@
 import { useTZLanguage } from '../context/TZLanguageContext';
-import { siteConfig, translations, features } from '../data/siteData';
+import { translations } from '../data/siteData';
 
 export default function AboutPage() {
   const { t } = useTZLanguage();

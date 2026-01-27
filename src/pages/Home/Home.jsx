@@ -8,11 +8,11 @@ import StructuredData from '../../components/StructuredData'
 import { organizationSchema } from '../../utils/schemas'
 import Button from '../../components/ui/Button'
 import ServiceCard from '../../components/business/ServiceCard'
-import PortfolioCard from '../../components/business/PortfolioCard'
+import LazyImage from '../../components/ui/LazyImage'
 import TestimonialCard from '../../components/business/TestimonialCard'
 import BlogCard from '../../components/business/BlogCard'
 import { services } from '../../data/services'
-import { portfolioData } from '../../data/portfolio'
+import { demos } from '../../data/demos'
 import { stats } from '../../data/stats'
 import { getLatestTestimonials } from '../../data/testimonials'
 import { getLatestPosts } from '../../data/blog'
@@ -31,7 +31,7 @@ function Home() {
   const { ref: ctaRef, inView: ctaInView } = useScrollAnimation({ threshold: 0.3 })
 
   // Memoize featured content
-  const featuredCases = useMemo(() => portfolioData.slice(0, 4), [])
+  const featuredCases = useMemo(() => demos.slice(0, 4), [])
   const featuredBlogs = useMemo(() => getLatestPosts(3), [])
   const featuredTestimonials = useMemo(() => getLatestTestimonials(3), [])
 
@@ -104,7 +104,7 @@ function Home() {
                 : 'We were a startup too. We know every penny counts. No inflated quotes, no useless features. Just pure, efficient technical solutions to help your business take off.'}
             </p>
             <div className="hero-actions">
-              <Link to="/portfolio" className="btn-brutalist">
+              <Link to="/demos" className="btn-brutalist">
                 {t('button.viewCase')}
               </Link>
               <Link to="/contact" className="btn-brutalist outline">
@@ -130,7 +130,7 @@ function Home() {
         className={`home-stats-brutalist ${statsInView ? 'in-view' : ''}`}
       >
         <div className="stats-grid-brutalist">
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div key={stat.id} className="stat-item-brutalist">
               <div className="stat-value font-mono">
                 {stat.value}{stat.suffix}
@@ -179,17 +179,33 @@ function Home() {
             </h2>
           </div>
           <div className="cases-grid">
-            {featuredCases.map((portfolio, index) => (
-              <div
-                key={portfolio.id}
-                className={`fade-in-up delay-${(index + 1) * 100} ${casesInView ? 'in-view' : ''}`}
+            {featuredCases.map((demo, index) => (
+              <Link
+                key={demo.id}
+                to={`/demo/${demo.slug}`}
+                className={`demo-card-home fade-in-up delay-${(index + 1) * 100} ${casesInView ? 'in-view' : ''}`}
               >
-                <PortfolioCard portfolio={portfolio} />
-              </div>
+                <div className="demo-card-image">
+                  {demo.thumbnail ? (
+                    <LazyImage src={demo.thumbnail} alt={demo.name[language]} />
+                  ) : (
+                    <div className="demo-placeholder" style={{ backgroundColor: demo.color }}>
+                      <span>{demo.name[language]}</span>
+                    </div>
+                  )}
+                  <div className="demo-card-overlay">
+                    <span className="view-demo-btn">VIEW DEMO</span>
+                  </div>
+                </div>
+                <div className="demo-card-info">
+                  <h3 className="demo-card-title">{demo.name[language]}</h3>
+                  <p className="demo-card-desc font-mono">{demo.description[language]}</p>
+                </div>
+              </Link>
             ))}
           </div>
           <div className="section-cta">
-            <Link to="/portfolio" className="btn-brutalist outline">
+            <Link to="/demos" className="btn-brutalist outline">
               {language === 'zh' ? '查看更多' : 'VIEW ALL WORKS'} →
             </Link>
           </div>

@@ -310,8 +310,7 @@ function ChatWidget() {
                         if (isListItem) {
                           return (
                             <div key={i} className="chat-message__list-item">
-                              <span className="chat-message__bullet">>
-                              </span>
+                              <span className="chat-message__bullet">{">"}</span>
                               <span>{line.trim().substring(1).trim()}</span>
                             </div>
                           )

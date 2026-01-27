@@ -71,7 +71,7 @@ export default function TZReviewCard({ review }) {
 
 // Review Form Component
 export function TZReviewForm({ productId, onSubmit }) {
-  const { t } = useTZLanguage();
+  useTZLanguage();
   const [rating, setRating] = useState(0);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');

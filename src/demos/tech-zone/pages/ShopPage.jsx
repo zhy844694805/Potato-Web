@@ -27,6 +27,7 @@ export default function ShopPage() {
 
   // Update category when URL changes
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedCategory(urlCategory || null);
   }, [urlCategory]);
 

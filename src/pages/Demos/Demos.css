@@ -11,10 +11,11 @@
 .demos-hero .page-title {
   font-size: var(--font-size-3xl);
   margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
 }
 
 .demos-hero .page-subtitle {
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
   max-width: 700px;
   margin: 0 auto var(--spacing-lg);
   line-height: 1.6;
@@ -36,11 +37,12 @@
   font-size: var(--font-size-2xl);
   font-weight: 700;
   color: var(--color-primary);
+  font-family: var(--font-mono);
 }
 
 .demos-stats .stat-label {
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
 }
 
 /* Filter Section */
@@ -57,53 +59,78 @@
 
 .demos-filter .filter-btn {
   padding: var(--spacing-sm) var(--spacing-md);
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  color: var(--color-text-secondary);
-  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: var(--color-bg-secondary);
+  color: var(--text-secondary);
+  border-radius: 0;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-family: var(--font-mono);
   font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .demos-filter .filter-btn:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='light'] .demos-filter .filter-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .demos-filter .filter-btn.active {
   background: var(--color-primary);
   border-color: var(--color-primary);
-  color: white;
+  color: var(--color-bg-primary); /* Contrast text against primary */
+  font-weight: 700;
 }
 
 /* Demo Grid */
 .demos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
 }
 
 .demo-card {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
+  background: var(--color-bg-secondary);
+  border-radius: 0;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
 }
 
 .demo-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
 }
 
 .demo-thumbnail {
   position: relative;
   aspect-ratio: 16/10;
   overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--color-bg-tertiary);
+}
+
+.demo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.demo-card:hover .demo-image {
+  transform: scale(1.05);
 }
 
 .demo-placeholder {
@@ -119,6 +146,7 @@
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-mono);
 }
 
 .demo-overlay {
@@ -130,6 +158,7 @@
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
 }
 
 .demo-card:hover .demo-overlay {
@@ -138,73 +167,99 @@
 
 .demo-view-btn {
   padding: var(--spacing-sm) var(--spacing-lg);
-  background: white;
-  color: var(--color-text);
-  border-radius: var(--radius-full);
-  font-weight: 500;
+  background: var(--color-primary);
+  color: var(--color-bg-primary);
+  border-radius: 0;
+  font-weight: 700;
   font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.demo-view-btn:hover {
+  background: transparent;
+  color: white;
+  border-color: white;
+}
+
+.demo-card:hover .demo-view-btn {
+  transform: translateY(0);
 }
 
 .demo-info {
   padding: var(--spacing-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .demo-name {
   font-size: var(--font-size-lg);
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: var(--spacing-xs);
-  color: var(--color-text);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
 }
 
 .demo-description {
   font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  flex: 1;
 }
 
 .demo-features {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-xs);
+  margin-top: auto;
 }
 
 .demo-feature {
   font-size: var(--font-size-xs);
-  padding: 2px 8px;
-  background: var(--color-background);
-  color: var(--color-text-secondary);
-  border-radius: var(--radius-sm);
-  text-transform: capitalize;
+  padding: 4px 8px;
+  background: var(--color-bg-tertiary);
+  color: var(--text-secondary);
+  border-radius: 0;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  border: 1px solid var(--border-color);
 }
 
 /* No Demos */
 .no-demos {
   text-align: center;
   padding: var(--spacing-xl);
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
 }
 
 /* CTA Section */
 .demos-cta {
   text-align: center;
   padding: var(--spacing-xl);
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+  border-radius: 0;
+  border: 1px solid var(--border-color);
+  margin-top: var(--spacing-xl);
 }
 
 .demos-cta h2 {
   font-size: var(--font-size-xl);
   margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
 }
 
 .demos-cta p {
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
   margin-bottom: var(--spacing-lg);
 }
 
@@ -212,15 +267,19 @@
   display: inline-block;
   padding: var(--spacing-sm) var(--spacing-xl);
   background: var(--color-primary);
-  color: white;
+  color: var(--color-bg-primary);
   text-decoration: none;
-  border-radius: var(--radius-md);
-  font-weight: 500;
-  transition: background 0.2s ease;
+  border-radius: 0;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
 }
 
 .demos-cta .cta-button:hover {
-  background: var(--color-primary-hover);
+  background: transparent;
+  color: var(--text-primary);
+  outline: 1px solid var(--color-primary);
 }
 
 /* Responsive */

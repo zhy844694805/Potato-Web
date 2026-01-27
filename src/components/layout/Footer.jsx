@@ -37,7 +37,7 @@ function Footer() {
           <nav className="footer-nav">
             <Link to="/">{t('nav.home')}</Link>
             <Link to="/services">{t('nav.services')}</Link>
-            <Link to="/portfolio">{t('nav.portfolio')}</Link>
+            <Link to="/demos">{t('nav.demos')}</Link>
             <Link to="/about">{t('nav.about')}</Link>
             <Link to="/blog">{t('nav.blog')}</Link>
           </nav>

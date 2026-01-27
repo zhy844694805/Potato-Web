@@ -1,0 +1,59 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="157.5" x2="1200" y2="157.5" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="315" x2="1200" y2="315" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="472.5" x2="1200" y2="472.5" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="630" x2="1200" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="300" y1="0" x2="300" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="900" y1="0" x2="900" y2="630" stroke="#fff" stroke-width="1"/>
+    <line x1="1200" y1="0" x2="1200" y2="630" stroke="#fff" stroke-width="1"/>
+  </g>
+
+  <!-- Accent lines -->
+  <rect x="80" y="240" width="6" height="150" fill="url(#accentGradient)"/>
+  <rect x="80" y="480" width="400" height="2" fill="url(#accentGradient)"/>
+
+  <!-- Logo icon -->
+  <g transform="translate(110, 130)">
+    <rect width="60" height="60" fill="url(#accentGradient)" rx="8"/>
+    <text x="30" y="44" font-family="monospace" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle">P</text>
+  </g>
+
+  <!-- Main title -->
+  <text x="110" y="310" font-family="'Space Grotesk', system-ui, sans-serif" font-size="72" font-weight="700" fill="#ffffff">POTATO WEB</text>
+
+  <!-- Chinese name -->
+  <text x="110" y="380" font-family="system-ui, sans-serif" font-size="36" fill="#888888">
+    <tspan fill="#667eea">&#22303;&#35910;&#24314;&#31449;</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="110" y="450" font-family="'JetBrains Mono', monospace" font-size="20" fill="#666666">// Professional Web Development for Italian-Chinese Businesses</text>
+
+  <!-- Website URL -->
+  <text x="110" y="550" font-family="'JetBrains Mono', monospace" font-size="18" fill="#888888">aimodel.it</text>
+
+  <!-- Decorative corner -->
+  <g transform="translate(1050, 50)">
+    <rect width="100" height="100" fill="none" stroke="url(#accentGradient)" stroke-width="2" rx="4"/>
+    <text x="50" y="60" font-family="monospace" font-size="14" fill="#667eea" text-anchor="middle">&lt;/&gt;</text>
+  </g>
+</svg>

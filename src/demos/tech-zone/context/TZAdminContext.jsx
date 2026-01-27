@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import { products as initialProducts } from '../data/productsData';
 import { mockUsers as initialUsers, mockOrders as initialOrders, adminCredentials } from '../data/mockData';

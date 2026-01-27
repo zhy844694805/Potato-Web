@@ -1,15 +1,17 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { useLanguageText } from '../../hooks/useLanguageText'
 import SEO from '../../components/SEO'
+import StructuredData from '../../components/StructuredData'
 import BlogCard from '../../components/business/BlogCard'
 import ShareButtons from '../../components/business/ShareButtons'
 import { getBlogBySlug, getRelatedPosts } from '../../data/blog'
 import { siteConfig } from '../../config/site'
+import { blogPostingSchema } from '../../utils/schemas'
 import './BlogDetail.css'
 
 function BlogDetail() {
   const { id } = useParams()
-  const { t, language } = useLanguageText()
+  const { language } = useLanguageText()
   const post = getBlogBySlug(id)
 
   if (!post) {
@@ -25,7 +27,9 @@ function BlogDetail() {
         description={post.excerpt[language]}
         path={`/blog/${post.slug}`}
         type="article"
+        image={post.thumbnail}
       />
+      <StructuredData data={blogPostingSchema(post, language)} />
 
       <div className="brutalist-container">
         {/* Navigation Bar */}

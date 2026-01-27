@@ -2,9 +2,8 @@
   "nav": {
     "home": "Home",
     "services": "Services",
-    "pricing": "Pricing",
-    "quote": "Quote",
-    "portfolio": "Portfolio",
+    "quote": "Pricing & Quote",
+    "demos": "Demos",
     "blog": "Blog",
     "faq": "FAQ",
     "testimonials": "Testimonials",

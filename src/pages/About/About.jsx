@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom'
 import { useLanguageText } from '../../hooks/useLanguageText'
 import SEO from '../../components/SEO'
 import StructuredData from '../../components/StructuredData'
-import { organizationSchema } from '../../utils/schemas'
-import { teamMembers, teamStats } from '../../data/team'
+import { organizationSchema, localBusinessSchema } from '../../utils/schemas'
+import { teamStats } from '../../data/team'
 import './About.css'
 
 function About() {
@@ -17,7 +18,7 @@ function About() {
   return (
     <div className="about-page">
       <SEO title={seoData[language].title} description={seoData[language].description} path="/about" />
-      <StructuredData data={organizationSchema(language)} />
+      <StructuredData data={[organizationSchema(language), localBusinessSchema(language)]} />
       
       <div className="brutalist-container">
         <section className="page-header-brutalist">
@@ -53,28 +54,25 @@ function About() {
           </div>
         </section>
 
-        {/* Team Section */}
-        <section className="about-team-section">
+        {/* Team Link Section */}
+        <section className="about-team-link">
           <div className="section-divider font-mono">
             <span>// CREW_MANIFEST</span>
-            <span>ACTIVE_MEMBERS: {teamMembers.length}</span>
           </div>
-          
-          <div className="team-grid-brutalist">
-            {teamMembers.map(member => (
-              <div key={member.id} className="team-member-card">
-                <div className="member-header">
-                  <span className="member-role font-mono">{member.role[language]}</span>
-                  <span className="member-id font-mono">ID: {member.id}</span>
-                </div>
-                <h3 className="member-name">{member.name[language]}</h3>
-                <div className="member-skills font-mono">
-                  {member.skills && member.skills.slice(0, 3).map((skill, i) => (
-                    <span key={i}>[{typeof skill.name === 'object' ? skill.name[language] : skill.name}]</span>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className="team-link-content">
+            <h2 className="team-link-title">
+              {t('认识我们的团队', 'MEET OUR TEAM', 'CONOSCI IL NOSTRO TEAM')}
+            </h2>
+            <p className="team-link-desc font-mono">
+              {t(
+                '了解更多关于我们专业团队成员的信息',
+                'Learn more about our professional team members',
+                'Scopri di più sui membri del nostro team professionale'
+              )}
+            </p>
+            <Link to="/team" className="btn-brutalist">
+              {t('查看团队', 'VIEW TEAM', 'VEDI TEAM')} →
+            </Link>
           </div>
         </section>
 

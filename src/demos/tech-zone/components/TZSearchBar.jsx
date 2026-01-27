@@ -33,10 +33,14 @@ export default function TZSearchBar({ onClose }) {
         p.brand.toLowerCase().includes(lowercaseQuery) ||
         p.category.toLowerCase().includes(lowercaseQuery)
       ).slice(0, 6);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setResults(filtered);
+       
       setIsOpen(true);
     } else {
+       
       setResults([]);
+       
       setIsOpen(false);
     }
   }, [debouncedQuery, getActiveProducts]);

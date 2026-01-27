@@ -9,8 +9,13 @@ import './Demos.css'
 function Demos() {
   const { t, language } = useLanguageText()
   const [activeCategory, setActiveCategory] = useState('all')
+  const [imgErrors, setImgErrors] = useState({})
 
   const filteredDemos = getDemosByCategory(activeCategory)
+
+  const handleImgError = (id) => {
+    setImgErrors(prev => ({ ...prev, [id]: true }))
+  }
 
   const seoData = {
     zh: {
@@ -91,12 +96,22 @@ function Demos() {
               style={{ '--demo-color': demo.color }}
             >
               <div className="demo-thumbnail">
-                <div
-                  className="demo-placeholder"
-                  style={{ background: `linear-gradient(135deg, ${demo.color}, ${demo.color}dd)` }}
-                >
-                  <span className="demo-initial">{demo.name.en.charAt(0)}</span>
-                </div>
+                {!imgErrors[demo.id] ? (
+                  <img
+                    src={demo.thumbnail}
+                    alt={demo.name[language]}
+                    className="demo-image"
+                    loading="lazy"
+                    onError={() => handleImgError(demo.id)}
+                  />
+                ) : (
+                  <div
+                    className="demo-placeholder"
+                    style={{ background: `linear-gradient(135deg, ${demo.color}, ${demo.color}dd)` }}
+                  >
+                    <span className="demo-initial">{demo.name.en.charAt(0)}</span>
+                  </div>
+                )}
                 <div className="demo-overlay">
                   <span className="demo-view-btn">
                     {t('查看Demo', 'View Demo', 'Vedi Demo')}

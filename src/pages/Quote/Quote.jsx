@@ -12,7 +12,6 @@ const projectTypes = {
     base: 500,
     label: { zh: '电商网站', en: 'E-COMMERCE', it: 'E-COMMERCE' },
     includes: [
-      { zh: '基础支付集成（单一支付方式）', en: 'Basic payment (single gateway)', it: 'Pagamento base (singolo gateway)' },
       { zh: '基础用户系统（注册/登录）', en: 'Basic auth (register/login)', it: 'Auth base (registra/login)' },
       { zh: '基础后台管理（订单/产品）', en: 'Basic admin (orders/products)', it: 'Admin base (ordini/prodotti)' },
       { zh: '产品展示（最多20个）', en: 'Product display (max 20)', it: 'Vetrina prodotti (max 20)' },
@@ -210,13 +209,13 @@ function Quote() {
               <div className="log-line">INITIALIZING QUOTE ENGINE...</div>
               <div className="log-line">CALCULATING RESOURCES...</div>
               <br />
-              <div className="log-line text-green">>> BASE_SYSTEM: {projectTypes[projectType].label['en']}</div>
-              <div className="log-line text-green">>> SCALE_FACTOR: {pages}</div>
-              <div className="log-line text-green">>> MODULES_LOADED: {selectedFeatures.length}</div>
+              <div className="log-line text-green">{">>"} BASE_SYSTEM: {projectTypes[projectType].label['en']}</div>
+              <div className="log-line text-green">{">>"} SCALE_FACTOR: {pages}</div>
+              <div className="log-line text-green">{">>"} MODULES_LOADED: {selectedFeatures.length}</div>
               {projectTypes[projectType].includes && (
                 <>
                   <br />
-                  <div className="log-line">>> INCLUDED_BASIC:</div>
+                  <div className="log-line">{">>"} INCLUDED_BASIC:</div>
                   {projectTypes[projectType].includes.map((item, index) => (
                     <div key={index} className="log-line text-dim">   + {item['en']}</div>
                   ))}

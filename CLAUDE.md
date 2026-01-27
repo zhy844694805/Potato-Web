@@ -15,21 +15,25 @@ npm run test         # Run tests in watch mode (Vitest)
 npm run test:run     # Run tests once
 npm run test:coverage  # Run tests with coverage
 npx vitest run src/tests/components/Button.test.jsx  # Single test file
+
+# Utilities
+npm run optimize-images    # Convert images to WebP format
+npm run generate-sitemap   # Generate sitemap manually
 ```
 
 ## Architecture Overview
 
-React 19 + Vite 7 portfolio website for Italian Chinese businesses, with trilingual support (zh/en/it) and SEO optimization.
+React 19 + Vite 7 portfolio website for Italian Chinese businesses, with trilingual support (zh/en/it) and SEO optimization. No TypeScript - pure JavaScript with JSX.
 
 ### Core Patterns
 
-**Trilingual Content:** Main site uses `{ zh: "...", en: "..." }`. Demo sites use `{ it: "...", en: "...", zh: "..." }`. Access via `useLanguage()` hook from `src/context/LanguageContext.jsx`.
+**Trilingual Content:** Main site data uses `{ zh: "...", en: "..." }`. Demo sites use `{ it: "...", en: "...", zh: "..." }`. Access via `useLanguage()` hook from `src/context/LanguageContext.jsx`. The `useLanguageText()` hook provides a `t(zh, en, it)` helper for inline translations.
 
-**Theme System:** `ThemeContext` manages light/dark mode, persisted in localStorage, applied via `[data-theme='dark']`.
+**Theme System:** `ThemeContext` manages light/dark mode, persisted in localStorage, applied via `[data-theme='dark']` CSS attribute selector.
 
-**Static Data:** Content in `/src/data/` with helper functions like `getPortfolioById(id)`, `getLatestPosts(limit)`, `searchPosts(query)`.
+**Static Data:** Content in `/src/data/` with helper functions like `getPortfolioById(id)`, `getLatestPosts(limit)`, `searchPosts(query)`, `getBlogBySlug(slug)`.
 
-**Demo Sites:** 32 self-contained demos in `/src/demos/`. Each has isolated CSS with unique prefix (e.g., `.dc-`, `.tz-`). Demos render without main site Header/Footer (controlled in `App.jsx` via `isDemo` check).
+**Demo Sites:** 32 self-contained demos in `/src/demos/`. Each has isolated CSS with unique prefix (e.g., `.dc-`, `.tz-`). Demos render without main site Header/Footer (controlled in `App.jsx` via `isDemo` check on pathname).
 
 ### Directory Structure
 
@@ -80,8 +84,11 @@ Notable demos:
 
 ### SEO
 
-- `SEO.jsx` - Meta tags, Open Graph via react-helmet-async
-- `schemas.js` - Structured data helpers (organization, article, FAQ, etc.)
+- `SEO.jsx` - Meta tags, Open Graph, Twitter cards via react-helmet-async
+- `StructuredData.jsx` - JSON-LD schema markup component
+- `schemas.js` - Structured data helpers: `organizationSchema`, `articleSchema`, `blogPostingSchema`, `localBusinessSchema`, `faqPageSchema`, `breadcrumbSchema`, etc.
+
+Use `<StructuredData data={schema} />` or `<StructuredData data={[schema1, schema2]} />` for multiple schemas.
 
 ### Integrations
 
@@ -118,4 +125,11 @@ PM2 config in `ecosystem.config.cjs`. Runs on port 5173.
 
 ## Key Dependencies
 
-React 19, Vite 7, React Router 7, i18next, react-helmet-async, react-hook-form + yup, html2pdf.js, vite-plugin-pwa. No TypeScript, pure CSS.
+React 19, Vite 7, React Router 7, i18next, react-helmet-async, react-hook-form + yup, html2pdf.js (dynamic import), vite-plugin-pwa, Lenis (smooth scroll).
+
+## Image Alt Tags
+
+All `<img>` tags must have descriptive `alt` attributes for SEO. For dynamic content, use language-aware alt text:
+```jsx
+alt={language === 'zh' ? '中文描述' : 'English description'}
+```

@@ -25,8 +25,11 @@ export const siteConfig = {
   // Formspree 表单 ID
   formspreeId: import.meta.env.VITE_FORMSPREE_ID || 'xeejgvrn',
 
-  // SEO 默认图片
-  defaultImage: 'https://aimodel.it/logo-512.png',
+  // SEO 默认 OG 图片 (1200x630 recommended for social sharing)
+  defaultImage: 'https://aimodel.it/og-image.svg',
+
+  // 备用 Logo 图片
+  logoImage: 'https://aimodel.it/logo-512.png',
 
   // Logo 路径
   logo: '/logo.jpg'
