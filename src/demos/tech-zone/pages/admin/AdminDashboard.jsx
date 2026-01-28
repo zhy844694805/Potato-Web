@@ -139,6 +139,14 @@ export default function AdminDashboard() {
       {/* Dashboard Content */}
       <main className="tz-admin-main">
         <div className="tz-admin-container">
+          {/* Demo Mode Notice */}
+          <div className="tz-demo-notice" style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <span style={{ fontSize: '1.5rem' }}>👋</span>
+            <div>
+              <strong>Demo Mode Active:</strong> Authentication is bypassed for this showcase. You have full admin access to explore.
+            </div>
+          </div>
+
           <div className="tz-admin-page-header">
             <h1>{t(admin.dashboard)}</h1>
             <button className="tz-btn tz-btn-outline" onClick={resetData}>

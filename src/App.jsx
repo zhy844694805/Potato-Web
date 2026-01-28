@@ -40,6 +40,7 @@ const SushiMoto = lazy(() => import('./demos/sushi-moto/SushiMoto'))
 const CasaMilano = lazy(() => import('./demos/casa-milano/CasaMilano'))
 const ZhengLaw = lazy(() => import('./demos/zheng-law/ZhengLaw'))
 const CloudTask = lazy(() => import('./demos/cloud-task/CloudTask'))
+const SushiLand = lazy(() => import('./demos/sushi-land/SushiLand'))
 
 // Loading fallback component with skeleton
 function PageLoader() {
@@ -85,6 +86,7 @@ function AppContent() {
             <Route path="/demo/casa-milano" element={<CasaMilano />} />
             <Route path="/demo/zheng-law" element={<ZhengLaw />} />
             <Route path="/demo/cloud-task" element={<CloudTask />} />
+            <Route path="/demo/sushi-land/*" element={<SushiLand />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>

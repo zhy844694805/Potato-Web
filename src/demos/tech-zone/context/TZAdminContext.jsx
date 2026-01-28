@@ -11,14 +11,9 @@ const ORDERS_KEY = 'tz-orders';
 const SESSION_KEY = 'tz-admin-session';
 
 export function TZAdminProvider({ children }) {
-  // Admin authentication
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem(SESSION_KEY) === 'true';
-    }
-    return false;
-  });
-
+  // Admin authentication - DEMO MODE: Always authenticated
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  
   // Products state with localStorage persistence
   const [products, setProducts] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -77,15 +72,13 @@ export function TZAdminProvider({ children }) {
 
   // Authentication
   const login = useCallback((username, password) => {
-    if (username === adminCredentials.username && password === adminCredentials.password) {
-      setIsAuthenticated(true);
-      return true;
-    }
-    return false;
+    // Demo mode: Always return true
+    return true;
   }, []);
 
   const logout = useCallback(() => {
-    setIsAuthenticated(false);
+    // Demo mode: Redirect to store instead of logging out
+    window.location.href = '/demo/tech-zone';
   }, []);
 
   // Product management
